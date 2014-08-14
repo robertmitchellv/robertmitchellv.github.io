@@ -108,7 +108,7 @@ nav a:focus {
 }
 
 .site-nav a::before {
-  martin-right: 10px;
+  margin-right: 10px;
   content: '[';
   -webkit-transform: translateX(20px);
   -moz-transform: translateX(20px);
@@ -134,7 +134,7 @@ nav a:focus {
     transition-duration: 0.3s, 0.2s;
     transition-timing-function: initial, initial;
     transition-delay: initial, initial;
-    
+
 }
 .site-nav a:hover::before,
 .site-nav a:hover::after,
