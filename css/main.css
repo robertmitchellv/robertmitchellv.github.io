@@ -123,6 +123,19 @@ nav a:focus {
   transform: translateX(-20px);
 }
 
+.site-nav a::before,
+.site-nav a::after {
+  display: inline-block;
+  opacity: 0;
+  -webkit-transition: -webkit-transform 0.3s, opacity 0.2s;
+  -moz-transition: -moz-transform 0.3s, opacity 0.2s;
+  transition: transform 0.3s, opacity 0.2s;
+    transition-property: transform, opacity;
+    transition-duration: 0.3s, 0.2s;
+    transition-timing-function: initial, initial;
+    transition-delay: initial, initial;
+    
+}
 .site-nav a:hover::before,
 .site-nav a:hover::after,
 .site-nav a:focus::before,
