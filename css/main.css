@@ -31,9 +31,29 @@ p {
   letter-spacing: 0.08em;
 }
 
-a         { color: #f6ab00; text-decoration: none; }
-a:hover   { color: #000; text-decoration: underline; }
-a:visited { color: #c28700; }
+a {
+  color: rgba(0,0,0,.2);
+  font-weight: 700;
+  text-shadow: none; 
+  text-decoration: none;
+}
+
+a::before {
+  color: #fff;
+  content: attr(data-hover);
+  position: absolute;
+  transition: transform 0.3s, opacity 0.3s;
+}
+
+a:hover::before,
+a:focus::before {
+  transform: scale(0.9);
+  opacity: 0;
+}
+
+a:visited {
+  color: #c28700;
+}
 
 /* Utility */
 
