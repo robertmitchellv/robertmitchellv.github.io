@@ -94,6 +94,14 @@ a:visited { color: #c28700; }
   background: url(img/maze.jpg);
 }
 
+.footer-wrap {
+  max-width: 800px;
+  padding: 0 30px;
+  margin: 0 auto;
+  zoom: 1;
+  background-color: rgba(174,174,173,1);
+}
+
 .footer-heading {
   font-size: 18px;
   font-weight: 100;
