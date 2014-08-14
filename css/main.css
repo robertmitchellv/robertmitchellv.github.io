@@ -31,9 +31,9 @@ p {
   letter-spacing: 0.08em;
 }
 
-a *,
-a *:after,
-a *::before {
+*,
+*:after,
+*::before {
     -webkit-box-sizing: border-box;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
@@ -44,23 +44,17 @@ a {
   font-weight: 300;
   text-shadow: none;
   text-decoration: none;
-  text-shadow: 0 0 1px rgba(255,255,255,0.3);
-	font-size: 1.35em;
-  letter-spacing: 0.8px;
 }
 
 nav a {
-	position: relative;
-	display: inline-block;
-	margin: 15px 25px;
 	outline: none;
-	color: #fff;
 	text-decoration: none;
 	text-transform: uppercase;
-	letter-spacing: 1px;
-	font-weight: 400;
+	letter-spacing: 0.8px;
+	font-weight: 300;
 	text-shadow: 0 0 1px rgba(255,255,255,0.3);
 	font-size: 1.35em;
+}
 
 nav a:hover,
 nav a:focus {
