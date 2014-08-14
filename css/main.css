@@ -54,7 +54,7 @@ nav a:focus {
 	outline: none;
 }
 
-a::before {
+.site-nav a::before {
   martin-right: 10px;
   content: '[';
   -webkit-transform: translateX(20px);
@@ -62,7 +62,7 @@ a::before {
   transform: translateX(20px);
 }
 
-a::after {
+.site-nav a::after {
   margin-left: 10px;
 	content: ']';
 	-webkit-transform: translateX(-20px);
@@ -70,10 +70,10 @@ a::after {
 	transform: translateX(-20px);
 }
 
-a:hover::before,
-a:hover::after,
-a:focus::before,
-a:focus::after {
+.site-nav a:hover::before,
+.site-nav a:hover::after,
+.site-nav a:focus::before,
+.site-nav a:focus::after {
   opacity: 1;
 	-webkit-transform: translateX(0px);
 	-moz-transform: translateX(0px);
