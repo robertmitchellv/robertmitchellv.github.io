@@ -448,7 +448,9 @@ nav a:focus {
 
 #big {
   font-weight: 700;
-  font-size: 3em;
+  font-size: 2em;
+  padding-top: 12px;
+  padding-bottom: 12px;
 }
 
 /* Syntax highlighting styles */
