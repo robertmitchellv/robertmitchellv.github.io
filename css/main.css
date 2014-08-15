@@ -263,10 +263,10 @@ nav a:focus {
 .site-footer li,
 .site-footer p {
   font-size: 18.5px;
-  font-weight: 400;
+  font-weight: 700;
   text-decoration-color: inherit;
-  letter-spacing: -.28px;
-  color: rgba(225,0,160,1);
+  letter-spacing: -.08px;
+  color: black;
 }
 
 .github-icon-svg,
@@ -446,7 +446,7 @@ nav a:focus {
 	word-space: 0.03em;
 }
 
-.welcome .big {
+#big {
   font-weight: 700;
   font-size: 3em;
 }
