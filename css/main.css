@@ -43,7 +43,7 @@ p {
 }
 
 a {
-  color: rgba(0,0,0,.2);
+  color: #b3ff00;
   font-weight: 300;
   text-shadow: none;
   text-decoration: none;
@@ -226,8 +226,8 @@ nav a:focus {
 .footer-heading {
   font-size: 18px;
   font-weight: 100;
-  text-color: #dfdfdd;
-  letter-spacing: -.08px;
+  text-color: #ff00a0;
+  letter-spacing: -.34px;
   margin-bottom: 15px;
 }
 
@@ -261,9 +261,10 @@ nav a:focus {
 
 .site-footer li,
 .site-footer p {
-  font-size: 15px;
-  letter-spacing: -.3px;
-  color: #828282;
+  font-size: 18px;
+  font-weight: 100;
+  letter-spacing: -.38px;
+  color: #ff00a0;
 }
 
 .github-icon-svg,
