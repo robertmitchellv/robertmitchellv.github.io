@@ -43,7 +43,7 @@ p {
 }
 
 a {
-  color: #b3ff00;
+  color: #ff00a0;
   font-weight: 300;
   text-shadow: none;
   text-decoration: none;
@@ -109,25 +109,13 @@ nav a:focus {
   z-index: 1;
 }
 
-.site-title-page,
-.site-title-page:hover,
-.site-title-page:visited {
-  display: block;
-  color: #333;
-  font-size: 26px;
-  letter-spacing: -1px;
-  line-height: 56px;
-  position: relative;
-  z-index: 1;
-}
-
 .site-nav {
   text-align: center;
   line-height: 56px;
 }
 
 .site-nav a:hover {
-  color: rgba(225,117,0,.5);
+  color: #b3ff00;
 }
 
 .site-nav a::before {
@@ -230,10 +218,6 @@ nav a:focus {
   text-color: #ff00a0;
   letter-spacing: -.34px;
   margin-bottom: 18px;
-}
-
-.footer-img {
-  
 }
 
 .site-footer .column { float: left; margin-bottom: 15px; }
