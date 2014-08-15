@@ -421,8 +421,8 @@ nav a:focus {
 	font-weight: 100;
   padding: 8em 0em;
 		border-top: 30px solid rgba(255,0,160,0.4);
-		border-left: 30px solid rgba(255,255,255,0.7);
-		border-right: 30px solid rgba(255,255,255,0.7);
+		border-left: 30px solid rgba(253,21,167,0.3);
+		border-right: 30px solid rgba(253,21,167,0.3);
 		background: url(img/sea.jpg) no-repeat;
 		background-size: 100% 100%;
 }
@@ -433,7 +433,7 @@ nav a:focus {
 	padding-bottom: 0.5em;
 	font-weight: 100;
 	font-size: 2.5em;
-	text-transform: capitalize;
+	text-transform: uppercase;
 	letter-spacing: 0.1em;
 }
 
