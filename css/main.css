@@ -250,10 +250,11 @@ nav a:focus {
 
 .site-footer li,
 .site-footer p {
-  font-size: 18px;
-  font-weight: 100;
-  letter-spacing: -.38px;
-  color: #ff00a0;
+  font-size: 18.5px;
+  font-weight: 700;
+  text-decoration-color: inherit;
+  letter-spacing: -.28px;
+  color: rgba(225,0,160,1);
 }
 
 .github-icon-svg,
