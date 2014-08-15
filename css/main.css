@@ -453,6 +453,65 @@ nav a:focus {
   padding-bottom: 12px;
 }
 
+.portfolio {
+  overflow: hidden;
+  padding: 0em 0em 6em 0em;
+}
+
+.portfolio-container {
+  padding: 4em 0em;
+  border-top: 1px solid rgba(225,225,225,0.5);
+}
+
+#portfolio .box
+	{
+		text-align: center;
+		color: rgba(255,255,255,0.5);
+	}
+
+	.portfolio-container h3
+	{
+		display: block;
+		margin-bottom: 1em;
+		font-size: 1.4em;
+		font-weight: 300;
+		color: rgba(197,220,223,0.9);
+	}
+
+	.portfolio-container .title
+	{
+		text-align: center;
+	}
+
+	.portfolio-container .title h2
+	{
+		letter-spacing: 0.10em;
+		font-size: 2.5em;
+		font-weight: 300;
+		color: rgba(255,255,255,0.8);
+	}
+
+	.column1,
+	.column2,
+	.column3,
+	.column4
+	{
+		width: 282px;
+	}
+
+	.column1,
+	.column2,
+	.column3
+	{
+		float: left;
+		margin-right: 24px;
+	}
+
+	.column4
+	{
+		float: right;
+	}
+
 /* Syntax highlighting styles */
 /* ----------------------------------------------------------*/
 
