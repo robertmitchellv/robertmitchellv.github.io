@@ -203,12 +203,12 @@ nav a:focus {
 
 .site-footer {
   border-top: 1px solid #e8e8e8;
-  padding: 30px 0;  
+  padding: 30px 0;
+  background: url(img/subway.png);
 }
 
 .site-footer a {
   text-color: #ff00a0;
-  opacity: -0.7;
 }
 
 .footer-heading {
@@ -218,19 +218,6 @@ nav a:focus {
   text-color: #ff00a0;
   letter-spacing: -.34px;
   margin-bottom: 18px;
-}
-
-.footer-img {
-  background-image: url(https://robertmitchellv.github.io//css/img/subway.png);
-  background-position-x: initial;
-  background-position-y: initial;
-  background-size: initial;
-  background-repeat-x: initial;
-  background-repeat-y: initial;
-  background-attachment: initial;
-  background-origin: initial;
-  background-clip: initial;
-  background-color: initial;
 }
 
 .site-footer .column { float: left; margin-bottom: 15px; }
