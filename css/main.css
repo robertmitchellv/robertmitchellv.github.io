@@ -409,6 +409,49 @@ nav a:focus {
 
 .post pre.terminal code { background-color: #333; }
 
+/* Index stuff */
+/* ----------------------------------------------------------*/
+
+.welcome {
+  overflow: hidden;
+  margin: 0px auto;
+	width: 1200px;
+  padding: 0em 15em;
+	text-align: center;
+	font-weight: 300;
+  padding: 8em 0em;
+		border-top: 30px solid rgba(255,255,255,0.4); /* White with transparancy */
+		border-left: 30px solid rgba(255,255,255,0.4); /* White with transparancy */
+		border-right: 30px solid rgba(255,255,255,0.4); /* White with transparancy */
+		background: url(img/Img06.png) no-repeat; /* Blurred background with soft focus */
+		background-size: 100% 100%;
+}
+
+.welcome h2 {
+  display: block;
+	padding-bottom: 0.5em;
+	font-weight: 100;
+	font-size: 3.1em;
+	text-transform: capitalize;
+	letter-spacing: 0.1em;
+}
+
+.welcome p {
+  font-size: 1.5em;
+	font-weight: 300;
+	letter-spacing: 0.04em;
+	line-height: 190%;
+	word-space: 0.03em;
+}
+
+.welcome .button
+	{
+		background: #5FA79A;
+		font-size: 1.3em;
+		color: #FFFFFF;
+	}
+
+
 /* Syntax highlighting styles */
 /* ----------------------------------------------------------*/
 
