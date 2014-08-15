@@ -121,49 +121,6 @@ nav a:focus {
   z-index: 1;
 }
 
-.site-title-page a {
-
-}
-
-.site-title-page a::before {
-  margin-right: 50px;
-  content: 'home';
-  -webkit-transform: translateX(50px);
-  -moz-transform: translateX(50px);
-  transform: translateX(50px);
-}
-
-.site-title-page a::after {
-  margin-left: 50px;
-  content: 'HOME';
-  -webkit-transform: translateX(-50px);
-  -moz-transform: translateX(-50px);
-  transform: translateX(-50px);
-}
-
-.site-title-page a::before,
-.site-title-page a::after {
-  display: inline-block;
-  opacity: 0;
-  -webkit-transition: -webkit-transform 0.3s, opacity 0.2s;
-  -moz-transition: -moz-transform 0.3s, opacity 0.2s;
-  transition: transform 0.3s, opacity 0.2s;
-    transition-property: transform, opacity;
-    transition-duration: 0.3s, 0.2s;
-    transition-timing-function: initial, initial;
-    transition-delay: initial, initial;
-}
-
-.site-title-page a:hover::before,
-.site-title-page a:hover::after,
-.site-title-page a:focus::before,
-.site-title-page a:focus::after {
-  opacity: 1;
-  -webkit-transform: translateX(0px);
-  -moz-transform: translateX(0px);
-  transform: translateX(0px);
-}
-
 .site-nav {
   text-align: center;
   line-height: 56px;
@@ -230,10 +187,6 @@ nav a:focus {
     padding-bottom: 5em;
     padding-left: 0em;
   text-align: center;
-}
-
-.logo_page {
-  img: url(../img/rbmv_curve.png);
 }
 
 .logo h1 {
