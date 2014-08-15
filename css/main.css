@@ -127,7 +127,7 @@ nav a:focus {
 }
 
 .site-nav a:hover {
-  color: rgba(225,117,0,5);
+  color: rgba(225,117,0,.5);
 }
 
 .site-nav a::before {
@@ -220,7 +220,7 @@ nav a:focus {
 }
 
 .site-footer a {
-  text-color: #dfdfdd;
+  text-color: #ff00a0;
 }
 
 .footer-heading {
