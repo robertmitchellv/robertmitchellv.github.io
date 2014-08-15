@@ -446,7 +446,7 @@ nav a:focus {
 	word-space: 0.03em;
 }
 
-.welcome .big {
+.welcome p br .big {
   font-weight: 700;
   font-size: 3em;
 }
