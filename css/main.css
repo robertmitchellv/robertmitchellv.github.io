@@ -430,7 +430,7 @@ nav a:focus {
 .welcome h2 {
   display: block;
   color: white;
-	padding-bottom: 0.5em;
+	padding-bottom: 0.94em;
 	font-weight: 100;
 	font-size: 2.5em;
 	text-transform: uppercase;
@@ -439,11 +439,16 @@ nav a:focus {
 
 .welcome p {
   color: white;
-  font-size: 0.9em;
-	font-weight: 300;
+  font-size: 1.17em;
+	font-weight: 200;
 	letter-spacing: 0.04em;
 	line-height: 190%;
 	word-space: 0.03em;
+}
+
+.welcome .big {
+  font-weight: 700;
+  font-size: 3em;
 }
 
 /* Syntax highlighting styles */
