@@ -496,7 +496,7 @@ nav a:focus {
 	.column3,
 	.column4
 	{
-		width: 282px;
+		width: 195px;
 	}
 
 	.column1,
@@ -504,7 +504,7 @@ nav a:focus {
 	.column3
 	{
 		float: left;
-		margin-right: 24px;
+		margin-right: 10px;
 	}
 
 	.column4
