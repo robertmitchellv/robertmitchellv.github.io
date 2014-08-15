@@ -226,9 +226,14 @@ nav a:focus {
 .footer-heading {
   font-size: 18px;
   font-weight: 100;
+  text-align: center;
   text-color: #ff00a0;
   letter-spacing: -.34px;
-  margin-bottom: 15px;
+  margin-bottom: 18px;
+}
+
+.footer-img {
+  
 }
 
 .site-footer .column { float: left; margin-bottom: 15px; }
