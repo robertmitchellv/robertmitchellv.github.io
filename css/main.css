@@ -421,20 +421,10 @@ nav a:focus {
 	font-weight: 100;
   padding: 8em 0em;
 		border-top: 30px solid rgba(255,0,160,0.4);
-		border-left: 30px solid rgba(253,21,167,0.3);
-		border-right: 30px solid rgba(253,21,167,0.3);
-}
-
-.welcome::after {
-  content: "";
-  background: url(img/sea.jpg);
-  opacity: 0.4;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  position: absolute;
-  z-index: -1;
+		border-left: 30px solid rgba(255,255,255,0.7);
+		border-right: 30px solid rgba(255,255,255,0.7);
+		background: url(img/sea.jpg) no-repeat;
+		background-size: 100% 100%;
 }
 
 .welcome h2 {
