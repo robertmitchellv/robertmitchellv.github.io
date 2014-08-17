@@ -583,6 +583,9 @@ nav a:focus {
     clear: both;
   }
 
+  .welcome {
+    width: 60%;
+  }
 }
 
 @media screen and (max-width: 600px) {
@@ -626,6 +629,10 @@ nav a:focus {
     line-height: 1.25;
     padding: 5px 10px;
     margin: 0;
+  }
+
+  .welcome {
+    width: 50%;
   }
 
   .post-header h1 { font-size: 36px; }
