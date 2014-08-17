@@ -8,8 +8,15 @@
 
 html, body { height: 100%; }
 
+
+/* Type options */
+/* Lato Thin 100 + Light 300 w/itallic */
+/* Source Sans Pro Normal 400 w/itallic + Ultra Bold 900 */
+/* Open Sans Condensed Bold 700 */
+
+
 body {
-  font-family: 'Helvetica Neue','Roboto', sans-serif;
+  font-family: 'Lato', 'Source Sans Pro', 'Open Sans Condensed', sans-serif;
   font-size: 16px;
   line-height: 1.5;
   font-weight: 100;
@@ -18,13 +25,32 @@ body {
 
 h1, h2 {
   font-size: 100%;
+  font-family: 'Lato';
   font-weight: 100;
   text-transform: uppercase;
 }
 
-h3, h4, h5, h6 { font-size: 100%; font-weight: 300; }
+h3 {
+  font-size: 100%;
+  font-family: 'Lato';
+  font-weight: 300;
+}
+
+h4 {
+  font-size: 100%;
+  font-family: 'Lato';
+  font-weight: 300;
+  font-style: italic;
+}
+
+h5, h6 {
+  font-size: 100%;
+  font-family: 'Open Sans Condesnced';
+  font-weight: 700;
+}
 
 p {
+  font-family: 'Source Sans Pro';
   font-size: 14px;
   font-weight: 400;
   line-height: 1.14;
@@ -79,14 +105,12 @@ nav a:focus {
   zoom: 1;
 }
 
-
 /* Layout Styles */
 /* ----------------------------------------------------------*/
 
 /* Site header */
 
 .site-header {
-
   border-top: 5em solid transparent;
   border-bottom: .02px solid rgba(0,176,200,.3);
   border-right: .02px solid rgba(0,176,200,.3);
@@ -170,10 +194,10 @@ nav a:focus {
 
 .logo {
   padding: 5em 0em;
-    padding-top: 5em;
-    padding-right: 0em;
-    padding-bottom: 5em;
-    padding-left: 0em;
+  padding-top: 5em;
+  padding-right: 0em;
+  padding-bottom: 5em;
+  padding-left: 0em;
   text-align: center;
 }
 
@@ -242,6 +266,7 @@ nav a:focus {
   width: calc(35% - 10px);
   margin-right: 10px
 }
+
 .footer-col-2 {
   width: 175px; /*fallback*/
   width: -webkit-calc(23.125% - 10px);
@@ -250,6 +275,7 @@ nav a:focus {
   width: calc(23.125% - 10px);
   margin-right: 10px
 }
+
 .footer-col-3 {
   width: 335px; /*fallback*/
   width: -webkit-calc(41.875%);
@@ -292,6 +318,11 @@ nav a:focus {
 /* ----------------------------------------------------------*/
 
 .home h1 { margin-bottom: 25px; }
+
+.home2 {
+  text-align: justify;
+  width: 100%;
+}
 
 .posts { list-style-type: none; }
 
@@ -420,11 +451,11 @@ nav a:focus {
 	text-align: center;
 	font-weight: 100;
   padding: 8em 0em;
-		border-top: 30px solid rgba(255,0,160,0.4);
-		border-left: 30px solid rgba(253,21,167,0.3);
-		border-right: 30px solid rgba(253,21,167,0.3);
-		background: url(img/sea.jpg) no-repeat;
-		background-size: 100% 100%;
+	border-top: 30px solid rgba(255,0,160,0.4);
+	border-left: 30px solid rgba(253,21,167,0.3);
+	border-right: 30px solid rgba(253,21,167,0.3);
+	background: url(img/sea.jpg) no-repeat;
+	background-size: 100% 100%;
 }
 
 .welcome h2 {
@@ -453,65 +484,6 @@ nav a:focus {
   padding-bottom: 12px;
 }
 
-.portfolio {
-  overflow: hidden;
-  padding: 0em 0em 6em 0em;
-  background: url(img/sea.jpg);
-}
-
-.portfolio-container {
-  padding: 4em 0em;
-  border-top: 1px solid rgba(225,225,225,0.5);
-}
-
-#portfolio .box
-	{
-		text-align: center;
-		color: rgba(255,255,255,0.5);
-	}
-
-	.portfolio-container h3
-	{
-		display: block;
-		margin-bottom: 1em;
-		font-size: 1.4em;
-		font-weight: 300;
-		color: rgba(197,220,223,0.9);
-	}
-
-	.portfolio-title
-	{
-		text-align: center;
-	}
-
-	.portfolio-title h2
-	{
-    letter-spacing: 0.10em;
-		font-size: 2.5em;
-		font-weight: 300;
-		color: rgba(255,255,255,0.8);
-	}
-
-	.column1,
-	.column2,
-	.column3,
-	.column4
-	{
-		width: 177px;
-	}
-
-	.column1,
-	.column2,
-	.column3
-	{
-		float: left;
-		margin-right: 10px;
-	}
-
-	.column4
-	{
-		float: right;
-	}
 
 /* Syntax highlighting styles */
 /* ----------------------------------------------------------*/
