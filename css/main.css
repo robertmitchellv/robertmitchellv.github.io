@@ -70,7 +70,8 @@ p {
 
 a {
   color: #ff00a0;
-  font-weight: 300;
+  font-family: 'Lato';
+  font-weight: 100;
   text-shadow: none;
   text-decoration: none;
 }
@@ -214,7 +215,8 @@ nav a:focus {
 .logo span {
   text-transform: uppercase;
   letter-spacing: 0.10em;
-  font-weight: 100;
+  font-weight: 300;
+  font-style: italic;
   font-size: 1.4em;
   color: rgba(0,0,0,0.5);
 }
@@ -244,6 +246,9 @@ nav a:focus {
 }
 
 .site-footer a {
+  font-family: 'Lato';
+  font-weight: 300;
+  font-style: italic;
   text-color: #ff00a0;
 }
 
@@ -288,18 +293,19 @@ nav a:focus {
 
 .site-footer li,
 .site-footer p {
-  font-size: 18.5px;
-  font-weight: 700;
+  font-size: 19.5px;
+  font-family: 'Lato';
+  font-weight: 300;
   text-decoration-color: inherit;
-  letter-spacing: -.08px;
+  letter-spacing: .02px;
   color: black;
 }
 
 .github-icon-svg,
 .twitter-icon-svg {
   display: inline-block;
-  width: 16px;
-  height: 16px;
+  width: 22px;
+  height: 22px;
   position: relative;
   top: 3px;
 }
@@ -320,7 +326,7 @@ nav a:focus {
 .home h1 { margin-bottom: 25px; }
 
 .home2 {
-  text-align: justify;
+  text-align: left;
   width: 100%;
 }
 
@@ -449,6 +455,7 @@ nav a:focus {
 	width: 700px;
   padding: 0em 15em;
 	text-align: center;
+  font-family: 'Lato';
 	font-weight: 100;
   padding: 8em 0em;
 	border-top: 30px solid rgba(255,0,160,0.4);
@@ -471,13 +478,16 @@ nav a:focus {
 .welcome p {
   color: white;
   font-size: 1.17em;
-	font-weight: 200;
+  font-family: 'Source Sans Pro';
+	font-weight: 400;
+  font-style: italic;
 	letter-spacing: 0.04em;
 	line-height: 190%;
 	word-space: 0.03em;
 }
 
 #big {
+  font-family: 'Open Sans Condensed';
   font-weight: 700;
   font-size: 2em;
   padding-top: 12px;
