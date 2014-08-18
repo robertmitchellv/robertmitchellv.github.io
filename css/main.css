@@ -1,6 +1,11 @@
 /* @font-face */
 /* ----------------------------------------------------------*/
 
+/* Type options | font-family + font weight */
+/* Lato Thin 100 + Light 300 w/itallic */
+/* Source Sans Pro Normal 400 w/itallic + Ultra Bold 900 */
+/* Open Sans Condensed Bold 700 */
+
 @font-face {
   font-family: 'Lato';
   font-style: normal;
@@ -54,13 +59,6 @@
 
 html, body { height: 100%; }
 
-
-/* Type options | font-family + font weight */
-/* Lato Thin 100 + Light 300 w/itallic = 300italic */
-/* Source Sans Pro Normal 400 w/itallic = 400italic + Ultra Bold 900 */
-/* Open Sans Condensed Bold 700 */
-
-
 body {
   font-family: 'Lato', 'Source Sans Pro', 'Open Sans Condensed', sans-serif;
   font-size: 16px;
@@ -96,48 +94,18 @@ h5, h6 {
 
 p {
   font-family: 'Source Sans Pro';
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 400;
   line-height: 1.14;
   letter-spacing: 0.08em;
 }
 
-/* Nav-set up */
-/* ----------------------------------------------------------*/
-
-*,
-*:after,
-*::before {
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-}
-
 a {
   color: #ff00a0;
   font-family: 'Lato';
-  font-weight: 100;
+  font-weight: 300;
   text-shadow: none;
   text-decoration: none;
-}
-
-a:focus{outline:thin dotted;}
-a:active,a:hover{outline:0;}
-
-nav a {
-	outline: none;
-	text-decoration: none;
-	text-transform: uppercase;
-	letter-spacing: 0.8px;
-  font-family: 'Lato';
-	font-weight: 300;
-	text-shadow: 0 0 1px rgba(255,255,255,0.3);
-	font-size: 1.35em;
-}
-
-nav a:hover,
-nav a:focus {
-	outline: none;
 }
 
 /* Utility */
@@ -179,6 +147,39 @@ nav a:focus {
   position: relative;
   z-index: 1;
 }
+
+/* Nav-set up */
+/* ----------------------------------------------------------*/
+
+*,
+*:after,
+*::before {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+a:focus{outline:thin dotted;}
+a:active,a:hover{outline:0;}
+
+nav a {
+  outline: none;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.8px;
+  font-family: 'Lato';
+  font-weight: 300;
+  text-shadow: 0 0 1px rgba(255,255,255,0.3);
+  font-size: 1.35em;
+}
+
+nav a:hover,
+nav a:focus {
+  outline: none;
+}
+
+/* Nav */
+/* ----------------------------------------------------------*/
 
 .site-nav {
   text-align: center;
@@ -375,6 +376,12 @@ nav a:focus {
   width: 100%;
 }
 
+.home2 h1 {
+  font-size: 40px;
+  padding-top: 30px;
+  padding-bottom: 25px;
+}
+
 .posts { list-style-type: none; }
 
 .posts li { margin-bottom: 30px; }
@@ -387,8 +394,11 @@ nav a:focus {
 
 .posts .post-date {
   display: block;
-  font-size: 15px;
-  color: #818181;
+  font-family: 'Open Sans Condensed';
+  font-size: 18px;
+  font-transform: uppercase;
+  font-variant: small-caps;
+  color: #595859;
 }
 
 
@@ -522,7 +532,7 @@ nav a:focus {
 
 .welcome p {
   color: white;
-  font-size: 1.17em;
+  font-size: 1.26em;
   font-family: 'Source Sans Pro';
 	font-weight: 400;
   font-style: italic;
@@ -535,6 +545,7 @@ nav a:focus {
   font-family: 'Open Sans Condensed';
   font-weight: 700;
   font-size: 2em;
+  font-style: normal;
   padding-top: 12px;
   padding-bottom: 12px;
 }
