@@ -114,8 +114,8 @@ a {
 .wrap:after { content:""; display:table; }
 .wrap:after { clear: both; }
 .wrap {
-  max-width: 800px;
-  padding: 0 30px;
+  width: auto;
+  padding: 0 6em;
   margin: 0 auto;
   zoom: 1;
 }
@@ -369,17 +369,25 @@ nav a:focus {
 /* Home styles */
 /* ----------------------------------------------------------*/
 
+.home {
+  width: auto;
+}
+
 .home h1 { margin-bottom: 25px; }
 
 .home2 {
   text-align: left;
-  width: 100%;
+  width: auto;
 }
 
 .home2 h1 {
   font-size: 40px;
   padding-top: 30px;
   padding-bottom: 25px;
+}
+
+.home2 p {
+  font-size: 18px;
 }
 
 .posts { list-style-type: none; }
