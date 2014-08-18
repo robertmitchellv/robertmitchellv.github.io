@@ -9,9 +9,9 @@
 html, body { height: 100%; }
 
 
-/* Type options */
-/* Lato Thin 100 + Light 300 w/itallic */
-/* Source Sans Pro Normal 400 w/itallic + Ultra Bold 900 */
+/* Type options | font-family + font weight */
+/* Lato Thin 100 + Light 300 w/itallic = 300italic */
+/* Source Sans Pro Normal 400 w/itallic = 400italic + Ultra Bold 900 */
 /* Open Sans Condensed Bold 700 */
 
 
@@ -39,8 +39,7 @@ h3 {
 h4 {
   font-size: 100%;
   font-family: 'Lato';
-  font-weight: 300;
-  font-style: italic;
+  font-weight: 300italic;
 }
 
 h5, h6 {
@@ -84,6 +83,7 @@ nav a {
 	text-decoration: none;
 	text-transform: uppercase;
 	letter-spacing: 0.8px;
+  font-family: 'Lato';
 	font-weight: 300;
 	text-shadow: 0 0 1px rgba(255,255,255,0.3);
 	font-size: 1.35em;
@@ -294,9 +294,8 @@ nav a:focus {
 .site-footer li,
 .site-footer p {
   font-size: 19.5px;
-  font-family: 'Lato';
-  font-weight: 300;
-  text-decoration-color: inherit;
+  font-family: 'Open Sans Condensed';
+  font-weight: 700;
   letter-spacing: .02px;
   color: black;
 }
@@ -486,7 +485,7 @@ nav a:focus {
 	word-space: 0.03em;
 }
 
-#big {
+#big-forward-slash {
   font-family: 'Open Sans Condensed';
   font-weight: 700;
   font-size: 2em;
@@ -584,7 +583,7 @@ nav a:focus {
   }
 
   .welcome {
-    width: 60%;
+    width: auto;
   }
 }
 
@@ -632,7 +631,7 @@ nav a:focus {
   }
 
   .welcome {
-    width: 50%;
+    width: auto;
   }
 
   .post-header h1 { font-size: 36px; }

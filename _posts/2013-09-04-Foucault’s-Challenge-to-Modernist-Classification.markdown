@@ -1,0 +1,55 @@
+---
+layout: post
+title:  "Foucault’s Challenge to Modernist Classification"
+date:   2013-09-04 20:20:29
+categories:
+---
+
+In Foucault’s Les Mots et les choses (The Order of Things), he notes a passage in Borges that, for him,
+demonstrates the limitations of taxonomic assertions in the face of exotic systems of thought—via Borges,
+he quotes a ‘certain Chinese encyclopedia’ in which it is written:
+
+‘animals are divided into: (a) belonging to the Emperor, (b) embalmed, (c) tame, (d) sucking pigs, (e) sirens,
+(f) fabulous, (g) stray dogs, (h) included in the present classification, (i) frenzied, (j) innumerable,
+(k) drawn with a very fine camelhair brush, (l) et cetera, (m) having just broken the water pitcher, (n) that
+from a long way off look like flies’ (Foucault, 2002).
+
+What shocks Foucault about this passage is what connects these categories—i.e., the structure that links
+these strange juxtaposed oddities: the alphabetical series (Foucault, 2002).  Foucault questions on what
+bedrock would kinship between ‘(i) frenzied, (j) innumerable, (k) drawn with a very fine camelhair brush’
+-animals meet, other than the non-space of the utterance itself; i.e., the non-space of language
+(Foucault, 2002).  Language can only display this kinship in an ‘unthinkable space’ (abstract locus)—Borges
+wants to remove the ‘operating table’ that enables thought to order, divide, and classify external entities
+(Foucault, 2002).  Effectively, this removes the ground upon which, “since the beginning of time, language
+has intersected space” (Foucault, 2002).  Borges’ works often lies in the abstract space of the ‘heterotopia’[1],
+which “desiccates speech, stops words in their tracks, contests the very possibility of grammar at its source;
+[…] [to] dissolve our myths and sterilize the lyricism of our sentences” (Foucault, 2002).  This highlights
+the challenge of classifying in the post-modern library, for now there is an unforeseen danger—not incongruous
+disorder but the linking together of things that are inappropriate (Foucault, 2002).
+
+A perfect classification scheme that represents a universe of knowledge is the pipe-dream of the modernist;
+our observations are not independent of the external world, which undermines our ability to classify.  
+We are enmeshed in our world; contextualized in the milieu that is the object of our analysis.  We have no
+bird's eye view--our objectivity has no locus from which to observe.  Nevertheless, I feel that there is a
+space to enhance knowledge organization.  First, I believe it is important to shed the illusion of a temporal
+permanence of facts, which is not solid and more fluid.  Meaning, our reconstructions of the external world
+mirrored by our knowledge organization schemes change through time and are in flux.  Second, I believe it is
+important to increase transparency and acknowledge bias which can exist through ethnocentrism, race, religion,
+gender, sex, power, language, geography, et cetera.
+
+Effectively this is similar to Jung's notion of the shadow, that as humans we feel that it is silly to believe
+we cannot accurately describe the external world--we all agree on things, we test them, and we derive data with
+which to harness confidence in talking objectively about the external world.  We do this daily.  It is this
+confidence that leaves us blind to the shadow of our foundation; like Venice, we are sinking.  In order to bring
+ourselves back to a form of equilibrium we must admit that our shadow exists, i.e., that we bring more to our
+observations than we leave and, thus, we should attempt to root this out.  In this way, we stand the chance of
+building more honest reflections of knowledge.  And, again, in this way, we stand the chance of achieving some
+kind of universe of human knowledge, or at least a good representation of what we feel that we know.
+
+
+
+
+[1] Different from utopias, which also have no locality, heterotopias are disturbing because they undermine language, make impossible the naming of ‘this’ or ‘that’, because they shatter both the syntax that humans construct sentences with, as well as the syntax that holds words and things together (Foucault, 2002).
+
+REFERENCES:
+Foucault, M. (2002). The order of things an archaeology of the human sciences. London and New York: Routledge Classics (Original work published 1966).
