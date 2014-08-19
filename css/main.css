@@ -249,6 +249,10 @@ nav a:focus {
   text-align: center;
 }
 
+.logo-img {
+  width: 200px;
+  height: auto;
+}
 .logo h1 {
   font-size: 4.0em;
   font-weight: 100;
