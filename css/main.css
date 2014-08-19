@@ -115,8 +115,7 @@ a {
 .wrap:after { clear: both; }
 .wrap {
   width: auto;
-  padding: 0 6em;
-  margin: 0 auto;
+  padding-left: 50px;
   zoom: 1;
 }
 
@@ -250,7 +249,7 @@ nav a:focus {
 }
 
 .logo-img {
-  width: 200px;
+  width: 260px;
   height: auto;
 }
 
@@ -306,7 +305,7 @@ nav a:focus {
 }
 
 .footer-img {
-  width: 40px;
+  width: 140px;
   height: auto;
 }
 
@@ -372,7 +371,7 @@ nav a:focus {
 /* ----------------------------------------------------------*/
 
 .page-content {
-  padding: 30px 0;
+  padding-top: 50px;
   background-color: rgba(174,174,173,.3);
 }
 
@@ -382,6 +381,7 @@ nav a:focus {
 
 .home {
   width: auto;
+  padding-top: 30px;
 }
 
 .home h1 { margin-bottom: 25px; }
@@ -389,6 +389,10 @@ nav a:focus {
 .home2 {
   text-align: left;
   width: auto;
+  padding-left: 50px;
+  padding-bottom: 50px;
+  background: rgba(223,223,221,1);
+
 }
 
 .home2 h1 {
