@@ -116,6 +116,7 @@ a {
 .wrap {
   width: auto;
   padding-left: 50px;
+  padding-right: 50px;
   zoom: 1;
 }
 
@@ -390,6 +391,7 @@ nav a:focus {
   text-align: left;
   width: auto;
   padding-left: 50px;
+  padding-right: 50px;
   padding-bottom: 50px;
   background: rgba(223,223,221,1);
 
