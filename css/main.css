@@ -289,7 +289,7 @@ nav a:focus {
 
 .site-footer::after {
   content: "";
-  background: url(img/sea.jpg);
+  background: url(img/stamp.jpg);
   opacity: 0.4;
   top: 0;
   left: 0;
@@ -373,7 +373,7 @@ nav a:focus {
 
 .page-content {
   padding-top: 50px;
-  background: url("img/maze.jpg");
+  background-color: rgba(179,226,227,.5);
 }
 
 .posts { list-style-type: none; }
