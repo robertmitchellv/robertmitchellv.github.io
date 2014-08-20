@@ -130,13 +130,15 @@ a {
 }
 
 .home2 h1 {
-  font-size: 40px;
+  font-size: 62px;
+  color: #ffffff;
   padding-top: 30px;
   padding-bottom: 25px;
 }
 
 .home2 p {
   font-size: 18px;
+  color: #ffffff;
 }
 
 .wrap:before,
@@ -381,7 +383,7 @@ nav a:focus {
 .posts li { margin-bottom: 30px; }
 
 .posts .post-link {
-  font-size: 24px;
+  font-size: 28px;
   letter-spacing: -1px;
   line-height: 1;
 }
@@ -389,10 +391,10 @@ nav a:focus {
 .posts .post-date {
   display: block;
   font-family: 'Open Sans Condensed';
-  font-size: 18px;
+  font-size: 20px;
   font-transform: uppercase;
   font-variant: small-caps;
-  color: #595859;
+  color: #000000;
 }
 
 
