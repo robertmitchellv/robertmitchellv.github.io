@@ -289,7 +289,7 @@ nav a:focus {
 
 .site-footer::after {
   content: "";
-  background: url(img/stamp.jpg);
+  background: url(img/subway.png);
   opacity: 0.4;
   top: 0;
   left: 0;
