@@ -282,7 +282,7 @@ nav a:focus {
 
 .site-footer {
   border-top: 1px solid #e8e8e8;
-  padding: 30px 170px;
+  padding: 30px 250px;
   position: relative;
 }
 
@@ -393,7 +393,7 @@ nav a:focus {
   padding-left: 150px;
   padding-right: 150px;
   padding-bottom: 80px;
-  background: rgba(223,223,221,.5);
+  background: rgba(223,223,221,.9);
 
 }
 
