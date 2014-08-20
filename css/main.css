@@ -49,7 +49,7 @@
   src: local('Source Sans Pro Italic'), local('SourceSansPro-It'), url(https://fonts.gstatic.com/s/sourcesanspro/v8/M2Jd71oPJhLKp0zdtTvoMxgy2Fsj5sj3EzlXpqVXRKo.woff2) format('woff2'), url(https://fonts.gstatic.com/s/sourcesanspro/v8/M2Jd71oPJhLKp0zdtTvoMzNrcjQuD0pTu1za2FULaMs.woff) format('woff');
 }
 
-/* Base */
+/* Base Elements Styling */
 /* ----------------------------------------------------------*/
 
 * {
@@ -108,7 +108,35 @@ a {
   text-decoration: none;
 }
 
-/* Utility */
+/* Layout Styles */
+/* ----------------------------------------------------------*/
+
+.home {
+  width: auto;
+  padding-top: 30px;
+}
+
+.home h1 { margin-bottom: 25px; }
+
+.home2 {
+  text-align: left;
+  width: auto;
+  padding-left: 150px;
+  padding-right: 150px;
+  padding-bottom: 80px;
+  background: rgba(223,223,221,.9);
+
+}
+
+.home2 h1 {
+  font-size: 40px;
+  padding-top: 30px;
+  padding-bottom: 25px;
+}
+
+.home2 p {
+  font-size: 18px;
+}
 
 .wrap:before,
 .wrap:after { content:""; display:table; }
@@ -120,10 +148,99 @@ a {
   zoom: 1;
 }
 
-/* Layout Styles */
+/* media queries */
 /* ----------------------------------------------------------*/
 
+
+@media screen and (max-width: 750px) {
+
+  .footer-col-1 { width: 50%; }
+
+  .footer-col-2 {
+    width: 45%; /*fallback*/
+    width: -webkit-calc(50% - 10px);
+    width: -moz-calc(50% - 10px);
+    width: -o-calc(50% - 10px);
+    width: calc(50% - 10px);
+    margin-right: 0;
+  }
+
+  .site-footer .column.footer-col-3 {
+    width: auto;
+    float: none;
+    clear: both;
+  }
+
+  .welcome {
+    width: auto;
+  }
+}
+
+@media screen and (max-width: 600px) {
+
+  .wrap { padding: 0 12px; }
+
+  .site-nav {
+    position: fixed;
+    z-index: 10;
+    top: 14px; right: 8px;
+    background-color: white;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    border: 1px solid #e8e8e8;
+  }
+
+  .site-nav .menu-icon {
+    display: block;
+    font-size: 24px;
+    color: #505050;
+    float: right;
+    width: 36px;
+    text-align: center;
+    line-height: 36px;
+  }
+
+  .site-nav .menu-icon svg { width: 18px; height: 16px; }
+
+  .site-nav .trigger {
+    clear: both;
+    margin-bottom: 5px;
+    display: none;
+  }
+
+  .site-nav:hover .trigger { display: block; }
+
+  .site-nav .page-link {
+    display: block;
+    text-align: right;
+    line-height: 1.25;
+    padding: 5px 10px;
+    margin: 0;
+  }
+
+  .welcome {
+    width: auto;
+  }
+
+  .post-header h1 { font-size: 36px; }
+  .post-content h2 { font-size: 28px; }
+  .post-content h3 { font-size: 22px; }
+  .post-content h4 { font-size: 18px; }
+  .post-content blockquote { padding-left: 10px; }
+  .post-content ul,
+  .post-content ol { padding-left: 10px; }
+
+  .site-footer .column {
+    float: none;
+    clear: both;
+    width: auto;
+    margin: 0 0 15px; }
+
+}
+
 /* Site header */
+/* ----------------------------------------------------------*/
 
 .site-header {
   border-top: 5em solid transparent;
@@ -277,7 +394,7 @@ nav a:focus {
   color: rgba(0,0,0,0.6);
 }
 
-/* Logo */
+/* Footer */
 /* ----------------------------------------------------------*/
 
 .site-footer {
@@ -367,44 +484,12 @@ nav a:focus {
   top: 3px;
 }
 
-
 /* Page Content styles */
 /* ----------------------------------------------------------*/
 
 .page-content {
   padding-top: 50px;
   background-color: rgba(174,174,173,.3);
-}
-
-
-/* Home styles */
-/* ----------------------------------------------------------*/
-
-.home {
-  width: auto;
-  padding-top: 30px;
-}
-
-.home h1 { margin-bottom: 25px; }
-
-.home2 {
-  text-align: left;
-  width: auto;
-  padding-left: 150px;
-  padding-right: 150px;
-  padding-bottom: 80px;
-  background: rgba(223,223,221,.9);
-
-}
-
-.home2 h1 {
-  font-size: 40px;
-  padding-top: 30px;
-  padding-bottom: 25px;
-}
-
-.home2 p {
-  font-size: 18px;
 }
 
 .posts { list-style-type: none; }
@@ -526,7 +611,7 @@ nav a:focus {
 
 .post pre.terminal code { background-color: #333; }
 
-/* Index stuff */
+/* Landing Page Extras */
 /* ----------------------------------------------------------*/
 
 .welcome {
@@ -574,7 +659,6 @@ nav a:focus {
   padding-top: 12px;
   padding-bottom: 12px;
 }
-
 
 /* Syntax highlighting styles */
 /* ----------------------------------------------------------*/
@@ -639,95 +723,3 @@ nav a:focus {
 .highlight .vg { color: #008080 } /* Name.Variable.Global */
 .highlight .vi { color: #008080 } /* Name.Variable.Instance */
 .highlight .il { color: #009999 } /* Literal.Number.Integer.Long */
-
-
-/* media queries */
-/* ----------------------------------------------------------*/
-
-
-@media screen and (max-width: 750px) {
-
-  .footer-col-1 { width: 50%; }
-
-  .footer-col-2 {
-    width: 45%; /*fallback*/
-    width: -webkit-calc(50% - 10px);
-    width: -moz-calc(50% - 10px);
-    width: -o-calc(50% - 10px);
-    width: calc(50% - 10px);
-    margin-right: 0;
-  }
-
-  .site-footer .column.footer-col-3 {
-    width: auto;
-    float: none;
-    clear: both;
-  }
-
-  .welcome {
-    width: auto;
-  }
-}
-
-@media screen and (max-width: 600px) {
-
-  .wrap { padding: 0 12px; }
-
-  .site-nav {
-    position: fixed;
-    z-index: 10;
-    top: 14px; right: 8px;
-    background-color: white;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    border-radius: 5px;
-    border: 1px solid #e8e8e8;
-  }
-
-  .site-nav .menu-icon {
-    display: block;
-    font-size: 24px;
-    color: #505050;
-    float: right;
-    width: 36px;
-    text-align: center;
-    line-height: 36px;
-  }
-
-  .site-nav .menu-icon svg { width: 18px; height: 16px; }
-
-  .site-nav .trigger {
-    clear: both;
-    margin-bottom: 5px;
-    display: none;
-  }
-
-  .site-nav:hover .trigger { display: block; }
-
-  .site-nav .page-link {
-    display: block;
-    text-align: right;
-    line-height: 1.25;
-    padding: 5px 10px;
-    margin: 0;
-  }
-
-  .welcome {
-    width: auto;
-  }
-
-  .post-header h1 { font-size: 36px; }
-  .post-content h2 { font-size: 28px; }
-  .post-content h3 { font-size: 22px; }
-  .post-content h4 { font-size: 18px; }
-  .post-content blockquote { padding-left: 10px; }
-  .post-content ul,
-  .post-content ol { padding-left: 10px; }
-
-  .site-footer .column {
-    float: none;
-    clear: both;
-    width: auto;
-    margin: 0 0 15px; }
-
-}
