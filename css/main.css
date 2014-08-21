@@ -655,6 +655,11 @@ nav a:focus {
     paddint-top: 15px;
   }
 
+  .logo-img {
+    width: 200px;
+    height: auto;
+  }
+
   .welcome {
     width: auto;
     font-size: 13px;
@@ -763,6 +768,11 @@ nav a:focus {
     line-height: 1.25;
     padding: 5px 10px;
     margin: 0;
+  }
+
+  .logo-img {
+    width: 180px;
+    height: auto;
   }
 
   .welcome {
