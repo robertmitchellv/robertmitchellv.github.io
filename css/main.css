@@ -5,6 +5,7 @@
 /* Lato Thin 100 + Light 300 w/itallic */
 /* Source Sans Pro Normal 400 w/itallic + Ultra Bold 900 */
 /* Open Sans Condensed Bold 700 */
+/* Font Awesome! */
 
 @font-face {
   font-family: 'Lato';
@@ -48,6 +49,8 @@
   font-weight: 400;
   src: local('Source Sans Pro Italic'), local('SourceSansPro-It'), url(https://fonts.gstatic.com/s/sourcesanspro/v8/M2Jd71oPJhLKp0zdtTvoMxgy2Fsj5sj3EzlXpqVXRKo.woff2) format('woff2'), url(https://fonts.gstatic.com/s/sourcesanspro/v8/M2Jd71oPJhLKp0zdtTvoMzNrcjQuD0pTu1za2FULaMs.woff) format('woff');
 }
+
+@import url ('//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css');
 
 /* Base Elements Styling */
 /* ----------------------------------------------------------*/
@@ -131,14 +134,14 @@ a {
 
 .home2 h1 {
   font-size: 62px;
-  color: #ffffff;
+  color: #000000;
   padding-top: 30px;
   padding-bottom: 25px;
 }
 
 .home2 p {
   font-size: 18px;
-  color: #ffffff;
+  color: #000000;
 }
 
 .wrap:before,
@@ -195,7 +198,8 @@ nav a:focus {
 
 .site-nav a::before {
   margin-right: 10px;
-  content: '//';
+  font-family: 'FontAwesome';
+  content: "\f0a4";
   -webkit-transform: translateX(20px);
   -moz-transform: translateX(20px);
   transform: translateX(20px);
@@ -203,7 +207,8 @@ nav a:focus {
 
 .site-nav a::after {
   margin-left: 10px;
-  content: '//';
+  font-family: 'FontAwesome';
+  content: "\f0a5";
   -webkit-transform: translateX(-20px);
   -moz-transform: translateX(-20px);
   transform: translateX(-20px);
@@ -285,7 +290,10 @@ nav a:focus {
 
 .site-footer {
   border-top: 1px solid #e8e8e8;
-  padding: 30px 250px;
+  padding-top: 80px;
+  padding-left: 250px;
+  padding-right: 250px;
+  padding-bottom: 130px;
   position: relative;
 }
 
@@ -368,6 +376,28 @@ nav a:focus {
   height: 22px;
   position: relative;
   top: 3px;
+}
+
+/* FontAwesome Classes */
+/* ----------------------------------------------------------*/
+
+.fa-plane {
+  padding: 20px 0;
+}
+
+.fa-lightbulb-o {
+  padding: 20px 0;
+}
+
+.fa-flask {
+  padding: 20px 0;
+}
+
+.fa-pencil {
+  color: #91d6d4;
+  -ms-transform: rotate(225deg);
+  -webkit-transform: rotate(225deg);
+  transform: rotate(225deg);
 }
 
 /* Page Content styles */

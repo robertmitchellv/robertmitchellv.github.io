@@ -7,7 +7,7 @@
     <!-- column 1 -->
       <div class="footer-col-1 column">
         <ul>
-          <li>Connect with me</li>
+          <li><i class="fa fa-send"></i> Connect with me</li>
           <li><a href="mailto:{{ site.email }}" class="footer-nav">{{ site.email }}</a></li>
         </ul>
       </div>
@@ -29,6 +29,14 @@
                 <i class="fa fa-twitter"></i>
               </span>
               <span class="username">{{ site.twitter_username }}</span>
+            </a>
+          </li>{% endif %}
+          {% if site.linkedin_username %}<li>
+            <a href="https://www.linkedin.com/in/{{ site.linkedin_username }}">
+              <span class="icon linkedin">
+                <i class="fa fa-linkedin"></i>
+              </span>
+              <span class="username">{{ site.linkedin_username }}</span>
             </a>
           </li>{% endif %}
         </ul>
