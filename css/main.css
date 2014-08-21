@@ -636,10 +636,74 @@ nav a:focus {
 
 @media screen and (max-width: 750px) {
 
+  body {
+    font-size: 12px;
+  }
+
+  .page-content {
+    padding-top: 10px;
+  }
+
+  .wrap {
+    width: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  .home {
+    width: auto;
+    paddint-top: 15px;
+  }
+
+  .welcome {
+    width: auto;
+    font-size: 13px;
+    border-top: 15px solid rgba(238,64,61,.8);
+    border-left: 15px solid rgba(238,64,61,.5);
+    border-right: 15px solid rgba(238,64,61,.5);
+    padding: 15px 15px;
+  }
+
+  .home2 {
+    width: auto;
+    padding-left: 25px;
+    padding-right: 25px;
+    padding-bottom: 35px;
+  }
+
+  .home2 h1 {
+    font-size: 45;
+    padding-top: 20px;
+    padding-bottom: 15px;
+  }
+
+  .home2 p {
+    font-size: 13px;
+  }
+
+  .posts .post-date {
+    font-size: 15px;
+  }
+
+  .posts .post-link {
+    font-size: 19px;
+  }
+
+  .site-footer {
+    padding-top:  30px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 50px;
+  }
+
+  .site-footer li, .site-footer p {
+    font-size: 18px;
+  }
+
   .footer-col-1 {
     width: 50%;
     font-size: 13px;
-}
+  }
 
   .footer-col-2 {
     width: 45%; /*fallback*/
@@ -654,11 +718,6 @@ nav a:focus {
     width: auto;
     float: none;
     clear: both;
-    font-size: 13px;
-  }
-
-  .welcome {
-    width: auto;
     font-size: 13px;
   }
 }
