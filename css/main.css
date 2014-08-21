@@ -636,7 +636,10 @@ nav a:focus {
 
 @media screen and (max-width: 750px) {
 
-  .footer-col-1 { width: 50%; }
+  .footer-col-1 {
+    width: 50%;
+    font-size: 13px;
+}
 
   .footer-col-2 {
     width: 45%; /*fallback*/
@@ -651,10 +654,12 @@ nav a:focus {
     width: auto;
     float: none;
     clear: both;
+    font-size: 13px;
   }
 
   .welcome {
     width: auto;
+    font-size: 13px;
   }
 }
 
