@@ -9,10 +9,10 @@ In Foucault’s Les Mots et les choses (The Order of Things), he notes a passage
 demonstrates the limitations of taxonomic assertions in the face of exotic systems of thought—via Borges,
 he quotes a ‘certain Chinese encyclopedia’ in which it is written:
 
-‘animals are divided into: (a) belonging to the Emperor, (b) embalmed, (c) tame, (d) sucking pigs, (e) sirens,
+<i class="fa fa-quote-left fa-2x"></i> animals are divided into: (a) belonging to the Emperor, (b) embalmed, (c) tame, (d) sucking pigs, (e) sirens,
 (f) fabulous, (g) stray dogs, (h) included in the present classification, (i) frenzied, (j) innumerable,
 (k) drawn with a very fine camelhair brush, (l) et cetera, (m) having just broken the water pitcher, (n) that
-from a long way off look like flies’ (Foucault, 2002).
+from a long way off look like flies <i class="fa fa-quote-right fa-2x"></i> (Foucault, 2002).
 
 What shocks Foucault about this passage is what connects these categories—i.e., the structure that links
 these strange juxtaposed oddities: the alphabetical series (Foucault, 2002).  Foucault questions on what
