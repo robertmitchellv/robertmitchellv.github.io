@@ -289,10 +289,10 @@ nav a:focus {
 /* ----------------------------------------------------------*/
 
 .site-footer {
-  border-top: 1px solid #e8e8e8;
+  border-top: .1px solid #ffffff;
   padding-top: 80px;
-  padding-left: 250px;
-  padding-right: 250px;
+  padding-left: 230px;
+  padding-right: 230px;
   padding-bottom: 130px;
   position: relative;
 }
@@ -362,20 +362,11 @@ nav a:focus {
 
 .site-footer li,
 .site-footer p {
-  font-size: 19.5px;
+  font-size: 22px;
   font-family: 'Open Sans Condensed';
   font-weight: 700;
   letter-spacing: .02px;
-  color: black;
-}
-
-.github-icon-svg,
-.twitter-icon-svg {
-  display: inline-block;
-  width: 22px;
-  height: 22px;
-  position: relative;
-  top: 3px;
+  color: #000000;
 }
 
 /* FontAwesome Classes */
