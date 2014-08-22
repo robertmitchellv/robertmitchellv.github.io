@@ -14,12 +14,12 @@
           $(document).ready(function() {
             $('body').css('display', 'none');
 
-            $('body').fadeIn(300);
+            $('body').fadeIn(200);
 
             $('a.page-link').click(function(event) {
               event.preventDefault();
               linkLocation = this.href;
-              $("body").fadeOut(300, redirectPage);
+              $("body").fadeOut(200, redirectPage);
             });
 
             function redirectPage() {
