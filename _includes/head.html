@@ -22,6 +22,12 @@
               $("body").fadeOut(200, redirectPage);
             });
 
+            $('a.post-link').click(function(event) {
+              event.preventDefault();
+              linkLocation = this.href;
+              $("body").fadeOut(200, redirectPage);
+            });
+
             function redirectPage() {
               window.location = linkLocation;
             }
