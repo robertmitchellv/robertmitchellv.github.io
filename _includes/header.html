@@ -9,15 +9,15 @@
       </a>
       <div class="trigger">
         {% for page in site.pages %}
-          {% if page.title %}<a class="page-link" href="{{ page.url | prepend: site.baseurl }}" >{{ page.title }}</a>{% endif %}
+          {% if page.title %}<a class="page-link" href="{{ page.url | prepend: site.baseurl }}" data-transition="slidefade">{{ page.title }}</a>{% endif %}
         {% endfor %}
       </div>
     </nav>
   </div>
 
   <!-- logo -->
-  <div class="logo">
-    <h1><a class="page-link" href="{{ site.baseurl }}/"><img class="logo-img" src="img/rbmv_curve.png" alt="rbmv"/></a></h1>
+  <div data-roll="main" class="logo">
+    <h1><a href="{{ site.baseurl }}/"><img class="logo-img" src="img/rbmv_curve.png" alt="rbmv"/></a></h1>
       <span>Information Professional + Design Enthusiast</span>
   </div>
 </header>

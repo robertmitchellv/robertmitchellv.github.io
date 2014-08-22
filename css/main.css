@@ -584,6 +584,15 @@ nav a:focus {
 	word-space: 0.03em;
 }
 
+#big-forward-slash {
+  font-family: 'Open Sans Condensed';
+  font-weight: 700;
+  font-size: 2em;
+  font-style: normal;
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+
 /* Syntax highlighting styles */
 /* ----------------------------------------------------------*/
 
