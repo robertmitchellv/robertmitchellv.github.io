@@ -11,18 +11,23 @@
     <script src="//ajax.googleapis.com/ajax/libs/jquerymobile/1.4.3/jquery.mobile.min.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-    <script type="text/javascript">
-      $(function() {
-        $('a.page-link').bind('click',function(event) {
-          var $anchor = $(this);
+       <script type="text/javascript">
+          $(document).ready(function() {
+            $('body').css('display', 'none');
 
-          $('html, body').stop().animate({
-            scrollLeft: $($anchor.attr('href')).offset().left }, 1000);
-            event.preventDefault();
+            $('body').fadeIn(500);
 
-        })
-      })
-    </script>
+            $('a.page-link').click(function(event) {
+              event.preventDefault();
+              linkLocation = this.href;
+              $("body").fadeOut(500, redirectPage);
+            });
+
+            function redirectPage() {
+              window.location = linkLocation;
+            }
+          });
+        </script>
 
     <!-- Typeface -->
     <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,900,400italic|Lato:100,300,300italic|Open+Sans+Condensed:700' rel='stylesheet' type='text/css'>

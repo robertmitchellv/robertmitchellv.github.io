@@ -10,8 +10,6 @@ linkedin_username: robertmitchellv
 
 timezone: America/Los_Angeles
 
-exclude: ['README.md']
-
 # Build settings
 markdown: kramdown
 permalink: pretty
