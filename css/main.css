@@ -285,6 +285,32 @@ nav a:focus {
   color: rgba(0,0,0,.6);
 }
 
+/* Site header */
+/* ----------------------------------------------------------*/
+
+.site-header {
+  border-top: 5em solid transparent;
+  border-bottom: .02px solid rgba(0,176,200,.3);
+  border-right: .02px solid rgba(0,176,200,.3);
+  border-left: .02px solid rgba(0,176,200,.3);
+  -webkit-border-image :url(img/sea.jpg);
+  border-image-source: url(img/sea.jpg);
+  border-image-slice: 35;
+  background-color: rgba(145,214,213,.5);
+}
+
+.site-title,
+.site-title:hover,
+.site-title:visited {
+  display: block;
+  color: #333;
+  font-size: 26px;
+  letter-spacing: -1px;
+  line-height: 56px;
+  position: relative;
+  z-index: 1;
+}
+
 /* Footer */
 /* ----------------------------------------------------------*/
 
@@ -793,30 +819,4 @@ nav a:focus {
     width: auto;
     margin: 0 0 15px; }
 
-}
-
-/* Site header */
-/* ----------------------------------------------------------*/
-
-.site-header {
-  border-top: 5em solid transparent;
-  border-bottom: .02px solid rgba(0,176,200,.3);
-  border-right: .02px solid rgba(0,176,200,.3);
-  border-left: .02px solid rgba(0,176,200,.3);
-  -webkit-border-image :url(img/sea.jpg);
-  border-image-source: url(img/sea.jpg);
-  border-image-slice: 35;
-  background-color: rgba(145,214,213,.5);
-}
-
-.site-title,
-.site-title:hover,
-.site-title:visited {
-  display: block;
-  color: #333;
-  font-size: 26px;
-  letter-spacing: -1px;
-  line-height: 56px;
-  position: relative;
-  z-index: 1;
 }
