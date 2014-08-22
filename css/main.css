@@ -755,17 +755,34 @@ nav a:focus {
 
 @media screen and (max-width: 600px) {
 
-  .wrap { padding: 0 12px; }
+  .site-header {
+    border-top: 2em solid;
+  }
+
+  .wrap {
+    width: auto;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .logo-img {
+    width: 150px;
+    height: auto;
+  }
+
+  .logo span {
+    font-size: 14px;
+  }
 
   .site-nav {
     position: fixed;
     z-index: 10;
-    top: 14px; right: 8px;
+    top: 5px; right: 5px;
     background-color: white;
-    -webkit-border-radius: 5px;
-    -moz-border-radius: 5px;
-    border-radius: 5px;
-    border: 1px solid #e8e8e8;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
+    border: 0px solid transparent;
   }
 
   .site-nav .menu-icon {
