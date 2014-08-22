@@ -6,7 +6,7 @@ permalink: /about/
 ### The brief bio
 >I am a new dad, husband, and recent Master of Information Science recipient who is passionate about code, complexity, design, dichotomy busting, cuisine, travel, + striving for balance across the board in my life.  I love conceptual thinking and am expanding my worldview through the acquisition of knowledge, practices, + techniques of both mathematics, physics, and traditional sciences&#8212;which I, _foolishly + in youthful obstinance_, dismissed while searching for some deeper philosophical meaning.  This paradigm shift has led me to pursue further graduate/research/doctoral studies in a computational science/computer science/artificial intelligence/NetSci/CX program (forthcoming!).
 
-<center>![that's me](/../img/me.jpg =250x)</center>
+![that's me](/../img/me.jpg =250x) 
 
 #### Still curious? Read on
 
@@ -20,4 +20,4 @@ I have recently turned 31 and can attest to the calming wave of moving beyond th
 
 I hope to contribute posts on my site that interact with my interdisciplinary interests with special focus on the semantic relationships between objects and concepts.  I’m not always as interested in the epistemological aspect of things as I might appear–really I think I enjoy metaphysical speculation (otherwise, why would I have become interested in philosophy at all?).  I believe that everything is connected, and the 21st century will be about discovering these connections—hopefully I can be a part of this.
 
-### [Go back](site.baseurl)
+### [Go back](http://robertmitchellv.com)
