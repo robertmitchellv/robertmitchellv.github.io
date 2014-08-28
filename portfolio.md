@@ -3,9 +3,13 @@ layout: page
 title: Portfolio
 permalink: /portfolio/
 ---
-
-This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](http://jekyllrb.com/)
-
-You can find the source code for the Jekyll new theme at: [github.com/jglovier/jekyll-new](https://github.com/jglovier/jekyll-new)
-
-You can find the source code for Jekyll at [github.com/jekyll/jekyll](https://github.com/jekyll/jekyll)
+<ul>
+  <li>
+    <a id="ucla_dogs" class="fancybox" rel="group" href="../img/ucla_dogs.jpg" title="UCLA | Therapy Dogs Flyer"><img src="../img/ucla_dogs.jpg" alt="" /></a>
+  </li>  
+    <a id="ucla_dogs02" class="fancybox" rel="group" href="../img/ucla_dogs02.jpg" title="UCLA | Therapy Dogs Wayfinding"><img src="../img/ucla_dogs02.jpg" alt="" /></a>
+  </li>  
+    <a id="ucla_top8" class="fancybox" rel="group" href="../img/ucla_top8.jpg" title="UCLA | Top 8 Things Flyer"><img src="../img/ucla_top8.jpg" alt="" /></a>
+  </li>
+    <a id="ucla_top10" class="fancybox" rel="group" href="../img/ucla_top10.jpg" title="UCLA | Top 10 Things Flyer"><img src="../img/ucla_top10.jpg" alt="" /></a>
+  </li>

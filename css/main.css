@@ -13,36 +13,42 @@
   font-weight: 100;
   src: local('Lato Hairline'), local('Lato-Hairline'), url(https://fonts.gstatic.com/s/lato/v8/GtRkRNTnri0g82CjKnEB0Q.woff2) format('woff2'), url(https://fonts.gstatic.com/s/lato/v8/boeCNmOCCh-EWFLSfVffDg.woff) format('woff');
 }
+
 @font-face {
   font-family: 'Lato';
   font-style: normal;
   font-weight: 300;
   src: local('Lato Light'), local('Lato-Light'), url(https://fonts.gstatic.com/s/lato/v8/EsvMC5un3kjyUhB9ZEPPwg.woff2) format('woff2'), url(https://fonts.gstatic.com/s/lato/v8/KT3KS9Aol4WfR6Vas8kNcg.woff) format('woff');
 }
+
 @font-face {
   font-family: 'Lato';
   font-style: italic;
   font-weight: 300;
   src: local('Lato Light Italic'), local('Lato-LightItalic'), url(https://fonts.gstatic.com/s/lato/v8/2HG_tEPiQ4Z6795cGfdivFtXRa8TVwTICgirnJhmVJw.woff2) format('woff2'), url(https://fonts.gstatic.com/s/lato/v8/2HG_tEPiQ4Z6795cGfdivD8E0i7KZn-EPnyo3HZu7kw.woff) format('woff');
 }
+
 @font-face {
   font-family: 'Open Sans Condensed';
   font-style: normal;
   font-weight: 700;
   src: local('Open Sans Condensed Bold'), local('OpenSans-CondensedBold'), url(https://fonts.gstatic.com/s/opensanscondensed/v8/gk5FxslNkTTHtojXrkp-xIF8zhZCJ7x9Pr62cRgaVUA.woff2) format('woff2'), url(https://fonts.gstatic.com/s/opensanscondensed/v8/gk5FxslNkTTHtojXrkp-xONSK5BxN3NFS4EJkViHIqo.woff) format('woff');
 }
+
 @font-face {
   font-family: 'Source Sans Pro';
   font-style: normal;
   font-weight: 400;
   src: local('Source Sans Pro'), local('SourceSansPro-Regular'), url(https://fonts.gstatic.com/s/sourcesanspro/v8/ODelI1aHBYDBqgeIAH2zlNV_2ngZ8dMf8fLgjYEouxg.woff2) format('woff2'), url(https://fonts.gstatic.com/s/sourcesanspro/v8/ODelI1aHBYDBqgeIAH2zlBM0YzuT7MdOe03otPbuUS0.woff) format('woff');
 }
+
 @font-face {
   font-family: 'Source Sans Pro';
   font-style: normal;
   font-weight: 900;
   src: local('Source Sans Pro Black'), local('SourceSansPro-Black'), url(https://fonts.gstatic.com/s/sourcesanspro/v8/toadOcfmlt9b38dHJxOBGHZhYM0_6AejPZE-OqA592o.woff2) format('woff2'), url(https://fonts.gstatic.com/s/sourcesanspro/v8/toadOcfmlt9b38dHJxOBGHiec-hVyr2k4iOzEQsW1iE.woff) format('woff');
 }
+
 @font-face {
   font-family: 'Source Sans Pro';
   font-style: italic;
@@ -394,6 +400,15 @@ nav a:focus {
   letter-spacing: .02px;
   color: #000000;
 }
+
+/* About me */
+/* ----------------------------------------------------------*/
+
+.img-me {
+  display: block;
+  float: right;
+}
+
 
 /* FontAwesome Classes */
 /* ----------------------------------------------------------*/

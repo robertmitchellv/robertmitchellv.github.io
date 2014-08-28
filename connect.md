@@ -4,8 +4,14 @@ title: Connect
 permalink: /connect/
 ---
 
-This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](http://jekyllrb.com/)
+### Some of the places and online spaces you can find me:
 
-You can find the source code for the Jekyll new theme at: [github.com/jglovier/jekyll-new](https://github.com/jglovier/jekyll-new)
+## &nbsp;&nbsp;<i class="fa fa-twitter fa-lg"></i>&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp; [Twitter](https://twitter.com/RobertMitchellV)
 
-You can find the source code for Jekyll at [github.com/jekyll/jekyll](https://github.com/jekyll/jekyll)
+## &nbsp;&nbsp;<i class="fa fa-github fa-lg"></i>&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp; [GitHub](https://github.com/robertmitchellv)
+
+## &nbsp;&nbsp;<i class="fa fa-linkedin fa-lg"></i>&nbsp;&nbsp;&nbsp; |&nbsp;&nbsp; [LinkedIn](https://www.linkedin.com/in/robertmitchellv)
+
+## <i class="fa fa-soundcloud fa-lg"></i>&nbsp; |&nbsp;&nbsp; [Soundcloud](https://soundcloud.com/rbmv)
+
+#### Feel free to connect with me via the above referenced outlets!
