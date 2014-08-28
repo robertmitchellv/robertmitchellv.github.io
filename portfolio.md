@@ -13,3 +13,6 @@ permalink: /portfolio/
   </li>
     <a id="ucla_top10" class="fancybox" rel="group" href="../img/ucla_top10.jpg" title="UCLA | Top 10 Things Flyer"><img src="../img/ucla_top10.jpg" alt="" /></a>
   </li>
+</ul>
+
+### <a class="page-link" href="/">Go Back!</a>
