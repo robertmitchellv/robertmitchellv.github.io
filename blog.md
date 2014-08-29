@@ -17,8 +17,6 @@ permalink: /blog/
   </ul>
 
   <p class="rss-subscribe"><i class="fa fa-rss"></i> subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
-
+</div>
 
 ### <a class="page-link" href="/">Go Back!</a>
-
-</div>
