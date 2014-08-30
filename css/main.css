@@ -1050,3 +1050,127 @@ nav a:focus {
     margin: 0 0 15px; }
 
 }
+
+@media screen and (max-width: 320px) {
+
+  .site-header {
+    border-top: 5em solid;
+  }
+
+  .site-nav {
+    position: fixed;
+    z-index: 10;
+    top: 5px; right: 5px;
+    background-color: white;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    border-radius: 0px;
+    border: 0px solid transparent;
+  }
+
+  .site-nav .menu-icon {
+    display: block;
+    color: rgba(238,64,61,.8);
+    float: right;
+    width: 35px;
+    height: 35px;
+  }
+
+  .site-nav .trigger {
+    clear: both;
+    margin-bottom: 5px;
+    display: none;
+  }
+
+  .site-nav:hover .trigger { display: block; }
+
+  .site-nav .page-link {
+    display: block;
+    text-align: right;
+    line-height: 1.25;
+    padding: 5px 10px;
+    margin: 0;
+  }
+
+  .home {
+    width: auto;
+    padding: 0px 3px;
+    margin: 0px 3px;
+  }
+
+  .wrap {
+    width: auto;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .logo-img {
+    width: 130px;
+    height: auto;
+  }
+
+  .logo span {
+    font-size: 12px;
+  }
+
+  .welcome {
+    width: auto;
+    border-top: 5px solid rgba(238,64,61,.8);
+    border-left: 5px solid rgba(238,64,61,.5);
+    border-right: 5px solid rgba(238,64,61,.5);
+    padding: 12px 5px;
+  }
+
+  .welcome h2 {
+    font-size: 22px;
+  }
+
+  .welcome p {
+    font-size: 12px;
+    margin: 0px 37px;
+  }
+
+  .home2 h1 {
+    font-size: 35px;
+  }
+
+  .posts li {
+    font-size: 18px;
+  }
+
+  .posts .post-date {
+    font-size: 13px;
+  }
+  .site-footer {
+    font-size: 14px;
+    padding-top: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-bottom: 15px;
+  }
+
+  .footer-img {
+    width: 100px;
+    height: auto;
+  }
+
+  .site-footer .column {
+    float: none;
+    clear: both;
+    width: auto;
+    margin: 0 0 15px;
+  }
+
+  .site-footer li,
+  .site-footer p {
+    font-size: 14px;
+  }
+
+  .post-header h1 { font-size: 36px; }
+  .post-content h2 { font-size: 28px; }
+  .post-content h3 { font-size: 22px; }
+  .post-content h4 { font-size: 18px; }
+  .post-content blockquote { padding-left: 10px; }
+  .post-content ul,
+  .post-content ol { padding-left: 10px; }
+}
