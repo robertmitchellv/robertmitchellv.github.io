@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Vitae
-permalink: /vitae/
+permalink: "/vitae/"
 ---
 
 ## <i class="fa fa-compass fa-lg"></i>  Personal Philosophy
@@ -305,3 +305,5 @@ permalink: /vitae/
 <ul>
   <i class="fa fa-angle-double-right fa-lg"></i>
 </ul>
+
+### <a class="page-link" href="/">Go Back!</a>

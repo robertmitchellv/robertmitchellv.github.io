@@ -1,7 +1,7 @@
 ---
 layout: page
 title: About Me
-permalink: /about/
+permalink: "/about/"
 ---
 ### The brief bio
 >I am a new dad, husband, and recent Master of Information Science recipient who is passionate about code, complexity, design, dichotomy busting, cuisine, travel, + striving for balance across the board in my life.  I love conceptual thinking and am expanding my worldview through the acquisition of knowledge, practices, + techniques of both mathematics, physics, and traditional sciences&#8212;which I, _foolishly + in youthful obstinance_, dismissed while searching for some deeper philosophical meaning.  This paradigm shift has led me to pursue further graduate/research/doctoral studies in a computational science/computer science/artificial intelligence/NetSci/CX program (forthcoming!).
