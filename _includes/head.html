@@ -8,19 +8,19 @@
 
     <!-- jQuery + jQ Mobile -->
     <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jquerymobile/1.4.3/jquery.mobile.min.css" />
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-       <script type="text/javascript">
-          $(document).ready(function() {
-            $('body').css('display', 'none');
+    <script type="script/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script type="script/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+      <script type="text/javascript">
+        $(document).ready(function() {
+          $('body').css('display', 'none');
 
-            $('body').fadeIn(200);
+          $('body').fadeIn(200);
 
-            $('a.page-link').click(function(event) {
-              event.preventDefault();
-              linkLocation = this.href;
-              $("body").fadeOut(200, redirectPage);
-            });
+          $('a.page-link').click(function(event) {
+            event.preventDefault();
+            linkLocation = this.href;
+            $("body").fadeOut(200, redirectPage);
+          });
 
             $('a.post-link').click(function(event) {
               event.preventDefault();
@@ -34,49 +34,10 @@
           });
         </script>
 
-    <!-- Add fancyBox -->
-    <link rel="stylesheet" href="/fancybox/source/jquery.fancybox.css?v=2.1.5" type="text/css" media="screen" />
-    <script type="text/javascript" src="/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-      <script type="text/javascript">
-        $(document).ready(function() {
-        $("#ucla_dogs").fancybox({
-              helpers: {
-                title : {
-                  type : 'float'
-                }
-              }
-            });
-
-            $("#ucla_dogs02").fancybox({
-            	openEffect	: 'elastic',
-            	closeEffect	: 'elastic',
-
-            	helpers : {
-            		title : {
-            			type : 'inside'
-            		}
-            	}
-            });
-
-            $("#single_3").fancybox({
-            	openEffect : 'none',
-            	closeEffect	: 'none',
-            	helpers : {
-            		title : {
-            			type : 'outside'
-            		}
-            	}
-            });
-
-            $("#single_4").fancybox({
-            	helpers : {
-            		title : {
-            			type : 'over'
-            		}
-            	}
-            });
-        });
-      </script>
+    <!-- Lightbox -->
+    <script type="script/javascript" src="../js/jquery-1.10.2.min.js"></script>
+    <script type="script/javascript" src="../js/lightbox-2.6.min.js"></script>
+	  <link rel="stylesheet" href="{{ "/css/lightbox.css" | prepend: site.baseurl }}">
 
     <!-- Typeface -->
     <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,900,400italic|Lato:100,300,300italic|Open+Sans+Condensed:700' rel='stylesheet' type='text/css'>
