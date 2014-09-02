@@ -241,7 +241,7 @@ permalink: "/vitae/"
 
 ## <i class="fa fa-trophy fa-lg"></i>  Accomplishments
 
-<ul>  
+  <ul>  
   <i class="fa fa-angle-double-right fa-lg"></i>  <strong>Designed, proofed, prepared, + labored over Peer Advocate 'Zine for Skid Row Housing Trust's Hilton Project 'Zine "I Got You", which will be released during a end of grant event for all project participants</strong>
   </ul>
   <ul>
@@ -250,11 +250,10 @@ permalink: "/vitae/"
   <ul>
   <i class="fa fa-angle-double-right fa-lg"></i>  <strong>Was recognized by two articles online for work promoting library services + collections through early-adoption of Vine</strong>
   </ul>
-</ul>
 
 ## <i class="fa fa-child fa-lg"></i>  Interests
 
-<ul>
+  <ul>
   <i class="fa fa-angle-double-right fa-lg"></i>  <strong>Learning to code; currently, I'm taking two CS courses at community college: a Python course, and a database systems course (excited to get into the noSQL stuff!).  Also follow as many Data Science, Data Viz, Mathematics, CX MOOCs as possible to keep my brain flexible and exercised.</strong>
   </ul>
   <ul>
@@ -265,6 +264,6 @@ permalink: "/vitae/"
   </ul>
   <ul>
   <i class="fa fa-angle-double-right fa-lg"></i>  <strong>Exploration: I like to explore other places through travel + food; ideologies through reading + communicating, + world through science + discovery!</strong>
-</ul>
+  </ul>
 
 ### <a class="page-link" href="/">Go Back!</a>
