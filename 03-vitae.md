@@ -7,7 +7,7 @@ permalink: "/vitae/"
 ## <i class="fa fa-compass fa-lg"></i>  Personal Philosophy
 
 <ul>
-  <i class="fa fa-angle-double-right fa-lg"></i>  <strong>I believe that the 21st century requires a more multifacited toolkit if we hope to solve complex challenges&#8212;process + task orientation balanced within a framework that fosters strategic thinking.  That interdisciplinary relationships can be strengthened through active community engagement</strong>
+  <i class="fa fa-angle-double-right fa-lg"></i>  <strong>I believe that the 21st century requires a more multifaceted toolkit if we hope to solve complex challenges&#8212;process + task orientation balanced within a framework that fosters strategic thinking.  That interdisciplinary relationships can be strengthened through active community engagement</strong>
 </ul>
 <ul>
   <i class="fa fa-angle-double-right fa-lg"></i>  <strong>I bring a lot of energy + enthusiasm to the projects that I become involved in.  I thrive in situations that require imagination + innovation.  I have a broad range of interests; from academic inquiry, the music + cuisine of other cultures, the arts, travelling, languages; to a passion for social justice, education for all people, + that our most vulnerable deserve respect + to be treated with dignity + fairness</strong>
@@ -122,7 +122,7 @@ permalink: "/vitae/"
 <!-- SRHT -->
 <ul>  
   <h3>Skid Row Housing Trust_Los Angeles, CA</h3>
-  <h4>Housing Transition Specialist / November 2013—Present</h4>
+  <h4>Housing Transition Specialist / November 2013&#8212;Present</h4>
   <ul>
   <i class="fa fa-angle-double-right fa-lg"></i>  <strong>responsible for administering + uploading of GPRA + National Evaluation data to SAMHSA + its affiliates while maintaining confidentiality + records keeping due diligence (on-going)</strong>
   </ul>
@@ -152,7 +152,7 @@ permalink: "/vitae/"
 <!-- UCLA Powell -->
 <ul>
   <h3>UCLA Powell Library_Los Angeles, CA</h3>
-  <h4>Social Media Intern / January 2013—November 2013</h4>
+  <h4>Social Media Intern / January 2013&#8212;November 2013</h4>
   <ul>
   <i class="fa fa-angle-double-right fa-lg"></i>  <strong>designed + implemented new digital signage/print flyers to promote library outreach, services, + events</strong>
   </ul>
@@ -191,7 +191,7 @@ permalink: "/vitae/"
 <!-- Taylor Mortgage Lawyers -->
 <ul>
   <h3>Taylor Mortgage Lawyers_Pasadena, CA</h3>
-  <h4>Administrator / May 2010—February 2011</h4>
+  <h4>Administrator / May 2010&#8212;February 2011</h4>
   <ul>
   <i class="fa fa-angle-double-right fa-lg"></i>  <strong>drafted outgoing legal correspondence + created document templates to ease workflow</strong>
   </ul>
@@ -212,7 +212,7 @@ permalink: "/vitae/"
 <!-- Chino Valley -->
 <ul>
   <h3>Chino Valley Unified School District_Chino, CA</h3>
-    <h4>Substitute Teacher / September 2008—July 2009</h4>
+    <h4>Substitute Teacher / September 2008&#8212;July 2009</h4>
       <ul>
         <i class="fa fa-angle-double-right fa-lg"></i>  <strong>facilitated classroom instruction for wide socio-economic populations + age groups</strong>
       </ul>
@@ -227,7 +227,7 @@ permalink: "/vitae/"
 <!-- UCLA Philos -->
 <ul>
   <h3>UCLA Philosophy Department_Los Angeles, CA</h3>
-  <h4>Library Assistant / January 2006—August 2006</h4>
+  <h4>Library Assistant / January 2006&#8212;August 2006</h4>
   <ul>
   <i class="fa fa-angle-double-right fa-lg"></i>  <strong>responsible for the circulation + shelving of philosophy department’s library materials</strong>
   </ul>
@@ -245,7 +245,11 @@ permalink: "/vitae/"
   <i class="fa fa-angle-double-right fa-lg"></i>  <strong>Designed, proofed, prepared, + labored over Peer Advocate 'Zine for Skid Row Housing Trust's Hilton Project 'Zine "I Got You", which will be released during a end of grant event for all project participants</strong>
   </ul>
   <ul>
-  <i class="fa fa-angle-double-right fa-lg"></i>  <strong>Was asked to help design + brainstorm a flyer for the UCLA Library system because of interest in design + outreach for libraries--the final project was the "Top 10 Things" flyer, which was a successful campaign to engage students in library programming + services</strong>
+  <i class="fa fa-angle-double-right fa-lg"></i>  <strong>Was asked to help design + brainstorm a flyer for the UCLA Library system because of interest in design + outreach for libraries&#8212;the final project was the "Top 10 Things" flyer, which was a successful campaign to engage students in library programming + services</strong>
+  </ul>
+  <ul>
+  <i class="fa fa-angle-double-right fa-lg"></i>  <strong>Was recognized by two articles online for work promoting library services + collections through early-adoption of Vine</strong>
+  </ul>
 </ul>
 
 ## <i class="fa fa-child fa-lg"></i>  Interests
