@@ -20,9 +20,9 @@ permalink: "/portfolio/"
   * ![UCLA Library Top 10 Flyer Img](../img/ucla-top10-small.png "UCLA Library Top 10 Flyer")
 
 <div>
-  <ul>
+  <li>
   <img src="../img/ucla-lcp.jpg"/>
-  </ul>
+  </li>
 </div>
 
 ### <a class="page-link" href="/">Go Back!</a>
