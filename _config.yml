@@ -15,5 +15,6 @@ markdown: kramdown
 permalink: pretty
 
 # Jekyll-slideshow thumbnail setting
+slideshow:
   width: 150
   height: 100
