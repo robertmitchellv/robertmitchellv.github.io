@@ -16,5 +16,5 @@ permalink: pretty
 
 # Jekyll-slideshow thumbnail setting
 slideshow:
-  width: 150
-  height: 100
+    width: 150
+    height: 100
