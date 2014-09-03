@@ -6,7 +6,11 @@ permalink: "/portfolio/"
 
 ### Skid Row Housing Trust
 
+<div>
 
+[![Wayfinding(../img/ucla-dogs02-small.png)]](../img/ucla-dogs02.jpg)
+
+</div>
 
 ### UCLA Library
 
