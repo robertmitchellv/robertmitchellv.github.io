@@ -46,7 +46,9 @@ observations than we leave and, in light of this; we should attempt to root out 
 building more honest reflections of knowledge.  And, again, in this way, we stand the chance of achieving some
 kind of universe of human knowledge, or at least a good representation of what we feel that we know.
 
-
+<br>
+<br>
+<br>
 
 [^1]: Foucault, M. 2002. The order of things an archaeology of the human sciences. London and New York: Routledge Classics (Original work published 1966).
 [^2]: Ibid
@@ -55,3 +57,5 @@ kind of universe of human knowledge, or at least a good representation of what w
 [^5]: Ibid
 [^6]: "Different from utopias, which also have no locality, heterotopias are disturbing because they undermine language, make impossible the naming of ‘this’ or ‘that’, because they shatter both the syntax that humans construct sentences with, as well as the syntax that holds words and things together"
 [^7]: Foucault, 2002
+
+### <a class="page-link" href="/">Go Back!</a>

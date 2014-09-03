@@ -8,10 +8,13 @@ permalink: "/portfolio/"
 
 <div>
 
-  ![](../img/srht-cover.jpg)
-  ![](../img/srht-titlepage.jpg)
-  ![](../img/srht-pg1.jpg)
-  ![](../img/srht-pg5.jpg)
+  ![Cover](../img/srht-cover.jpg)
+
+  ![Titlepage](../img/srht-titlepage.jpg)
+
+  ![Sample Pages](../img/srht-pg1.jpg)
+  
+  ![Sample Pages](../img/srht-pg5.jpg)
 
 </div>
 
