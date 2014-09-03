@@ -1,3 +1,8 @@
+# jekyll-slideshow
+slideshow:
+    width: 150
+    height: 100
+
 # Site settings
 title: RBMV
 email: robert@robertmitchellv.com
@@ -13,8 +18,3 @@ timezone: America/Los_Angeles
 # Build settings
 markdown: kramdown
 permalink: pretty
-
-# jekyll-slideshow
-slideshow:
-    width: 150
-    height: 100
