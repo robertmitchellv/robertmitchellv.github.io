@@ -7,7 +7,7 @@ permalink: "/portfolio/"
 ### Skid Row Housing Trust
 
 <div>
-  <a href="srht-cover.jpg"><img src="srht-cover-small.jpg" /></a>
+  <a href="../img/srht-cover.jpg"><img src="../img/srht-cover-small.jpg" /></a>
 </div>
 
 ### UCLA Library
