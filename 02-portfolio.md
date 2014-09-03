@@ -6,7 +6,7 @@ permalink: "/portfolio/"
 
 ### Skid Row Housing Trust
 
-  ![alt text][srht_cover]
+  [alt text][srht_cover]
   ![Example Image](../img/srht_titlepage.jpg)
   ![Example Image](../img/srht_pg1.jpg)
   ![Example Image](../img/srht_pg5.jpg)
@@ -22,4 +22,7 @@ permalink: "/portfolio/"
 
 ### <a class="page-link" href="/">Go Back!</a>
 
-[srht_cover]: ../img/srht_cover.jpg "cover of Peer Advocat 'Zine"
+[srht-cover]: ../img/srht_cover.jpg "cover of Peer Advocat 'Zine"
+[srht-titlepage]: ../img/srht_titlepage.jpg "Titlepage"
+[srht-pg1]: ../img/srht_pg1.jpg "Sample page selection 01"
+[srht-pg5]: ../img/srht_pg5.jpg "Sample page selection 02"
