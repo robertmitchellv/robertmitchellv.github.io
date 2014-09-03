@@ -21,7 +21,7 @@ permalink: "/portfolio/"
 
 <div>
   <ul>
-    <img src="../img/ucla-lcp.jpg"/>
+  <img src="../img/ucla-lcp.jpg"/>
   </ul>
 </div>
 
