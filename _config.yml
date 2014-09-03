@@ -13,8 +13,3 @@ timezone: America/Los_Angeles
 # Build settings
 markdown: kramdown
 permalink: pretty
-
-# Jekyll-slideshow
-slideshow:
-    width: 150
-    height: 100
