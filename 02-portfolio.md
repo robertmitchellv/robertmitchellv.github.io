@@ -8,10 +8,10 @@ permalink: "/portfolio/"
 
 <div>
 
-  <img src="../img/srht-cover.jpg" />
-  <img src="../img/srht-titlepage.jpg" />
-  <img src="../img/srht-pg1.jpg" />
-  <img src="../img/srht-pg5.jpg" />
+  ![](../img/srht-cover.jpg)
+  ![](../img/srht-titlepage.jpg)
+  ![](../img/srht-pg1.jpg)
+  ![](../img/srht-pg5.jpg)
 
 </div>
 
