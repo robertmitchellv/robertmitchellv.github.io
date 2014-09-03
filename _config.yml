@@ -14,7 +14,7 @@ timezone: America/Los_Angeles
 markdown: kramdown
 permalink: pretty
 
-# Jekyll-slideshow thumbnail setting
+# Jekyll-slideshow
 slideshow:
     width: 150
     height: 100
