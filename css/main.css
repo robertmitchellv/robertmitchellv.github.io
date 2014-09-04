@@ -466,6 +466,11 @@ ul.img-grid li img {
   margin: 0 0 5px;
 }
 
+div.image {
+  width: 700px;
+  height: auto;
+}
+
 /* Page Content styles */
 /* ----------------------------------------------------------*/
 
