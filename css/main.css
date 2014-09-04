@@ -1045,15 +1045,13 @@ div.image img {
 
   .site-nav .menu-icon {
     display: block;
-    font-size: 24px;
-    color: #505050;
+    font-size: 30px;
+    color: rgba(238,64,61,.8);
     float: right;
     width: 36px;
     text-align: center;
-    line-height: 36px;
+    line-height: 3px;
   }
-
-  .site-nav .menu-icon svg { width: 18px; height: 16px; }
 
   .site-nav .trigger {
     clear: both;
@@ -1125,10 +1123,12 @@ div.image img {
 
   .site-nav .menu-icon {
     display: block;
+    font-size: 25px;
     color: rgba(238,64,61,.8);
     float: right;
-    width: 35px;
-    height: 35px;
+    width: 36px;
+    text-align: center;
+    line-height: 3px;
   }
 
   .site-nav .trigger {
