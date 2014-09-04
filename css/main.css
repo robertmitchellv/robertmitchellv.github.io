@@ -438,6 +438,34 @@ nav a:focus {
   transform: rotate(225deg);
 }
 
+/* Portfolio img grid */
+/* ----------------------------------------------------------*/
+
+ul.img-grid {
+  list-style: none;
+  font-size: 0px;
+  margin-right: -2.5%;
+}
+
+ul.img-grid li {
+  display: inline-block;
+  padding: 10px;
+  margin: 0 0 2.5% 2.5%;
+  font-size: 16px;
+  font-size: 1rem;
+  vertical-align: top;
+  box-shadow: 0 0 5px #ddd;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+
+ul.img-grid li img {
+  max-width: 200px;
+  height: auto;
+  margin: 0 0 10px;
+}
+
 /* Page Content styles */
 /* ----------------------------------------------------------*/
 
