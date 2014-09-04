@@ -1230,7 +1230,7 @@ div.image img {
   .post-content ol { padding-left: 10px; }
 
   ul.img-grid li img {
-    max-width: 150px;
+    max-width: 100px;
     height: auto;
     margin: 0 0 5px;
   }
