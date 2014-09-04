@@ -449,10 +449,7 @@ ul.img-grid {
 
 ul.img-grid li {
   display: inline-block;
-  padding: 5px;
   margin: 0 0 2.5% 2.5%;
-  font-size: 16px;
-  font-size: 1rem;
   vertical-align: top;
   box-shadow: 0 0 5px #ddd;
   box-sizing: border-box;
@@ -467,7 +464,7 @@ ul.img-grid li img {
 }
 
 div.image img {
-  max-width: 700px;
+  max-width: 750px;
   height: auto;
 }
 
