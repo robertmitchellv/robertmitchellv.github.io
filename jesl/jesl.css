@@ -1,18 +1,18 @@
 .jesl-modal-overlay {
     position: fixed;
-    top: 0;  
-    right: 0;  
-    bottom: 0;  
-    left: 0;  
-    height: 100%;  
-    width: 100%;  
-    margin: 0;  
-    padding: 0;  
-    background: black;  
-    opacity: .75;  
-    filter: alpha(opacity=75);  
-    -moz-opacity: 0.75;  
-    z-index: 50; 
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    height: 80%;  
+    width: auto;
+    margin: 0;
+    padding: 0;
+    background: black;
+    opacity: .75;
+    filter: alpha(opacity=75);
+    -moz-opacity: 0.75;
+    z-index: 50;
 }
 
 .jesl-box {
