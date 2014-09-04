@@ -1094,6 +1094,12 @@ div.image img {
     width: auto;
     margin: 0 0 15px; }
 
+  ul.img-grid li img {
+    max-width: 250px;
+    height: auto;
+    margin: 0 0 5px;
+  }
+
   div.image img {
     max-width: 450px;
     height: auto;
@@ -1222,6 +1228,12 @@ div.image img {
   .post-content blockquote { padding-left: 10px; }
   .post-content ul,
   .post-content ol { padding-left: 10px; }
+
+  ul.img-grid li img {
+    max-width: 150px;
+    height: auto;
+    margin: 0 0 5px;
+  }
 
   div.image img {
     max-width: 300px;
