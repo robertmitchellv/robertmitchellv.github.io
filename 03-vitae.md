@@ -90,7 +90,7 @@ permalink: "/vitae/"
   <i class="fa fa-angle-double-right fa-lg"></i>  <strong>Git/GitHub user (a lot to learn)</strong>
 </ul>
 <ul>
-  <i class="fa fa-angle-double-right fa-lg"></i>  <strong>Data Analysis student (read: _novice_) with some familiarity with regression, visualization (matplotlib + D3), + machine learning</strong>
+  <i class="fa fa-angle-double-right fa-lg"></i>  <strong>Data Analysis student (read: novice) with some familiarity with regression, visualization (matplotlib + D3), + machine learning</strong>
 </ul>
 <ul>
   <i class="fa fa-angle-double-right fa-lg"></i>  <strong>Knowledge of metadata schemas/rules/best practices: AACR2, RDA, MODS, METS, + PREMIS</strong>

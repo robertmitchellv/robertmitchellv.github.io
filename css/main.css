@@ -807,6 +807,11 @@ div.image img {
     margin-left: 2.9em;
     margin-top: .5em;
   }
+
+  div.image img {
+    max-width: 600px;
+    height: auto;
+  }
 }
 
 
@@ -901,6 +906,11 @@ div.image img {
     clear: both;
     font-size: 13px;
   }
+
+  div.image img {
+    max-width: 580px;
+    height: auto;
+  }
 }
 
 @media screen and (max-width: 750px) {
@@ -994,6 +1004,11 @@ div.image img {
     clear: both;
     font-size: 13px;
   }
+
+  div.image img {
+    max-width: 520px;
+    height: auto;
+  }
 }
 
 @media screen and (max-width: 600px) {
@@ -1079,6 +1094,10 @@ div.image img {
     width: auto;
     margin: 0 0 15px; }
 
+  div.image img {
+    max-width: 450px;
+    height: auto;
+  }
 }
 
 @media screen and (max-width: 320px) {
@@ -1203,4 +1222,9 @@ div.image img {
   .post-content blockquote { padding-left: 10px; }
   .post-content ul,
   .post-content ol { padding-left: 10px; }
+
+  div.image img {
+    max-width: 300px;
+    height: auto;
+  }
 }
