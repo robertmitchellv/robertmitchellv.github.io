@@ -57,5 +57,3 @@ kind of universe of human knowledge, or at least a good representation of what w
 [^5]: Ibid
 [^6]: "Different from utopias, which also have no locality, heterotopias are disturbing because they undermine language, make impossible the naming of ‘this’ or ‘that’, because they shatter both the syntax that humans construct sentences with, as well as the syntax that holds words and things together"
 [^7]: Foucault, 2002
-
-### <a class="page-link" href="/">Go Back!</a>
