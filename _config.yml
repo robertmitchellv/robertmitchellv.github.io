@@ -13,3 +13,6 @@ timezone: America/Los_Angeles
 # Build settings
 markdown: kramdown
 permalink: pretty
+
+# Simple-Jekyll-Search
+search: true
