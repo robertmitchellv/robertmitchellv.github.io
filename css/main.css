@@ -336,7 +336,7 @@ nav a:focus {
 .site-footer::after {
   content: "";
   background: url(img/subway.png);
-  opacity: 0.4;
+  opacity: 0.29;
   top: 0;
   left: 0;
   bottom: 0;
