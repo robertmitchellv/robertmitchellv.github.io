@@ -126,13 +126,13 @@ a {
 /* ----------------------------------------------------------*/
 
 .site-header {
-  border-top: 5em solid transparent;
+  border-top: 10em solid transparent;
   border-bottom: .02px solid rgba(0,176,200,.3);
   border-right: .02px solid rgba(0,176,200,.3);
   border-left: .02px solid rgba(0,176,200,.3);
-  -webkit-border-image :url(img/sea.jpg);
+  -webkit-border-image: url(img/sea.jpg);
   border-image-source: url(img/sea.jpg);
-  border-image-slice: 35;
+  border-image-slice: 100;
   background-color: rgba(145,214,213,.5);
 }
 
@@ -153,7 +153,8 @@ a {
 
 .home {
   width: auto;
-  padding-top: 30px;
+  padding-top: 8em;
+  background-color: rgba(179,226,227,.5);
 }
 
 .home h1 { margin-bottom: 25px; }
@@ -164,7 +165,7 @@ a {
   padding-left: 150px;
   padding-right: 150px;
   padding-bottom: 80px;
-  background-color: #ffffff;
+  background-color: rgba(225,225,225,.3);
 
 }
 
@@ -185,8 +186,11 @@ a {
 .wrap:after { clear: both; }
 .wrap {
   width: auto;
-  padding-left: 25px;
-  padding-right: 25px;
+  zoom: 1;
+}
+
+.navbar-wrapper {
+  width: 100%;
   zoom: 1;
 }
 
@@ -224,12 +228,15 @@ nav a:focus {
 /* ----------------------------------------------------------*/
 
 .site-nav {
+  width: 100%;
   text-align: center;
   line-height: 56px;
+  background: rgb(236,64,61);
+
 }
 
 .site-nav a:hover {
-  color: #ee403d;
+  color: #A70B07;
 }
 
 .site-nav a::before {
@@ -277,7 +284,7 @@ nav a:focus {
 
 .site-nav .page-link {
   margin-left: 20px;
-  color: rgba(0,0,0,.8);
+  color: rgba(224,224,224,.9);
   letter-spacing: -.5px;
 }
 
@@ -286,11 +293,12 @@ nav a:focus {
 
 .logo {
   padding: 5em 0em;
-  padding-top: 5em;
+  padding-top: 7em;
   padding-right: 0em;
-  padding-bottom: 5em;
+  padding-bottom: 7em;
   padding-left: 0em;
   text-align: center;
+  background: rgba(179,226,227,.8);
 }
 
 .logo-img {
@@ -321,12 +329,54 @@ nav a:focus {
   color: rgba(0,0,0,.6);
 }
 
+/* Small-Logo */
+/* ----------------------------------------------------------*/
+
+.small-logo {
+  padding: .5em 0em;
+  padding-top: 1.5em;
+  padding-right: 0em;
+  padding-bottom: 1.5em;
+  padding-left: 0em;
+  text-align: center;
+  background: rgba(179,226,227,.8);
+}
+
+.small-logo-img {
+  width: 200px;
+  height: auto;
+}
+
+.small-logo h1 {
+  font-size: 4.0em;
+  font-weight: 100;
+  letter-spacing: 0.03em;
+}
+
+.small-logo a {
+  text-decoration: none;
+}
+
+.small-logo span {
+  text-transform: uppercase;
+  letter-spacing: 0.10em;
+  font-weight: 300;
+  font-style: italic;
+  font-size: 1em;
+  color: rgba(0,0,0,.5);
+}
+
+.small-logo {
+  color: rgba(0,0,0,.6);
+}
+
+
 /* Footer */
 /* ----------------------------------------------------------*/
 
 .site-footer {
   border-top: .1px solid #ffffff;
-  padding-top: 80px;
+  padding-top: 30px;
   padding-left: 230px;
   padding-right: 230px;
   padding-bottom: 130px;
@@ -407,6 +457,18 @@ nav a:focus {
   color: #000000;
 }
 
+/* Search */
+/* ----------------------------------------------------------*/
+
+.search {
+  float: right;
+}
+
+.fa-search {
+  padding: 10px;
+  color: rgba(225,225,225,3);
+}
+
 /* About me */
 /* ----------------------------------------------------------*/
 
@@ -433,9 +495,10 @@ nav a:focus {
 
 .fa-pencil {
   color: #91d6d4;
-  -ms-transform: rotate(225deg);
-  -webkit-transform: rotate(225deg);
-  transform: rotate(225deg);
+}
+
+.fa-arrow-circle-o-left {
+  padding: 5px;
 }
 
 /* Portfolio img grid */
@@ -471,10 +534,7 @@ div.image img {
 /* Page Content styles */
 /* ----------------------------------------------------------*/
 
-.page-content {
-  padding-top: 50px;
-  background-color: rgba(179,226,227,.5);
-}
+.page-content { background-color: rgba(179,226,227,.8hide); }
 
 .posts { list-style-type: none; }
 
@@ -500,7 +560,7 @@ div.image img {
 /* ----------------------------------------------------------*/
 
 .post-header {
-  margin: 10px 0 30px;
+  margin: 0 0 30px;
  }
 
 .post-header h1 {

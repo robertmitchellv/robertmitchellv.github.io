@@ -266,4 +266,4 @@ permalink: "/vitae/"
   <i class="fa fa-angle-double-right fa-lg"></i>  <strong>Exploration: I like to explore other places through travel + food; ideologies through reading + communicating, + world through science + discovery!</strong>
   </ul>
 
-### <a class="page-link" href="/">Go Back!</a>
+### <a class="page-link" href="/"><i class="fa fa-arrow-circle-o-left fax2"></i>Go Back!</a>

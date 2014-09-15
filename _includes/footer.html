@@ -1,8 +1,14 @@
 <footer class="site-footer">
+
   <!-- wrapper -->
   <div class="wrap">
+
     <!-- footer logo -->
-    <h2 class="footer-heading"><img class="footer-img" src="img/rbmv_footer.png" /></h2>
+    <h2 class="footer-heading">
+      <a class="page-link" href="{{ site.baseurl }}/">
+        <img class="footer-img" src="{{ "/img/rbmv_footer.png" | prepend: site.baseurl }}" />
+      </a>
+    </h2>
 
     <!-- column 1 -->
       <div class="footer-col-1 column">
@@ -48,5 +54,53 @@
       </div>
 
   </div>
+
+  <!-- Scripts -->
+
+  <!-- jQuery + jQ Mobile -->
+  <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/jquerymobile/1.4.3/jquery.mobile.min.css" />
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $('body').css('display', 'none');
+
+        $('body').fadeIn(200);
+
+        $('a.page-link').click(function(event) {
+          event.preventDefault();
+          linkLocation = this.href;
+          $("body").fadeOut(200, redirectPage);
+        });
+
+          $('a.post-link').click(function(event) {
+            event.preventDefault();
+            linkLocation = this.href;
+            $("body").fadeOut(200, redirectPage);
+          });
+
+          function redirectPage() {
+            window.location = linkLocation;
+          }
+        });
+      </script>
+
+  <!-- jekyll-slideshow -->
+  <link rel="stylesheet" href="{{ "/jesl/jesl.min.css" | prepend: site.baseurl }}">
+  <script src="{{ "/jesl/jesl.min.js" | prepend: site.baseurl }}"></script>
+
+
+  <!-- stickUP -->
+      <script src="{{ "/js/stickUp.min.js" | prepend: site.baseurl }}"></script>
+          <script type="text/javascript">
+            //initiating jQuery
+            jQuery(function($) {
+              $(document).ready( function() {
+                //enabling stickUp on the '.navbar-wrapper' class
+                $('.navbar-wrapper').stickUp();
+              });
+            });
+
+          </script>
 
 </footer>

@@ -16,4 +16,4 @@ permalink: "/connect/"
 
 #### Feel free to connect with me via the above referenced outlets!
 
-### <a class="page-link" href="/">Go Back!</a>
+### <a class="page-link" href="/"><i class="fa fa-arrow-circle-o-left fax2"></i>Go Back!</a>

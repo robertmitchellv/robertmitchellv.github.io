@@ -26,4 +26,4 @@ permalink: "/portfolio/"
   * ![Guided Meditation Flyer Img](../img/ucla-meditation.jpg "Guided Meditation Flyer")
 {:refdef}
 
-### <a class="page-link" href="/">Go Back!</a>
+### <a class="page-link" href="/"><i class="fa fa-arrow-circle-o-left fax2"></i>Go Back!</a>
