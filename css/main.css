@@ -324,6 +324,10 @@ nav a:focus {
   font-weight: 100;
 }
 
+.fa-angle-double-right {
+  padding: 8px;
+}
+
 /* Logo */
 /* ----------------------------------------------------------*/
 
