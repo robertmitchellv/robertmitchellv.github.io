@@ -230,7 +230,7 @@ nav a:focus {
 .site-nav {
   width: 100%;
   text-align: center;
-  line-height: 56px;
+  line-height: 45px;
   background: rgb(236,64,61);
 
 }
@@ -286,6 +286,40 @@ nav a:focus {
   margin-left: 20px;
   color: rgba(224,224,224,.9);
   letter-spacing: -.5px;
+}
+
+/* Search */
+/* ----------------------------------------------------------*/
+
+.search {
+  float: right;
+}
+
+.fa-search {
+  padding-right: 1em;
+  padding-top: .2em;
+  color: rgba(225,225,225,3);
+}
+
+
+/* Breadcrumbs */
+/* ----------------------------------------------------------*/
+
+.breadcrumbs {
+  width: 100%;
+  line-height: 30px;
+  background: rgba(10,10,10,.5);
+}
+
+.breadcrumbs ol {
+  list-style: none;
+  text-align: right;
+}
+
+.breadcrumbs a {
+  color: rgba(225,225,225,.9);
+  text-transform: uppercase;
+  font-weight: 100;
 }
 
 /* Logo */
@@ -455,18 +489,6 @@ nav a:focus {
   font-weight: 700;
   letter-spacing: .02px;
   color: #000000;
-}
-
-/* Search */
-/* ----------------------------------------------------------*/
-
-.search {
-  float: right;
-}
-
-.fa-search {
-  padding: 10px;
-  color: rgba(225,225,225,3);
 }
 
 /* About me */
