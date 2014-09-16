@@ -313,6 +313,7 @@ nav a:focus {
 
 .breadcrumbs ol li {
   list-style: none;
+  display: inline-block;
   text-align: left;
   padding-left: 10px;
 }
