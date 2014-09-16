@@ -26,13 +26,13 @@
           {% if num_parts == "0" or num_parts == "-1" %}
             <li><a href="/">home</a> &nbsp; </li>
            {% else %}
-             <li><a href="/">home</a> &#187; </li>
+             <li><a href="/">home</a><i class="fa fa-angle-double-right"></i></li>
 
              {% for unused in page.content limit:num_parts %}
              {% capture first_word %}{{ url_parts | truncatewords:1 | remove:"..."}}{% endcapture %}
              {% capture previous %}{{ previous }}/{{ first_word }}{% endcapture %}
 
-             <li><a href="{{previous}}">{{ first_word }}</a> &#187; </li>
+             <li><a href="{{previous}}">{{ first_word }}</a><i class="fa fa-angle-double-right"></i></li>
 
              {% capture url_parts %}{{ url_parts }}{% endcapture %}
             {% endfor %}

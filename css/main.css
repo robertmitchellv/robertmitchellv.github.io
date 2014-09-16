@@ -311,9 +311,10 @@ nav a:focus {
   background: rgba(10,10,10,.5);
 }
 
-.breadcrumbs ol {
+.breadcrumbs ol li {
   list-style: none;
-  text-align: right;
+  text-align: left;
+  padding-left: 10px;
 }
 
 .breadcrumbs a {
