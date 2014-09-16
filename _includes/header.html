@@ -19,9 +19,25 @@
         </div>
     </nav>
     <div class="breadcrumbs">
-      <ol>
-        <li><a class="page-link" href="{{ page.url }}" >{{ page.title }}</li>
-      </ol>
+      {% capture url_parts %} {{ page.url | remove: ".html" | replace:'/'," " }}{% endcapture %}
+      {% capture num_parts %}{{ url_parts }}{% endcapture %}
+      {% assign previous="" %}
+        <ol>
+          {% if num_parts == "0" or num_parts == "-1" %}
+            <li><a href="/">home</a> &nbsp; </li>
+           {% else %}
+             <li><a href="/">home</a> &#187; </li>
+
+             {% for unused in page.content limit:num_parts %}
+             {% capture first_word %}{{ url_parts | truncatewords:1 | remove:"..."}}{% endcapture %}
+             {% capture previous %}{{ previous }}/{{ first_word }}{% endcapture %}
+
+             <li><a href="{{previous}}">{{ first_word }}</a> &#187; </li>
+
+             {% capture url_parts %}{{ url_parts }}{% endcapture %}
+            {% endfor %}
+           {% endif %}
+        </ol>
     </div>
   </div>
 </header>
