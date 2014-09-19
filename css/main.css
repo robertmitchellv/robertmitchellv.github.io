@@ -805,28 +805,34 @@ div.image img {
     font-size: 12px;
   }
 
-  .page-content {
-    padding-top: 10px;
-  }
-
   .wrap {
     width: auto;
-    padding-left: 15px;
-    padding-right: 15px;
   }
 
   .home {
     width: auto;
-    paddint-top: 15px;
+  }
+
+  .site-nav .page-link {
+    margin-left: 10px;
+  }
+
+  .site-nav a {
+    font-size: 18px;
+    font-weight: 100;
+  }
+
+  .breadcrumbs {
+    font-size: 14px;
   }
 
   .logo-img {
-    width: 200px;
+    width: 280px;
     height: auto;
   }
 
   .welcome {
-    width: auto;
+    width: 80%;
     font-size: 13px;
     border-top: 15px solid rgba(238,64,61,.8);
     border-left: 15px solid rgba(238,64,61,.5);
@@ -842,7 +848,7 @@ div.image img {
   }
 
   .home2 h1 {
-    font-size: 45;
+    font-size: 45px;
     padding-top: 20px;
     padding-bottom: 15px;
   }
@@ -909,28 +915,39 @@ div.image img {
     font-size: 12px;
   }
 
-  .page-content {
-    padding-top: 10px;
-  }
-
   .wrap {
     width: auto;
-    padding-left: 15px;
-    padding-right: 15px;
   }
 
   .home {
     width: auto;
-    paddint-top: 15px;
   }
 
+.site-nav .page-link {
+  margin-left: 10px;
+}
+
+.site-nav a {
+  font-size: 18px;
+  font-weight: 100;
+}
+
+.breadcrumbs {
+  font-size: 14px;
+}
+
+.logo-img {
+  width: 280px;
+  height: auto;
+}
+
   .logo-img {
-    width: 200px;
+    width: 250px;
     height: auto;
   }
 
   .welcome {
-    width: auto;
+    width: 80%;
     font-size: 13px;
     border-top: 15px solid rgba(238,64,61,.8);
     border-left: 15px solid rgba(238,64,61,.5);
@@ -946,7 +963,7 @@ div.image img {
   }
 
   .home2 h1 {
-    font-size: 45;
+    font-size: 45px;
     padding-top: 20px;
     padding-bottom: 15px;
   }
@@ -1007,14 +1024,8 @@ div.image img {
     font-size: 12px;
   }
 
-  .page-content {
-    padding-top: 10px;
-  }
-
   .wrap {
     width: auto;
-    padding-left: 15px;
-    padding-right: 15px;
   }
 
   .home {
@@ -1022,13 +1033,25 @@ div.image img {
     paddint-top: 15px;
   }
 
+  .site-nav .page-link { margin-left: 10px; }
+
+  .site-nav a {
+    font-size: 14px;
+    font-weight: 100;
+  }
+
+  .breadcrumbs {
+    line-height: 18px;
+    font-size: 12px;
+  }
+
   .logo-img {
-    width: 200px;
+    width: 250px;
     height: auto;
   }
 
   .welcome {
-    width: auto;
+    width: 80%;
     font-size: 13px;
     border-top: 15px solid rgba(238,64,61,.8);
     border-left: 15px solid rgba(238,64,61,.5);
@@ -1044,7 +1067,7 @@ div.image img {
   }
 
   .home2 h1 {
-    font-size: 45;
+    font-size: 45px;
     padding-top: 20px;
     padding-bottom: 15px;
   }
@@ -1107,8 +1130,6 @@ div.image img {
 
   .wrap {
     width: auto;
-    padding-left: 0;
-    padding-right: 0;
   }
 
   .logo-img {
@@ -1243,8 +1264,6 @@ div.image img {
 
   .wrap {
     width: auto;
-    padding-left: 0;
-    padding-right: 0;
   }
 
   .logo-img {
