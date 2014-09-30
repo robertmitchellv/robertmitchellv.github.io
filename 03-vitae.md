@@ -108,7 +108,7 @@ permalink: "/vitae/"
 ## <i class="fa fa-graduation-cap fa-lg"></i>  Education
 
 <ul>  
-  <i class="fa fa-angle-double-right fa-lg"></i>  <strong>University of North Texas | Master of Information Science (2013)</strong>
+  <i class="fa fa-angle-double-right fa-lg"></i>  <strong>University of North Texas | Master of Science in Information Science (2013)</strong>
 </ul>
 <ul>
   <i class="fa fa-angle-double-right fa-lg"></i>  <strong>University of California, Los Angeles (UCLA) | Bachelor of Arts in French + comparative literature (2008 / double major)</strong>
