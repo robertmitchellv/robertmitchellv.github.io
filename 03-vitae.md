@@ -119,10 +119,40 @@ permalink: "/vitae/"
 
 ## <i class="fa fa-institution fa-lg"></i>  Work Experience
 
-<!-- SRHT -->
+<!-- SRHT / HSC / ETO Admin -->
 <ul>  
   <h3>Skid Row Housing Trust_Los Angeles, CA</h3>
-  <h4>Housing Transition Specialist / November 2013&#8212;Present</h4>
+  <h4>Health Services Coordinator + ETO Administrator / October 2014&#8212;Present</h4>
+  <ul>
+  <i class="fa fa-angle-double-right fa-lg"></i>  <strong>gathering baseline data (with support from Resident Services field staff) on current resident enrollment in Medi-Cal or other health insurance , engagement with primary Health Homes, and the need for resident connections with specialty health services – for pre-existing and chronic health conditions that fall outside of primary care services.</strong>
+  </ul>
+  <ul>
+  <i class="fa fa-angle-double-right fa-lg"></i>  <strong>prepare and maintain accurate, up-to-date written client records, statistical information, and reports on a regular basis utilizing the ETO database system. Work with the Data Analyst and Grants staff to properly code and track information.</strong>
+  </ul>
+  <ul>
+  <i class="fa fa-angle-double-right fa-lg"></i>  <strong>demonstrated, experience and education with the analysis, collection, classification, storage, retrieval, movement, dissemination, and protection of information.</strong>
+  </ul>
+  <ul>
+  <i class="fa fa-angle-double-right fa-lg"></i>  <strong>ensure long-term strategy for a DBMS that fits in the IT ecosystem.</strong>
+  </ul>
+  <ul>
+  <i class="fa fa-angle-double-right fa-lg"></i>  <strong>still researching + identifying future survey instruments for targeted subpopulations to improve data collection practices</strong>
+  </ul>
+  <ul>
+  <i class="fa fa-angle-double-right fa-lg"></i>  <strong>ever participatory in on-going training, program evaluation, + program development/implementation</strong>
+  </ul>
+  <ul>
+  <i class="fa fa-angle-double-right fa-lg"></i>  <strong>working toward creating an evaluation toolkit for the organization that leverages open-sourced data science libraries in Python + R to provide a more effective understanding of data.</strong>
+  </ul>
+  <ul>
+  <i class="fa fa-angle-double-right fa-lg"></i>  <strong>project troubleshooter par excellence.</strong>
+  </ul>
+</ul>
+
+<!-- SRHT / Housing Transition Specialist -->
+<ul>  
+  <h3>Skid Row Housing Trust_Los Angeles, CA</h3>
+  <h4>Housing Transition Specialist / November 2013&#8212;October 2014</h4>
   <ul>
   <i class="fa fa-angle-double-right fa-lg"></i>  <strong>responsible for administering + uploading of GPRA + National Evaluation data to SAMHSA + its affiliates while maintaining confidentiality + records keeping due diligence (on-going)</strong>
   </ul>
