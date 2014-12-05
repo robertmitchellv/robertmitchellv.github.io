@@ -7,7 +7,7 @@ categories:
 This was _quite_ a journey for me.  I started the same way everyone else
 has; with my very _first_ "Hello World" program written in Python 3:
 
-```python
+{% highlight python linenos %}
 # Hello World! program.
 def main():
     #get the user's name
@@ -16,23 +16,24 @@ def main():
 
 # Call the main function
 main()
-```
+{% endhighlight %}
+
 This was the first assignment for my Programming in Python course.  I
 was not content to have it only print "Hello World"--no, I need to
 personalize it in some small way.  The following was really interface
 (if I'm speaking pythonically); to a wider interest in programming
 _qua_ programming:
 
-```python
+{% highlight python linenos %}
 name = input('What is your name? ')
-```
+{% endhighlight %}
 
 Nevertheless, I was not content with this.  I allowed myself to be sucked into
 a forceful vortex that had me thinking I'd be using Jupytr notebooks, matplotlib,
 etc., to show off how much I know about Python from Twitter.  Notwithstanding,
 the above is what was submitted because I didn't know how to do any of the fancy
 stuff I read about.  I didn't know how to use Pandas.  I didn't know how to use
-Blaze.  I didn't even know how to use ```conda updata conda``` in my terminal
+Blaze.  I didn't even know how to use {% highlight python linenos %}conda updata conda{% endhighlight %} in my terminal
 (oh; it's a package manager--not just an easy way to install Python 3.4 on my
 computer at work without Admin privlages!).
 
@@ -42,17 +43,17 @@ a (beginner's attempt at) the Object Oriented Programming (OOP) paradigm as a
 final extra-credit assignment!  I didn't even _know_ I had been writing, although
 very functional; or, very function reliant, procedural code.  Somewhere between
 nesting lists inside of dictionaries, iterating over them, and implementing
-```try, except``` statements, I thought I was really _going places_ with my code.
+{% highlight python linenos %}try, except{% endhighlight %} statements, I thought I was really _going places_ with my code.
 OOP razed that sandcastle quite briskly.  Like a kind of soverign and violent
 natural phenomena.
 
 From my first program to my 10th program, this is how far I have come.  This is
-my attempt at OOP, classes, ```___init___``` methods, ~~inheritance~~ composition,
-and more.  It's likely pretty flawed and could be made less redundent, but I
+my attempt at OOP, classes, {% highlight python linenos %}___init___{% endhighlight %} methods, ~~inheritance~~ composition,
+and more.  It's likely pretty flawed and could be made less redundant, but I
 didn't copy StackOverflow and tried to figure it out on my own; so, I'm damn
 proud of it!
 
-```python
+{% highlight python linenos %}
 # -*- coding: utf-8 -*-
 """     A10--Trivia Game!
         --> two player trivia game
@@ -290,12 +291,12 @@ def main():
     print('\nThank you for playing!  See you next time!\n')
 
 main()
-```
+{% endhighlight %}
 
 I couldn't help but think about Plato when I was trying to understand how Objects
 work in Python.  There's something really similar about how a ```class``` has a
 kind of _ontos_--that it isn't just a blueprint--it exists, and it did exist
-before the ```__init__(self)``` method gave it attributes; that prescriptive
+before the {% highlight python linenos %}__init__(self){% endhighlight %} method gave it attributes; that prescriptive
 human speculation we come up with when describing the form of something abstract
 like 'the Beautiful' (although it's been a while since my Phil 100A course at
 UCLA--I hope I'm not misrepresenting the _Phaedo_).
