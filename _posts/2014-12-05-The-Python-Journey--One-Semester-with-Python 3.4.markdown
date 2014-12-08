@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "The Python Journey--One Semester with Python 3.4"
+title:  "The Python Journey&#8212;One Semester with Python 3.4"
 date:   2014-12-05 13:20:00
 categories:
 ---
@@ -19,7 +19,7 @@ main()
 {% endhighlight %}
 
 This was the first assignment for my Programming in Python course.  I
-was not content to have it only print "Hello World"--no, I need to
+was not content to have it only print "Hello World"&#8212;no, I need to
 personalize it in some small way.  The following was really interface
 (if I'm speaking pythonically); to a wider interest in programming
 _qua_ programming:
@@ -34,10 +34,10 @@ etc., to show off how much I know about Python from Twitter.  Notwithstanding,
 the above is what was submitted because I didn't know how to do any of the fancy
 stuff I read about.  I didn't know how to use Pandas.  I didn't know how to use
 Blaze.  I didn't even know how to use _'conda update conda'_ in my terminal
-(oh; it's a package manager--not just an easy way to install Python 3.4 on my
+(oh; it's a package manager&#8212;not just an easy way to install Python 3.4 on my
 computer at work without Admin privlages!).
 
-The reality is that I still have a lot to learn--I'm still in the shallow end.
+The reality is that I still have a lot to learn&#8212;I'm still in the shallow end.
 Nothing prepared me for the absolute _angst_ associated with trying to implement
 a (beginner's attempt at) the Object Oriented Programming (OOP) paradigm as a
 final extra-credit assignment!  I didn't even _know_ I had been writing, although
@@ -295,11 +295,10 @@ main()
 
 I couldn't help but think about Plato when I was trying to understand how Objects
 work in Python.  There's something really similar about how a _'class'_ has a
-kind of _ontos_--that it isn't just a blueprint--it exists, and it did exist
-before the _'init'_ method gave it attributes; that prescriptive
+kind of _ontos_&#8212;that it isn't just a blueprint&#8212;it exists, and it did exist before the _'init'_ method gave it attributes; that prescriptive
 human speculation we come up with when describing the form of something abstract
 like 'the Beautiful' (although it's been a while since my Phil 100A course at
-UCLA--I hope I'm not misrepresenting the _Phaedo_).
+UCLA&#8212;I hope I'm not misrepresenting the _Phaedo_).
 
 The course is over but I have a few titles I purchased from Packt to dig a little
 deeper.  Suggestions are always welcome; the journey's _telos_ is to learn; and
