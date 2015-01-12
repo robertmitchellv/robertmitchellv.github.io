@@ -396,11 +396,14 @@ early-adoption of Vine</strong>
 ## <i class="fa fa-child fa-lg"></i>  Interests
 
   <ul>
-  <i class="fa fa-angle-double-right fa-lg"></i>  <strong>Learning to code; 
-currently, I'm taking two CS courses at community college: a Python course, and 
-a database systems course (excited to get into the noSQL stuff!).  Also follow 
-as many Data Science, Data Viz, Mathematics, CX MOOCs as possible to keep my 
-brain flexible and exercised.</strong>
+  <i class="fa fa-angle-double-right fa-lg"></i>  <strong>
+Learning to code; currently, I'm in my second semester of CS courses and am 
+taking a Javascript course and a Linux course.  Additionally, I am enrolled
+in a linear algebra course through Coursera as well as a discrete mathematics
+course through edX.  I try to challenge my knoweldge as much as possible in 
+order to fill in knowledge gaps for advanced computer science/computation 
+programs (hopefully I'll be moving to Europe next fall!). 
+</strong>
   </ul>
   <ul>
   <i class="fa fa-angle-double-right fa-lg"></i>  <strong>Beverages: third-wave 
