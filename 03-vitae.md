@@ -135,6 +135,7 @@ evaluation and data collection + learning the basics of machine learning
 with kaggle tutorials.
 </strong>
 </ul>
+<ul>
 <i class="fa fa-angle-double-right fa-lg"></i>  <strong>
 Metadata schemas: knowledge of AACR2, RDA, MODS, METS, + PREMIS
 </strong>
@@ -234,7 +235,9 @@ manager for follow-up + grant workplan compliance with Skid Row Community
 Consortium</strong>
   </ul>
   <ul>
-  <i class="fa fa-angle-double-right fa-lg"></i>  <strong>researched + identified future survey instruments for targeted subpopulations to improve data collection practices</strong>
+  <i class="fa fa-angle-double-right fa-lg"></i>  <strong>researched + 
+identified future survey instruments for targeted subpopulations to improve 
+data collection practices</strong>
   </ul>
   <ul>
   <i class="fa fa-angle-double-right fa-lg"></i>  <strong>participate in on-
