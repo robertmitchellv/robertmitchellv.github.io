@@ -51,7 +51,28 @@ From my first program to my 10th program, this is how far I have come.  This is
 my attempt at OOP, classes, _'init'_ methods, ~~inheritance~~ composition,
 and more.  It's likely pretty flawed and could be made less redundant, but I
 didn't copy StackOverflow and tried to figure it out on my own; so, I'm damn
-proud of it!
+proud of it!  There were some programs specs that I needed to show an
+understanding of; quickly, the program specs:
+
+* Each question will have four possible answers
+* Each player will take turns with the questions
+* There will be a total of 10 questions, each player getting a chance to answer
+  five of them.  If the player selects the correct answer, they earn a point.
+  Tell the player whether they got it right or wrong.
+* Must create a 'Question' class to hold data with the following attributes:
+    - A trivia question
+    - Possible answer 1
+    - Possible answer 2
+    - Possible answer 3
+    - Possible answer 4
+    - The number of the correct answer, e.g., 1, 2, 3, or 4
+* Question class must have an _'__init__'_ method, accessors, mutators, and
+  a _'__str__'_ method.
+* Use value-returning functions; one named _createQuestionsAnswers()_ that 
+  creates the list to display questions and keeps tracks of user input to let
+  players know if they won, lost, or tied.
+
+Here is my solutions:
 
 {% highlight python linenos %}
 # -*- coding: utf-8 -*-
