@@ -34,12 +34,12 @@ The Submission was a part of the [Predicting a Biological
 Response](https://www.kaggle.com/c/bioresponse) competition, and the training,
 test, and benchmark data sets are provided.
 
-Since the competition wants us to predict binary values, Chris notes that 
+Since the competition wants us to predict binary values, Chris notes that
 this data set is a good introduction to ensemble classifiers, because the
 prediction is a binary value (0 or 1).  It was also great to take a closer
 look at both the Pandas and SciKit-Learn's documentation to troubleshoot.
-I tried to use the comments to explain as much as possible so future me 
-will not be baffled, which I can say is helpful since I'm looking at this 
+I tried to use the comments to explain as much as possible so future me
+will not be baffled, which I can say is helpful since I'm looking at this
 one month out and it makes total sense (at least to me).
 
 
@@ -122,8 +122,8 @@ def prepData(alist):
 main()
 {% endhighlight %}
 
-After performing this--Chris suggested to submit to kaggle; being an extra 
-careful person by nature, I just had to perform the evaluation and cross 
+After performing this--Chris suggested to submit to kaggle; being an extra
+careful person by nature, I just had to perform the evaluation and cross
 validation first (I don't know if any of you feel the same way).
 Unfortunately, I don't really understand how the code works--this is one of
 the problems when hacking through tutorials.  
@@ -157,12 +157,12 @@ def logloss(act, pred):
 
 The cross validation was trickier to understand, which I think is mostly due
 to my not really understanding what ensemble classifiers do, how the random
-forest classifier works, and more specifically; what training, test, and 
+forest classifier works, and more specifically; what training, test, and
 target data do within machine learning.  This gave chase through the
 SciKit-Learn documentation and other resources online to get a better
 understanding of what the code was doing&#8212;there's a lot to learn!  The
-interesting aspect is how the SciKit-Learn reserves some actual data that it 
-can test against the classifier's predicted values.  I tried to show in the 
+interesting aspect is how the SciKit-Learn reserves some actual data that it
+can test against the classifier's predicted values.  I tried to show in the
 comments how I was understanding what the code did at the time.
 
 
@@ -220,8 +220,7 @@ have tied with another user for 325th); check out my results below.
 
 Well, that wraps up my first submission to kaggle.  I really hope this is the
 first of many.  Right now I'm working through the Think Stats + Think Bayes
-books to refresh my stats knowledge.  I'm trying to find time to work on the 
+books to refresh my stats knowledge.  I'm trying to find time to work on the
 Titanic tutorial through kaggle as well as perhaps throw a hat in the ring
 for Booz Hamilton's Data Science Bowl.  There's so much to learn and I can't
 wait for these concepts to become more natural and familiar.
-
