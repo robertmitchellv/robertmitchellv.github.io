@@ -219,7 +219,7 @@ waiting to see what kind of score I would have recieved had I actually
 participated in the competition.  I would have placed at 325 (well, I would
 have tied with another user for 325th); check out my results below.
 
-<img src="https://raw.githubusercontent.com/robertmitchellv/kaggle/master/Predicting-a-Biological-Response/kaggle_leaderboard.png" width="auto" height="auto">
+<img src="https://raw.githubusercontent.com/robertmitchellv/kaggle/master/Predicting-a-Biological-Response/kaggle_leaderboard.png" width="800px" height="auto">
 
 Well, that wraps up my first submission to kaggle.  I really hope this is the
 first of many.  Right now I'm working through the Think Stats + Think Bayes
