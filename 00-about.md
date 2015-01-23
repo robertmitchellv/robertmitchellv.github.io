@@ -16,7 +16,7 @@ graduate/research/doctoral studies in a computational science/computer
 science/artificial intelligence/NetSci/CX program (still looking for the
 right fit&#8212;institution forthcoming!).
 
-<img class="img-me" src="../img/me02.png" width="300px" height="auto">
+<img class="img-me" src="../img/me.jpg" width="300px" height="auto">
 
 #### Still curious? Read on
 
