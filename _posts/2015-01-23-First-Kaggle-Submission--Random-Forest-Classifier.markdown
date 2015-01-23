@@ -12,12 +12,10 @@ but try and hack my way to my destination.  I think it's a part of my learning
 process: thrust myself in the midst of something I don't understand, get stuck,
 try to get unstuck, finish with some understanding of what I was doing.
 
-So, when I saw
-[this](http://http://blog.kaggle.com/2012/07/02/up-and-running-with-python-my-first-kaggle-entry/
-"Up and Running with Python") post by [Chris
-Clark](https://github.com/chrisclark "Chris's GitHub Profile"), I thought that
-it was about time I try and hack my way from recently learning Python to machine
-learning with SciKit-Learn&#8212;why not!?&#8212;I thought.
+So, when I saw [this](http://http://blog.kaggle.com/2012/07/02/up-and-running-with-python-my-first-kaggle-entry/
+"Up and Running with Python") post by [Chris Clark](https://github.com/chrisclark "Chris's GitHub Profile"),
+I thought that it was about time I try and hack my way from recently learning
+Python to machine learning with SciKit-Learn&#8212;why not!?&#8212;I thought.
 
 It reminded me of when I decided to sign up with an account at GitHub; I was
 initially intimidated because it was new to me.  Now, I use git in the command
@@ -134,7 +132,7 @@ Unfortunately, I don't really understand how the code works--this is one of
 the problems when hacking through tutorials.  
 
 
-###Evaluation/Logloss
+### Evaluation/Logloss
 {% highlight python linenos %}
 """
     //kaggle submission
@@ -171,7 +169,7 @@ can test against the classifier's predicted values.  I tried to show in the
 comments how I was understanding what the code did at the time.
 
 
-###Cross Validation
+### Cross Validation
 {% highlight python linenos %}
 """
     //kaggle submission
@@ -221,8 +219,7 @@ waiting to see what kind of score I would have recieved had I actually
 participated in the competition.  I would have placed at 325 (well, I would
 have tied with another user for 325th); check out my results below.
 
-[kaggle submission
-board](https://raw.githubusercontent.com/robertmitchellv/kaggle/master/Predicting-a-Biological-Response/kaggle_leaderboard.png)
+<img src="https://raw.githubusercontent.com/robertmitchellv/kaggle/master/Predicting-a-Biological-Response/kaggle_leaderboard.png" width="300px" height="auto">
 
 Well, that wraps up my first submission to kaggle.  I really hope this is the
 first of many.  Right now I'm working through the Think Stats + Think Bayes
