@@ -5,10 +5,10 @@ date:   2015-01-23 13:8:00
 categories:
 ---
 I have seen kaggle mentioned on twitter a lot; mostly by the data scientists
-and researchers I look up to; but there's never been much confidence that the
+and researchers I look up to, but there's never been much confidence that the
 site was for me in any way&#8212;mostly because I was a long way from my dream
-data science job with still so much to learn.  Notwithstanding, I cannot help
-but try and hack my way to my destination.  I think it's a part of my learning
+data science job with yet so much to learn.  Notwithstanding, I cannot help
+but try and hack my way to my destination!  I think it's a part of my learning
 process: thrust myself in the midst of something I don't understand, get stuck,
 try to get unstuck, finish with some understanding of what I was doing.
 
@@ -18,19 +18,25 @@ SciKit-Learn&#8212;why not!?&#8212;I thought.
 
 It reminded me of when I decided to sign up with an account at GitHub; I was
 initially intimidated because it was new to me.  Now, I use git in the command
-line, host my website there, and use it for almost everything.
+line, host my website there, and use it for almost everything(still learning
+new things about git everyday as well).
 
 Chris's post was excellent but there was one problem: the code was aimed at
-Python 2.7 users and I had just spent the previous semester learning Python 3.
-As a personal challenge, I decided to use the code and update it to Python 3,
-which was fun and challenging.  I decided to chronical my results here&#8212;
-if there are any errors or issues with this code, please let me know so I can
-try to correct, learn, and grow!  I also found Chris's updated code on GitHub,
-which uses Pandas, which I've been trying to learn so; win, win.
+Python 2.7 users and I had just spent the previous semester learning Python 3
+(which means I don't really know 2.7; and avoid it all the time "where are the
+parens for this print statement??").  As a personal challenge, I decided to use 
+the code and update it to Python 3, which was both fun and challenging (I'm 
+measuring 'update' to mean, 'running in my Python 3.4 interpreter without 
+error messages').  
 
-As an aside, I use Anaconda and Vim for the enviornment and editing,
-respectively.  My code can be found on
-[GitHub](https://github.com/robertmitchellv/kaggle/tree/master/Predicting-a-Biological-Response "robertmitchellv").
+In the spirit of trying to document the things I learn, I've decided to 
+chronical my results here&#8212;if there are any errors or issues with this 
+code, please let me know so I can try to correct, learn, and grow!  I also 
+found Chris's updated code on GitHub, which uses Pandas and I've been trying 
+to get started with Pandas as well so; win, win.
+
+As an aside, I use Anaconda and Vim for the enviornment and editing, respectively.
+My code can be found on [GitHub](https://github.com/robertmitchellv/kaggle/tree/master/Predicting-a-Biological-Response "robertmitchellv").
 
 The Submission was a part of the [Predicting a Biological
 Response](https://www.kaggle.com/c/bioresponse) competition, and the training,
