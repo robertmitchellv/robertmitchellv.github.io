@@ -9,24 +9,26 @@ permalink: "/vitae/"
 <ul>
   <i class="fa fa-angle-double-right fa-lg"></i>  <strong>I believe that the 
 21st century requires a more multifaceted toolkit if we hope to solve complex 
-challenges&#8212;process + task orientation balanced within a framework that 
-fosters strategic thinking.  That interdisciplinary relationships can be 
-strengthened through active community engagement</strong>
+challenges&#8212;process + task oriented approaches balanced within a 
+framework that fosters strategic thinking.  That interdisciplinary 
+relationships can be strengthened through active community participation&#8212;
+working toward something with the shared value of doing good.</strong>
 </ul>
 <ul>
   <i class="fa fa-angle-double-right fa-lg"></i>  <strong>I bring a lot of 
 energy + enthusiasm to the projects that I become involved in.  I thrive in 
 situations that require imagination + innovation.  I have a broad range of 
-interests; from academic inquiry, the music + cuisine of other cultures, the 
-arts, travelling, languages; to a passion for social justice, education for 
-all people, + that our most vulnerable deserve respect + to be treated with 
+interests; from academic inquiry, classical and contemporary thought, the 
+music + cuisine of other cultures, the arts, travelling, languages; to a 
+passion for social justice, education for all people, + that our most 
+vulnerable deserve respect + to be treated with dignity + fairness</strong>
 dignity + fairness</strong>
-</ul>
 <ul>
-  <i class="fa fa-angle-double-right fa-lg"></i>  <strong>This is why I 
-pursued the Master of Information Science degree; to work in a service 
-oriented role facilitating, linking, + helping to dissemenate knowledge + 
-information to those in need</strong>
+  <i class="fa fa-angle-double-right fa-lg"></i>  <strong>Ultimately I hope
+that the work I do is helpful&8212;that it enables discovery or provides
+clarity.  The gamut of which is not narrow, but wide&#8212;a lot can be helpful
+or meaningful.  Things practical and principled.  I hope to further grow as
+this philosophy guides me.</strong>
 </ul>
 
 ## <i class="fa fa-magic fa-lg"></i>  Personal Skills
@@ -162,95 +164,45 @@ la Sorbonne Nouvelle (Paris III) | Student exchange (2006&#8212;2007)</strong>
 <!-- SRHT / HSC / ETO Admin -->
 <ul>  
   <h3>Skid Row Housing Trust_Los Angeles, CA</h3>
-  <h4>Health Services Coordinator + ETO Administrator / October 2014&#8212;
+  <h4>Health Services, Data, and Analysis Coordinator / October 2014&#8212;
 Present</h4>
   <ul>
-  <i class="fa fa-angle-double-right fa-lg"></i>  <strong>gathering baseline 
-data (with support from Resident Services field staff) on current resident 
-enrollment in Medi-Cal or other health insurance , engagement with primary 
-Health Homes, and the need for resident connections with specialty health 
-services – for pre-existing and chronic health conditions that fall outside of 
-primary care services.</strong>
-  </ul>
-  <ul>
-  <i class="fa fa-angle-double-right fa-lg"></i>  <strong>prepare and maintain 
-accurate, up-to-date written client records, statistical information, and 
-reports on a regular basis utilizing the ETO database system. Work with the 
-Data Analyst and Grants staff to properly code and track information.</strong>
-  </ul>
-  <ul>
-  <i class="fa fa-angle-double-right fa-lg"></i>  <strong>demonstrated, 
-experience and education with the analysis, collection, classification, 
-storage, retrieval, movement, dissemination, and protection of 
-information.</strong>
-  </ul>
-  <ul>
-  <i class="fa fa-angle-double-right fa-lg"></i>  <strong>ensure long-term 
-strategy for a DBMS that fits in the IT ecosystem.</strong>
-  </ul>
-  <ul>
-  <i class="fa fa-angle-double-right fa-lg"></i>  <strong>still researching + 
-identifying future survey instruments for targeted subpopulations to improve 
-data collection practices</strong>
-  </ul>
-  <ul>
-  <i class="fa fa-angle-double-right fa-lg"></i>  <strong>ever participatory 
-in on-going training, program evaluation, + program development/implementation
+  <i class="fa fa-angle-double-right fa-lg"></i>  <strong>responsible for data
+collection; evaluating new collection tools and survey instrument 
+implementation for health related grants and continual quality improvement 
 </strong>
   </ul>
   <ul>
-  <i class="fa fa-angle-double-right fa-lg"></i>  <strong>working toward 
-creating an evaluation toolkit for the organization that leverages open-sourced 
-data science libraries in Python + R to provide a more effective understanding 
-of data.</strong>
+  <i class="fa fa-angle-double-right fa-lg"></i>  <strong>database
+administrator for Resdsident Services department; monitors end-user input to 
+track outcomes</strong>
+  </ul>
+  <ul>
+  <i class="fa fa-angle-double-right fa-lg"></i>  <strong>responsible for 
+pulling data for reports; quarterly and grant specific</strong>
+  </ul>
+  <ul>
+  <i class="fa fa-angle-double-right fa-lg"></i>  <strong>exploring 
+open-source database alternatives to reduce organizational cost and fit within
+the IT ecosystem</strong>
+  </ul>
+  <ul>
+  <i class="fa fa-angle-double-right fa-lg"></i>  <strong>writing an analysis
++ evaluation manuel to guide staff in analysing their own data; will mostly
+rely on Python and SQL with source code availible (in progress)</strong>
+  </ul>
+  <ul>
+  <i class="fa fa-angle-double-right fa-lg"></i>  <strong>working with future
+partnerships at leveraging data to enable future funding for supportive 
+services + better health access for residents</strong>
+  </ul>
+  <ul>
+  <i class="fa fa-angle-double-right fa-lg"></i>  <strong>designed and edited
+Peer Advocate zine for commercial printing</strong>
   </ul>
   <ul>
   <i class="fa fa-angle-double-right fa-lg"></i>  <strong>project 
 troubleshooter par excellence.</strong>
-  </ul>
-</ul>
-
-<!-- SRHT / Housing Transition Specialist -->
-<ul>  
-  <h3>Skid Row Housing Trust_Los Angeles, CA</h3>
-  <h4>Housing Transition Specialist / November 2013&#8212;October 2014</h4>
-  <ul>
-  <i class="fa fa-angle-double-right fa-lg"></i>  <strong>responsible for 
-administering + uploading of GPRA + National Evaluation data to SAMHSA + its 
-affiliates while maintaining confidentiality + records keeping due diligence 
-</strong>
-  </ul>
-  <ul>
-  <i class="fa fa-angle-double-right fa-lg"></i>  <strong>worked with RSCs, 
-programmatic staff, + grant evaluator on collecting + maintaining data 
-pertinent for grant reporting purposes (on-going)</strong>
-  </ul>
-  <ul>
-  <i class="fa fa-angle-double-right fa-lg"></i>  <strong>researched, wrote, 
-+ compiled bi-annual report for the CABHI grant project</strong>
-  </ul>
-  <ul>
-  <i class="fa fa-angle-double-right fa-lg"></i>  <strong>point-person/project 
-manager for follow-up + grant workplan compliance with Skid Row Community 
-Consortium</strong>
-  </ul>
-  <ul>
-  <i class="fa fa-angle-double-right fa-lg"></i>  <strong>researched + 
-identified future survey instruments for targeted subpopulations to improve 
-data collection practices</strong>
-  </ul>
-  <ul>
-  <i class="fa fa-angle-double-right fa-lg"></i>  <strong>participate in on-
-going training, program evaluation, + program development/implementation
-</strong>
-  </ul>
-  <ul>
-  <i class="fa fa-angle-double-right fa-lg"></i>  <strong>improve client 
-access to resources through small booklets tailored to the population</strong>
-  </ul>
-  <ul>
-  <i class="fa fa-angle-double-right fa-lg"></i>  <strong>designed Peer 
-Advocate Zine for commercial printing </strong>
   </ul>
 </ul>
 
