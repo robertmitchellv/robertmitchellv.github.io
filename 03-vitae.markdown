@@ -22,7 +22,7 @@ interests; from academic inquiry, classical and contemporary thought, the
 music + cuisine of other cultures, the arts, travelling, languages; to a 
 passion for social justice, education for all people, + that our most 
 vulnerable deserve respect + to be treated with dignity + fairness</strong>
-dignity + fairness</strong>
+</ul>
 <ul>
   <i class="fa fa-angle-double-right fa-lg"></i>  <strong>Ultimately I hope
 that the work I do is helpful&8212;that it enables discovery or provides
