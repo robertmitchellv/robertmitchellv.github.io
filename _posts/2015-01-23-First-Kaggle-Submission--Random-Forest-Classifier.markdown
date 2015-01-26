@@ -18,7 +18,7 @@ SciKit-Learn&#8212;why not!?&#8212;I thought.
 
 It reminded me of when I decided to sign up with an account at GitHub; I was
 initially intimidated because it was new to me.  Now, I use git in the command
-line, host my website there, and use it for almost everything(still learning
+line, host my website there, and use it for almost everything (still learning
 new things about git everyday as well).
 
 Chris's post was excellent but there was one problem: the code was aimed at
@@ -27,7 +27,7 @@ Python 2.7 users and I had just spent the previous semester learning Python 3
 parens for this print statement??").  As a personal challenge, I decided to use 
 the code and update it to Python 3, which was both fun and challenging (I'm 
 measuring 'update' to mean, 'running in my Python 3.4 interpreter without 
-error messages').  
+error messages').  This may be an easy task but there were a few snags for me. 
 
 In the spirit of trying to document the things I learn, I've decided to 
 chronical my results here&#8212;if there are any errors or issues with this 
