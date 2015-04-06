@@ -2,6 +2,7 @@
 layout: post
 title:  "My Pandas Cheatsheet&#8212;always evolving"
 date:   2015-04-03 8:30:00
+comments: true
 categories:
 ---
 ### As I learn more this page will be updated
