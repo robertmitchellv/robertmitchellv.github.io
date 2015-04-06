@@ -2,6 +2,7 @@
 layout: post
 title:  "First Kaggle Submission&#8212;Random Forest Classifier"
 date:   2015-01-23 13:8:00
+comments: true
 categories:
 ---
 I have seen kaggle mentioned on twitter a lot; mostly by the data scientists

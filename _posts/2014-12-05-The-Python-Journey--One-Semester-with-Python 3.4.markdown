@@ -2,6 +2,7 @@
 layout: post
 title:  "The Python Journey&#8212;One Semester with Python 3.4"
 date:   2014-12-05 13:20:00
+comments: true
 categories:
 ---
 This was _quite_ a journey for me.  I started the same way everyone else

@@ -2,6 +2,7 @@
 layout: post
 title:  "Foucault’s Challenge to Modernist Classification"
 date:   2013-09-04 20:20:29
+comments: true
 categories:
 ---
 
