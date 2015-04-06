@@ -39,6 +39,11 @@ cols = ['col1', 'col2', 'col3', 'col4'] # list of how you'd like it
 df = df.reindex(columns=cols)
 {% endhighlight %}
 
+### Show unique values
+{% highlight python linenos %}
+df[df['colName'].unique()]
+{% endhighlight %}
+
 ### Delete row
 {% highlight python linenos %}
 df = df.drop(2)  # where two is the df's index
@@ -68,6 +73,12 @@ df[['col4', 'col5', 'col10']] = df[['col4', 'col5', col10]].astype(float)
 ### Convert NaN values to zeros (or anything else)
 {% highlight python linenos %}
 df = df.fillna(0) # remember that this returns a new object!
+{% endhighlight %}
+
+### Replace string values with numeric representations
+{% highlight python linenos %}
+dictionary = {'value1': 1, 'value2': 2, 'Value3': 3}
+df.replace({'colName': dictionary})
 {% endhighlight %}
 
 ### Project data based on a value range from a column
