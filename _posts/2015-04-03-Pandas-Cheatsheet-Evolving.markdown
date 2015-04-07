@@ -5,11 +5,13 @@ date:   2015-04-03 8:30:00
 comments: true
 categories:
 ---
-### As I learn more this page will be updated
+## As I learn more this page will be updated (and hopefully improved!)
 
-The goal of this post has two aims; one, to keep me from googling pandas questions
-that I've forgotten already.  I feel like Sisyphus!  So, here
-are :
+The goal of this post is to keep me from googling pandas questions
+that I've forgotten.  I don't know how many times I've looked at the results
+and seen five or more StackOverflow links that have clearly already been
+clicked on; I feel like Sisyphus when this happens!  So, here is what I'm 
+currently committing to memory:
 
 ### Make matplotlib.pyplot look better with no effort:
 {% highlight python linenos %}
