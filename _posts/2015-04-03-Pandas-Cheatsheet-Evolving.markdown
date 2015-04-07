@@ -41,6 +41,11 @@ cols = ['col1', 'col2', 'col3', 'col4'] # list of how you'd like it
 df = df.reindex(columns=cols)
 {% endhighlight %}
 
+### Find out how many NaN values you have in a column
+{% highlight python linenos %}
+df['colName'].isnull().sum()
+{% endhighlight %}
+
 ### Show unique values
 {% highlight python linenos %}
 df[df['colName'].unique()]
