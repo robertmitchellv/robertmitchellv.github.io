@@ -66,8 +66,13 @@ df['colName'] = df['colName'].str.replace(',', '')
 df[['col4', 'col5', 'col10']] = df[['col4', 'col5', col10]].astype(float)
 
 
-### Convert datatypes, e.g., object to float
+### Convert string date to datetime64
 df['strDate'] = pd.to_datetime(df['strDate'])
+
+
+### Remove certain datetime64 column values
+import datetime
+df[df['colName'] >= datetime.date(2015, 1, 1)] = pd.NaT # also, good way to slice dates
 
 
 ### Convert NaN values to zeros (or anything else)
