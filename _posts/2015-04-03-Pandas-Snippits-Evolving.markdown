@@ -70,9 +70,9 @@ df[['col4', 'col5', 'col10']] = df[['col4', 'col5', col10]].astype(float)
 df['strDate'] = pd.to_datetime(df['strDate'])
 
 
-### Remove certain datetime64 column values
+### Filter datetime64 column values
 import datetime
-df[df['colName'] >= datetime.date(2015, 1, 1)] = pd.NaT # also, good way to slice dates
+df[df['colName'] >= datetime.date(2015, 1, 1)]
 
 
 ### Convert NaN values to zeros (or anything else)
@@ -86,7 +86,7 @@ df = df.replace({'colName': dictionary})
 
 ### Replace multiple cells of a column only with a different string
 df.loc[df['colName'].str.contains('word'), df['colName']] = "Different Word" # or
-df.loc[df['colA'].str.contains('word'), df['colB']] = 5 # to change a cell in a different column
+df.loc[df['colA'].str.contains('word'), ['colB']] = 5 # to change a cell in a different column
 
 
 ### Project data based on a value range from a column
