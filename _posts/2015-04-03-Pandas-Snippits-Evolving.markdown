@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "My Pandas Cheatsheet&#8212;always evolving"
+title:  "My Pandas Snippits&#8212;always evolving"
 date:   2015-04-03 8:30:00
 comments: true
 categories:
@@ -81,7 +81,7 @@ df = df.fillna(0) # remember that this returns a new object!
 
 ### Replace string values with numeric representations
 dictionary = {'value1': 1, 'value2': 2, 'Value3': 3}
-df.replace({'colName': dictionary})
+df = df.replace({'colName': dictionary})
 
 
 ### Replace multiple cells of a column only with a different string
