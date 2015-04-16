@@ -44,6 +44,8 @@ df['colName'].isnull().sum()
 ### Show unique values
 df[df['colName'].unique()]
 
+### Create a frequency column from another column
+df['freq'] = df.groupby('colName')['colName'].transform('count')
 
 ### Delete row
 df = df.drop(2)  # where two is the df's index
