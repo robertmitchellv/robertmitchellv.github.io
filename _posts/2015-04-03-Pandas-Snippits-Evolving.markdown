@@ -27,6 +27,8 @@ del df['colName']
 ### Rename columns
 df.columns = ['col1', 'col2', 'col3'] # this does not reindex columns
 
+### Combine columns
+df['newCol'] = df['col1'].map(str) + data['col2'] + data['col3'].astype('str')
 
 ### Copy column
 df['newCol'] = df['oldCol'] # where newCol is the copy
