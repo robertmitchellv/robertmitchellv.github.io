@@ -2,6 +2,10 @@
   font-size: 21px;
 }
 
+.fa-lg {
+  padding: 0 11px;
+}
+
 form.navbar-search {
   padding-top: 11px;
 }
