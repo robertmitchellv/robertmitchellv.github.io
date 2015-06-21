@@ -1,0 +1,60 @@
+.container {
+  font-size: 21px;
+}
+
+form.navbar-search {
+  padding-top: 11px;
+}
+
+i.fa.fa-arrow-circle-o-left.fax2 {
+  padding: 2em 0;
+}
+
+.navbar {
+  font-size: 17px;
+  font-weight: 100;
+}
+
+.navbar-brand>img {
+  height: auto;
+  width: 4em;
+}
+
+.navbar-default {
+  background-color: yellow;
+  height: 3.5em;
+}
+
+.navbar-default .navbar-nav>li>a {
+  color: black;
+  padding-top: 23px;
+}
+
+.site-footer {
+  background-color: rgba(110, 115, 118, .3);
+  border-top: .1px solid #ffffff;
+  padding-top: 2.5em;
+  position: relative;
+}
+
+.site-footer .column {
+  float: left;
+  margin-bottom: 15px;
+  martin-top: 15px;
+}
+
+.site-footer li, p {
+  font-size: 22px;
+  font-weight: 300;
+  letter-spacing: 0.02px;
+}
+
+#tipue_search_input {
+  border: 1px solid yellow;
+  background: url('../tipuesearch/img/search.png') no-repeat 15px 15px;
+  width: 150px;
+}
+
+.top {
+  padding: 10px;
+}
