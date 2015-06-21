@@ -6,7 +6,7 @@ from __future__ import unicode_literals
 AUTHOR = 'Robert B. Mitchell V'
 
 SITENAME = 'rbmv // critical data, info, + analysis'
-SITEURL = ''
+SITEURL = 'http://robertmitchellv.com'
 
 PATH = 'content'
 STATIC_PATHS = ['images', 'pages']
