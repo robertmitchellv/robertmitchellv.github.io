@@ -25,6 +25,11 @@ i.fa.fa-arrow-circle-o-left.fax2 {
   height: 3.5em;
 }
 
+.navbar-default .navbar-collapse {
+  border-color: transparent;
+  background-color: yellow;
+}
+
 .navbar-default .navbar-nav>li>a {
   color: black;
   padding-top: 23px;
