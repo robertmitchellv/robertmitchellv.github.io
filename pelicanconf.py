@@ -23,7 +23,7 @@ CUSTOM_CSS = 'theme/css/custom.css'
 BS3_URL = 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css'
 BS3_JS = 'https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js'
 BS3_THEME = 'http://bootswatch.com/flatly/bootstrap.min.css'
-
+DISQUS_SITENAME = 'robertmitchellv'
 PYGMENTS_STYLE = 'monokai'
 
 DISPLAY_CATEGORIES_ON_MENU = False
@@ -37,6 +37,7 @@ PLUGIN_PATHS = ['plugins']
 PLUGINS = ['tipue_search']
 
 # Site Brand
+FAVICON = 'images/rbmv_fav.png'
 SITELOGO = 'images/rbmv_curve.png'
 SITELOGO_SIZE = 130
 HIDE_SITENAME = True

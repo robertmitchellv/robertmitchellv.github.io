@@ -13,3 +13,4 @@ Title: Connect
 #### Feel free to connect with me via the above referenced outlets!
 
 ### <a class="page-link" href="/"><i class="fa fa-arrow-circle-o-left fax2"></i>Go Back!</a>
+

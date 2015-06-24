@@ -1,17 +1,12 @@
 Title: About Me
 
 ### The brief bio
->I am a new dad, husband, and recent Master of Science in Information Science
+>I am father, husband, and recent Master of Science in Information Science
 (MSIS) recipient who is passionate about code, complexity, design, dichotomy
 busting, cuisine, travel, + striving for balance across the board in my
 life.  I love conceptual thinking and am expanding my worldview through the
-acquisition of knowledge, practices, + techniques in the fields of: mathematics,
-computer science, and traditional sciences&#8212;which I, foolishly + in
-youthful obstinance, dismissed while searching for some deeper philosophical
-meaning.  This paradigm shift has led me to pursue further
-graduate/research/doctoral studies in a computational science/computer
-science/artificial intelligence/NetSci/CX program (still looking for the
-right fit&#8212;institution forthcoming!).
+acquisition of knowledge.  With this site, I hope to document what I learn and
+share what I know.
 
 <img class="img-me" src="../images/me.jpg" width="300px" height="auto">
 
@@ -49,11 +44,6 @@ locations.  These experiences have shaped who I am as an individual, before I
 hit on a girl sitting across from me on the Metro, eventually marrying her (best
 impulsive move ever).
 
-I have recently turned 31 and can attest to the calming wave of moving beyond
-the undertow of trends + fads, i.e., generally caring too much about what isn’t
-important.   Being a dad has only amplified this, as I no longer feel tied to a
-concept of ‘cool’; rather, I evaluate content alone for quality.
-
 I hope to contribute posts on my site that interact with my interdisciplinary
 interests with special focus on the semantic relationships between objects and
 concepts.  I’m not always as interested in the epistemological aspect of things
@@ -63,3 +53,4 @@ everything is connected, and the 21st century will be about discovering these
 connections—hopefully I can be a part of this.
 
 ### <a class="page-link" href="/"><i class="fa fa-arrow-circle-o-left fax2"></i>Go Back!</a>
+
