@@ -1,3 +1,18 @@
+.animate {
+  animation: moveDown 0.6s ease-in-out 0.2s backwards;
+}
+
+@keyframes moveDown {
+  0% { 
+      transform: translateY(-40px); 
+      opacity: 0;
+     } 
+  100% { 
+      transform: translateY(0px);  
+      opacity: 1;
+     }
+}                          }
+
 .container {
   font-size: 21px;
 }
