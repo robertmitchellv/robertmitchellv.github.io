@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
+<head>
+    <title>"Bar Chart Annotations with Pandas and MPL" - rbmv // critical data, info, + analysis</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <link href="http://robertmitchellv.com/images/rbmv_fav.png" rel="icon">
+
+<link rel="canonical" href="http://robertmitchellv.com/blog/bar-chart-annotations-with-pandas-and-mpl.html">
+
+        <meta name="author" content="Robert B. Mitchell V" />
+        <meta name="description" content="  When I first started using Pandas, I loved how much easier it was to stick a plot method on a DataFrame or Series to get a better sense of what was going on. However, I was not very impressed with what the plots looked like. Any time I wanted to ..." />
+
+        <meta property="og:site_name" content="rbmv // critical data, info, + analysis" />
+        <meta property="og:type" content="article"/>
+        <meta property="og:title" content="&#34;Bar Chart Annotations with Pandas and MPL&#34;"/>
+        <meta property="og:url" content="http://robertmitchellv.com/blog/bar-chart-annotations-with-pandas-and-mpl.html"/>
+        <meta property="og:description" content="  When I first started using Pandas, I loved how much easier it was to stick a plot method on a DataFrame or Series to get a better sense of what was going on. However, I was not very impressed with what the plots looked like. Any time I wanted to ..."/>
+        <meta property="article:published_time" content="2015-07-15" />
+            <meta property="article:section" content="misc" />
+            <meta property="article:author" content="Robert B. Mitchell V" />
+
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="http://robertmitchellv.com/theme/css/bootstrap.yeti.min.css" type="text/css"/>
+    <link href="http://robertmitchellv.com/theme/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="http://robertmitchellv.com/theme/css/pygments/monokai.css" rel="stylesheet">
+    <link href="http://robertmitchellv.com/theme/tipuesearch/tipuesearch.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://robertmitchellv.com/theme/css/style.css" type="text/css"/>
+        <link href="http://robertmitchellv.com/theme/css/custom.css" rel="stylesheet">
+
+
+
+
+
+</head>
+<body>
+
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+	<div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="http://robertmitchellv.com/" class="navbar-brand">
+<img src="http://robertmitchellv.com/images/rbmv_curve.png" width="130"/>             </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                         <li><a href="http://robertmitchellv.com/about-me.html">
+                             About Me
+                          </a></li>
+                         <li><a href="http://robertmitchellv.com/connect.html">
+                             Connect
+                          </a></li>
+                         <li><a href="http://robertmitchellv.com/vitae.html">
+                             Vitae
+                          </a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li><span>
+                <form class="navbar-search" action="/search.html">
+                  <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input" required>
+                </form></span>
+              </li>
+              <li><a href="http://robertmitchellv.com/archives.html"><i class="fa fa-th-list"></i><span class="icon-label">Archives</span></a></li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+</div> <!-- /.navbar -->
+<!-- Banner -->
+<!-- End Banner -->
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                    <a href="http://robertmitchellv.com/blog/bar-chart-annotations-with-pandas-and-mpl.html"
+                       rel="bookmark"
+                       title="Permalink to "Bar Chart Annotations with Pandas and MPL"">
+                        "Bar Chart Annotations with Pandas and MPL"
+                    </a>
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2015-07-15T14:00:00-07:00"> Wed 15 July 2015</time>
+    </span>
+
+
+
+
+
+    
+</footer><!-- /.post-info -->                    </div>
+                </div>
+                <p>&nbsp;</p>
+<p>When I first started using Pandas, I loved how much easier it was to stick a
+plot method on a DataFrame or Series to get a better sense of what was going
+on.  However, I was not very impressed with what the plots looked like.  Any
+time I wanted to do something slightly different from the "Plotting"
+documentation on the pydata site, I found myself arm deep in MPL code that
+did not make any damn sense to me.  This was a problem for me, as I ended up
+spending way too much time trying to make small edits and not enough time
+working on the code I was trying to visualize.</p>
+<p>&nbsp;</p>
+<p>One thing in particular bugged me.  I could find no easy to understand tutorial
+on annotating a bar chart on StackOverflow or any other site.  MPL had some
+documentation, but it was too confusing for me at the time.  I spent a lot of
+time trying to figure out how to put some text right above my bars.  Since I
+would have loved to see a snippet of code to help me in my journey, I thought
+I would throw it together in a brief post so others could use my workaround.  </p>
+<p>&nbsp;</p>
+<p>I warn you, it is not the most elegent solution, I am sure, but it worked for me
+when I needed to demonstrate the insight I had gained from a Healthcare Access
+and Utilization Survey (made up mostly of CHIS questions) to people in my
+department, my director, and her bosses.  Since I cannot share any of that
+data, I will use the <a href="https://github.com/chrisalbon/war_of_the_five_kings_dataset">War of the Five Kings
+Dataset</a> that
+<a href="http://chrisalbon.com">Chris Albon</a> made.  I love this data set because I am in the 
+middle of book five of Game of Thrones, which provides a good amount of domain 
+familiarity to enable jumping in easier.</p>
+<p>&nbsp;</p>
+<h3>Setup + Import Data</h3>
+<p>&nbsp;</p>
+<div class="highlight"><pre><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="kn">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s">&#39;ggplot&#39;</span><span class="p">)</span>
+<span class="o">%</span><span class="n">matplotlib</span> <span class="n">inline</span>
+
+<span class="c"># set jupyter&#39;s max row display</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s">&#39;display.max_row&#39;</span><span class="p">,</span> <span class="mi">1000</span><span class="p">)</span>
+
+<span class="c"># set jupyter&#39;s max column width to 50</span>
+<span class="n">pd</span><span class="o">.</span><span class="n">set_option</span><span class="p">(</span><span class="s">&#39;display.max_columns&#39;</span><span class="p">,</span> <span class="mi">50</span><span class="p">)</span>
+
+<span class="c"># Load the dataset</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s">&#39;5kings_battles_v1.csv&#39;</span><span class="p">)</span>
+</pre></div>
+
+
+<p>&nbsp;</p>
+<h3>First visualization with annotations</h3>
+<p>&nbsp;</p>
+<div class="highlight"><pre>ax = data[&#39;region&#39;].value_counts().plot(kind=&#39;barh&#39;, figsize=(10,7),
+color=&quot;coral&quot;, fontsize=13);
+ax.set_alpha(0.8)
+ax.set_title(&quot;Where were the battles fought?&quot;, fontsize=18)
+ax.set_xlabel(&quot;Number of Battles&quot;, fontsize=18);
+ax.set_xticks([0, 5, 10, 15, 20])
+
+# create a list to collect the plt.patches data
+totals = []
+
+# find the values and append to list
+for i in ax.patches:
+    totals.append(i.get_width())
+
+# set individual bar lables using above list
+total = sum(totals)
+
+# set individual bar lables using above list
+for i in ax.patches:
+    # get_width pulls left or right; get_y pushes up or down
+    ax.text(i.get_width()+.3, i.get_y()+.38, \
+            str(round((i.get_width()/total)*100, 2))+&#39;%&#39;, fontsize=15,
+color=&#39;dimgrey&#39;)
+
+# invert for largest on top 
+ax.invert_yaxis()
+</pre></div>
+
+
+<p>&nbsp;</p>
+<p><img alt="Bar Chart" src="../images/5kings-1.png" /></p>
+<p>The image above is the output from the Jupyter notebook.  I think it is super
+clear and gives a lot of information about where the battles were fought.
+However, I am very parital to horizontal bar charts, as I really think they are
+easier to read, however, I understand that a lot of people would rather see
+this chart implemented in a regular bar chart.  So, here is the code to do
+that; you will notice that a few things have changed in order to create the
+annotation.</p>
+<p>&nbsp;</p>
+<div class="highlight"><pre>ax = data[&#39;region&#39;].value_counts().plot(kind=&#39;bar&#39;, figsize=(10,7),
+color=&quot;coral&quot;, fontsize=13);
+ax.set_alpha(0.8)
+ax.set_title(&quot;Where were the battles fought?&quot;, fontsize=18)
+ax.set_ylabel(&quot;Number of Battles&quot;, fontsize=18);
+ax.set_yticks([0, 5, 10, 15, 20])
+
+# create a list to collect the plt.patches data
+totals = []
+
+# find the values and append to list
+for i in ax.patches:
+    totals.append(i.get_height())
+
+# set individual bar lables using above list
+total = sum(totals)
+
+# set individual bar lables using above list
+for i in ax.patches:
+    # get_x pulls left or right; get_height pushes up or down
+    ax.text(i.get_x()-.03, i.get_height()+.5, \
+            str(round((i.get_height()/total)*100, 2))+&#39;%&#39;, fontsize=15,
+color=&#39;dimgrey&#39;)
+</pre></div>
+
+
+<p>&nbsp;</p>
+<p><img alt="Bar Chart" src="../images/5kings-2.png" /></p>
+<p>&nbsp;</p>
+<p>I play around with the mpl.text() numbers for almost each chart.  They are
+never exactly where they need to be, which often means moving thigs around a
+hair here and .03 there.  You can add or subtract, which means you can also do
+this:</p>
+<p>&nbsp;</p>
+<div class="highlight"><pre>x = data[&#39;attacker_outcome&#39;].value_counts().plot(kind=&#39;bar&#39;, figsize=(10,7),
+color=&quot;indigo&quot;, fontsize=13);
+ax.set_alpha(0.8)
+ax.set_title(&quot;Do attackers usually win or loose?&quot;, fontsize=18)
+ax.set_ylabel(&quot;Number of Battles&quot;, fontsize=18);
+ax.set_yticks([0, 5, 10, 15, 20, 25, 30, 35, 40])
+
+# create a list to collect the plt.patches data
+totals = []
+
+# find the values and append to list
+for i in ax.patches:
+    totals.append(i.get_height())
+
+# set individual bar lables using above list
+total = sum(totals)
+
+# set individual bar lables using above list
+for i in ax.patches:
+    # get_x pulls left or right; get_height pushes up or down
+    ax.text(i.get_x()+.12, i.get_height()-3, \
+            str(round((i.get_height()/total)*100, 2))+&#39;%&#39;, fontsize=22,
+color=&#39;white&#39;)
+</pre></div>
+
+
+<p>&nbsp;</p>
+<p><img alt="Bar Chart" src="../images/5kings-3.png" /></p>
+<p>&nbsp;</p>
+<p>If you are like me, often you like to isolate a categorical value in one column
+and see what the rest of the dataframe looks like in light of that.  It is a
+simply way of drilling down, but a percentage really would not be as
+appropriate as a count.  Here is an example of using a count rather than a
+percentage:</p>
+<p>&nbsp;</p>
+<div class="highlight"><pre>losses = data[data[&#39;attacker_outcome&#39;].str.contains(&quot;loss&quot;, na=False)]
+
+ax = losses[&#39;attacker_king&#39;].value_counts().plot(kind=&#39;barh&#39;, figsize=(10,7),
+color=&quot;slateblue&quot;, fontsize=13);
+ax.set_alpha(0.8)
+ax.set_title(&quot;Who were the attackers who lost?&quot;, fontsize=18)
+ax.set_xlabel(&quot;Number of Battles&quot;, fontsize=18);
+ax.set_xticks([0, 5])
+
+# set individual bar lables using above list
+for i in ax.patches:
+    # get_width pulls left or right; get_y pushes up or down
+    ax.text(i.get_width()+.1, i.get_y()+.31, \
+            str(round((i.get_width()), 2)), fontsize=15, color=&#39;dimgrey&#39;)
+
+# invert for largest on top 
+ax.invert_yaxis()
+</pre></div>
+
+
+<p>&nbsp;</p>
+<p><img alt="Bar Chart" src="../images/5kings-4.png" /></p>
+<p>&nbsp;</p>
+<p>You can also just project a couple columns from those that lost to compare a
+couple of values; I think bar charts are great for this purpose.  I am not sure
+what the best way would be do accomplish this, but here is my implementation:</p>
+<p>&nbsp;</p>
+<div class="highlight"><pre>ax = losses[[&#39;attacker_size&#39;, &#39;defender_size&#39;]].plot(kind=&#39;bar&#39;,
+figsize=(15,7), color=[&#39;dodgerblue&#39;, &#39;slategray&#39;], fontsize=13);
+ax.set_alpha(0.8)
+ax.set_title(&quot;For Attacker Losses, What was the Difference in Size?&quot;,
+fontsize=18)
+ax.set_ylabel(&quot;Number of Troops&quot;, fontsize=18);
+ax.set_yticks([0, 20000, 40000, 60000, 80000, 100000, 120000, 140000])
+ax.set_xticklabels([&quot;Robb v Joff/Tommen&quot;, &quot;Joff/Tommen v Robb&quot;, &quot;Stannis v
+Joff/Tommen&quot;, &quot;Robb v Joff/Tommen&quot;, &quot;Stannis v Mance&quot;], \
+                   rotation=0, fontsize=11)
+
+# set individual bar lables using above list
+for i in ax.patches:
+    # get_x pulls left or right; get_height pushes up or down
+    ax.text(i.get_x()+.04, i.get_height()+12000, \
+            str(round((i.get_height()), 2)), fontsize=11, color=&#39;dimgrey&#39;,
+rotation=45)
+</pre></div>
+
+
+<p>&nbsp;</p>
+<p><img alt="Bar Chart" src="../images/5kings-5.png" /></p>
+<p>&nbsp;</p>
+<p>There is a handy 'rotation' option for the MPL plots that you can use that I
+feel works well when using a regular bar chart.  I really dislike tilting my
+head to one side to try and read what it says!  Also, it is easy to rename the
+columns!  I did not realize how simple it was, which makes me feel silly.</p>
+<p>&nbsp;</p>
+<p>Here is the chart done horizontally, which I prefer:</p>
+<p>&nbsp;</p>
+<div class="highlight"><pre>x = losses[[&#39;attacker_size&#39;, &#39;defender_size&#39;]].plot(kind=&#39;barh&#39;,
+figsize=(10,7), color=[&#39;dodgerblue&#39;, &#39;slategray&#39;], fontsize=13);
+ax.set_alpha(0.8)
+ax.set_title(&quot;For Attacker Losses, What was the Difference in Size?&quot;,
+fontsize=18)
+ax.set_xlabel(&quot;Number of Troops&quot;, fontsize=18)
+ax.set_ylabel(&quot;First Name is Attacker&quot;, fontsize=18)
+ax.set_xticks([0, 20000, 40000, 60000, 80000, 100000, 120000, 140000])
+ax.set_yticklabels([&quot;Robb v Joff/Tommen&quot;, &quot;Joff/Tommen v Robb&quot;, &quot;Stannis v
+Joff/Tommen&quot;, &quot;Robb v Joff/Tommen&quot;, &quot;Stannis v Mance&quot;])
+
+# set individual bar lables using above list
+for i in ax.patches:
+    # get_width pulls left or right; get_y pushes up or down
+    ax.text(i.get_width()+700, i.get_y()+.18, \
+            str(round((i.get_width()), 2)), fontsize=11, color=&#39;dimgrey&#39;)
+
+# invert for largest on top 
+ax.invert_yaxis()
+</pre></div>
+
+
+<p>&nbsp;</p>
+<p><img alt="Bar Chart" src="../images/5kings-6.png" /></p>
+<p>&nbsp;</p>
+<p>I hope this is helpful for anyone out there trying to create little annotations
+for their visualizations.  I feel like this is just a little bit of extra work
+but it keeps me from having to write JavaScript, which is worth a little copy
+paste action.  When I have time, I would like to create a class with methods so
+I do not have to keep doing a copy/paste job in my Jupyter notebook.</p>
+<p>&nbsp;</p>
+<p>Let me know if there is an easier way to do this, I would be grateful!</p>
+            </div>
+            <!-- /.entry-content -->
+    <hr/>
+    <section class="comments" id="comments">
+        <h2>Comments</h2>
+
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+            /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+            var disqus_shortname = 'robertmitchellv';
+
+                    var disqus_identifier = 'bar-chart-annotations-with-pandas-and-mpl';
+                var disqus_url = 'http://robertmitchellv.com/blog/bar-chart-annotations-with-pandas-and-mpl.html';
+
+            var disqus_config = function () {
+                this.language = "en";
+            };
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function () {
+                var dsq = document.createElement('script');
+                dsq.type = 'text/javascript';
+                dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by
+            Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+    </section>
+        </article>
+    </section>
+
+        </div>
+    </div>
+</div>
+<footer class="site-footer">
+<div class="container">
+
+    <!-- column 1 -->
+    <div class="col-md-4">
+      <p><i class="fa fa-send fa-lg"></i> Connect with me<br>
+      <a href="mailto:robert@robertmitchellv.com">robert@robertmitchellv.com</a></li>
+      <br>
+      <br>
+    </div>
+
+    <!-- column 2 -->
+    <div class="col-md-4">
+      <a href="https://github.com/robertmitchellv">
+      <i class="fa fa-github fa-lg"></i>RobertMitchellV</a>
+      <a href="https://twitter.com/robertmitchellv">
+      <br><i class="fa fa-twitter fa-lg"></i>RobertMitchellV</a>
+      <a href="https://www.linkedin.com/in/robertmitchellv">
+      <br><i class="fa fa-linkedin fa-lg"></i>RobertMitchellV</a>
+      <br>
+      <br>
+    </div>
+
+    <!-- column 3 -->
+    <div class="col-md-4">
+      <p class="text">I really enjoy talking philosophy, data, programming,
+      analysis, fatherhood, wine/beer/coffee, vinyl, music, and lots more. 
+      Feel free to use the email to the left or keep me in mind by
+      following me on Twitter or GitHub. Thanks for stopping by!</p>
+      <br>
+      <br>
+    </div>
+    <div class="top"><p class="pull-right"><i class="fa fa-arrow-up"></i><a
+        class="animate" href=#>Back to top</a></p></div>
+  </div>
+</footer>
+<script src="http://robertmitchellv.com/theme/js/jquery.min.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="http://robertmitchellv.com/theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="http://robertmitchellv.com/theme/js/respond.min.js"></script>
+
+    <!-- GitHub JS -->
+    <script type="text/javascript">
+        $(document).ready(function () {
+            if (!window.jXHR) {
+                var jxhr = document.createElement('script');
+                jxhr.type = 'text/javascript';
+                jxhr.src = 'http://robertmitchellv.com/theme/js/jXHR.js';
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(jxhr, s);
+            }
+
+            github.showRepos({
+                user: 'robertmitchellv',
+                count: 5,
+                skip_forks: true,
+                target: '#gh_repos'
+            });
+        });
+    </script>
+    <script src="http://robertmitchellv.com/theme/js/github.js" type="text/javascript"></script>
+    <!-- End GitHub JS Code -->
+    <!-- Disqus -->
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'robertmitchellv';
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function () {
+            var s = document.createElement('script');
+            s.async = true;
+            s.type = 'text/javascript';
+            s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+            (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+        }());
+    </script>
+    <!-- End Disqus Code -->
+
+</body>
+</html>
