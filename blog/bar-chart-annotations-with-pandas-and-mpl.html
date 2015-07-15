@@ -159,7 +159,7 @@ familiarity to enable jumping in easier.</p>
 <h3>First visualization with annotations</h3>
 <p>&nbsp;</p>
 <div class="highlight"><pre>ax = data[&#39;region&#39;].value_counts().plot(kind=&#39;barh&#39;, figsize=(10,7),
-color=&quot;coral&quot;, fontsize=13);
+                                        color=&quot;coral&quot;, fontsize=13);
 ax.set_alpha(0.8)
 ax.set_title(&quot;Where were the battles fought?&quot;, fontsize=18)
 ax.set_xlabel(&quot;Number of Battles&quot;, fontsize=18);
@@ -198,7 +198,7 @@ that; you will notice that a few things have changed in order to create the
 annotation.</p>
 <p>&nbsp;</p>
 <div class="highlight"><pre>ax = data[&#39;region&#39;].value_counts().plot(kind=&#39;bar&#39;, figsize=(10,7),
-color=&quot;coral&quot;, fontsize=13);
+                                        color=&quot;coral&quot;, fontsize=13);
 ax.set_alpha(0.8)
 ax.set_title(&quot;Where were the battles fought?&quot;, fontsize=18)
 ax.set_ylabel(&quot;Number of Battles&quot;, fontsize=18);
@@ -219,7 +219,7 @@ for i in ax.patches:
     # get_x pulls left or right; get_height pushes up or down
     ax.text(i.get_x()-.03, i.get_height()+.5, \
             str(round((i.get_height()/total)*100, 2))+&#39;%&#39;, fontsize=15,
-color=&#39;dimgrey&#39;)
+                color=&#39;dimgrey&#39;)
 </pre></div>
 
 
@@ -231,8 +231,8 @@ never exactly where they need to be, which often means moving thigs around a
 hair here and .03 there.  You can add or subtract, which means you can also do
 this:</p>
 <p>&nbsp;</p>
-<div class="highlight"><pre>x = data[&#39;attacker_outcome&#39;].value_counts().plot(kind=&#39;bar&#39;, figsize=(10,7),
-color=&quot;indigo&quot;, fontsize=13);
+<div class="highlight"><pre>ax = data[&#39;attacker_outcome&#39;].value_counts().plot(kind=&#39;bar&#39;, figsize=(10,7),
+                                                  color=&quot;indigo&quot;, fontsize=13);
 ax.set_alpha(0.8)
 ax.set_title(&quot;Do attackers usually win or loose?&quot;, fontsize=18)
 ax.set_ylabel(&quot;Number of Battles&quot;, fontsize=18);
@@ -253,7 +253,7 @@ for i in ax.patches:
     # get_x pulls left or right; get_height pushes up or down
     ax.text(i.get_x()+.12, i.get_height()-3, \
             str(round((i.get_height()/total)*100, 2))+&#39;%&#39;, fontsize=22,
-color=&#39;white&#39;)
+                color=&#39;white&#39;)
 </pre></div>
 
 
@@ -269,7 +269,7 @@ percentage:</p>
 <div class="highlight"><pre>losses = data[data[&#39;attacker_outcome&#39;].str.contains(&quot;loss&quot;, na=False)]
 
 ax = losses[&#39;attacker_king&#39;].value_counts().plot(kind=&#39;barh&#39;, figsize=(10,7),
-color=&quot;slateblue&quot;, fontsize=13);
+                                                 color=&quot;slateblue&quot;, fontsize=13);
 ax.set_alpha(0.8)
 ax.set_title(&quot;Who were the attackers who lost?&quot;, fontsize=18)
 ax.set_xlabel(&quot;Number of Battles&quot;, fontsize=18);
@@ -294,22 +294,22 @@ couple of values; I think bar charts are great for this purpose.  I am not sure
 what the best way would be do accomplish this, but here is my implementation:</p>
 <p>&nbsp;</p>
 <div class="highlight"><pre>ax = losses[[&#39;attacker_size&#39;, &#39;defender_size&#39;]].plot(kind=&#39;bar&#39;,
-figsize=(15,7), color=[&#39;dodgerblue&#39;, &#39;slategray&#39;], fontsize=13);
+              figsize=(15,7), color=[&#39;dodgerblue&#39;, &#39;slategray&#39;], fontsize=13);
 ax.set_alpha(0.8)
 ax.set_title(&quot;For Attacker Losses, What was the Difference in Size?&quot;,
 fontsize=18)
 ax.set_ylabel(&quot;Number of Troops&quot;, fontsize=18);
 ax.set_yticks([0, 20000, 40000, 60000, 80000, 100000, 120000, 140000])
-ax.set_xticklabels([&quot;Robb v Joff/Tommen&quot;, &quot;Joff/Tommen v Robb&quot;, &quot;Stannis v
-Joff/Tommen&quot;, &quot;Robb v Joff/Tommen&quot;, &quot;Stannis v Mance&quot;], \
-                   rotation=0, fontsize=11)
+ax.set_xticklabels([&quot;Robb v Joff/Tommen&quot;, &quot;Joff/Tommen v Robb&quot;, 
+                    &quot;Stannis v Joff/Tommen&quot;, &quot;Robb v Joff/Tommen&quot;, 
+                    &quot;Stannis v Mance&quot;], rotation=0, fontsize=11)
 
 # set individual bar lables using above list
 for i in ax.patches:
     # get_x pulls left or right; get_height pushes up or down
     ax.text(i.get_x()+.04, i.get_height()+12000, \
             str(round((i.get_height()), 2)), fontsize=11, color=&#39;dimgrey&#39;,
-rotation=45)
+                rotation=45)
 </pre></div>
 
 
@@ -323,16 +323,17 @@ columns!  I did not realize how simple it was, which makes me feel silly.</p>
 <p>&nbsp;</p>
 <p>Here is the chart done horizontally, which I prefer:</p>
 <p>&nbsp;</p>
-<div class="highlight"><pre>x = losses[[&#39;attacker_size&#39;, &#39;defender_size&#39;]].plot(kind=&#39;barh&#39;,
-figsize=(10,7), color=[&#39;dodgerblue&#39;, &#39;slategray&#39;], fontsize=13);
+<div class="highlight"><pre>ax = losses[[&#39;attacker_size&#39;, &#39;defender_size&#39;]].plot(kind=&#39;barh&#39;,
+              figsize=(10,7), color=[&#39;dodgerblue&#39;, &#39;slategray&#39;], fontsize=13);
 ax.set_alpha(0.8)
 ax.set_title(&quot;For Attacker Losses, What was the Difference in Size?&quot;,
 fontsize=18)
 ax.set_xlabel(&quot;Number of Troops&quot;, fontsize=18)
 ax.set_ylabel(&quot;First Name is Attacker&quot;, fontsize=18)
 ax.set_xticks([0, 20000, 40000, 60000, 80000, 100000, 120000, 140000])
-ax.set_yticklabels([&quot;Robb v Joff/Tommen&quot;, &quot;Joff/Tommen v Robb&quot;, &quot;Stannis v
-Joff/Tommen&quot;, &quot;Robb v Joff/Tommen&quot;, &quot;Stannis v Mance&quot;])
+ax.set_yticklabels([&quot;Robb v Joff/Tommen&quot;, &quot;Joff/Tommen v Robb&quot;, 
+                    &quot;Stannis v Joff/Tommen&quot;, &quot;Robb v Joff/Tommen&quot;, 
+                    &quot;Stannis v Mance&quot;])
 
 # set individual bar lables using above list
 for i in ax.patches:
@@ -355,6 +356,9 @@ paste action.  When I have time, I would like to create a class with methods so
 I do not have to keep doing a copy/paste job in my Jupyter notebook.</p>
 <p>&nbsp;</p>
 <p>Let me know if there is an easier way to do this, I would be grateful!</p>
+<p>Here is a link to the <a href="">notebook</a> on my GitHub if you are interested in playing
+with it a bit more.  I stopped when I was trying to figure out how to turn
+the dates into a Pandas 'period_range'.</p>
             </div>
             <!-- /.entry-content -->
     <hr/>
