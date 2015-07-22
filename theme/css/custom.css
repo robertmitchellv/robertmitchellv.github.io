@@ -59,6 +59,11 @@ i.fa.fa-arrow-circle-o-left.fax2 {
   background-color: black;
 }
 
+.pagination>.active>a:hover {
+  background-color: yellow;
+  color: black;
+}
+
 .site-footer {
   background-color: rgba(110, 115, 118, .3);
   border-top: .1px solid #ffffff;
