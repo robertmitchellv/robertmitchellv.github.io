@@ -1,15 +1,21 @@
-title:  "Foucault’s Challenge to Modernist Classification"
-date:   2013-09-04 20:20:29
-category: Philosophy, Knowledge Organization
+Title:  "Foucault’s Challenge to Modernist Classification"
+Date:   2013-09-04 20:20:29
+Category: Philosophy
+Tags: Knowledge Organization, Critical Theory
+Author: Robert Mitchell
 
 In Foucault’s _Les Mots et les choses_ (The Order of Things), he notes a passage in Borges that, for him,
 demonstrates the limitations of taxonomic assertions in the face of exotic systems of thought—via Borges,
 he quotes a ‘certain Chinese encyclopedia’ in which it is written:
 
+&nbsp;
+
 <i class="fa fa-quote-left fa-2x"></i> animals are divided into: (a) belonging to the Emperor, (b) embalmed, (c) tame, (d) sucking pigs, (e) sirens,
 (f) fabulous, (g) stray dogs, (h) included in the present classification, (i) frenzied, (j) innumerable,
 (k) drawn with a very fine camelhair brush, (l) et cetera, (m) having just broken the water pitcher, (n) that
 from a long way off look like flies[^1] <i class="fa fa-quote-right fa-2x"></i>
+
+&nbsp;
 
 What shocks Foucault about this passage is what connects these categories—i.e., the structure that links
 these strange juxtaposed oddities: the alphabetical series [^2].  Foucault questions on what
@@ -24,6 +30,8 @@ which “desiccates speech, stops words in their tracks, contests the very possi
 the challenge of classifying in the post-modern library, for now there is an unforeseen danger&#8212;not incongruous
 disorder but the linking together of things that are inappropriate [^8].
 
+&nbsp;
+
 A perfect classification scheme that represents a universe of knowledge is the pipe-dream of the modernist;
 our observations are not independent of the external world, which undermines our ability to classify.  
 We are enmeshed in our world; contextualized in the milieu that is the object of our analysis.  We have no
@@ -34,6 +42,8 @@ mirrored by our knowledge organization schemes change through time and are in fl
 important to increase transparency and acknowledge bias which can exist through ethnocentrism, race, religion,
 gender, sex, power, language, geography, et cetera.
 
+&nbsp;
+
 Effectively this is similar to Jung's notion of the shadow, that as humans we feel that it is silly to believe
 we cannot accurately describe the external world&#8212;we all agree on things, we test them, and we derive data with
 which to harness confidence in talking objectively about the external world.  We do this daily.  It is this
@@ -42,6 +52,8 @@ ourselves back to a form of equilibrium we must admit that our shadow exists, na
 observations than we leave and, in light of this; we should attempt to root out future bias through honesty and self-understanding.  In this way, we stand the chance of
 building more honest reflections of knowledge.  And, again, in this way, we stand the chance of achieving some
 kind of universe of human knowledge, or at least a good representation of what we feel that we know.
+
+&nbsp;
 
 <br>
 <br>

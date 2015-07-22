@@ -1,6 +1,10 @@
 Title: Vitae
 
+&nbsp;
+
 ## <i class="fa fa-compass fa-lg"></i>  Personal Philosophy
+
+&nbsp;
 
 <ul>
   <i class="fa fa-angle-double-right fa-lg"></i>  <strong>I believe that the 
@@ -10,6 +14,9 @@ framework that fosters strategic thinking.  That interdisciplinary
 relationships can be strengthened through active community participation&#8212;
 working toward something with the shared value of doing good.</strong>
 </ul>
+
+&nbsp;
+
 <ul>
   <i class="fa fa-angle-double-right fa-lg"></i>  <strong>I bring a lot of 
 energy + enthusiasm to the projects that I become involved in.  I thrive in 
@@ -19,6 +26,9 @@ music + cuisine of other cultures, the arts, travelling, languages; to a
 passion for social justice, education for all people, + that our most 
 vulnerable deserve respect + to be treated with dignity + fairness</strong>
 </ul>
+
+&nbsp;
+
 <ul>
   <i class="fa fa-angle-double-right fa-lg"></i>  <strong>Ultimately I hope
 that the work I do is helpful&8212;that it enables discovery or provides
@@ -27,7 +37,11 @@ or meaningful.  Things practical and principled.  I hope to further grow as
 this philosophy guides me.</strong>
 </ul>
 
+&nbsp;
+
 ## <i class="fa fa-magic fa-lg"></i>  Personal Skills
+
+&nbsp;
 
 <ul>
   <i class="fa fa-angle-double-right fa-lg"></i>  <strong>I am dedicated + 
@@ -100,7 +114,11 @@ innovations + technologies while working toward implementing them</strong>
   </ul>
 </ul>
 
+&nbsp;
+
 ## <i class="fa fa-code fa-lg"></i>  Technical Skills
+
+&nbsp;
 
 <ul>
   <i class="fa fa-angle-double-right fa-lg"></i>  <strong>
@@ -120,7 +138,6 @@ OSs: OS X, Linux, + Windows; learning shell scripting with bash and zsh.
 </strong>
 </ul>
 <ul>
-
   <i class="fa fa-angle-double-right fa-lg"></i>  <strong>
 Data: Knolwedge of Relational Databases, SQL, knowledge organization theory, 
 + currently learning noSQL through MongoDB.
@@ -139,7 +156,11 @@ Metadata schemas: knowledge of AACR2, RDA, MODS, METS, + PREMIS
 </strong>
 </ul>
 
+&nbsp;
+
 ## <i class="fa fa-graduation-cap fa-lg"></i>  Education
+
+&nbsp;
 
 <ul>  
   <i class="fa fa-angle-double-right fa-lg"></i>  <strong>University of North 
@@ -155,7 +176,11 @@ literature (2008 / double major)</strong>
 la Sorbonne Nouvelle (Paris III) | Student exchange (2006&#8212;2007)</strong>
 </ul>
 
+&nbsp;
+
 ## <i class="fa fa-institution fa-lg"></i>  Work Experience
+
+&nbsp;
 
 <!-- SRHT / HSC / ETO Admin -->
 <ul>  
@@ -202,6 +227,8 @@ troubleshooter par excellence.</strong>
   </ul>
 </ul>
 
+&nbsp;
+
 <!-- UCLA Powell -->
 <ul>
   <h3>UCLA Powell Library_Los Angeles, CA</h3>
@@ -232,6 +259,8 @@ social media platform apparatus</strong>
   </ul>
 </ul>
 
+&nbsp;
+
 <!-- LAC Group -->
 <ul>
   <h3>LAC Group | on Assignment for USC Library_Los Angeles, CA</h3>
@@ -254,6 +283,8 @@ on new/unfamiliar tasks in order to meet project contract requirements</strong>
 attention to detail</strong>
   </ul>
 </ul>
+
+&nbsp;
 
 <!-- Taylor Mortgage Lawyers -->
 <ul>
@@ -282,6 +313,8 @@ timeliness</strong>
   </ul>
 </ul>
 
+&nbsp;
+
 <!-- Chino Valley -->
 <ul>
   <h3>Chino Valley Unified School District_Chino, CA</h3>
@@ -300,6 +333,8 @@ together resources on the fly + improvise in the absence of a lesson plan
 teach students useful skills for successful academic career</strong>
       </ul>
 </ul>
+
+&nbsp;
 
 <!-- UCLA Philos -->
 <ul>
@@ -320,7 +355,11 @@ estates of previous emeritus professors; chiefly Dr. Rudolf Carnap</strong>
   </ul>
 </ul>
 
+&nbsp;
+
 ## <i class="fa fa-trophy fa-lg"></i>  Accomplishments
+
+&nbsp;
 
   <ul>  
   <i class="fa fa-angle-double-right fa-lg"></i>  <strong>Designed, proofed, 
@@ -341,7 +380,11 @@ articles online for work promoting library services + collections through
 early-adoption of Vine</strong>
   </ul>
 
+&nbsp;
+
 ## <i class="fa fa-child fa-lg"></i>  Interests
+
+&nbsp;
 
   <ul>
   <i class="fa fa-angle-double-right fa-lg"></i>  <strong>
@@ -370,5 +413,9 @@ to explore other places through travel + food; ideologies through reading +
 communicating, + world through science + discovery!</strong>
   </ul>
 
+&nbsp;
+
 ### <a class="page-link" href="/"><i class="fa fa-arrow-circle-o-left fax2"></i>Go Back!</a>
+
+&nbsp;
 

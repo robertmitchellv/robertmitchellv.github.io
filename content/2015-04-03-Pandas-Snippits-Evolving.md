@@ -1,8 +1,12 @@
 Title:  "My Pandas Snippits&#8212;always evolving"
 Date:   2015-04-03 8:30:00
-categories: Python, Pandas
+category: Python
+Tags: Pandas, Data Analysis
+Author: Robert Mitchell
 
 ## As I learn more this page will be updated (and hopefully improved!)
+
+&nbsp;
 
 The goal of this post is to keep me from googling pandas questions
 that I've forgotten.  I don't know how many times I've looked at the results
@@ -10,7 +14,9 @@ and seen five or more StackOverflow links that have clearly already been
 clicked on; I feel like Sisyphus when this happens!  So, here is what I'm
 currently committing to memory:
 
-```
+&nbsp;
+
+```python
 ### Make matplotlib.pyplot look better with no effort:
 import matplotlib.pyplot as plt
 plt.style.use('ggplot')
@@ -108,3 +114,4 @@ groupedby = df.groupby(df.colName).add_suffix('/Mean') # add column suffixes
 ### Use groupedby variable and find the mean for your values
 groupedbyMean = groupedby.mean()
 ```
+&nbsp;

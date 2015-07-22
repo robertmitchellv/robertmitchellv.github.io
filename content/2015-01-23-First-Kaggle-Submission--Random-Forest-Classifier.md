@@ -1,6 +1,8 @@
 Title:  "First Kaggle Submission&#8212;Random Forest Classifier"
 Date:   2015-01-23 13:8:00
-Categories: Python, Random Forrest, Kaggle
+Category: Python
+Tags: Random Forrest, Kaggle
+Author: Robert Mitchell
 
 I have seen kaggle mentioned on twitter a lot; mostly by the data scientists
 and researchers I look up to, but there's never been much confidence that the
@@ -10,14 +12,20 @@ but try and hack my way to my destination!  I think it's a part of my learning
 process: thrust myself in the midst of something I don't understand, get stuck,
 try to get unstuck, finish with some understanding of what I was doing.
 
+&nbsp;
+
 So, when I saw [this](http://http://blog.kaggle.com/2012/07/02/up-and-running-with-python-my-first-kaggle-entry/"Up and Running with Python") post by [Chris Clark](https://github.com/chrisclark "Chris's GitHub Profile"), I thought that it was about time I try 
 and hack my way from recently learning Python to machine learning with 
 SciKit-Learn&#8212;why not!?&#8212;I thought.
+
+&nbsp;
 
 It reminded me of when I decided to sign up with an account at GitHub; I was
 initially intimidated because it was new to me.  Now, I use git in the command
 line, host my website there, and use it for almost everything (still learning
 new things about git everyday as well).
+
+&nbsp;
 
 Chris's post was excellent but there was one problem: the code was aimed at
 Python 2.7 users and I had just spent the previous semester learning Python 3
@@ -27,18 +35,26 @@ the code and update it to Python 3, which was both fun and challenging (I'm
 measuring 'update' to mean, 'running in my Python 3.4 interpreter without 
 error messages').  This may be an easy task but there were a few snags for me. 
 
+&nbsp;
+
 In the spirit of trying to document the things I learn, I've decided to 
 chronical my results here&#8212;if there are any errors or issues with this 
 code, please let me know so I can try to correct, learn, and grow!  I also 
 found Chris's updated code on GitHub, which uses Pandas and I've been trying 
 to get started with Pandas as well so; win, win.
 
+&nbsp;
+
 As an aside, I use Anaconda and Vim for the enviornment and editing, respectively.
 My code can be found on [GitHub](https://github.com/robertmitchellv/kaggle/tree/master/Predicting-a-Biological-Response "robertmitchellv").
+
+&nbsp;
 
 The Submission was a part of the [Predicting a Biological
 Response](https://www.kaggle.com/c/bioresponse) competition, and the training,
 test, and benchmark data sets are provided.
+
+&nbsp;
 
 Since the competition wants us to predict binary values, Chris notes that
 this data set is a good introduction to ensemble classifiers, because the
@@ -48,8 +64,10 @@ I tried to use the comments to explain as much as possible so future me
 will not be baffled, which I can say is helpful since I'm looking at this
 one month out and it makes total sense (at least to me).
 
+&nbsp;
 
-```
+
+```python 
 ### Kaggle Submission Code
 """
     //kaggle submission
@@ -128,13 +146,17 @@ def prepData(alist):
 main()
 ```
 
+&nbsp;
+
 After performing this--Chris suggested to submit to kaggle; being an extra
 careful person by nature, I just had to perform the evaluation and cross
 validation first (I don't know if any of you feel the same way).
 Unfortunately, I don't really understand how the code works--this is one of
 the problems when hacking through tutorials.  
 
-```
+&nbsp;
+
+```python
 ### Evaluation/Logloss
 """
     //kaggle submission
@@ -160,6 +182,8 @@ def logloss(act, pred):
     return ll
 ```
 
+&nbsp;
+
 The cross validation was trickier to understand, which I think is mostly due
 to my not really understanding what ensemble classifiers do, how the random
 forest classifier works, and more specifically; what training, test, and
@@ -169,6 +193,8 @@ understanding of what the code was doing&#8212;there's a lot to learn!  The
 interesting aspect is how the SciKit-Learn reserves some actual data that it
 can test against the classifier's predicted values.  I tried to show in the
 comments how I was understanding what the code did at the time.
+
+&nbsp;
 
 ```
 ### Cross Validation
@@ -214,13 +240,19 @@ def main():
 main()
 ```
 
+&nbsp;
+
 After I was able to execute the submission, logloss, and cross validation code
 without any errors, I submitted my code to kaggle.  It was an exciting moment
 waiting to see what kind of score I would have recieved had I actually
 participated in the competition.  I would have placed at 325 (well, I would
 have tied with another user for 325th); check out my results below.
 
+&nbsp;
+
 <img src="https://raw.githubusercontent.com/robertmitchellv/kaggle/master/Predicting-a-Biological-Response/kaggle_leaderboard.png" width="800px" height="auto">
+
+&nbsp;
 
 Well, that wraps up my first submission to kaggle.  I really hope this is the
 first of many.  Right now I'm working through the Think Stats + Think Bayes
@@ -228,3 +260,6 @@ books to refresh my stats knowledge.  I'm trying to find time to work on the
 Titanic tutorial through kaggle as well as perhaps throw a hat in the ring
 for Booz Hamilton's Data Science Bowl.  There's so much to learn and I can't
 wait for these concepts to become more natural and familiar.
+
+&nbsp;
+

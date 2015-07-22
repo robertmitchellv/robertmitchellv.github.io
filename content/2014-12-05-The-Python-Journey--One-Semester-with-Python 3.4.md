@@ -1,11 +1,15 @@
 Title:  "The Python Journey&#8212;One Semester with Python 3.4"
 Date:   2014-12-05 13:20:00
 Category: Python 
+Tags: Python 
+Author: Robert Mitchell
 
 This was _quite_ a journey for me.  I started the same way everyone else
 has; with my very _first_ "Hello World" program written in Python 3:
 
-```
+&nbsp;
+
+```python
 # Hello World! program.
 def main():
     #get the user's name
@@ -22,9 +26,14 @@ personalize it in some small way.  The following was really interface
 (if I'm speaking pythonically); to a wider interest in programming
 _qua_ programming:
 
-```
+&nbsp;
+
+```python
+
 name = input('What is your name? ')
 ```
+
+&nbsp;
 
 Nevertheless, I was not content with this.  I allowed myself to be sucked into
 a forceful vortex that had me thinking I'd be using Jupytr notebooks, matplotlib,
@@ -34,6 +43,8 @@ stuff I read about.  I didn't know how to use Pandas.  I didn't know how to use
 Blaze.  I didn't even know how to use _'conda update conda'_ in my terminal
 (oh; it's a package manager&#8212;not just an easy way to install Python 3.4 on my
 computer at work without Admin privlages!).
+
+&nbsp;
 
 The reality is that I still have a lot to learn&#8212;I'm still in the shallow end.
 Nothing prepared me for the absolute _angst_ associated with trying to implement
@@ -45,12 +56,16 @@ _'try, except'_ statements, I thought I was really _going places_ with my code.
 OOP razed that sandcastle quite briskly.  Like a kind of soverign and violent
 natural phenomena.
 
+&nbsp;
+
 From my first program to my 10th program, this is how far I have come.  This is
 my attempt at OOP, classes, _'init'_ methods, ~~inheritance~~ composition,
 and more.  It's likely pretty flawed and could be made less redundant, but I
 didn't copy StackOverflow and tried to figure it out on my own; so, I'm damn
 proud of it!  There were some programs specs that I needed to show an
 understanding of; quickly, the program specs:
+
+&nbsp;
 
 * Each question will have four possible answers
 * Each player will take turns with the questions
@@ -70,9 +85,14 @@ understanding of; quickly, the program specs:
   creates the list to display questions and keeps tracks of user input to let
   players know if they won, lost, or tied.
 
-Here is my solutions:
+&nbsp;
 
-```
+Here are my solutions:
+
+&nbsp;
+
+```python
+
 # -*- coding: utf-8 -*-
 """     A10--Trivia Game!
         --> two player trivia game
@@ -312,6 +332,8 @@ def main():
 main()
 ```
 
+&nbsp;
+
 I couldn't help but think about Plato when I was trying to understand how Objects
 work in Python.  There's something really similar about how a _'class'_ has a
 kind of _ontos_&#8212;that it isn't just a blueprint&#8212;it exists, and it did exist before the _'init'_ method gave it attributes; that prescriptive
@@ -319,6 +341,11 @@ human speculation we come up with when describing the form of something abstract
 like 'the Beautiful' (although it's been a while since my Phil 100A course at
 UCLA&#8212;I hope I'm not misrepresenting the _Phaedo_).
 
+&nbsp;
+
 The course is over but I have a few titles I purchased from Packt to dig a little
 deeper.  Suggestions are always welcome; the journey's _telos_ is to learn; and
 learn I intend to do!
+
+&nbsp;
+

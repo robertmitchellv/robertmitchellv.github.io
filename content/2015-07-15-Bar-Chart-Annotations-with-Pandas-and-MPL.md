@@ -1,6 +1,8 @@
 Title: "Bar Chart Annotations with Pandas and MPL"
 Date: 2015-07-15 14:00:00
-categories: Python, Pandas, MPL, Visualization
+Category: Python
+Tags: Pandas, MPL, Visualization
+Author: Robert Mitchell
 
 &nbsp;
 
@@ -40,7 +42,7 @@ familiarity to enable jumping in easier.
 
 &nbsp;
 
-```
+```python
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -65,7 +67,7 @@ data = pd.read_csv('5kings_battles_v1.csv')
 
 &nbsp;
 
-```
+```python
 ax = data['region'].value_counts().plot(kind='barh', figsize=(10,7),
                                         color="coral", fontsize=13);
 ax.set_alpha(0.8)
@@ -109,7 +111,7 @@ annotation.
 
 &nbsp;
   
-```
+```python
 ax = data['region'].value_counts().plot(kind='bar', figsize=(10,7),
                                         color="coral", fontsize=13);
 ax.set_alpha(0.8)
@@ -147,7 +149,7 @@ this:
 
 &nbsp;
 
-```
+```python
 ax = data['attacker_outcome'].value_counts().plot(kind='bar', figsize=(10,7),
                                                   color="indigo", fontsize=13);
 ax.set_alpha(0.8)
@@ -187,7 +189,7 @@ percentage:
 
 &nbsp;
 
-```
+```python
 losses = data[data['attacker_outcome'].str.contains("loss", na=False)]
 
 ax = losses['attacker_king'].value_counts().plot(kind='barh', figsize=(10,7),
@@ -218,7 +220,7 @@ what the best way would be do accomplish this, but here is my implementation:
 
 &nbsp;
 
-```
+```python
 ax = losses[['attacker_size', 'defender_size']].plot(kind='bar',
               figsize=(15,7), color=['dodgerblue', 'slategray'], fontsize=13);
 ax.set_alpha(0.8)
@@ -254,7 +256,7 @@ Here is the chart done horizontally, which I prefer:
 
 &nbsp;
 
-```
+```python
 ax = losses[['attacker_size', 'defender_size']].plot(kind='barh',
               figsize=(10,7), color=['dodgerblue', 'slategray'], fontsize=13);
 ax.set_alpha(0.8)
@@ -293,6 +295,7 @@ I do not have to keep doing a copy/paste job in my Jupyter notebook.
 
 Let me know if there is an easier way to do this, I would be grateful!
 
-Here is a link to the [notebook]() on my GitHub if you are interested in playing
+Here is a link to the
+[notebook](https://github.com/robertmitchellv/robertmitchellv.github.io/blob/master/content/notebooks/Five-Kings-Data-Analysis.ipynb) on my GitHub if you are interested in playing
 with it a bit more.  I stopped when I was trying to figure out how to turn
 the dates into a Pandas 'period_range'.
