@@ -71,7 +71,7 @@ blind us to how subjects change and are re-collocated through time?  What can
 knowledge organization thery do to help the sophisticated user re-collocate
 knowledge through time?  This can be answered by charting the development of a
 class in a classification system through time.  In other words, this can be
-answered by charting the subject's ontogeny.[^6]<i class="fa fa-quote-right fa-1x"></i>
+answered by charting the subject's ontogeny.<i class="fa fa-quote-right fa-1x"></i>[^6]
 
 &nbsp;
 
@@ -99,7 +99,7 @@ condition for its being a work of art at all.  An art work which does not
 deserve an audience, we must say, is no art work.  This is why, in experiencing
 a work of art for what it is, we "preserve" it; and it is why, for Heidegger as
 for Hegel, the work of art is intrinsically a communal and (in a broad sense) a
-communicative entity.[^7]<i class="fa fa-quote-right fa-1x"></i>
+communicative entity.<i class="fa fa-quote-right fa-1x"></i>[^7]
 
 &nbsp;
 
@@ -150,7 +150,7 @@ our understanding of science is as Aschwanden says:
 everything it touches to truth.  Instead, "science operates as a procedure of
 uncertainty reduction [...] [t]he goal is to get less wrong over time."  This
 concept is fundamental&mdash;whatever we know now is only our best approximation of
-the truth.  We can never presume to know everything.[^9]<i class="fa fa-quote-right fa-1x"></i>
+the truth.  We can never presume to know everything.<i class="fa fa-quote-right fa-1x"></i>[^9]
 
 That this line of thinking is novel for people in STEM fields is as
 disconcerting as the lack of statistical knowledge in the humanities.  I see
