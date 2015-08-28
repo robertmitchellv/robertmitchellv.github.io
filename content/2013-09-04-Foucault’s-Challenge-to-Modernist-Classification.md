@@ -10,10 +10,10 @@ he quotes a ‘certain Chinese encyclopedia’ in which it is written:
 
 &nbsp;
 
-<i class="fa fa-quote-left fa-2x"></i> animals are divided into: (a) belonging to the Emperor, (b) embalmed, (c) tame, (d) sucking pigs, (e) sirens,
+><i class="fa fa-quote-left fa-1x"></i> animals are divided into: (a) belonging to the Emperor, (b) embalmed, (c) tame, (d) sucking pigs, (e) sirens,
 (f) fabulous, (g) stray dogs, (h) included in the present classification, (i) frenzied, (j) innumerable,
 (k) drawn with a very fine camelhair brush, (l) et cetera, (m) having just broken the water pitcher, (n) that
-from a long way off look like flies[^1] <i class="fa fa-quote-right fa-2x"></i>
+from a long way off look like flies[^1] <i class="fa fa-quote-right fa-1x"></i>
 
 &nbsp;
 
