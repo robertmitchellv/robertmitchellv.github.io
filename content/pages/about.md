@@ -1,10 +1,10 @@
 Title: About Me
 
-### The brief bio
+<img class="img-me" src="../images/me.jpg" width="300px" height="auto">
 
 &nbsp;
 
--><img class="img-me" src="../images/me.jpg" width="300px" height="auto"><-
+### The brief bio
 
 &nbsp;
 

@@ -11,7 +11,7 @@
       transform: translateY(0px);  
       opacity: 1;
      }
-}                          }
+}
 
 .container {
   font-size: 21px;
@@ -27,6 +27,12 @@ form.navbar-search {
 
 i.fa.fa-arrow-circle-o-left.fax2 {
   padding: 2em 0;
+}
+
+img.img-me {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .navbar {
