@@ -4,16 +4,16 @@ Title: About Me
 
 &nbsp;
 
+-><img class="img-me" src="../images/me.jpg" width="300px" height="auto"><-
+
+&nbsp;
+
 >I am father, husband, and recent Master of Science in Information Science
 (MSIS) recipient who is passionate about code, complexity, design, dichotomy
 busting, cuisine, travel, + striving for balance across the board in my
 life.  I love conceptual thinking and am expanding my worldview through the
 acquisition of knowledge.  With this site, I hope to document what I learn and
 share what I know.
-
-&nbsp;
-
-<img class="img-me" src="../images/me.jpg" width="300px" height="auto">
 
 &nbsp;
 
