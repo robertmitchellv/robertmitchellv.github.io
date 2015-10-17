@@ -182,25 +182,21 @@ la Sorbonne Nouvelle (Paris III) | Student exchange (2006&#8212;2007)</strong>
 
 &nbsp;
 
-<!-- SRHT / HSC / ETO Admin -->
+<!-- SRHT / Data Analyst -->
 <ul>  
   <h3>Skid Row Housing Trust_Los Angeles, CA</h3>
-  <h4>Health Services, Data, and Analysis Coordinator / October 2014&#8212;
-Present</h4>
+  <h4>Data Analyst / August 2015&#8212;Present</h4>
   <ul>
-  <i class="fa fa-angle-double-right fa-lg"></i>  <strong>responsible for data
-collection; evaluating new collection tools and survey instrument 
-implementation for health related grants and continual quality improvement 
+  <i class="fa fa-angle-double-right fa-lg"></i>  <strong>provide strategic
+oversight to organization's data collection systems and reporting processes
+through the collection and anslysis of data, reporting on and capturing of
+outcome metrics, and providing input to create a more data-driven culture 
 </strong>
   </ul>
   <ul>
-  <i class="fa fa-angle-double-right fa-lg"></i>  <strong>database
-administrator for Resdsident Services department; monitors end-user input to 
-track outcomes</strong>
-  </ul>
-  <ul>
-  <i class="fa fa-angle-double-right fa-lg"></i>  <strong>responsible for 
-pulling data for reports; quarterly and grant specific</strong>
+  <i class="fa fa-angle-double-right fa-lg"></i>  <strong>responsible for
+identifying, monitoring, and evaluating program and organizational outcomes to
+ensure compliance and effectiveness of programming</strong>
   </ul>
   <ul>
   <i class="fa fa-angle-double-right fa-lg"></i>  <strong>exploring 
@@ -208,22 +204,144 @@ open-source database alternatives to reduce organizational cost and fit within
 the IT ecosystem</strong>
   </ul>
   <ul>
-  <i class="fa fa-angle-double-right fa-lg"></i>  <strong>writing an analysis
-+ evaluation manuel to guide staff in analysing their own data; will mostly
-rely on Python and SQL with source code availible (in progress)</strong>
+  <i class="fa fa-angle-double-right fa-lg"></i>  <strong>Liaise with internal 
+departments for reporing/proposal questions, demographic data, and to answer 
+questions about the Resident Programs department's model and outcomes 
+strategy</strong>
   </ul>
   <ul>
-  <i class="fa fa-angle-double-right fa-lg"></i>  <strong>working with future
-partnerships at leveraging data to enable future funding for supportive 
-services + better health access for residents</strong>
+  <i class="fa fa-angle-double-right fa-lg"></i>  <strong>prepare recurring and
+special aggregated data reports and related decision support tools for Resident
+Programs department (and organization if needed) to support analytics value
+chain: data<i class="fa fa-arrow-right"></i>reporting<i class="fa
+fa-arrow-right"></i>analysis<i class="fa fa-arrow-right"></i>action<i class="fa fa-arrow-right"></i>value</strong>
+  </ul>
+  <ul>
+  <i class="fa fa-angle-double-right fa-lg"></i>  <strong>oversee the
+application and implementation of assessment procedures; provides feedback and
+training in its use and answers questions about what is tracked and why</strong>
+  </ul>
+  <ul>
+  <i class="fa fa-angle-double-right fa-lg"></i>  <strong>gathers, formats, and
+analyzes data using descriptive and inferential statics with visualizations of
+outcome metrics to enable the organization to tell its narrative with data
+(in Python)</strong>
+  </ul>
+  <ul>
+  <i class="fa fa-angle-double-right fa-lg"></i>  <strong>acting as core
+Efforts to Outcomes database administrator for the Resident Programs
+department; provides additional database support / programming support to
+internal departments as requested</strong>
+  </ul>
+  <ul>
+  <i class="fa fa-angle-double-right fa-lg"></i>  <strong>working on data
+warehousing solutions to support executive dashbord to track high-level
+concerns</strong>
+  </ul>
+  <ul>
+  <i class="fa fa-angle-double-right fa-lg"></i>  <strong>liaise with external
+organizations, research institutions, and contractors / consultants interested
+in or currently conducting research with residents to answer questions about
+what we currently are using to track outcomes / offer support</strong>
+  </ul>
+</ul>
+
+&nbsp;
+
+<!-- SRHT / HSC -->
+<ul>  
+  <h3>Skid Row Housing Trust_Los Angeles, CA</h3>
+  <h4>Health Services Coordinator / October 2014&#8212;July 2015</h4>
+  <ul>
+  <i class="fa fa-angle-double-right fa-lg"></i>  <strong>gathered baseline
+data on current resident enrollment in Medi-Cal, their health care utilization
+and access, history of chronic health conditions, as well as food intake.   
+</strong>
+  </ul>
+  <ul>
+  <i class="fa fa-angle-double-right fa-lg"></i>  <strong>performed statistical
+analysis of health survey data using Python--we had 200 respondants and
+were able to make programmatic changes based on our findings</strong>
+  </ul>
+  <ul>
+  <i class="fa fa-angle-double-right fa-lg"></i>  <strong>developed and
+implemented health training workshops and on-on-one guidance for Program
+Managers and Resident Services Coordinators to improve knowledge of new
+Affordable Care Act-driven insurance enrollment challenges for residents with
+advanced conditions</strong>
+  </ul>
+  <ul>
+  <i class="fa fa-angle-double-right fa-lg"></i>  <strong>implemented
+resident-focused trainings on managing and seeking help for chronic health
+conditions as well as creating health literacy guides for residents</strong>
+  </ul>
+  <ul>
+  <i class="fa fa-angle-double-right fa-lg"></i><strong>planed and coordinated
+resident health fairs in collaboration with community health providers to
+improve health literacy of residents in connection to both chronic conditions
+as well as the resources in their community</strong>
+  </ul>
+  <ul>
+  <i class="fa fa-angle-double-right fa-lg"></i>  <strong>Provided coordinating
+support to Program Managers and staff charged with oversight of existing
+on-site health resources and wellness programs.  Explored potential
+partnerships to provide residents improved health and wellbeing</strong>
+  </ul>
+  <ul>
+  <i class="fa fa-angle-double-right fa-lg"></i>  <strong>Prepared and
+maintained accurate reports and survey data utilizing the Efforts to Outcomes
+database</strong>
+  </ul>
+  <ul>
+  <i class="fa fa-angle-double-right fa-lg"></i>  <strong>project 
+troubleshooter par excellence.</strong>
+  </ul>
+</ul>
+
+&nbsp;
+
+<!-- SRHT / HTC -->
+<ul>  
+  <h3>Skid Row Housing Trust_Los Angeles, CA</h3>
+  <h4>Housing Transition Specialist / November 2013&#8212;September 2014</h4>
+  <ul>
+  <i class="fa fa-angle-double-right fa-lg"></i>  <strong>responsible for
+administering and uploading survey data to the Substance Abuse and Mental 
+Health Services Administration (SAMHSA) and its affiliates while maintaining 
+condidentiality and records keeping due diligence</strong>
+  </ul>
+  <ul>
+  <i class="fa fa-angle-double-right fa-lg"></i>  <strong>worked with Resident
+Service Coordinators, programmatic staff, and grant evaluator on collecting and
+maintaining data pertinent mandated progress reports to SAMHSA</strong>
+  </ul>
+  <ul>
+  <i class="fa fa-angle-double-right fa-lg"></i>  <strong>researched, wrote,
+and compiled bi-annual reports for the Cooperative Agreement to Benefit
+Homeless Individuals (CABHI) grant project</strong>
+  </ul>
+  <ul>
+  <i class="fa fa-angle-double-right fa-lg"></i>  <strong>point-person/project
+manager for follow up and grant workplan compliance with Skid Row Community
+Consortium</strong>
+  </ul>
+  <ul>
+  <i class="fa fa-angle-double-right fa-lg"></i>  <strong>researched and
+identfied future survey instruments for targeted subpopulations to improve data
+collection practices</strong>
+  </ul>
+  <ul>
+  <i class="fa fa-angle-double-right fa-lg"></i>  <strong>participated in
+regular trainings, program evaluation, and program development</strong>
   </ul>
   <ul>
   <i class="fa fa-angle-double-right fa-lg"></i>  <strong>designed and edited
 Peer Advocate zine for commercial printing</strong>
   </ul>
   <ul>
-  <i class="fa fa-angle-double-right fa-lg"></i>  <strong>project 
-troubleshooter par excellence.</strong>
+  <i class="fa fa-angle-double-right fa-lg"></i>  <strong>improved client
+access to resources/information through small booklets tailored to the
+population</strong>
   </ul>
 </ul>
 
