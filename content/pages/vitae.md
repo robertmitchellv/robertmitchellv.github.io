@@ -31,7 +31,7 @@ vulnerable deserve respect + to be treated with dignity + fairness</strong>
 
 <ul>
   <i class="fa fa-angle-double-right fa-lg"></i>  <strong>Ultimately I hope
-that the work I do is helpful&8212;that it enables discovery or provides
+that the work I do is helpfult&#8212;that it enables discovery or provides
 clarity.  The gamut of which is not narrow, but wide&#8212;a lot can be helpful
 or meaningful.  Things practical and principled.  I hope to further grow as
 this philosophy guides me.</strong>
@@ -122,32 +122,34 @@ innovations + technologies while working toward implementing them</strong>
 
 <ul>
   <i class="fa fa-angle-double-right fa-lg"></i>  <strong>
-Web Technologies: HTML, CSS, Javascript, Jekyll, Wordpress, Drupal, Information
-Architecture, + UX/UI design.
+Web Technologies: HTML, CSS, Javascript, Flask, Pelican, Jekyll, 
+Wordpress, Drupal, Information Architecture, + UX/UI design.
 </strong>
 </ul>
 <ul>
   <i class="fa fa-angle-double-right fa-lg"></i>  <strong>
-Coding: Python + Javascript; interested in the scientific computing + machine
-learning libraries of Python and the Node, Meteor, and D3 frameworks in JS.
+Coding: Python, R, + some Javascript.  Would like to learn something 
+functional next; thinking Clojure!
 </strong>
 </ul>
 <ul>
   <i class="fa fa-angle-double-right fa-lg"></i>  <strong>
-OSs: OS X, Linux, + Windows; learning shell scripting with bash and zsh.
+OSs: OS X, Linux, + Windows (cygwin!).  I love the terminal and wish vim 
+bindings were universal.
 </strong>
 </ul>
 <ul>
   <i class="fa fa-angle-double-right fa-lg"></i>  <strong>
 Data: Knolwedge of Relational Databases, SQL, knowledge organization theory, 
-+ currently learning noSQL through MongoDB.
++ currently interested in learning noSQL through MongoDB.
 </strong>
 </ul>
 <ul>
   <i class="fa fa-angle-double-right fa-lg"></i>  <strong>
-Data Analysis: basic data janitorial knowledge with Pandas, experience with 
-evaluation and data collection + learning the basics of machine learning 
-with kaggle tutorials.
+Data Analysis: (python) munging and basic stats with Pandas, mostly use 
+matplotlib with the ggplot style (a must) within Pandas. Also, I have some 
+basic scikit learn clustering exposure and want to get into PYMC but there is 
+still so much to learn! (r) mostly basics in dplr, and ggplot2 (hadleyverse). 
 </strong>
 </ul>
 <ul>
@@ -204,8 +206,8 @@ open-source database alternatives to reduce organizational cost and fit within
 the IT ecosystem</strong>
   </ul>
   <ul>
-  <i class="fa fa-angle-double-right fa-lg"></i>  <strong>Liaise with internal 
-departments for reporing/proposal questions, demographic data, and to answer 
+  <i class="fa fa-angle-double-right fa-lg"></i>  <strong>liaise with internal 
+departments for reporting/proposal questions, demographic data, and to answer 
 questions about the Resident Programs department's model and outcomes 
 strategy</strong>
   </ul>
@@ -282,13 +284,13 @@ improve health literacy of residents in connection to both chronic conditions
 as well as the resources in their community</strong>
   </ul>
   <ul>
-  <i class="fa fa-angle-double-right fa-lg"></i>  <strong>Provided coordinating
+  <i class="fa fa-angle-double-right fa-lg"></i>  <strong>provided coordinating
 support to Program Managers and staff charged with oversight of existing
 on-site health resources and wellness programs.  Explored potential
 partnerships to provide residents improved health and wellbeing</strong>
   </ul>
   <ul>
-  <i class="fa fa-angle-double-right fa-lg"></i>  <strong>Prepared and
+  <i class="fa fa-angle-double-right fa-lg"></i>  <strong>prepared and
 maintained accurate reports and survey data utilizing the Efforts to Outcomes
 database</strong>
   </ul>
