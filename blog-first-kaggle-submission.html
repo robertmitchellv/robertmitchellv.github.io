@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+<meta name="author" content="Robert Mitchell" />
+
+<meta name="date" content="2015-01-23" />
+
+<title>FIRST KAGGLE SUBMISSION—RANDOM FOREST CLASSIFIER</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/yeti.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<link href="site_libs/font-awesome-4.5.0/css/font-awesome.min.css" rel="stylesheet" />
+
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+</head>
+
+<body>
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 45px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 50px;
+  margin-top: -50px;
+}
+
+.section h2 {
+  padding-top: 50px;
+  margin-top: -50px;
+}
+.section h3 {
+  padding-top: 50px;
+  margin-top: -50px;
+}
+.section h4 {
+  padding-top: 50px;
+  margin-top: -50px;
+}
+.section h5 {
+  padding-top: 50px;
+  margin-top: -50px;
+}
+.section h6 {
+  padding-top: 50px;
+  margin-top: -50px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+
+<div class="container-fluid main-container">
+
+<!-- tabsets -->
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+</script>
+
+<!-- code folding -->
+
+
+
+
+
+<!-- fonts -->
+<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700|Roboto:100,100i,300,300i|Roboto+Mono:100i,300,700,700i" rel="stylesheet">
+
+<!-- navbar -->
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">
+        <img alt="Brand" src="site_content/img/rbmv_curve.png" id="rbmv">
+      </a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="index.html" class="navbar-link" onclick="fadeInOut()">
+    <span class="fa fa-home"></span>
+     
+    Home
+  </a>
+</li>
+<li>
+  <a href="blog.html" class="navbar-link" onclick="fadeInOut()">
+    <span class="fa fa-pencil-square-o"></span>
+     
+    Blog
+  </a>
+</li>
+<li>
+  <a href="about.html" class="navbar-link" onclick="fadeInOut()">
+    <span class="fa fa-newspaper-o"></span>
+     
+    About
+  </a>
+</li>
+<li>
+  <a href="vitae.html" class="navbar-link" onclick="fadeInOut()">
+    <span class="fa fa-paperclip"></span>
+     
+    Vitae
+  </a>
+</li>
+<li>
+  <a href="mailto:robert@robertmitchellv.com">
+    <span class="fa fa-send-o"></span>
+     
+    Contact
+  </a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    <span class="fa fa-link"></span>
+     
+    Connect
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li class="dropdown-header">Professional</li>
+    <li>
+      <a href="https://github.com/robertmitchellv">
+        <span class="fa fa-github"></span>
+         
+        Github
+      </a>
+    </li>
+    <li>
+      <a href="https://twitter.com/robertmitchellv">
+        <span class="fa fa-twitter"></span>
+         
+        Twitter
+      </a>
+    </li>
+    <li class="divider"></li>
+    <li class="dropdown-header">Personal</li>
+    <li>
+      <a href="https://www.instagram.com/robertmitchellv/">
+        <span class="fa fa-instagram"></span>
+         
+        Instagram
+      </a>
+    </li>
+    <li>
+      <a href="https://soundcloud.com/rbmv">
+        <span class="fa fa-soundcloud"></span>
+         
+        Soundcloud
+      </a>
+    </li>
+  </ul>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">FIRST KAGGLE SUBMISSION—RANDOM FOREST CLASSIFIER</h1>
+<h4 class="author"><em>Robert Mitchell</em></h4>
+<h4 class="date"><em>January 23, 2015</em></h4>
+
+</div>
+
+
+<p>I have seen kaggle mentioned on twitter a lot; mostly by the data scientists and researchers I look up to, but there’s never been much confidence that the site was for me in any way—mostly because I was a long way from my dream data science job with yet so much to learn. Notwithstanding, I cannot help but try and hack my way to my destination! I think it’s a part of my learning process: thrust myself in the midst of something I don’t understand, get stuck, try to get unstuck, finish with some understanding of what I was doing.</p>
+<p><br></p>
+<p>So, when I saw <a href="http://http://blog.kaggle.com/2012/07/02/up-and-running-with-python-my-first-kaggle-entry/%22Up%20and%20Running%20with%20Python%22">this</a> post by <a href="https://github.com/chrisclark" title="Chris&#39;s GitHub Profile">Chris Clark</a>, I thought that it was about time I try and hack my way from recently learning Python to machine learning with SciKit-Learn&amp;—why not!?&amp;—I thought.</p>
+<p><br></p>
+<p>It reminded me of when I decided to sign up with an account at GitHub; I was initially intimidated because it was new to me. Now, I use git in the command line, host my website there, and use it for almost everything (still learning new things about git everyday as well).</p>
+<p><br></p>
+<p>Chris’s post was excellent but there was one problem: the code was aimed at Python 2.7 users and I had just spent the previous semester learning Python 3 (which means I don’t really know 2.7; and avoid it all the time “where are the parens for this print statement??”). As a personal challenge, I decided to use the code and update it to Python 3, which was both fun and challenging (I’m measuring ‘update’ to mean, ‘running in my Python 3.4 interpreter without error messages’). This may be an easy task but there were a few snags for me.</p>
+<p><br></p>
+<p>In the spirit of trying to document the things I learn, I’ve decided to chronical my results here&amp;—if there are any errors or issues with this code, please let me know so I can try to correct, learn, and grow! I also found Chris’s updated code on GitHub, which uses Pandas and I’ve been trying to get started with Pandas as well so; win, win.</p>
+<p><br></p>
+<p>As an aside, I use Anaconda and Vim for the enviornment and editing, respectively. My code can be found on <a href="https://github.com/robertmitchellv/kaggle/tree/master/Predicting-a-Biological-Response" title="robertmitchellv">GitHub</a>.</p>
+<p><br></p>
+<p>The Submission was a part of the <a href="https://www.kaggle.com/c/bioresponse">Predicting a Biological Response</a> competition, and the training, test, and benchmark data sets are provided.</p>
+<p><br></p>
+<p>Since the competition wants us to predict binary values, Chris notes that this data set is a good introduction to ensemble classifiers, because the prediction is a binary value (0 or 1). It was also great to take a closer look at both the Pandas and SciKit-Learn’s documentation to troubleshoot. I tried to use the comments to explain as much as possible so future me will not be baffled, which I can say is helpful since I’m looking at this one month out and it makes total sense (at least to me).</p>
+<p><br></p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co">### Kaggle Submission Code</span>
+<span class="co">&quot;&quot;&quot;</span>
+<span class="co">    //kaggle submission</span>
+<span class="co">    //Biological Response</span>
+<span class="co">    --&gt; random forest classifier</span>
+
+<span class="co">    Author: Robertmitchellv</span>
+<span class="co">    Date: Dec 16, 2104</span>
+<span class="co">    Revised: Dec 22, 2014</span>
+<span class="co">&quot;&quot;&quot;</span>
+
+<span class="im">import</span> pandas <span class="im">as</span> pd
+<span class="im">from</span> sklearn.ensemble <span class="im">import</span> RandomForestClassifier
+
+<span class="kw">def</span> main():
+    <span class="co"># create the training + test sets</span>
+    <span class="cf">try</span>:
+        data <span class="op">=</span> pd.read_csv(<span class="st">&#39;Data/train.csv&#39;</span>)
+    <span class="cf">except</span> <span class="pp">IOError</span>:
+        <span class="bu">print</span>(<span class="st">&quot;io ERROR--&gt;Could not locate file.&quot;</span>)
+
+    target <span class="op">=</span> data.Activity.values
+
+    train <span class="op">=</span> data.drop(<span class="st">&#39;Activity&#39;</span>, axis <span class="op">=</span> <span class="dv">1</span>).values
+
+    test <span class="op">=</span> pd.read_csv(<span class="st">&#39;Data/test.csv&#39;</span>).values
+
+    <span class="co"># create and train the random forest and call it &#39;rf&#39;</span>
+    <span class="co"># --&gt; n_estimators = the number of trees in this forest, viz.</span>
+    <span class="co">#     100 trees of forest</span>
+    <span class="co"># --&gt; n_jobs set to -1 will use the number of cores present on your system.</span>
+    rf <span class="op">=</span> RandomForestClassifier(n_estimators <span class="op">=</span> <span class="dv">100</span>, n_jobs <span class="op">=</span> <span class="op">-</span><span class="dv">1</span>)
+    <span class="co"># fit(X, y[, sample_weight]) = build a forest of tress from the</span>
+    <span class="co"># training set (X, y)</span>
+    rf.fit(train, target)
+
+    <span class="co"># predict_proba(X) predict class probabilities for X as list</span>
+    predicted_probs <span class="op">=</span> [x[<span class="dv">1</span>] <span class="cf">for</span> x <span class="op">in</span> rf.predict_proba(test)]
+
+    <span class="co"># prep data for use in pd.Series</span>
+    molID, predictProbs <span class="op">=</span> prepData(predicted_probs)
+
+    <span class="co"># use a dictionary with keys as col headers and values as lists pulled from</span>
+    <span class="co"># previous prep function</span>
+    df <span class="op">=</span> {<span class="st">&#39;MoleculeID&#39;</span>: molID, <span class="st">&#39;PredictedProbability&#39;</span>: predictProbs}
+
+    <span class="co"># pandas DataFrame = a tabular datastructure like a SQL table</span>
+    predicted_probs <span class="op">=</span> pd.DataFrame(df)
+
+    <span class="co"># write predicted_probs to file with pandas method .to_csv()--add header</span>
+    <span class="co"># for submission</span>
+    <span class="cf">try</span>:
+        predicted_probs.to_csv(<span class="st">&#39;Data/submission.csv&#39;</span>, index <span class="op">=</span> <span class="va">False</span>)
+        <span class="bu">print</span>(<span class="st">&quot;File successfully written; check &#39;Data&#39; folder&quot;</span>)
+    <span class="cf">except</span> <span class="pp">IOError</span>:
+        <span class="bu">print</span>(<span class="st">&quot;io ERROR--&gt;Could not write data to file.&quot;</span>)
+
+<span class="co"># preparing data for conversion to pd.DataFrame</span>
+<span class="kw">def</span> prepData(alist):
+        <span class="co"># prepare list to be converted to pandas Series</span>
+        colOne <span class="op">=</span> []
+        colTwo <span class="op">=</span> []
+        idx <span class="op">=</span> <span class="dv">1</span>
+
+        <span class="co"># for loop to set MoleculeID to match the benchmark;</span>
+        <span class="co"># place values into list for easier wrangling as pd.Series</span>
+        <span class="cf">for</span> i <span class="op">in</span> alist:
+            colOne.append(idx)
+            colTwo.append(i)
+            idx <span class="op">+=</span> <span class="dv">1</span>
+
+        <span class="cf">return</span> colOne, colTwo
+
+<span class="co"># call the main function</span>
+main()</code></pre></div>
+<p><br></p>
+<p>After performing this–Chris suggested to submit to kaggle; being an extra careful person by nature, I just had to perform the evaluation and cross validation first (I don’t know if any of you feel the same way). Unfortunately, I don’t really understand how the code works–this is one of the problems when hacking through tutorials.</p>
+<p><br></p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co">### Evaluation/Logloss</span>
+<span class="co">&quot;&quot;&quot;</span>
+<span class="co">    //kaggle submission</span>
+<span class="co">    //Biological Response</span>
+<span class="co">    --&gt; evaluation function (from Grunthus&#39; post)</span>
+<span class="co">&quot;&quot;&quot;</span>
+
+<span class="im">import</span> scipy <span class="im">as</span> sp
+
+<span class="kw">def</span> logloss(act, pred):
+    <span class="co">&quot;&quot;&quot; Vectorised computation of logloss &quot;&quot;&quot;</span>
+
+    <span class="co">#cap in official Kaggle implementation,</span>
+    <span class="co">#per forums/t/1576/r-code-for-logloss</span>
+    epsilon <span class="op">=</span> <span class="fl">1e-15</span>
+    pred <span class="op">=</span> sp.maximum(epsilon, pred)
+    pred <span class="op">=</span> sp.minimum(<span class="dv">1</span><span class="op">-</span>epsilon, pred)
+
+    <span class="co">#compute logloss function (vectorised)</span>
+    ll <span class="op">=</span> <span class="bu">sum</span>(   act<span class="op">*</span>sp.log(pred) <span class="op">+</span>
+                sp.subtract(<span class="dv">1</span>,act)<span class="op">*</span>sp.log(sp.subtract(<span class="dv">1</span>,pred)))
+    ll <span class="op">=</span> ll <span class="op">*</span> <span class="op">-</span><span class="fl">1.0</span><span class="op">/</span><span class="bu">len</span>(act)
+    <span class="cf">return</span> ll</code></pre></div>
+<p><br></p>
+<p>The cross validation was trickier to understand, which I think is mostly due to my not really understanding what ensemble classifiers do, how the random forest classifier works, and more specifically; what training, test, and target data do within machine learning. This gave chase through the SciKit-Learn documentation and other resources online to get a better understanding of what the code was doing&amp;—there’s a lot to learn! The interesting aspect is how the SciKit-Learn reserves some actual data that it can test against the classifier’s predicted values. I tried to show in the comments how I was understanding what the code did at the time.</p>
+<p><br></p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co">### Cross Validation</span>
+<span class="co">&quot;&quot;&quot;</span>
+<span class="co">    //kaggle submission</span>
+<span class="co">    //Biological Response</span>
+<span class="co">    --&gt; cross validation</span>
+<span class="co">&quot;&quot;&quot;</span>
+
+<span class="im">from</span> sklearn.ensemble <span class="im">import</span> RandomForestClassifier
+<span class="im">from</span> sklearn.cross_validation <span class="im">import</span> KFold
+<span class="im">import</span> numpy <span class="im">as</span> np
+<span class="im">import</span> pandas <span class="im">as</span> pd
+<span class="im">import</span> logloss
+
+<span class="kw">def</span> main():
+    <span class="co">#read data from csv; use nparray to create the training + target sets</span>
+    <span class="cf">try</span>:
+        train <span class="op">=</span> pd.read_csv(<span class="st">&#39;Data/train.csv&#39;</span>)
+    <span class="cf">except</span> <span class="pp">IOError</span>:
+        <span class="bu">print</span>(<span class="st">&quot;io ERROR--&gt;Could not locate file.&quot;</span>)
+
+    target <span class="op">=</span> np.array([x[<span class="dv">0</span>] <span class="cf">for</span> x <span class="op">in</span> train])
+    train <span class="op">=</span> np.array([x[<span class="dv">1</span>:] <span class="cf">for</span> x <span class="op">in</span> train])
+
+    <span class="co"># in this case we&#39;ll use a random forest, but this could be any classifier</span>
+    model <span class="op">=</span> RandomForestClassifier(n_estimators <span class="op">=</span> <span class="dv">100</span>, n_jobs <span class="op">=</span> <span class="op">-</span><span class="dv">1</span>)
+
+    <span class="co"># simple K-Fold cross validation. 10 folds.</span>
+    cv <span class="op">=</span> KFold(n <span class="op">=</span> <span class="bu">len</span>(train), n_folds <span class="op">=</span> <span class="dv">10</span>, indices <span class="op">=</span> <span class="va">False</span>)
+
+    <span class="co">#iterate through the training and test cross validation segments and</span>
+    <span class="co">#run the classifier on each one, aggregating the results into a list</span>
+    results <span class="op">=</span> []
+    <span class="cf">for</span> traincv, testcv <span class="op">in</span> cv:
+        prob <span class="op">=</span> model.fit(train[traincv], target[traincv]).predict_proba(train[testcv])
+        results.append(logloss.llfun(target[testcv], [x[<span class="dv">1</span>] <span class="cf">for</span> x <span class="op">in</span> prob]))
+
+    <span class="co">#print out the mean of the cross-validated results</span>
+    <span class="bu">print</span>(<span class="st">&#39;Results: &#39;</span>, <span class="bu">str</span>(np.array(results).mean()))
+
+<span class="co"># call main function</span>
+main()</code></pre></div>
+<p><br></p>
+<p>After I was able to execute the submission, logloss, and cross validation code without any errors, I submitted my code to kaggle. It was an exciting moment waiting to see what kind of score I would have recieved had I actually participated in the competition. I would have placed at 325 (well, I would have tied with another user for 325th); check out my results below.</p>
+<p><br></p>
+<p><img src="https://raw.githubusercontent.com/robertmitchellv/kaggle/master/Predicting-a-Biological-Response/kaggle_leaderboard.png" width="800px" height="auto"></p>
+<p><br></p>
+<p>Well, that wraps up my first submission to kaggle. I really hope this is the first of many. Right now I’m working through the Think Stats + Think Bayes books to refresh my stats knowledge. I’m trying to find time to work on the Titanic tutorial through kaggle as well as perhaps throw a hat in the ring for Booz Hamilton’s Data Science Bowl. There’s so much to learn and I can’t wait for these concepts to become more natural and familiar.</p>
+<p><br></p>
+
+</div> <!-- articleBandContent -->
+</div> <!-- pageContent -->
+
+<footer>
+  <div id="rbmvFooter" class="footer">
+    <div class="footerContent">
+    
+      <!-- column 1 -->
+      <div class="col-md-4">
+        <p><i class="fa fa-send fa-lg"></i> Connect with me<br>
+        <a href="mailto:robert@robertmitchellv.com">robert@robertmitchellv.com</a>
+        <br>
+        <br>
+      </div>
+
+      <!-- column 2 -->
+      <div class="col-md-4">
+        <a href="https://github.com/robertmitchellv">
+          <i class="fa fa-github fa-lg"></i> RobertMitchellV</a>
+        <a href="https://twitter.com/robertmitchellv">
+          <br>
+          <i class="fa fa-twitter fa-lg"></i> RobertMitchellV</a>
+        <a href="https://www.linkedin.com/in/robertmitchellv">
+          <br>
+          <i class="fa fa-linkedin fa-lg"></i> RobertMitchellV</a>
+        <br>
+        <br>
+      </div>
+
+      <!-- column 3 -->
+      <div class="col-md-4">
+        <p class="text">I really enjoy talking philosophy, data, programming, analysis, fatherhood, wine/beer/coffee, vinyl, music, and lots more.  Feel free to use the email to the left or keep me in mind by following me on Twitter or GitHub. Thanks for stopping by!</p>
+        <br>
+        <br>
+      </div>
+      <div class="top">
+        <p class="pull-right">
+          <a class="scrollTop" onclick="slowScroll()" href=#>
+            <i class="fa fa-angle-double-up"></i> Back to top
+          </a>
+        </p>
+      </div>
+    </div>
+  </div>
+  
+  <script type="text/javascript">
+    function slowScroll() { 
+      $('body').animate({ scrollTop: 0 }, 'slow'); 
+    } 
+  </script>
+</footer>
+
+<br>
+<br>
+<br>
+
+<!-- disqus -->
+<div id="disqus_thread"></div>
+  <script>
+
+    var disque_shortname = 'rbmv';
+
+    (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+$(document).ready(function () {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+});
+
+
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,197 @@
+/*  
+ *  tags
+ */
+a {
+  color: #E55743;  /* pale red */
+}
+
+a.anchor {
+  display: block;
+  position: relative;
+  top: -45px; /* fixed navbar height */
+  visibility: hidden;
+}
+
+a:hover {
+  color: #E71B23;  /* red */
+}
+
+h1, .h1, h2, .h2, h3, .h3,
+h4, .h4, h5, .h5, h6, .h6 {
+  font-family: 'Roboto Condensed', sans-serif;
+  font-weight: 700;
+}
+
+h4.author, 
+h4.date {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+}
+
+html, body {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 100;
+  font-size: 17px;
+  height: 100%;
+}
+
+/*  
+ *  ids
+ */
+#header.fluid-row {
+  margin-top: 2em;
+  margin-bottom: 3em;
+}
+
+#img-me {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#rbmv {
+  height: auto;
+  width: 4em;
+}
+
+#rbmvFooter {
+  position: relative;
+  z-index: 2;
+  box-sizing: border-box;
+  height: 25em;
+}
+
+#rbmvFooter.footer {
+  background-color: #212121;  /* light black */
+  padding: 4% 8%;
+  margin-top: 7em;
+  box-shadow: 0px 3px 50px 0px rgba(43,45,66,0.4);
+  font-weight: 300;
+  font-size: 13px;
+  line-height: 25px;
+}
+
+#rbmvFooter .footer {
+  color: #626262;  /* darker grey */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  line-height: 14px;
+}
+
+#scrollTop {
+  color: #FFFFFF!important; /* white */
+}
+
+/*  
+ *  classes
+ */
+.btn-outline-primary {
+  border-color: #E55743;  /* pale red */
+  color: #E55743;  /* pale red */
+}
+
+.btn-outline-primary:hover {
+  border-color: #E71B23;  /* red */
+  background-color: #E71B23;  /* red */
+  color: #FFFFFF;  /* red */
+}
+
+.btn-outline-secondary {
+  border-color: #626262;  /* darker grey */
+  color: #626262;  /* darker grey */
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 300px;
+}
+
+.btn-outline-secondary:hover {
+  border-color: #212121;  /* light black */
+  background-color: #212121;  /* light black */
+  color: #FFFFFF;  /* light black */
+}
+
+.footerContent {
+  color: #626262;  /* darker grey */
+  font-size: 16px;
+}
+
+.footerContent a {
+  color: #626262;  /* darker grey */
+}
+
+.footerContent a:hover {
+  color: #767F7F;  /* lighter grey */
+}
+
+.navbar-default {
+  background-color: #0DC8F6;  /* light blue */  
+  color: #212121;  /* light black */
+  font-weight: 300;
+  font-size: 16px;
+  box-shadow: 0px 3px 15px 0px rgba(0,0,0,0.1);
+}
+
+.navbar-default .navbar-brand {
+  color: #212121;  /* light black */
+}
+
+.navbar-brand {
+  padding: 3px 25px;
+}
+
+.navbar-default .navbar-nav>.active>a, 
+.navbar-default .navbar-nav>.active>a:hover, 
+.navbar-default .navbar-nav>.active>a:focus {
+  color: #FFFFFF;  /* white */
+  background-color: #212121;  /* light black */
+  font-weight: 300;
+}
+
+.navbar-default .navbar-nav>li>a {
+  color: #212121;  /* light black */
+  font-weight: 300;
+}
+
+/* Solarized Dark 
+
+http://ethanschoonover.com/solarized
+
+SOLARIZED HEX      ROLE
+--------- -------- ------------------------------------------
+base03    #002b36  background
+base01    #586e75  comments / secondary content
+base1     #93a1a1  body text / default code / primary content
+orange    #cb4b16  constants
+red       #dc322f  regex, special keywords
+blue      #268bd2  reserved keywords
+cyan      #2aa198  strings, numbers
+green     #859900  operators, other keywords
+*/
+
+pre { background-color: #002b36; color: #93a1a1 }
+code { font-family: 'Roboto Mono', monospace ; font-weight: 300; }
+code > span.kw { color: #268bd2; font-weight: 700; } /* Keyword */
+code > span.dt { color: #dc322f; } /* DataType */
+code > span.dv { color: #93a1a1; } /* DecVal */
+code > span.bn { color: #2aa198; } /* BaseN */
+code > span.fl { color: #2aa198; } /* Float */
+code > span.ch { color: #2aa198; } /* Char */
+code > span.st { color: #2aa198; } /* String */
+code > span.co { color: #586e75; font-style: 100i; } /* Comment */
+code > span.ot { color: #859900; } /* Other */
+code > span.al { color: #ff0000; font-weight: 700; } /* Alert */
+code > span.fu { color: #268bd2; } /* Function */
+code > span.er { color: #93a1a1; font-weight: 700; } /* Error */
+code > span.wa { color: #93a1a1; font-weight: 700i; } /* Warning */
+code > span.cn { color: #cb4b16; } /* Constant */
+code > span.sc { color: #dc322f; } /* SpecialChar */
+code > span.vs { color: #2aa198; } /* VerbatimString */
+code > span.ss { color: #2aa198; } /* SpecialString */
+code > span.im { color: #dc322f; } /* Import */
+code > span.va { color: #268bd2; } /* Variable */
+code > span.cf { color: #859900; font-weight: 700; } /* ControlFlow */
+code > span.op { color: #859900; } /* Operator */
+code > span.bu { color: #268bd2; } /* BuiltIn */
+code > span.ex { } /* Extension */

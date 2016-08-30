@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<title>BLOG</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/yeti.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<link href="site_libs/font-awesome-4.5.0/css/font-awesome.min.css" rel="stylesheet" />
+
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+</head>
+
+<body>
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 45px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 50px;
+  margin-top: -50px;
+}
+
+.section h2 {
+  padding-top: 50px;
+  margin-top: -50px;
+}
+.section h3 {
+  padding-top: 50px;
+  margin-top: -50px;
+}
+.section h4 {
+  padding-top: 50px;
+  margin-top: -50px;
+}
+.section h5 {
+  padding-top: 50px;
+  margin-top: -50px;
+}
+.section h6 {
+  padding-top: 50px;
+  margin-top: -50px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+
+<div class="container-fluid main-container">
+
+<!-- tabsets -->
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+</script>
+
+<!-- code folding -->
+
+
+
+
+
+<!-- fonts -->
+<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700|Roboto:100,100i,300,300i|Roboto+Mono:100i,300,700,700i" rel="stylesheet">
+
+<!-- navbar -->
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">
+        <img alt="Brand" src="site_content/img/rbmv_curve.png" id="rbmv">
+      </a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="index.html" class="navbar-link" onclick="fadeInOut()">
+    <span class="fa fa-home"></span>
+     
+    Home
+  </a>
+</li>
+<li>
+  <a href="blog.html" class="navbar-link" onclick="fadeInOut()">
+    <span class="fa fa-pencil-square-o"></span>
+     
+    Blog
+  </a>
+</li>
+<li>
+  <a href="about.html" class="navbar-link" onclick="fadeInOut()">
+    <span class="fa fa-newspaper-o"></span>
+     
+    About
+  </a>
+</li>
+<li>
+  <a href="vitae.html" class="navbar-link" onclick="fadeInOut()">
+    <span class="fa fa-paperclip"></span>
+     
+    Vitae
+  </a>
+</li>
+<li>
+  <a href="mailto:robert@robertmitchellv.com">
+    <span class="fa fa-send-o"></span>
+     
+    Contact
+  </a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    <span class="fa fa-link"></span>
+     
+    Connect
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li class="dropdown-header">Professional</li>
+    <li>
+      <a href="https://github.com/robertmitchellv">
+        <span class="fa fa-github"></span>
+         
+        Github
+      </a>
+    </li>
+    <li>
+      <a href="https://twitter.com/robertmitchellv">
+        <span class="fa fa-twitter"></span>
+         
+        Twitter
+      </a>
+    </li>
+    <li class="divider"></li>
+    <li class="dropdown-header">Personal</li>
+    <li>
+      <a href="https://www.instagram.com/robertmitchellv/">
+        <span class="fa fa-instagram"></span>
+         
+        Instagram
+      </a>
+    </li>
+    <li>
+      <a href="https://soundcloud.com/rbmv">
+        <span class="fa fa-soundcloud"></span>
+         
+        Soundcloud
+      </a>
+    </li>
+  </ul>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">BLOG</h1>
+
+</div>
+
+
+<!---
+entries will follow this format:
+<article>
+<h3><a href=""> </a></h3>
+<div class="summary">
+<span><i class="fa fa-calendar"></i> _date_</span>
+<p> ...</p>
+<a class="btn btn-outline-primary btn-sm" href="">Full Post</a>
+</div>
+</article>
+--->
+<article>
+<h3>
+<a href="blog-the-move-to-r.html">THE MOVE TO R</a>
+</h3>
+<div class="summary">
+<span><i class="fa fa-calendar"></i> <em>2016-08-29</em></span>
+<p>
+This is <em>not</em> a language wars type post. I do not think there is some Mordor forged language to <em>rule them all</em>. I debated whether or not to even write a post like this. Nevertheless, I had a chance to meet and talk to <a href="https://twitter.com/jakeporway">Jake Powray</a> from <a href="http://www.datakind.org">DataKind</a> at the <a href="http://www.dogooddata.com">DoGoodData</a> confrence and I…
+</p>
+<p><a class="btn btn-outline-primary btn-sm" href="blog-the-move-to-r.html">Full Post</a></p>
+</div>
+</article>
+<hr>
+<article>
+<h3>
+<a href="blog-p-hacking-and-ontology.html">P-HACKING AND ONTOLOGY</a>
+</h3>
+<div class="summary">
+<span><i class="fa fa-calendar"></i> <em>2015-08-25</em></span>
+<p>
+In a recent FiveTirtyEight post by <a href="https://twitter.com/cragcrest">Christie Aschwanden</a> about researcher bias and P-Hacking, there is a lovely interactive example of what variables a researcher would need include/exclude in the analysis in order to obtain a result that is statistically significant, i.e., <em>p≤.05</em>; thus worthy of publishing. The article brought many thoughts to mind…
+</p>
+<p><a class="btn btn-outline-primary btn-sm" href="blog-p-hacking-and-ontology.html">Full Post</a></p>
+</div>
+</article>
+<hr>
+<article>
+<h3>
+<a href="blog-bar-chart-annotations-pandas-mpl.html">BAR CHART ANNOTATIONS WITH PANDAS AND MATPLOTLIB</a>
+</h3>
+<div class="summary">
+<span><i class="fa fa-calendar"></i> <em>2015-06-15</em></span>
+<p>
+When I first started using Pandas, I loved how much easier it was to stick a plot method on a DataFrame or Series to get a better sense of what was going on. However, I was not very impressed with what the plots looked like. Any time I wanted to do something slightly different from the “Plotting” documentation on the pydata site, I found myself arm…
+</p>
+<p><a class="btn btn-outline-primary btn-sm" href="blog-blog-bar-chart-annotations-pandas-mpl.html">Full Post</a></p>
+</div>
+</article>
+<article>
+<h3>
+<a href="blog-pandas-snippits.html">PANDAS SNIPPETS (EVOLVING)</a>
+</h3>
+<div class="summary">
+<span><i class="fa fa-calendar"></i> <em>2015-04-03</em></span>
+<p>
+The goal of this post is to keep me from googling pandas questions that I’ve forgotten. I don’t know how many times I’ve looked at the results and seen five or more StackOverflow links that have clearly already been clicked on; I feel like Sisyphus when this happens! So, here is what I’m currently committing…
+</p>
+<p><a class="btn btn-outline-primary btn-sm" href="blog-pandas-snippits.html">Full Post</a></p>
+</div>
+</article>
+<article>
+<h3>
+<a href="blog-first-kaggle-submission.html">FIRST KAGGLE SUBMISSION—RANDOM FOREST CLASSIFIER</a>
+</h3>
+<div class="summary">
+<span><i class="fa fa-calendar"></i> <em>2015-01-32</em></span>
+<p>
+I have seen kaggle mentioned on twitter a lot; mostly by the data scientists and researchers I look up to, but there’s never been much confidence that the site was for me in any way—mostly because I was a long way from my dream data science job with yet so much to learn. Notwithstanding, I cannot help but try and hack my way to my destination! I think it’s a part of my learning process…
+</p>
+<p><a class="btn btn-outline-primary btn-sm" href="blog-first-kaggle-submission.html">Full Post</a></p>
+</div>
+</article>
+<article>
+<h3>
+<a href="blog-python-journey.html">THE PYTHON JOURNEY—ONE SEMESTER WITH PYTHON 3.4</a>
+</h3>
+<div class="summary">
+<span><i class="fa fa-calendar"></i> <em>2014-12-05</em></span>
+<p>
+This was <em>quite</em> a journey for me. I started the same way everyone else has; with my very <em>first</em> “Hello World” program written in Python 3…This was the first assignment for my Programming in Python course. I was not content to have it only print “Hello World”—no, I need to personalize it in some small way…
+</p>
+<p><a class="btn btn-outline-primary btn-sm" href="blog-python-journey.html">Full Post</a></p>
+</div>
+</article>
+<article>
+<h3>
+<a href="blog-foucaults-challenge.html">FOUCAULT’S CHALLENGE TO MODERNIST CLASSIFICATION</a>
+</h3>
+<div class="summary">
+<span><i class="fa fa-calendar"></i> <em>2013-09-04</em></span>
+<p>
+In Foucault’s <em>Les Mots et les choses</em> (The Order of Things), he notes a passage in Borges that, for him, demonstrates the limitations of taxonomic assertions in the face of exotic systems of thought—via Borges, he quotes a ‘certain Chinese encyclopedia’ in which it is written…
+</p>
+<p><a class="btn btn-outline-primary btn-sm" href="blog-foucaults-challenge.html" role="button">Full Post</a></p>
+</div>
+</article>
+<p><br></p>
+
+</div> <!-- articleBandContent -->
+</div> <!-- pageContent -->
+
+<footer>
+  <div id="rbmvFooter" class="footer">
+    <div class="footerContent">
+    
+      <!-- column 1 -->
+      <div class="col-md-4">
+        <p><i class="fa fa-send fa-lg"></i> Connect with me<br>
+        <a href="mailto:robert@robertmitchellv.com">robert@robertmitchellv.com</a>
+        <br>
+        <br>
+      </div>
+
+      <!-- column 2 -->
+      <div class="col-md-4">
+        <a href="https://github.com/robertmitchellv">
+          <i class="fa fa-github fa-lg"></i> RobertMitchellV</a>
+        <a href="https://twitter.com/robertmitchellv">
+          <br>
+          <i class="fa fa-twitter fa-lg"></i> RobertMitchellV</a>
+        <a href="https://www.linkedin.com/in/robertmitchellv">
+          <br>
+          <i class="fa fa-linkedin fa-lg"></i> RobertMitchellV</a>
+        <br>
+        <br>
+      </div>
+
+      <!-- column 3 -->
+      <div class="col-md-4">
+        <p class="text">I really enjoy talking philosophy, data, programming, analysis, fatherhood, wine/beer/coffee, vinyl, music, and lots more.  Feel free to use the email to the left or keep me in mind by following me on Twitter or GitHub. Thanks for stopping by!</p>
+        <br>
+        <br>
+      </div>
+      <div class="top">
+        <p class="pull-right">
+          <a id="scrollTop" class="slowly" onclick="slowScrollTop()" href=#>
+            <i class="fa fa-angle-double-up"></i> Back to top
+          </a>
+        </p>
+      </div>
+    </div>
+  </div>
+  
+  <!-- slow scrollTop function -->
+  <script type="text/javascript">
+    function slowScrollTop() { 
+      $('body').animate({ scrollTop: 0 }, 'slow'); 
+    } 
+  </script>
+  
+  <!-- slow scrolling to anchor function -->
+  <script type="text/javascript">
+    $('a').click(function slowScroll() { 
+      $('html, body').animate({ 
+        scrollTop: $( $(this).attr('href') ).offset().top 
+      }, 'slow');
+      return false;
+    }); 
+  </script>
+  
+  <!-- page transition -->
+  <script type="text/javascript">
+    // fade content and not navbar in and out
+    $(document).ready(function fadeInOut() {
+      var non_navbar = $('.fluid-row,.section.level2,.summary,p,acrticle,h3,footer')
+      non_navbar.css('display', 'none');
+      non_navbar.fadeIn(800);
+    
+      $('.navbar-link').click(function(event) {
+        event.preventDefault();
+        newLocation = this.href;
+      
+        non_navbar.fadeOut('slow', newpage);
+      });
+    
+      function newpage() {
+        window.location = newLocation;
+      }
+    });
+  </script>
+  
+</footer>
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+$(document).ready(function () {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+});
+
+
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

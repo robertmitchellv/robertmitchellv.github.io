@@ -1,0 +1,9 @@
+name: "rbmv | critical data analysis"
+output_dir: .
+output:
+  html_document:
+    theme: yeti
+    highlight: pygments
+    include:
+      after_body: footer.html
+    css: style.css

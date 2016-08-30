@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+<meta name="author" content="Robert Mitchell" />
+
+
+<title>FOUCAULT’S CHALLENGE TO MODERNIST CLASSIFICATION</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/yeti.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<link href="site_libs/font-awesome-4.5.0/css/font-awesome.min.css" rel="stylesheet" />
+
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+</head>
+
+<body>
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 45px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 50px;
+  margin-top: -50px;
+}
+
+.section h2 {
+  padding-top: 50px;
+  margin-top: -50px;
+}
+.section h3 {
+  padding-top: 50px;
+  margin-top: -50px;
+}
+.section h4 {
+  padding-top: 50px;
+  margin-top: -50px;
+}
+.section h5 {
+  padding-top: 50px;
+  margin-top: -50px;
+}
+.section h6 {
+  padding-top: 50px;
+  margin-top: -50px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+
+<div class="container-fluid main-container">
+
+<!-- tabsets -->
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+</script>
+
+<!-- code folding -->
+
+
+
+
+
+<!-- fonts -->
+<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700|Roboto:100,100i,300,300i|Roboto+Mono:100i,300,700,700i" rel="stylesheet">
+
+<!-- navbar -->
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">
+        <img alt="Brand" src="site_content/img/rbmv_curve.png" id="rbmv">
+      </a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="index.html" class="navbar-link" onclick="fadeInOut()">
+    <span class="fa fa-home"></span>
+     
+    Home
+  </a>
+</li>
+<li>
+  <a href="blog.html" class="navbar-link" onclick="fadeInOut()">
+    <span class="fa fa-pencil-square-o"></span>
+     
+    Blog
+  </a>
+</li>
+<li>
+  <a href="about.html" class="navbar-link" onclick="fadeInOut()">
+    <span class="fa fa-newspaper-o"></span>
+     
+    About
+  </a>
+</li>
+<li>
+  <a href="vitae.html" class="navbar-link" onclick="fadeInOut()">
+    <span class="fa fa-paperclip"></span>
+     
+    Vitae
+  </a>
+</li>
+<li>
+  <a href="mailto:robert@robertmitchellv.com">
+    <span class="fa fa-send-o"></span>
+     
+    Contact
+  </a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    <span class="fa fa-link"></span>
+     
+    Connect
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li class="dropdown-header">Professional</li>
+    <li>
+      <a href="https://github.com/robertmitchellv">
+        <span class="fa fa-github"></span>
+         
+        Github
+      </a>
+    </li>
+    <li>
+      <a href="https://twitter.com/robertmitchellv">
+        <span class="fa fa-twitter"></span>
+         
+        Twitter
+      </a>
+    </li>
+    <li class="divider"></li>
+    <li class="dropdown-header">Personal</li>
+    <li>
+      <a href="https://www.instagram.com/robertmitchellv/">
+        <span class="fa fa-instagram"></span>
+         
+        Instagram
+      </a>
+    </li>
+    <li>
+      <a href="https://soundcloud.com/rbmv">
+        <span class="fa fa-soundcloud"></span>
+         
+        Soundcloud
+      </a>
+    </li>
+  </ul>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">FOUCAULT’S CHALLENGE TO MODERNIST CLASSIFICATION</h1>
+<h4 class="author"><em>Robert Mitchell</em></h4>
+<h4 class="date"><em>September 4, 2013</em></h4>
+
+</div>
+
+
+<p>In Foucault’s <em>Les Mots et les choses</em> (The Order of Things), he notes a passage in Borges that, for him, demonstrates the limitations of taxonomic assertions in the face of exotic systems of thought—via Borges, he quotes a ‘certain Chinese encyclopedia’ in which it is written:</p>
+<p><br></p>
+<blockquote>
+<p><i class="fa fa-quote-left fa-1x"></i> animals are divided into: (a) belonging to the Emperor, (b) embalmed, (c) tame, (d) sucking pigs, (e) sirens, (f) fabulous, (g) stray dogs, (h) included in the present classification, (i) frenzied, (j) innumerable, (k) drawn with a very fine camelhair brush, (l) et cetera, (m) having just broken the water pitcher, (n) that from a long way off look like flies<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a> <i class="fa fa-quote-right fa-1x"></i></p>
+</blockquote>
+<p><br></p>
+<p>What shocks Foucault about this passage is what connects these categories—i.e., the structure that links these strange juxtaposed oddities: the alphabetical series <a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a>. Foucault questions on what bedrock would kinship between ‘(i) frenzied, (j) innumerable, (k) drawn with a very fine camelhair brush’-animals meet, other than the non-space of the utterance itself; i.e., the non-space of language <a href="#fn3" class="footnoteRef" id="fnref3"><sup>3</sup></a>. Language can only display this kinship in an ‘unthinkable space’ (abstract locus)—Borges wants to remove the ‘operating table’ that enables thought to order, divide, and classify external entities <a href="#fn4" class="footnoteRef" id="fnref4"><sup>4</sup></a>. Effectively, this removes the ground upon which, “since the beginning of time, language has intersected space” <a href="#fn5" class="footnoteRef" id="fnref5"><sup>5</sup></a>. Borges’ works often lies in the abstract space of the ‘heterotopia’<a href="#fn6" class="footnoteRef" id="fnref6"><sup>6</sup></a>, which “desiccates speech, stops words in their tracks, contests the very possibility of grammar at its source; […] [to] dissolve our myths and sterilize the lyricism of our sentences” <a href="#fn7" class="footnoteRef" id="fnref7"><sup>7</sup></a>. This highlights the challenge of classifying in the post-modern library, for now there is an unforeseen danger—not incongruous disorder but the linking together of things that are inappropriate [^8].</p>
+<p><br></p>
+<p>A perfect classification scheme that represents a universe of knowledge is the pipe-dream of the modernist; our observations are not independent of the external world, which undermines our ability to classify. We are enmeshed in our world; contextualized in the milieu that is the object of our analysis. We have no bird’s eye view—our objectivity has no locus from which to observe. Nevertheless, I feel that there is a space to enhance knowledge organization. First, I believe it is important to shed the illusion of a temporal permanence of facts, which is not solid and more fluid. Meaning, our reconstructions of the external world mirrored by our knowledge organization schemes change through time and are in flux. Second, I believe it is important to increase transparency and acknowledge bias which can exist through ethnocentrism, race, religion, gender, sex, power, language, geography, et cetera.</p>
+<p><br></p>
+<p>Effectively this is similar to Jung’s notion of the shadow, that as humans we feel that it is silly to believe we cannot accurately describe the external world—we all agree on things, we test them, and we derive data with which to harness confidence in talking objectively about the external world. We do this daily. It is this confidence that leaves us blind to the shadow of our foundation; like Venice, we are sinking. In order to bring ourselves back to a form of equilibrium we must admit that our shadow exists, namely, that we bring as much to our observations than we leave and, in light of this; we should attempt to root out future bias through honesty and self-understanding. In this way, we stand the chance of building more honest reflections of knowledge. And, again, in this way, we stand the chance of achieving some kind of universe of human knowledge, or at least a good representation of what we feel that we know.</p>
+<p><br> <br> <br></p>
+<div class="footnotes">
+<hr />
+<ol>
+<li id="fn1"><p>Foucault, M. 2002. The order of things an archaeology of the human sciences. London and New York: Routledge Classics (Original work published 1966).<a href="#fnref1">↩</a></p></li>
+<li id="fn2"><p>Ibid<a href="#fnref2">↩</a></p></li>
+<li id="fn3"><p>Ibid<a href="#fnref3">↩</a></p></li>
+<li id="fn4"><p>Ibid<a href="#fnref4">↩</a></p></li>
+<li id="fn5"><p>Ibid<a href="#fnref5">↩</a></p></li>
+<li id="fn6"><p>“Different from utopias, which also have no locality, heterotopias are disturbing because they undermine language, make impossible the naming of ‘this’ or ‘that’, because they shatter both the syntax that humans construct sentences with, as well as the syntax that holds words and things together”<a href="#fnref6">↩</a></p></li>
+<li id="fn7"><p>Foucault, 2002<a href="#fnref7">↩</a></p></li>
+</ol>
+</div>
+
+</div> <!-- articleBandContent -->
+</div> <!-- pageContent -->
+
+<footer>
+  <div id="rbmvFooter" class="footer">
+    <div class="footerContent">
+    
+      <!-- column 1 -->
+      <div class="col-md-4">
+        <p><i class="fa fa-send fa-lg"></i> Connect with me<br>
+        <a href="mailto:robert@robertmitchellv.com">robert@robertmitchellv.com</a>
+        <br>
+        <br>
+      </div>
+
+      <!-- column 2 -->
+      <div class="col-md-4">
+        <a href="https://github.com/robertmitchellv">
+          <i class="fa fa-github fa-lg"></i> RobertMitchellV</a>
+        <a href="https://twitter.com/robertmitchellv">
+          <br>
+          <i class="fa fa-twitter fa-lg"></i> RobertMitchellV</a>
+        <a href="https://www.linkedin.com/in/robertmitchellv">
+          <br>
+          <i class="fa fa-linkedin fa-lg"></i> RobertMitchellV</a>
+        <br>
+        <br>
+      </div>
+
+      <!-- column 3 -->
+      <div class="col-md-4">
+        <p class="text">I really enjoy talking philosophy, data, programming, analysis, fatherhood, wine/beer/coffee, vinyl, music, and lots more.  Feel free to use the email to the left or keep me in mind by following me on Twitter or GitHub. Thanks for stopping by!</p>
+        <br>
+        <br>
+      </div>
+      <div class="top">
+        <p class="pull-right">
+          <a class="scrollTop" onclick="slowScroll()" href=#>
+            <i class="fa fa-angle-double-up"></i> Back to top
+          </a>
+        </p>
+      </div>
+    </div>
+  </div>
+  
+  <script type="text/javascript">
+    function slowScroll() { 
+      $('body').animate({ scrollTop: 0 }, 'slow'); 
+    } 
+  </script>
+</footer>
+
+<br>
+<br>
+<br>
+
+<!-- disqus -->
+<div id="disqus_thread"></div>
+  <script>
+
+    var disque_shortname = 'rbmv';
+
+    (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+$(document).ready(function () {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+});
+
+
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

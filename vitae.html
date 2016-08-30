@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+
+
+<title>VITAE</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/yeti.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<link href="site_libs/font-awesome-4.5.0/css/font-awesome.min.css" rel="stylesheet" />
+
+
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+</head>
+
+<body>
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 45px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 50px;
+  margin-top: -50px;
+}
+
+.section h2 {
+  padding-top: 50px;
+  margin-top: -50px;
+}
+.section h3 {
+  padding-top: 50px;
+  margin-top: -50px;
+}
+.section h4 {
+  padding-top: 50px;
+  margin-top: -50px;
+}
+.section h5 {
+  padding-top: 50px;
+  margin-top: -50px;
+}
+.section h6 {
+  padding-top: 50px;
+  margin-top: -50px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+
+<div class="container-fluid main-container">
+
+<!-- tabsets -->
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+</script>
+
+<!-- code folding -->
+
+
+
+
+
+<!-- fonts -->
+<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700|Roboto:100,100i,300,300i|Roboto+Mono:100i,300,700,700i" rel="stylesheet">
+
+<!-- navbar -->
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">
+        <img alt="Brand" src="site_content/img/rbmv_curve.png" id="rbmv">
+      </a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="index.html" class="navbar-link" onclick="fadeInOut()">
+    <span class="fa fa-home"></span>
+     
+    Home
+  </a>
+</li>
+<li>
+  <a href="blog.html" class="navbar-link" onclick="fadeInOut()">
+    <span class="fa fa-pencil-square-o"></span>
+     
+    Blog
+  </a>
+</li>
+<li>
+  <a href="about.html" class="navbar-link" onclick="fadeInOut()">
+    <span class="fa fa-newspaper-o"></span>
+     
+    About
+  </a>
+</li>
+<li>
+  <a href="vitae.html" class="navbar-link" onclick="fadeInOut()">
+    <span class="fa fa-paperclip"></span>
+     
+    Vitae
+  </a>
+</li>
+<li>
+  <a href="mailto:robert@robertmitchellv.com">
+    <span class="fa fa-send-o"></span>
+     
+    Contact
+  </a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    <span class="fa fa-link"></span>
+     
+    Connect
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li class="dropdown-header">Professional</li>
+    <li>
+      <a href="https://github.com/robertmitchellv">
+        <span class="fa fa-github"></span>
+         
+        Github
+      </a>
+    </li>
+    <li>
+      <a href="https://twitter.com/robertmitchellv">
+        <span class="fa fa-twitter"></span>
+         
+        Twitter
+      </a>
+    </li>
+    <li class="divider"></li>
+    <li class="dropdown-header">Personal</li>
+    <li>
+      <a href="https://www.instagram.com/robertmitchellv/">
+        <span class="fa fa-instagram"></span>
+         
+        Instagram
+      </a>
+    </li>
+    <li>
+      <a href="https://soundcloud.com/rbmv">
+        <span class="fa fa-soundcloud"></span>
+         
+        Soundcloud
+      </a>
+    </li>
+  </ul>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">VITAE</h1>
+
+</div>
+
+
+<p><br></p>
+<div id="personal-philosophy" class="section level2">
+<h2><i class="fa fa-compass fa-lg"></i> Personal Philosophy</h2>
+<p><br></p>
+<ul>
+<i class="fa fa-angle-double-right fa-lg"></i> I believe that the 21st century requires a more multifaceted toolkit if we hope to solve complex challenges—process and task oriented approaches balanced within a framework that fosters strategic thinking. That interdisciplinary relationships can be strengthened through active community participation— working toward something with the shared value of doing good.
+</ul>
+<p><br></p>
+<ul>
+<i class="fa fa-angle-double-right fa-lg"></i> I bring a lot of energy and enthusiasm to the projects that I become involved in. I thrive in situations that require imagination and innovation. My interests are varied; among my passions I would list: academic inquiry, classical and contemporary thought, the music and cuisine of other cultures, the arts, travelling, languages, and social justice. I believe that our most vulnerable deserve respect and to be treated with dignity and fairness.
+</ul>
+<p><br></p>
+<ul>
+<i class="fa fa-angle-double-right fa-lg"></i> Ultimately I hope that the work I do is helpfult—that it enables discovery or provides clarity. I hope to bring together practical and principled approaches and I hope to further grow as this philosophy guides me.
+</ul>
+<p><br></p>
+</div>
+<div id="personal-skills" class="section level2">
+<h2><i class="fa fa-magic fa-lg"></i> Personal Skills</h2>
+<p><br></p>
+<ul>
+<i class="fa fa-angle-double-right fa-lg"></i> I am dedicated and hard working—a good communicator and active community participant. I work well on team efforts and projects with an eye toward outcomes
+</ul>
+<ul>
+<i class="fa fa-angle-double-right fa-lg"></i> I am:
+<ul>
+<i class="fa fa-long-arrow-right fa-lg"></i> creative
+</ul>
+<ul>
+<i class="fa fa-long-arrow-right fa-lg"></i> honest
+</ul>
+<ul>
+<i class="fa fa-long-arrow-right fa-lg"></i> friendly
+</ul>
+<ul>
+<i class="fa fa-long-arrow-right fa-lg"></i> enthusiastic
+</ul>
+<ul>
+<i class="fa fa-long-arrow-right fa-lg"></i> keen to learn new things and take on new roles
+</ul>
+<ul>
+<i class="fa fa-long-arrow-right fa-lg"></i> reliable
+</ul>
+<ul>
+<i class="fa fa-long-arrow-right fa-lg"></i> a lateral thinker
+</ul>
+<ul>
+<i class="fa fa-long-arrow-right fa-lg"></i> motivated
+</ul>
+<br> <i class="fa fa-angle-double-right fa-lg"></i> I am able to:
+<ul>
+<i class="fa fa-long-arrow-right fa-lg"></i> speak and read French
+</ul>
+<ul>
+<i class="fa fa-long-arrow-right fa-lg"></i> read and understand some German
+</ul>
+<ul>
+<i class="fa fa-long-arrow-right fa-lg"></i> listen to and follow instructions accurately
+</ul>
+<ul>
+<p><i class="fa fa-long-arrow-right fa-lg"></i> work cooperatively</p>
+</ul>
+<ul>
+<i class="fa fa-long-arrow-right fa-lg"></i> take on new challenges
+</ul>
+<ul>
+<i class="fa fa-long-arrow-right fa-lg"></i> complete tasks
+</ul>
+<ul>
+<i class="fa fa-long-arrow-right fa-lg"></i> support others
+</ul>
+<ul>
+<i class="fa fa-long-arrow-right fa-lg"></i> identify new innovations and technologies while working toward implementing them
+</ul>
+<ul>
+<i class="fa fa-long-arrow-right fa-lg"></i> be proactive
+</ul>
+</ul>
+<p><br></p>
+</div>
+<div id="technical-skills" class="section level2">
+<h2><i class="fa fa-code fa-lg"></i> Technical Skills</h2>
+<p><br></p>
+<ul>
+<i class="fa fa-angle-double-right fa-lg"></i> Web Technologies: HTML, CSS, Javascript, Rmarkdown Websites, Shiny, Pelican, Jekyll, Wordpress, Drupal, with coursework in Information Architecture and UX/UI design.
+</ul>
+<ul>
+<i class="fa fa-angle-double-right fa-lg"></i> Coding: R, Python, SQL and some Javascript. Would like to learn something functional next; thinking Clojure, but may start messing with the ‘purr’ package in R first.
+</ul>
+<ul>
+<i class="fa fa-angle-double-right fa-lg"></i> OSs: OS X, Linux, and Windows. I love the terminal and wish vim bindings were universal.
+</ul>
+<ul>
+<i class="fa fa-angle-double-right fa-lg"></i> Data: Relational Databases, information retrieval, and knowledge organization theory.
+</ul>
+<ul>
+<i class="fa fa-angle-double-right fa-lg"></i> Data Analysis: R is a big part of my workflow from reading in data, transforming and ‘tidying’ data, exploring and visualizing data, reporting, presenting, and tieing it all together in a dashboard. I am a big ‘tidyverse’ fan and love the way some of R’s APIs help frame an analysis workflow. My favorite packages are: devtools, tidyr, dplyr, ggplot2, feather, plotly, leaflet, shiny, shinydashboard, caret, and flexclust. I want to start learning more about purr, broom, and the myriad other packages on github and CRAN.
+</ul>
+<ul>
+<i class="fa fa-angle-double-right fa-lg"></i> Metadata schemas: knowledge of AACR2, RDA, MODS, METS, and PREMIS
+</ul>
+<p><br></p>
+</div>
+<div id="education" class="section level2">
+<h2><i class="fa fa-graduation-cap fa-lg"></i> Education</h2>
+<p><br></p>
+<ul>
+<i class="fa fa-angle-double-right fa-lg"></i> University of North Texas | Master of Science in Information Science (2013)
+</ul>
+<ul>
+<i class="fa fa-angle-double-right fa-lg"></i> University of California, Los Angeles (UCLA) | Bachelor of Arts in French and comparative literature (2008 / double major)
+</ul>
+<ul>
+<i class="fa fa-angle-double-right fa-lg"></i> Université de la Sorbonne Nouvelle (Paris III) | Student exchange (2006—2007)
+</ul>
+<p><br></p>
+</div>
+<div id="work-experience" class="section level2">
+<h2><i class="fa fa-institution fa-lg"></i> Work Experience</h2>
+<p><br></p>
+<!-- SRHT / Data Analyst -->
+<ul>
+<h3>
+Skid Row Housing Trust_Los Angeles, CA
+</h3>
+<h4>
+Data Analyst / August 2015—Present
+</h4>
+<ul>
+<i class="fa fa-angle-double-right fa-lg"></i> provide strategic oversight to organization’s data collection systems and reporting processes through the collection and anslysis of data, reporting on and capturing of outcome metrics, and providing input to create a more data-driven culture
+</ul>
+<ul>
+<i class="fa fa-angle-double-right fa-lg"></i> responsible for identifying, monitoring, and evaluating program and organizational outcomes to ensure compliance and effectiveness of programming
+</ul>
+<ul>
+<i class="fa fa-angle-double-right fa-lg"></i> exploring open-source database alternatives to reduce organizational cost and fit within the IT ecosystem
+</ul>
+<ul>
+<i class="fa fa-angle-double-right fa-lg"></i> liaise with internal departments for reporting/proposal questions, demographic data, and to answer questions about the Resident Programs department’s model and outcomes strategy
+</ul>
+<ul>
+<i class="fa fa-angle-double-right fa-lg"></i> prepare recurring and special aggregated data reports and related decision support tools for Resident Programs department (and organization if needed) to support analytics value chain: data<i class="fa fa-arrow-right"></i>reporting<i class="fa fa-arrow-right"></i>analysis<i class="fa fa-arrow-right"></i>action<i class="fa fa-arrow-right"></i>value
+</ul>
+<ul>
+<i class="fa fa-angle-double-right fa-lg"></i> oversee the application and implementation of assessment procedures; provides feedback and training in its use and answers questions about what is tracked and why
+</ul>
+<ul>
+<i class="fa fa-angle-double-right fa-lg"></i> gathers, formats, and analyzes data using descriptive and inferential statics with visualizations of outcome metrics to enable the organization to tell its narrative with data
+</ul>
+<ul>
+<i class="fa fa-angle-double-right fa-lg"></i> acting as core Efforts to Outcomes database administrator for the Resident Programs department; provides additional database support / programming support to internal departments as requested
+</ul>
+<ul>
+<i class="fa fa-angle-double-right fa-lg"></i> working on data warehousing solutions to support executive dashbord to track high-level concerns
+</ul>
+<ul>
+<i class="fa fa-angle-double-right fa-lg"></i> liaise with external organizations, research institutions, and contractors / consultants interested in or currently conducting research with residents to answer questions about what we currently are using to track outcomes / offer support
+</ul>
+</ul>
+<p><br></p>
+<!-- SRHT / HSC -->
+<ul>
+<h3>
+Skid Row Housing Trust_Los Angeles, CA
+</h3>
+<h4>
+Health Services Coordinator / October 2014—July 2015
+</h4>
+<ul>
+<i class="fa fa-angle-double-right fa-lg"></i> gathered baseline data on current resident enrollment in Medi-Cal, their health care utilization and access, history of chronic health conditions, as well as food intake.
+</ul>
+<ul>
+<i class="fa fa-angle-double-right fa-lg"></i> performed statistical analysis of health survey data using Python–we had 200 respondants and were able to make programmatic changes based on our findings
+</ul>
+<ul>
+<i class="fa fa-angle-double-right fa-lg"></i> developed and implemented health training workshops and on-on-one guidance for Program Managers and Resident Services Coordinators to improve knowledge of new Affordable Care Act-driven insurance enrollment challenges for residents with advanced conditions
+</ul>
+<ul>
+<i class="fa fa-angle-double-right fa-lg"></i> implemented resident-focused trainings on managing and seeking help for chronic health conditions as well as creating health literacy guides for residents
+</ul>
+<ul>
+<i class="fa fa-angle-double-right fa-lg"></i> planed and coordinated resident health fairs in collaboration with community health providers to improve health literacy of residents in connection to both chronic conditions as well as the resources in their community
+</ul>
+<ul>
+<i class="fa fa-angle-double-right fa-lg"></i> provided coordinating support to Program Managers and staff charged with oversight of existing on-site health resources and wellness programs. Explored potential partnerships to provide residents improved health and wellbeing
+</ul>
+<ul>
+<i class="fa fa-angle-double-right fa-lg"></i> prepared and maintained accurate reports and survey data utilizing the Efforts to Outcomes database
+</ul>
+<ul>
+<i class="fa fa-angle-double-right fa-lg"></i> project troubleshooter par excellence.
+</ul>
+</ul>
+<p><br></p>
+<!-- SRHT / HTC -->
+<ul>
+<h3>
+Skid Row Housing Trust_Los Angeles, CA
+</h3>
+<h4>
+Housing Transition Specialist / November 2013—September 2014
+</h4>
+<ul>
+<i class="fa fa-angle-double-right fa-lg"></i> responsible for administering and uploading survey data to the Substance Abuse and Mental Health Services Administration (SAMHSA) and its affiliates while maintaining condidentiality and records keeping due diligence
+</ul>
+<ul>
+<i class="fa fa-angle-double-right fa-lg"></i> worked with Resident Service Coordinators, programmatic staff, and grant evaluator on collecting and maintaining data pertinent mandated progress reports to SAMHSA
+</ul>
+<ul>
+<i class="fa fa-angle-double-right fa-lg"></i> researched, wrote, and compiled bi-annual reports for the Cooperative Agreement to Benefit Homeless Individuals (CABHI) grant project
+</ul>
+<ul>
+<i class="fa fa-angle-double-right fa-lg"></i> point-person/project manager for follow up and grant workplan compliance with Skid Row Community Consortium
+</ul>
+<ul>
+<i class="fa fa-angle-double-right fa-lg"></i> researched and identfied future survey instruments for targeted subpopulations to improve data collection practices
+</ul>
+<ul>
+<i class="fa fa-angle-double-right fa-lg"></i> participated in regular trainings, program evaluation, and program development
+</ul>
+<ul>
+<i class="fa fa-angle-double-right fa-lg"></i> designed and edited Peer Advocate zine for commercial printing
+</ul>
+<ul>
+<i class="fa fa-angle-double-right fa-lg"></i> improved client access to resources/information through small booklets tailored to the population
+</ul>
+</ul>
+<p><br></p>
+<!-- UCLA Powell -->
+<ul>
+<h3>
+UCLA Powell Library_Los Angeles, CA
+</h3>
+<h4>
+Social Media Intern / January 2013—November 2013
+</h4>
+<ul>
+<i class="fa fa-angle-double-right fa-lg"></i> designed and implemented new digital signage/print flyers to promote library outreach, services, and events
+</ul>
+<ul>
+<i class="fa fa-angle-double-right fa-lg"></i> created new social media presence for (then) new platform Vine to promote library collections and services
+</ul>
+<ul>
+<i class="fa fa-angle-double-right fa-lg"></i> designed online content that highlighted collections, incorporated teaching and learning services and provided wide audience appreciation
+</ul>
+<ul>
+<i class="fa fa-angle-double-right fa-lg"></i> facilitated presentation on approach and ideas to UCLA Library’s social media steering committee
+</ul>
+<ul>
+<i class="fa fa-angle-double-right fa-lg"></i> operated multi-tiered social media platform apparatus
+</ul>
+</ul>
+<p><br></p>
+<!-- LAC Group -->
+<ul>
+<h3>
+LAC Group | on Assignment for USC Library_Los Angeles, CA
+</h3>
+<h4>
+Library Clerk / June 2013
+</h4>
+<ul>
+<i class="fa fa-angle-double-right fa-lg"></i> searched bibliographic records in ILS and assisted with processing and discarding of duplicates
+</ul>
+<ul>
+<i class="fa fa-angle-double-right fa-lg"></i> performed copy cataloging of print monographs and serials
+</ul>
+<ul>
+<i class="fa fa-angle-double-right fa-lg"></i> willingness to take on new/unfamiliar tasks in order to meet project contract requirements
+</ul>
+<ul>
+<i class="fa fa-angle-double-right fa-lg"></i> maintained strong attention to detail
+</ul>
+</ul>
+<p><br></p>
+<!-- Taylor Mortgage Lawyers -->
+<ul>
+<h3>
+Taylor Mortgage Lawyers_Pasadena, CA
+</h3>
+<h4>
+Administrator / May 2010—February 2011
+</h4>
+<ul>
+<i class="fa fa-angle-double-right fa-lg"></i> drafted outgoing legal correspondence and created document templates to ease workflow
+</ul>
+<ul>
+<i class="fa fa-angle-double-right fa-lg"></i> managed and trained receptionists on tasks, etiquette, and computer/office equipment
+</ul>
+<ul>
+<i class="fa fa-angle-double-right fa-lg"></i> communicated effectively with diverse groups
+</ul>
+<ul>
+<i class="fa fa-angle-double-right fa-lg"></i> acted as firm reference point for difficult or challenging matters
+</ul>
+<ul>
+<i class="fa fa-angle-double-right fa-lg"></i> immense use of research skills, ease in digesting difficult subjects/literature, teamwork, and timeliness
+</ul>
+</ul>
+<p><br></p>
+<!-- Chino Valley -->
+<ul>
+<h3>
+Chino Valley Unified School District_Chino, CA
+</h3>
+<h4>
+Substitute Teacher / September 2008—July 2009
+</h4>
+<ul>
+<i class="fa fa-angle-double-right fa-lg"></i> facilitated classroom instruction for wide socio-economic populations and age groups
+</ul>
+<ul>
+<i class="fa fa-angle-double-right fa-lg"></i> able to pull together resources on the fly and improvise in the absence of a lesson plan
+</ul>
+<ul>
+<i class="fa fa-angle-double-right fa-lg"></i> passion to teach students useful skills for successful academic career
+</ul>
+</ul>
+<p><br></p>
+<!-- UCLA Philos -->
+<ul>
+<h3>
+UCLA Philosophy Department_Los Angeles, CA
+</h3>
+<h4>
+Library Assistant / January 2006—August 2006
+</h4>
+<ul>
+<i class="fa fa-angle-double-right fa-lg"></i> responsible for the circulation and shelving of philosophy department’s library materials
+</ul>
+<ul>
+<i class="fa fa-angle-double-right fa-lg"></i> assisted with document delivery for department researchers and faculty
+</ul>
+<ul>
+<i class="fa fa-angle-double-right fa-lg"></i> carefully handled, cataloged (rudimentary metadata), and shelved donated library materials from estates of previous emeritus professors; chiefly Dr. Rudolf Carnap
+</ul>
+</ul>
+<p><br></p>
+</div>
+<div id="accomplishments" class="section level2">
+<h2><i class="fa fa-trophy fa-lg"></i> Accomplishments</h2>
+<p><br></p>
+<ul>
+<i class="fa fa-angle-double-right fa-lg"></i> Researched and implemented a suite of validated research questionnaires to collect survey data, deployed to database for end users to input; tidied, transformed, and modeled over 900 responses; and built and hosted a Shiny dashboard to communicate results. To be a part of the process from beginning to end was a huge learning process and I see it as a great acomplishment.
+</ul>
+<ul>
+<i class="fa fa-angle-double-right fa-lg"></i> Designed, proofed, prepared, and labored over Peer Advocate ’Zine for Skid Row Housing Trust’s Hilton Project ’Zine “I Got You”, which will be released during a end of grant event for all project participants
+</ul>
+<ul>
+<i class="fa fa-angle-double-right fa-lg"></i> Was asked to help design and brainstorm a flyer for the UCLA Library system because of interest in design and outreach for libraries—the final project was the “Top 10 Things” flyer, which was a successful campaign to engage students in library programming and services
+</ul>
+<ul>
+<i class="fa fa-angle-double-right fa-lg"></i> Was recognized by two articles online for work promoting library services and collections through early-adoption of Vine
+</ul>
+<p><br></p>
+</div>
+<div id="interests" class="section level2">
+<h2><i class="fa fa-child fa-lg"></i> Interests</h2>
+<p><br></p>
+<ul>
+<i class="fa fa-angle-double-right fa-lg"></i> Learning more about statistics and data analysis; particularly its applications in R. I have more books, courses, and blog posts than any human can get through so good recommendations are always welcome!
+</ul>
+<ul>
+<i class="fa fa-angle-double-right fa-lg"></i> Coding: I will likely never code as neatly as an engineer but I try to up my analysis game when I’m able. Learning more about R and trying to build a package that contains some custom functions I like using is the way I’m trying to dive into Hadley’s Advanced R.
+</ul>
+<ul>
+<i class="fa fa-angle-double-right fa-lg"></i> Beverages: third-wave coffee shops and light roasts (Heart from Portland is probably my favorite), pourovers on my V60, Chemex, and the occational Yama Siphon brew; natural wine and out of the ordinary grapes, flavors, and regions (with my cheap Spanish and Italiian weeklys from Trader Joe’s); beers with lightly roasted malt–especially aged, or spontaneously fermented, especially sours!
+</ul>
+<ul>
+<i class="fa fa-angle-double-right fa-lg"></i> Design: I love typefaces and modernist design, in another life I would love to work as a designer or artist so it is something I passionately admire and sometimes try to do when time permits.
+</ul>
+<ul>
+<i class="fa fa-angle-double-right fa-lg"></i> Exploration: I like to explore other places through travel and food; ideologies through reading and communicating, and world through science and discovery!
+</ul>
+<p><br></p>
+</div>
+
+</div> <!-- articleBandContent -->
+</div> <!-- pageContent -->
+
+<footer>
+  <div id="rbmvFooter" class="footer">
+    <div class="footerContent">
+    
+      <!-- column 1 -->
+      <div class="col-md-4">
+        <p><i class="fa fa-send fa-lg"></i> Connect with me<br>
+        <a href="mailto:robert@robertmitchellv.com">robert@robertmitchellv.com</a>
+        <br>
+        <br>
+      </div>
+
+      <!-- column 2 -->
+      <div class="col-md-4">
+        <a href="https://github.com/robertmitchellv">
+          <i class="fa fa-github fa-lg"></i> RobertMitchellV</a>
+        <a href="https://twitter.com/robertmitchellv">
+          <br>
+          <i class="fa fa-twitter fa-lg"></i> RobertMitchellV</a>
+        <a href="https://www.linkedin.com/in/robertmitchellv">
+          <br>
+          <i class="fa fa-linkedin fa-lg"></i> RobertMitchellV</a>
+        <br>
+        <br>
+      </div>
+
+      <!-- column 3 -->
+      <div class="col-md-4">
+        <p class="text">I really enjoy talking philosophy, data, programming, analysis, fatherhood, wine/beer/coffee, vinyl, music, and lots more.  Feel free to use the email to the left or keep me in mind by following me on Twitter or GitHub. Thanks for stopping by!</p>
+        <br>
+        <br>
+      </div>
+      <div class="top">
+        <p class="pull-right">
+          <a id="scrollTop" class="slowly" onclick="slowScrollTop()" href=#>
+            <i class="fa fa-angle-double-up"></i> Back to top
+          </a>
+        </p>
+      </div>
+    </div>
+  </div>
+  
+  <!-- slow scrollTop function -->
+  <script type="text/javascript">
+    function slowScrollTop() { 
+      $('body').animate({ scrollTop: 0 }, 'slow'); 
+    } 
+  </script>
+  
+  <!-- slow scrolling to anchor function -->
+  <script type="text/javascript">
+    $('a').click(function slowScroll() { 
+      $('html, body').animate({ 
+        scrollTop: $( $(this).attr('href') ).offset().top 
+      }, 'slow');
+      return false;
+    }); 
+  </script>
+  
+  <!-- page transition -->
+  <script type="text/javascript">
+    // fade content and not navbar in and out
+    $(document).ready(function fadeInOut() {
+      var non_navbar = $('.fluid-row,.section.level2,.summary,p,acrticle,h3,footer')
+      non_navbar.css('display', 'none');
+      non_navbar.fadeIn(800);
+    
+      $('.navbar-link').click(function(event) {
+        event.preventDefault();
+        newLocation = this.href;
+      
+        non_navbar.fadeOut('slow', newpage);
+      });
+    
+      function newpage() {
+        window.location = newLocation;
+      }
+    });
+  </script>
+  
+</footer>
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+$(document).ready(function () {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+});
+
+
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

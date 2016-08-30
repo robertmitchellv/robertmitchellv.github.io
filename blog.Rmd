@@ -1,0 +1,87 @@
+---
+title: "BLOG" 
+---
+
+<!---
+entries will follow this format:
+<article>
+<h3><a href=""> </a></h3>
+<div class="summary">
+<span><i class="fa fa-calendar"></i> _date_</span>
+<p> ...</p>
+<a class="btn btn-outline-primary btn-sm" href="">Full Post</a>
+</div>
+</article>
+--->
+
+<article>
+<h3><a href="blog-the-move-to-r.html">THE MOVE TO R</a></h3>
+<div class="summary">
+<span><i class="fa fa-calendar"></i> _2016-08-29_</span>
+<p>This is _not_ a language wars type post.  I do not think there is some Mordor forged language to _rule them all_.  I debated whether or not to even write a post like this.  Nevertheless, I had a chance to meet and talk to [Jake Powray](https://twitter.com/jakeporway) from [DataKind](http://www.datakind.org) at the [DoGoodData](http://www.dogooddata.com) confrence and I...</p>
+<a class="btn btn-outline-primary btn-sm" href="blog-the-move-to-r.html">Full Post</a>
+</div>
+</article>
+
+<hr>
+
+<article>
+<h3><a href="blog-p-hacking-and-ontology.html">P-HACKING AND ONTOLOGY</a></h3>
+<div class="summary">
+<span><i class="fa fa-calendar"></i> _2015-08-25_</span>
+<p>In a recent FiveTirtyEight post by [Christie Aschwanden](https://twitter.com/cragcrest) about researcher bias and P-Hacking, there is a lovely interactive example of what variables a researcher would need include/exclude in the analysis in order to obtain a result that is statistically significant, i.e., _p&le;.05_; thus worthy of publishing.  The article brought many thoughts to mind...</p>
+<a class="btn btn-outline-primary btn-sm" href="blog-p-hacking-and-ontology.html">Full Post</a>
+</div>
+</article>
+
+<hr>
+
+<article>
+<h3><a href="blog-bar-chart-annotations-pandas-mpl.html">BAR CHART ANNOTATIONS WITH PANDAS AND MATPLOTLIB</a></h3>
+<div class="summary">
+<span><i class="fa fa-calendar"></i> _2015-06-15_</span>
+<p>When I first started using Pandas, I loved how much easier it was to stick a plot method on a DataFrame or Series to get a better sense of what was going on.  However, I was not very impressed with what the plots looked like.  Any time I wanted to do something slightly different from the "Plotting" documentation on the pydata site, I found myself arm...</p>
+<a class="btn btn-outline-primary btn-sm" href="blog-blog-bar-chart-annotations-pandas-mpl.html">Full Post</a>
+</div>
+</article>
+
+<article>
+<h3><a href="blog-pandas-snippits.html">PANDAS SNIPPETS (EVOLVING)</a></h3>
+<div class="summary">
+<span><i class="fa fa-calendar"></i> _2015-04-03_</span>
+<p>The goal of this post is to keep me from googling pandas questions that I've forgotten.  I don't know how many times I've looked at the results and seen five or more StackOverflow links that have clearly already been clicked on; I feel like Sisyphus when this happens!  So, here is what I'm currently committing...</p>
+<a class="btn btn-outline-primary btn-sm" href="blog-pandas-snippits.html">Full Post</a>
+</div>
+</article>
+
+<article>
+<h3><a href="blog-first-kaggle-submission.html">FIRST KAGGLE SUBMISSION---RANDOM FOREST CLASSIFIER</a></h3>
+<div class="summary">
+<span><i class="fa fa-calendar"></i> _2015-01-32_</span>
+<p>I have seen kaggle mentioned on twitter a lot; mostly by the data scientists and researchers I look up to, but there's never been much confidence that the site was for me in any way---mostly because I was a long way from my dream data science job with yet so much to learn.  Notwithstanding, I cannot help but try and hack my way to my destination!  I think it's a part of my learning process...</p>
+<a class="btn btn-outline-primary btn-sm" href="blog-first-kaggle-submission.html">Full Post</a>
+</div>
+</article>
+
+<article>
+<h3><a href="blog-python-journey.html">THE PYTHON JOURNEY---ONE SEMESTER WITH PYTHON 3.4</a></h3>
+<div class="summary">
+<span><i class="fa fa-calendar"></i> _2014-12-05_</span>
+<p>This was _quite_ a journey for me.  I started the same way everyone else
+has; with my very _first_ "Hello World" program written in Python 3...This was the first assignment for my Programming in Python course.  I
+was not content to have it only print "Hello World"---no, I need to
+personalize it in some small way...</p>
+<a class="btn btn-outline-primary btn-sm" href="blog-python-journey.html">Full Post</a>
+</div>
+</article>
+
+<article>
+<h3><a href="blog-foucaults-challenge.html">FOUCAULT'S CHALLENGE TO MODERNIST CLASSIFICATION</a></h3>
+<div class="summary">
+<span><i class="fa fa-calendar"></i> _2013-09-04_</span>
+<p>In Foucault’s _Les Mots et les choses_ (The Order of Things), he notes a passage in Borges that, for him, demonstrates the limitations of taxonomic assertions in the face of exotic systems of thought---via Borges, he quotes a ‘certain Chinese encyclopedia’ in which it is written...</p>
+<a class="btn btn-outline-primary btn-sm" href="blog-foucaults-challenge.html" role="button">Full Post</a>
+</div>
+</article>
+
+<br>

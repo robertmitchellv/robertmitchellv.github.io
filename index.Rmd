@@ -1,0 +1,166 @@
+---
+title: "CRITICAL DATA ANALYSIS"
+output:
+  html_document:
+    excludes:
+      before_body: _navbar.html
+    includes:
+      before_body: navbar_home.html
+      after_body: footer.html
+---
+
+> This site is an avenue for me to share either data analysis techniques I find novel or interesting and/or ideas or thoughts from my undergrad background in continental philosophy and French / German literature.  Sometimes I find these two areas of interest to overlap and other times I elect to dedicate a post to just one of my pursuits.
+
+<br>
+<hr>
+<br>
+
+<a class="anchor" id="about"></a>
+
+<h1>ABOUT ME</h1>
+
+<br>
+
+<img id="img-me" src="site_content/img/me.jpg" width="300px" height="auto">
+
+<br>
+
+<h3>THE BRIEF BIO</h3>
+
+<br>
+
+> I am a father and husband who is passionate about code, complexity, design, dichotomy busting, cuisine, travel, and striving for balance across the board in my life.  I love conceptual thinking and am always working to expand my worldview through the acquisition of knowledge.  With this site, I hope to document what I learn and share what I know.
+
+<br>
+
+<h3>STILL CURIOUS? READ ON:</h3>
+
+<br>
+
+My background is rooted in theology, philosophy, and continental thought.  This formed the basis for my academic exploration.  My BA was in both French and comparative literature at UCLA.  In the US, the ‘comp lit’ field is dominated by literary criticism and the search for universal truths and archetypes in global literature, which is not always apparent from the field’s name.  Additionally, I took a fair amount of philosophy courses (my major originally), German language, literature, art, and philosophy courses with a bit of Scandinavian literature and film courses and a couple courses on dead languages here and there (Old Norse was particularly interesting to study).  
+
+<br>
+
+My Master’s degree is in Information Science (MSIS).  Furthermore, I also completed both the Information Systems program of study; a narrower focus within the MSIS degree as well as a Graduate Academic Certificate (GAC) in Digital Content Management.  The MSIS is designed for information work in many different fields from information brokerage, database analytics, chief information officer, user experience designer, information architect, knowledge manager, system librarian, and many more.  The information systems track taught me how to support my organization to gain strategic and tactical competitive advantages, which we can call knowledge management or business intelligence.  It supports more technical knowledge and builds more technical skills than the other tracks within the MSIS.  Last, the GAC in Digital Content Management provided me with a theoretical foundation and conceptual toolkit to help me manage digital content, build applications, and develop services that respond to institutional and individual user needs.
+
+<br>
+
+I’ve been lucky enough to do a fair amount of traveling; a few months in Japan at 19, a year in Paris at 23/24, summer in Germany and Scandinavia at 24, and some quick trips to different places while spending quality time in these locations.  These experiences have shaped who I am as an individual, before I hit on a girl sitting across from me on the Metro, eventually marrying her (best impulsive move ever).
+
+<br>
+
+I hope to contribute posts on my site that interact with my interdisciplinary interests with special focus on the semantic relationships between objects and concepts.  I’m not always as interested in the epistemological aspect of things as I might appear–really I think I enjoy metaphysical speculation (otherwise, why would I have become interested in philosophy at all?).  I believe that everything is connected, and the 21st century will be about discovering these connections—hopefully I can be a part of this.
+
+<br>
+<hr>
+<br>
+
+<a class="anchor" id="blog-posts"></a>
+
+<h1>BLOG</h1>
+
+<br>
+
+<article>
+<h3><a href="blog-the-move-to-r.html">THE MOVE TO R</a></h3>
+<div class="summary">
+<p> __NOTE:__ This is _not_ a language wars type post.  I do not think there is some Mordor forged language to _rule them all_.  I debated whether or not to even write a post like this.  Nevertheless, I had a chance to meet and talk to [Jake Powray](https://twitter.com/jakeporway) from [DataKind](http://www.datakind.org) at the [DoGoodData](http://www.dogooddata.com) confrence and I...</p>
+<a class="btn btn-outline-primary btn-sm" href="blog-the-move-to-r.html" role="button">Full Post</a>
+</div>
+</article>
+
+<hr>
+
+<article>
+<h3><a href="blog-p-hacking-and-ontology.html">P-HACKING AND ONTOLOGY</a></h3>
+<div class="summary">
+<p>In a recent FiveTirtyEight post by [Christie Aschwanden](https://twitter.com/cragcrest) about researcher bias and P-Hacking, there is a lovely interactive example of what variables a researcher would need include/exclude in the analysis in order to obtain a result that is statistically significant, i.e., _p&le;.05_; thus worthy of publishing.  The article brought many thoughts to mind...</p>
+<a class="btn btn-outline-primary btn-sm" href="blog-p-hacking-and-ontology.html" role="button">Full Post</a>
+</div>
+</article>
+
+<hr>
+
+<article>
+<h3><a href="blog-bar-chart-annotations-pandas-mpl.html">BAR CHART ANNOTATIONS WITH PANDAS AND MATPLOTLIB</a></h3>
+<div class="summary">
+<p>When I first started using Pandas, I loved how much easier it was to stick a plot method on a DataFrame or Series to get a better sense of what was going on.  However, I was not very impressed with what the plots looked like.  Any time I wanted to do something slightly different from the "Plotting" documentation on the pydata site, I found myself arm...</p>
+<a class="btn btn-outline-primary btn-sm" href="blog-blog-bar-chart-annotations-pandas-mpl.html" role="button">Full Post</a>
+</div>
+</article>
+
+<br>
+
+<a class="btn btn-outline-secondary btn-lg" href="blog.html" role="button">More Posts</a>
+
+<br>
+<hr>
+<br>
+
+<a class="anchor" id="vitae"></a>
+
+<h1>VITAE</h1>
+
+<br>
+
+<h3><i class="fa fa-graduation-cap fa-lg"></i>  Education</h3>
+
+<br>
+
+<ul>  
+  <i class="fa fa-angle-double-right fa-lg"></i> University of North Texas | Master of Science in Information Science (2013)
+</ul>
+<ul>
+  <i class="fa fa-angle-double-right fa-lg"></i> University of California, Los Angeles (UCLA) | Bachelor of Arts in French and comparative literature (2008 / double major)
+</ul>
+<ul>
+  <i class="fa fa-angle-double-right fa-lg"></i>   Universit&#233; de la Sorbonne Nouvelle (Paris III) | Student exchange (2006---2007)
+</ul>
+
+<br>
+
+<h3><i class="fa fa-institution fa-lg"></i>  Work Experience</h3>
+
+<br>
+
+<!-- SRHT / Data Analyst -->
+<ul>  
+  <h3>Skid Row Housing Trust_Los Angeles, CA</h3>
+  <h4>Data Analyst / August 2015---Present</h4>
+  <ul>
+  <i class="fa fa-angle-double-right fa-lg"></i> provide strategic oversight to organization's data collection systems and reporting processes through the collection and anslysis of data, reporting on and capturing of outcome metrics, and providing input to create a more data-driven culture
+  </ul>
+  <ul>
+  <i class="fa fa-angle-double-right fa-lg"></i>   responsible for identifying, monitoring, and evaluating program and organizational outcomes to ensure compliance and effectiveness of programming
+  </ul>
+  <ul>
+  <i class="fa fa-angle-double-right fa-lg"></i> exploring open-source database alternatives to reduce organizational cost and fit within the IT ecosystem
+  </ul>
+  <ul>
+  <i class="fa fa-angle-double-right fa-lg"></i> liaise with internal departments for reporting/proposal questions, demographic data, and to answer questions about the Resident Programs department's model and outcomes strategy
+  </ul>
+  <ul>
+  <i class="fa fa-angle-double-right fa-lg"></i> prepare recurring and special aggregated data reports and related decision support tools for Resident Programs department (and organization if needed) to support analytics value chain: data<i class="fa fa-arrow-right"></i>reporting<i class="fa fa-arrow-right"></i>analysis<i class="fa fa-arrow-right"></i>action<i class="fa fa-arrow-right"></i>value
+  </ul>
+  <ul>
+  <i class="fa fa-angle-double-right fa-lg"></i> oversee the application and implementation of assessment procedures; provides feedback and training in its use and answers questions about what is tracked and why
+  </ul>
+  <ul>
+  <i class="fa fa-angle-double-right fa-lg"></i> gathers, formats, and analyzes data using descriptive and inferential statics with visualizations of outcome metrics to enable the organization to tell its narrative with data
+  </ul>
+  <ul>
+  <i class="fa fa-angle-double-right fa-lg"></i> acting as core Efforts to Outcomes database administrator for the Resident Programs department; provides additional database support / programming support to internal departments as requested
+  </ul>
+  <ul>
+  <i class="fa fa-angle-double-right fa-lg"></i> working on data warehousing solutions to support executive dashbord to track high-level concerns
+  </ul>
+  <ul>
+  <i class="fa fa-angle-double-right fa-lg"></i> liaise with external organizations, research institutions, and contractors / consultants interested in or currently conducting research with residents to answer questions about what we currently are using to track outcomes / offer support
+  </ul>
+</ul>
+
+<br>
+
+<a class="btn btn-outline-secondary btn-lg" href="vitae.html" role="button">Full Vitae</a>
+
+<br>

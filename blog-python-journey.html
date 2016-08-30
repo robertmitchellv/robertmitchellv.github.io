@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+<meta name="author" content="Robert Mitchell" />
+
+
+<title>THE PYTHON JOURNEY—ONE SEMESTER WITH PYTHON 3.4</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/yeti.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<link href="site_libs/font-awesome-4.5.0/css/font-awesome.min.css" rel="stylesheet" />
+
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+</head>
+
+<body>
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 45px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 50px;
+  margin-top: -50px;
+}
+
+.section h2 {
+  padding-top: 50px;
+  margin-top: -50px;
+}
+.section h3 {
+  padding-top: 50px;
+  margin-top: -50px;
+}
+.section h4 {
+  padding-top: 50px;
+  margin-top: -50px;
+}
+.section h5 {
+  padding-top: 50px;
+  margin-top: -50px;
+}
+.section h6 {
+  padding-top: 50px;
+  margin-top: -50px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+
+<div class="container-fluid main-container">
+
+<!-- tabsets -->
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+</script>
+
+<!-- code folding -->
+
+
+
+
+
+<!-- fonts -->
+<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700|Roboto:100,100i,300,300i|Roboto+Mono:100i,300,700,700i" rel="stylesheet">
+
+<!-- navbar -->
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">
+        <img alt="Brand" src="site_content/img/rbmv_curve.png" id="rbmv">
+      </a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="index.html" class="navbar-link" onclick="fadeInOut()">
+    <span class="fa fa-home"></span>
+     
+    Home
+  </a>
+</li>
+<li>
+  <a href="blog.html" class="navbar-link" onclick="fadeInOut()">
+    <span class="fa fa-pencil-square-o"></span>
+     
+    Blog
+  </a>
+</li>
+<li>
+  <a href="about.html" class="navbar-link" onclick="fadeInOut()">
+    <span class="fa fa-newspaper-o"></span>
+     
+    About
+  </a>
+</li>
+<li>
+  <a href="vitae.html" class="navbar-link" onclick="fadeInOut()">
+    <span class="fa fa-paperclip"></span>
+     
+    Vitae
+  </a>
+</li>
+<li>
+  <a href="mailto:robert@robertmitchellv.com">
+    <span class="fa fa-send-o"></span>
+     
+    Contact
+  </a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    <span class="fa fa-link"></span>
+     
+    Connect
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li class="dropdown-header">Professional</li>
+    <li>
+      <a href="https://github.com/robertmitchellv">
+        <span class="fa fa-github"></span>
+         
+        Github
+      </a>
+    </li>
+    <li>
+      <a href="https://twitter.com/robertmitchellv">
+        <span class="fa fa-twitter"></span>
+         
+        Twitter
+      </a>
+    </li>
+    <li class="divider"></li>
+    <li class="dropdown-header">Personal</li>
+    <li>
+      <a href="https://www.instagram.com/robertmitchellv/">
+        <span class="fa fa-instagram"></span>
+         
+        Instagram
+      </a>
+    </li>
+    <li>
+      <a href="https://soundcloud.com/rbmv">
+        <span class="fa fa-soundcloud"></span>
+         
+        Soundcloud
+      </a>
+    </li>
+  </ul>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">THE PYTHON JOURNEY—ONE SEMESTER WITH PYTHON 3.4</h1>
+<h4 class="author"><em>Robert Mitchell</em></h4>
+<h4 class="date"><em>December 5, 2014</em></h4>
+
+</div>
+
+
+<p>This was <em>quite</em> a journey for me. I started the same way everyone else has; with my very <em>first</em> “Hello World” program written in Python 3:</p>
+<p><br></p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co"># Hello World! program.</span>
+<span class="kw">def</span> main():
+    <span class="co">#get the user&#39;s name</span>
+    name <span class="op">=</span> <span class="bu">input</span>(<span class="st">&#39;What is your name? &#39;</span>)
+    <span class="bu">print</span>(<span class="st">&#39;Hello World! I am&#39;</span>, name)
+
+<span class="co"># Call the main function</span>
+main()</code></pre></div>
+<p>This was the first assignment for my Programming in Python course. I was not content to have it only print “Hello World”—no, I need to personalize it in some small way. The following was really interface (if I’m speaking pythonically); to a wider interest in programming <em>qua</em> programming:</p>
+<p><br></p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">name <span class="op">=</span> <span class="bu">input</span>(<span class="st">&#39;What is your name? &#39;</span>)</code></pre></div>
+<p><br></p>
+<p>Nevertheless, I was not content with this. I allowed myself to be sucked into a forceful vortex that had me thinking I’d be using Jupytr notebooks, matplotlib, etc., to show off how much I know about Python from Twitter. Notwithstanding, the above is what was submitted because I didn’t know how to do any of the fancy stuff I read about. I didn’t know how to use Pandas. I didn’t know how to use Blaze. I didn’t even know how to use <em>‘conda update conda’</em> in my terminal (oh; it’s a package manager—not just an easy way to install Python 3.4 on my computer at work without Admin privlages!).</p>
+<p><br></p>
+<p>The reality is that I still have a lot to learn—I’m still in the shallow end. Nothing prepared me for the absolute <em>angst</em> associated with trying to implement a (beginner’s attempt at) the Object Oriented Programming (OOP) paradigm as a final extra-credit assignment! I didn’t even <em>know</em> I had been writing, although very functional; or, very function reliant, procedural code. Somewhere between nesting lists inside of dictionaries, iterating over them, and implementing <em>‘try, except’</em> statements, I thought I was really <em>going places</em> with my code. OOP razed that sandcastle quite briskly. Like a kind of soverign and violent natural phenomena.</p>
+<p><br></p>
+<p>From my first program to my 10th program, this is how far I have come. This is my attempt at OOP, classes, <em>‘init’</em> methods, <del>inheritance</del> composition, and more. It’s likely pretty flawed and could be made less redundant, but I didn’t copy StackOverflow and tried to figure it out on my own; so, I’m damn proud of it! There were some programs specs that I needed to show an understanding of; quickly, the program specs:</p>
+<p><br></p>
+<ul>
+<li>Each question will have four possible answers</li>
+<li>Each player will take turns with the questions</li>
+<li>There will be a total of 10 questions, each player getting a chance to answer five of them. If the player selects the correct answer, they earn a point. Tell the player whether they got it right or wrong.</li>
+<li>Must create a ‘Question’ class to hold data with the following attributes:
+<ul>
+<li>A trivia question</li>
+<li>Possible answer 1</li>
+<li>Possible answer 2</li>
+<li>Possible answer 3</li>
+<li>Possible answer 4</li>
+<li>The number of the correct answer, e.g., 1, 2, 3, or 4</li>
+</ul></li>
+<li>Question class must have an <em>‘<strong>init</strong>’</em> method, accessors, mutators, and a <em>‘<strong>str</strong>’</em> method.</li>
+<li>Use value-returning functions; one named <em>createQuestionsAnswers()</em> that creates the list to display questions and keeps tracks of user input to let players know if they won, lost, or tied.</li>
+</ul>
+<p><br></p>
+<p>Here are my solutions:</p>
+<p><br></p>
+<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co"># -*- coding: utf-8 -*-</span>
+<span class="co">&quot;&quot;&quot;     A10--Trivia Game!</span>
+<span class="co">        --&gt; two player trivia game</span>
+<span class="co">        --&gt; OOP approach to building the game with classes and objects</span>
+<span class="co">&quot;&quot;&quot;</span>
+<span class="im">import</span> csv
+<span class="im">import</span> random
+
+<span class="co"># the Question class acts as a placeholder for the parts of the question</span>
+<span class="co"># needed to construct questions and check answers</span>
+<span class="kw">class</span> Question:
+    <span class="co"># __init__ uses the Data class method getData through composition</span>
+    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, question, a1, a2, a3, a4, answer, ansNum):
+        <span class="va">self</span>.getData <span class="op">=</span> Data(<span class="st">&#39;csv&#39;</span>)
+        <span class="va">self</span>.question <span class="op">=</span> question
+        <span class="va">self</span>.a1 <span class="op">=</span> a1
+        <span class="va">self</span>.a2 <span class="op">=</span> a2
+        <span class="va">self</span>.a3 <span class="op">=</span> a3
+        <span class="va">self</span>.a4 <span class="op">=</span> a4
+        <span class="va">self</span>.answer <span class="op">=</span> answer
+        <span class="va">self</span>.ansNum <span class="op">=</span> ansNum
+
+    <span class="co"># the method performs better as a class method since it instantiates the</span>
+    <span class="co"># Question class with sample questions for the game</span>
+    <span class="at">@classmethod</span>
+    <span class="kw">def</span> getQuestion(cls, triviaDict):
+        <span class="co"># using random to get 10 random numbers between a specific range for</span>
+        <span class="co"># trivia questions</span>
+        randomGenerator <span class="op">=</span> random.sample(<span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">817</span>), <span class="dv">1</span>)
+
+        <span class="co"># for an individual random number in the sample range</span>
+        <span class="co"># --&gt; iterate and use number as index for the trivia questions</span>
+        <span class="cf">for</span> i <span class="op">in</span> randomGenerator:
+            question <span class="op">=</span> triviaDict[i][<span class="dv">0</span>]
+            a1 <span class="op">=</span> triviaDict[i][<span class="dv">1</span>]
+            a2<span class="op">=</span> triviaDict[i][<span class="dv">2</span>]
+            a3 <span class="op">=</span> triviaDict[i][<span class="dv">3</span>]
+            a4 <span class="op">=</span> triviaDict[i][<span class="dv">4</span>]
+            answer <span class="op">=</span> triviaDict[i][<span class="dv">5</span>]
+            ansNum <span class="op">=</span> triviaDict[i][<span class="dv">6</span>]
+
+        <span class="co"># this creates an instance to return (from question class)</span>
+        aQuestion <span class="op">=</span> Question(question, a1, a2, a3, a4, answer, ansNum)
+        <span class="cf">return</span> aQuestion
+
+    <span class="co"># this is a part of using composition rather than inheritance to get the</span>
+    <span class="co"># attributes from the getData method</span>
+    <span class="kw">def</span> <span class="fu">__getattr__</span>(<span class="va">self</span>, attr):
+        <span class="cf">return</span> <span class="bu">getattr</span>(<span class="va">self</span>.getData, attr)
+
+    <span class="co"># this method sets up the question (also checks answer)</span>
+    <span class="at">@classmethod</span>
+    <span class="kw">def</span> setupAsk(cls, q):
+        <span class="bu">print</span>(<span class="st">&#39;</span><span class="ch">\n</span><span class="st">&#39;</span>, q.question, <span class="st">&#39;</span><span class="ch">\n\t</span><span class="st">1: &#39;</span>, q.a1, <span class="st">&#39; \</span>
+<span class="st">                 </span><span class="ch">\n\t</span><span class="st">2: &#39;</span>, q.a2, <span class="st">&#39;</span><span class="ch">\n\t</span><span class="st">3: &#39;</span>, q.a3, <span class="st">&#39; \</span>
+<span class="st">                 </span><span class="ch">\n\t</span><span class="st">4: &#39;</span>, q.a4, <span class="st">&#39;</span><span class="ch">\n</span><span class="st">&#39;</span>)
+
+        <span class="co"># make sure the user&#39;s input works</span>
+        <span class="cf">while</span> <span class="va">True</span>:
+            <span class="cf">try</span>:
+                choice <span class="op">=</span> <span class="bu">int</span>(<span class="bu">input</span>(<span class="st">&quot;</span><span class="ch">\n</span><span class="st">What&#39;s your answer? </span><span class="ch">\n</span><span class="st">--&gt; &quot;</span>))
+            <span class="cf">except</span> <span class="pp">ValueError</span>:
+                <span class="bu">print</span>(<span class="st">&#39;</span><span class="ch">\n</span><span class="st">Sorry, the answer only accepts numbers; please \</span>
+<span class="st">                       enter a number 1-4&#39;</span>)
+                choice <span class="op">=</span> <span class="bu">int</span>(<span class="bu">input</span>(<span class="st">&quot;</span><span class="ch">\n</span><span class="st">What&#39;s your answer? </span><span class="ch">\n</span><span class="st">--&gt; &quot;</span>))
+            <span class="cf">finally</span>:
+                <span class="cf">if</span> choice <span class="op">in</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">5</span>):
+                    <span class="cf">break</span>
+
+        <span class="co"># if the question is correct, return true; if not, return false</span>
+        <span class="cf">if</span> choice <span class="op">==</span> q.ansNum:
+            <span class="bu">print</span>(<span class="st">&#39;</span><span class="ch">\n</span><span class="st">Correct! </span><span class="ch">\n</span><span class="st">&#39;</span>, q.answer)
+            <span class="cf">return</span> <span class="va">True</span>
+        <span class="cf">elif</span> choice <span class="op">!=</span> q.ansNum:
+            <span class="bu">print</span>(<span class="st">&#39;</span><span class="ch">\n</span><span class="st">Incorrect!  </span><span class="ch">\n</span><span class="st">&#39;</span>, q.answer)
+            <span class="cf">return</span> <span class="va">False</span>
+
+<span class="co"># the Data class handles openning the file and preparing it to be used by</span>
+<span class="co"># the Question and Game class</span>
+<span class="kw">class</span> Data:
+    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, filetype):
+        <span class="va">self</span>.filetype <span class="op">=</span> filetype
+
+    <span class="co"># opens the CSV to read and prepare it to be used in computaiton later</span>
+    <span class="at">@classmethod</span>
+    <span class="kw">def</span> getData(cls):
+        <span class="co"># make sure there isn&#39;t an IO error</span>
+        <span class="cf">try</span>:
+            <span class="co"># open the csv file + use an index accumulator for dictionary</span>
+            <span class="cf">with</span> <span class="bu">open</span>(<span class="st">&#39;trivia.csv&#39;</span>) <span class="im">as</span> csvFile:
+                readCSV <span class="op">=</span> csv.reader(csvFile, delimiter<span class="op">=</span><span class="st">&#39;,&#39;</span>)
+                index <span class="op">=</span> <span class="dv">0</span>
+
+                <span class="co"># questions, answer choices, and answers dictionary</span>
+                rowDict <span class="op">=</span> {}
+                questionData <span class="op">=</span> {}
+                <span class="co"># reading the trivia questions</span>
+                <span class="cf">for</span> row <span class="op">in</span> readCSV:
+                    rowDict[index] <span class="op">=</span> row
+                    question <span class="op">=</span> rowDict[index][<span class="dv">0</span>]
+                    a1 <span class="op">=</span> rowDict[index][<span class="dv">1</span>]
+                    a2 <span class="op">=</span> rowDict[index][<span class="dv">2</span>]
+                    a3 <span class="op">=</span> rowDict[index][<span class="dv">3</span>]
+                    a4 <span class="op">=</span> rowDict[index][<span class="dv">4</span>]
+                    answer <span class="op">=</span> rowDict[index][<span class="dv">5</span>]
+
+                    <span class="co"># figure out which answer is correct and assign a variable</span>
+                    <span class="cf">if</span> answer <span class="op">==</span> a1:
+                        ansNum <span class="op">=</span> <span class="dv">1</span>
+                    <span class="cf">elif</span> answer <span class="op">==</span> a2:
+                        ansNum <span class="op">=</span> <span class="dv">2</span>
+                    <span class="cf">elif</span> answer <span class="op">==</span> a3:
+                        ansNum <span class="op">=</span> <span class="dv">3</span>
+                    <span class="cf">elif</span> answer <span class="op">==</span> a4:
+                        ansNum <span class="op">=</span> <span class="dv">4</span>
+                    <span class="cf">else</span>:
+                        <span class="bu">print</span>(<span class="st">&quot;Error!  No correct answer&quot;</span>)
+
+                    <span class="co"># place questions into new dictionary in the right order</span>
+                    questionData[index] <span class="op">=</span> [question, a1, a2, a3, a4, <span class="op">\</span>
+                                            answer, ansNum]
+                    index <span class="op">+=</span> <span class="dv">1</span>
+
+                <span class="cf">return</span> questionData
+
+        <span class="cf">except</span> <span class="pp">IOError</span>:
+            <span class="bu">print</span>(<span class="st">&quot;The file could not be found.&quot;</span>)
+
+<span class="co"># the Game class is where the bulk of the game&#39;s structure is found</span>
+<span class="kw">class</span> Game:
+    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, playerID, gamePoints):
+        <span class="va">self</span>.playerID <span class="op">=</span> playerID
+        <span class="va">self</span>.gamePoints <span class="op">=</span> gamePoints
+
+    <span class="co"># method to create instances for questions and find out if a quesiton</span>
+    <span class="co"># was answered correctly or not</span>
+    <span class="kw">def</span> <span class="bu">round</span>(<span class="va">self</span>, qClass, data):
+        gamePoints <span class="op">=</span> <span class="dv">0</span> <span class="co"># reset to 0 for new round</span>
+
+        <span class="co"># instances</span>
+        q1 <span class="op">=</span> qClass.getQuestion(data)
+        q2 <span class="op">=</span> qClass.getQuestion(data)
+        q3 <span class="op">=</span> qClass.getQuestion(data)
+        q4 <span class="op">=</span> qClass.getQuestion(data)
+        q5 <span class="op">=</span> qClass.getQuestion(data)
+
+        <span class="co"># return value is true or false; this computes points</span>
+        <span class="cf">if</span> qClass.setupAsk(q1) <span class="op">==</span> <span class="va">True</span>:
+            gamePoints <span class="op">+=</span> <span class="dv">1</span>
+        <span class="cf">if</span> qClass.setupAsk(q2) <span class="op">==</span> <span class="va">True</span>:
+            gamePoints <span class="op">+=</span> <span class="dv">1</span>
+        <span class="cf">if</span> qClass.setupAsk(q3) <span class="op">==</span> <span class="va">True</span>:
+            gamePoints <span class="op">+=</span> <span class="dv">1</span>
+        <span class="cf">if</span> qClass.setupAsk(q4) <span class="op">==</span> <span class="va">True</span>:
+            gamePoints <span class="op">+=</span> <span class="dv">1</span>
+        <span class="cf">if</span> qClass.setupAsk(q5) <span class="op">==</span> <span class="va">True</span>:
+            gamePoints <span class="op">+=</span> <span class="dv">1</span>
+
+        <span class="co"># let the user know what happenned this round</span>
+        <span class="bu">print</span>(<span class="st">&#39;you won {} points this game!&#39;</span>.<span class="bu">format</span>(gamePoints))
+
+        <span class="cf">return</span> gamePoints
+
+<span class="kw">def</span> main():
+    <span class="co"># local variables</span>
+    flag <span class="op">=</span> <span class="va">False</span>
+    gameNum <span class="op">=</span> <span class="dv">1</span>
+
+    <span class="co"># instance of Data class</span>
+    data <span class="op">=</span> Data(<span class="st">&#39;csv&#39;</span>)
+    questionsData <span class="op">=</span> data.getData()
+
+    <span class="co"># instance of Question class with filler data</span>
+    questions <span class="op">=</span> Question(<span class="st">&#39;question&#39;</span>, <span class="st">&#39;a1&#39;</span>, <span class="st">&#39;a2&#39;</span>, <span class="st">&#39;a3&#39;</span>, <span class="st">&#39;a4&#39;</span>, <span class="op">\</span>
+                         <span class="co">&#39;answer&#39;</span>, <span class="st">&#39;ansNum&#39;</span>)
+
+    <span class="co"># create both players</span>
+    playerOne <span class="op">=</span> Game(<span class="bu">str</span>(<span class="bu">input</span>(<span class="st">&#39;PLAYER ONE//</span><span class="ch">\n</span><span class="st">Enter your name: &#39;</span>)), <span class="dv">0</span>,)
+    playerTwo <span class="op">=</span> Game(<span class="bu">str</span>(<span class="bu">input</span>(<span class="st">&#39;PLAYER TWO//</span><span class="ch">\n</span><span class="st">Enter your name: &#39;</span>)), <span class="dv">0</span>,)
+
+    <span class="co"># while loop to keep the game going if the user chooses</span>
+    <span class="cf">while</span> flag <span class="op">!=</span> <span class="va">True</span>:
+        <span class="co"># let the user know which round they&#39;re playing</span>
+        <span class="bu">print</span>(<span class="st">&#39;</span><span class="ch">\n</span><span class="st">ROUND &#39;</span>, gameNum, <span class="st">&#39;//</span><span class="ch">\n</span><span class="st">Player One&#39;</span>)
+
+        <span class="co"># first player instance; asks five questions</span>
+        p1round <span class="op">=</span> playerOne.<span class="bu">round</span>(questions, questionsData)
+
+        <span class="bu">print</span>(<span class="st">&quot;&quot;&quot;</span>
+<span class="st">        +++++++++++++++++++++++++++++++++++++++++++++++++</span>
+<span class="st">        +                   SWITCH PLAYERS!             +</span>
+<span class="st">        +++++++++++++++++++++++++++++++++++++++++++++++++</span>
+<span class="st">        &quot;&quot;&quot;</span>)
+
+        <span class="co"># let the user know to switch players</span>
+        <span class="bu">print</span>(<span class="st">&#39;</span><span class="ch">\n</span><span class="st">ROUND &#39;</span>, gameNum, <span class="st">&#39;//</span><span class="ch">\n</span><span class="st">Player Two&#39;</span>)
+
+        <span class="co"># second player instance; asks the five quesitons</span>
+        p2round <span class="op">=</span> playerTwo.<span class="bu">round</span>(questions, questionsData)
+
+        <span class="co"># let the user know which round they are on with accumulator</span>
+        gameNum <span class="op">+=</span> <span class="dv">1</span>
+
+        <span class="co"># figure out who won and use user&#39;s inputed name and their points</span>
+        <span class="co"># in print statement</span>
+        <span class="cf">if</span> p1round <span class="op">&lt;</span> p2round:
+            <span class="bu">print</span>(<span class="st">&#39;Thank you for playing!  {} is the winner with {} total \</span>
+<span class="st">                  game points!&#39;</span>.<span class="bu">format</span>(playerTwo.playerID, p2round))
+        <span class="cf">elif</span> p2round <span class="op">&lt;</span> p1round:
+            <span class="bu">print</span>(<span class="st">&#39;Thank you for playing!  {} is the winner with {} total \</span>
+<span class="st">                  game points!&#39;</span>.<span class="bu">format</span>(playerOne.playerID, p1round))
+        <span class="cf">elif</span> p2round <span class="op">==</span> p1round:
+            <span class="bu">print</span>(<span class="st">&#39;There was a tie!  Both {} and {} both earned {} total \</span>
+<span class="st">                   game points; but you are both still \</span>
+<span class="st">                   winners!&#39;</span>.<span class="bu">format</span>(playerOne.playerID, playerTwo.playerID, <span class="op">\</span>
+                   p1round))
+
+        <span class="co"># find out if user wants to continue + validate user response</span>
+        <span class="cf">while</span> <span class="va">True</span>:
+            <span class="cf">try</span>:
+                choice <span class="op">=</span> <span class="bu">str</span>(<span class="bu">input</span>(<span class="st">&quot;</span><span class="ch">\n</span><span class="st">Keep playing? </span><span class="ch">\n</span><span class="st">--&gt; &quot;</span>)).upper()
+            <span class="cf">except</span> <span class="pp">ValueError</span>:
+                <span class="bu">print</span>(<span class="st">&quot;Sorry, enter either a &#39;Y&#39; for &#39;Yes&#39;, or &#39;N&#39; for &#39;No&#39;.&quot;</span>)
+            <span class="cf">finally</span>:
+                <span class="cf">if</span> choice <span class="op">==</span> <span class="st">&#39;N&#39;</span>:
+                    flag <span class="op">=</span> <span class="va">True</span>
+                    <span class="cf">break</span>
+                <span class="cf">if</span> choice <span class="op">==</span> <span class="st">&#39;Y&#39;</span>:
+                    <span class="cf">break</span>
+                <span class="cf">else</span>:
+                    <span class="bu">print</span>(<span class="st">&quot;please enter either a &#39;Y&#39; for &#39;Yes&#39;, or &#39;N&#39; \</span>
+<span class="st">                           for &#39;No&#39;.&quot;</span>)
+
+    <span class="co"># say bye to players and quit the program</span>
+    <span class="bu">print</span>(<span class="st">&#39;</span><span class="ch">\n</span><span class="st">Thank you for playing!  See you next time!</span><span class="ch">\n</span><span class="st">&#39;</span>)
+
+main()</code></pre></div>
+<p><br></p>
+<p>I couldn’t help but think about Plato when I was trying to understand how Objects work in Python. There’s something really similar about how a <em>‘class’</em> has a kind of <em>ontos</em>—that it isn’t just a blueprint—it exists, and it did exist before the <em>‘init’</em> method gave it attributes; that prescriptive human speculation we come up with when describing the form of something abstract like ‘the Beautiful’ (although it’s been a while since my Phil 100A course at UCLA—I hope I’m not misrepresenting the <em>Phaedo</em>).</p>
+<p><br></p>
+<p>The course is over but I have a few titles I purchased from Packt to dig a little deeper. Suggestions are always welcome; the journey’s <em>telos</em> is to learn; and learn I intend to do!</p>
+<p><br></p>
+
+</div> <!-- articleBandContent -->
+</div> <!-- pageContent -->
+
+<footer>
+  <div id="rbmvFooter" class="footer">
+    <div class="footerContent">
+    
+      <!-- column 1 -->
+      <div class="col-md-4">
+        <p><i class="fa fa-send fa-lg"></i> Connect with me<br>
+        <a href="mailto:robert@robertmitchellv.com">robert@robertmitchellv.com</a>
+        <br>
+        <br>
+      </div>
+
+      <!-- column 2 -->
+      <div class="col-md-4">
+        <a href="https://github.com/robertmitchellv">
+          <i class="fa fa-github fa-lg"></i> RobertMitchellV</a>
+        <a href="https://twitter.com/robertmitchellv">
+          <br>
+          <i class="fa fa-twitter fa-lg"></i> RobertMitchellV</a>
+        <a href="https://www.linkedin.com/in/robertmitchellv">
+          <br>
+          <i class="fa fa-linkedin fa-lg"></i> RobertMitchellV</a>
+        <br>
+        <br>
+      </div>
+
+      <!-- column 3 -->
+      <div class="col-md-4">
+        <p class="text">I really enjoy talking philosophy, data, programming, analysis, fatherhood, wine/beer/coffee, vinyl, music, and lots more.  Feel free to use the email to the left or keep me in mind by following me on Twitter or GitHub. Thanks for stopping by!</p>
+        <br>
+        <br>
+      </div>
+      <div class="top">
+        <p class="pull-right">
+          <a class="scrollTop" onclick="slowScroll()" href=#>
+            <i class="fa fa-angle-double-up"></i> Back to top
+          </a>
+        </p>
+      </div>
+    </div>
+  </div>
+  
+  <script type="text/javascript">
+    function slowScroll() { 
+      $('body').animate({ scrollTop: 0 }, 'slow'); 
+    } 
+  </script>
+</footer>
+
+<br>
+<br>
+<br>
+
+<!-- disqus -->
+<div id="disqus_thread"></div>
+  <script>
+
+    var disque_shortname = 'rbmv';
+
+    (function() {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+$(document).ready(function () {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+});
+
+
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
