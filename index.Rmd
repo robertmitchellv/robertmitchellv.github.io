@@ -64,7 +64,7 @@ I hope to contribute posts on my site that interact with my interdisciplinary in
 <article>
 <h3><a href="blog-the-move-to-r.html">THE MOVE TO R</a></h3>
 <div class="summary">
-<p> __NOTE:__ This is _not_ a language wars type post.  I do not think there is some Mordor forged language to _rule them all_.  I debated whether or not to even write a post like this.  Nevertheless, I had a chance to meet and talk to [Jake Powray](https://twitter.com/jakeporway) from [DataKind](http://www.datakind.org) at the [DoGoodData](http://www.dogooddata.com) confrence and I...</p>
+<p>This is _not_ a language wars type post.  I do not think there is some Mordor forged language to _rule them all_.  I debated whether or not to even write a post like this.  Nevertheless, I had a chance to meet and talk to [Jake Powray](https://twitter.com/jakeporway) from [DataKind](http://www.datakind.org) at the [DoGoodData](http://www.dogooddata.com) confrence and I...</p>
 <a class="btn btn-outline-primary btn-sm" href="blog-the-move-to-r.html" role="button">Full Post</a>
 </div>
 </article>
