@@ -112,6 +112,10 @@ html, body {
   color: #FFFFFF;  /* light black */
 }
 
+.disqusPadding {
+  padding: 80px 5%;
+}
+
 .footerContent {
   color: #626262;  /* darker grey */
   font-size: 16px;
