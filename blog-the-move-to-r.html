@@ -173,28 +173,28 @@ $(document).ready(function () {
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
-  <a href="index.html" class="navbar-link" onclick="fadeInOut()">
+  <a href="index.html" onclick="fadeInOut()">
     <span class="fa fa-home"></span>
      
     Home
   </a>
 </li>
 <li>
-  <a href="blog.html" class="navbar-link" onclick="fadeInOut()">
+  <a href="blog.html" onclick="fadeInOut()">
     <span class="fa fa-pencil-square-o"></span>
      
     Blog
   </a>
 </li>
 <li>
-  <a href="about.html" class="navbar-link" onclick="fadeInOut()">
+  <a href="about.html" onclick="fadeInOut()">
     <span class="fa fa-newspaper-o"></span>
      
     About
   </a>
 </li>
 <li>
-  <a href="vitae.html" class="navbar-link" onclick="fadeInOut()">
+  <a href="vitae.html" onclick="fadeInOut()">
     <span class="fa fa-paperclip"></span>
      
     Vitae
@@ -273,13 +273,13 @@ $(document).ready(function () {
 <p><br></p>
 <p>This isn’t to say that I couldn’t have learned what I did in Python—it just happened to work out in my case that R had a kind of pedagogical effect, which I’ll talk about more in a bit. First, there is no argument that there are insanely smart people who build tools in both languages (some that even collaborate, e.g., <a href="https://github.com/wesm/feather">feather</a>). Thankfully, I’ve never seen an argument that centers around this theme, i.e., that one language holds the corner on sharp programmers. I do, however, see arguments that appear to be preference masquerading as axiomatic, aphoristic, or general maxim. I’m not sharing some unseen truth; rather, I’m just describing what helped me move forward and gain a better understanding of the data analysis workflow that seems to work for me.</p>
 <p><br></p>
-<p>hA lot has been said about the <a href="http://www.statmethods.net/about/learningcurve.html">steep learning curve</a> of programming in R. By contrast, Python is one of <a href="http://cacm.acm.org/blogs/blog-cacm/176450-python-is-now-the-most-popular-introductory-teaching-language-at-top-us-universities/fulltext">the most popular introductory teaching languges</a> in CS departments at universities across the US. I knew this before I made a choice of which language to learn when I became interested in data analysis. Based on that understanding, I took a Python 3 course at a community college but mostly lived off of the <a href="http://interactivepython.org/runestone/static/thinkcspy/index.html">interactive</a> version of <a href="https://www.amazon.com/How-Think-Like-Computer-Scientist/dp/0971677506">How to Think Like A Computer Scientist</a>. Like many people who become interested in data, there is a lot of ground to cover before beginning actual analysis. First, I needed to learn how to program. Second, I needed to learn about computer science. I found the interactive site to be the best way for me to actually get a feel for what happens when I run code and I found Python to be an excellent communicator of general CS ideas. After I finished my Python course and began understanding a bit more about what I was doing in Python I hit the ground running learning <code>Pandas</code> and <code>matplotlib</code>—I thought I had closed the door on R. It didn’t make sense to stop progress in one language to begin all over again in another; especially when people like <a href="https://twitter.com/hadleywickham?lang=en">Hadley</a> and <a href="https://twitter.com/statgarrett">Garret</a> recommend that:</p>
+<p>A lot has been said about the <a href="http://www.statmethods.net/about/learningcurve.html">steep learning curve</a> of programming in R. By contrast, Python is one of <a href="http://cacm.acm.org/blogs/blog-cacm/176450-python-is-now-the-most-popular-introductory-teaching-language-at-top-us-universities/fulltext">the most popular introductory teaching languges</a> in CS departments at universities across the US. I knew this before I made a choice of which language to learn when I became interested in data analysis. Based on that understanding, I took a Python 3 course at a community college but mostly lived off of the <a href="http://interactivepython.org/runestone/static/thinkcspy/index.html">interactive</a> version of <a href="https://www.amazon.com/How-Think-Like-Computer-Scientist/dp/0971677506">How to Think Like A Computer Scientist</a>. Like many people who become interested in data, there is a lot of ground to cover before beginning actual analysis. First, I needed to learn how to program. Second, I needed to learn about computer science. I found the interactive site to be the best way for me to actually get a feel for what happens when I run code and I found Python to be an excellent communicator of general CS ideas. After I finished my Python course and began understanding a bit more about what I was doing in Python I hit the ground running learning <code>Pandas</code> and <code>matplotlib</code>—I thought I had closed the door on R. It didn’t make sense to stop progress in one language to begin all over again in another; especially when people like <a href="https://twitter.com/hadleywickham?lang=en">Hadley</a> and <a href="https://twitter.com/statgarrett">Garret</a> recommend that:</p>
 <p><br></p>
 <blockquote>
 <p><i class="fa fa-quote-left fa-1x"></i> However, we strongly believe that it’s best to master one tool at a time. You will get better faster if you dive deep, rather than spreading yourself thinly over many topics. This doesn’t mean you should only know one thing, just that you’ll generally learn faster if you stick to one thing at a time. You should strive to learn new things throughout your career, but make sure your understanding is solid before you move on to the next interesting thing.<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a> <i class="fa fa-quote-right fa-1x"></i></p>
 </blockquote>
 <p><br></p>
-<p>I had not <em>mastered</em> Python when deciding to explore R. I have not mastered R either. Nevertheless, there was this nagging thought I couldn’t shake a while back when seeing language-wars-types of posts on twitter about <em>leaving</em> R. Namely, that one necessarily has to use R in order to leave it. Putting all the good and bad reasons I’ve read for moving from R to Python, I wondered if R had some sort of pedagogical magic that would help me become a better “data scientist” like the ones I followed on twitter and respected a great deal. In my mind I figured that it must be a cross to bear in order to be a more well rounded data worker.</p>
+<p>I had not <em>mastered</em> Python when deciding to explore R. I have not mastered R either. Nevertheless, there was this nagging thought I couldn’t shake a while back when seeing language-wars-types of posts on twitter about <em>leaving</em> R. Namely, that one necessarily has to use R in order to leave it. Putting aside all the good and bad reasons I’ve read for moving from R to Python, I wondered if R had some sort of pedagogical magic that would help me become a better “data scientist” like the ones I followed on twitter and respected a great deal. In my mind I figured that it must be a cross to bear in order to be a more well rounded data worker.</p>
 <p><br></p>
 <p>Since I had spent considerable time figuring out how to <a href="blog-bar-chart-annotations-pandas-mpl.html">annotate bar charts in matplotlib</a> I figured this would be a good test for R: recreate the plots from that blog post to get a feel for what the language is like. To my chagrin, this was much, <em>much</em>, easier in <code>ggplot2</code> than <code>matplotlib</code>. I felt like I struggled so hard to get <code>matplotlib</code> to give me a halfway decent looking plot while <code>ggplot2</code> made my previous efforts seem futile. Even adding fit lines with one line of code was a crazy thought to me! I finally understood why <a href="https://twitter.com/theglamp">Greg Lamp</a> was working so hard to build <a href="https://github.com/yhat/ggplot">ggplot in Python</a>. I decided to spend my morning train rides learning more about R and about <code>ggplot2</code>. I didn’t know this at the time, but diving into <code>ggplot2</code> and its beautiful API offered me insight I always found lacking when getting started with an analysis project in Python. The more I dove into the <a href="http://r4ds.had.co.nz/introduction.html#the-tidyverse">tidyverse</a> the more I started to see how the API (especially <code>dplyr</code>) unfolds in such a way that a user is practically lead into an analysis workflow; a workflow that I found to be rewarding on many levels.<a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a></p>
 <p><br></p>
