@@ -458,9 +458,14 @@ mtcars %>%
   ggplot(aes(x = disp, y = mpg)) +
     geom_point(color = rbmv_palette[3]) + 
     geom_smooth(formula = y ~ x, se = F, color = rbmv_palette[2])
+  
     
 
 ```
+
+<br>
+
+When using `ggplot` in this way, it creates a directory with an image file to use when creating the HTML.  One of the reasons its easier to just use Plotly for web/interactive type stuff.  
 
 <br>
 
