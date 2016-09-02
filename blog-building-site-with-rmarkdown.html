@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+
+<meta name="author" content="Robert Mitchell" />
+
+
+<title>BUILDING THIS SITE WITH RSTUDIO AND RMARKDOWN</title>
+
+<script src="site_libs/jquery-1.11.3/jquery.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/yeti.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<script src="site_libs/htmlwidgets-0.7/htmlwidgets.js"></script>
+<link href="site_libs/plotlyjs-1.10.1/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="site_libs/plotlyjs-1.10.1/plotly-latest.min.js"></script>
+<script src="site_libs/plotly-binding-3.6.0/plotly.js"></script>
+<link href="site_libs/font-awesome-4.5.0/css/font-awesome.min.css" rel="stylesheet" />
+
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+<style type="text/css">
+  pre:not([class]) {
+    background-color: white;
+  }
+</style>
+
+
+<style type="text/css">
+h1 {
+  font-size: 34px;
+}
+h1.title {
+  font-size: 38px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 18px;
+}
+h5 {
+  font-size: 16px;
+}
+h6 {
+  font-size: 12px;
+}
+.table th:not([align]) {
+  text-align: left;
+}
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+
+</head>
+
+<body>
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+code {
+  color: inherit;
+  background-color: rgba(0, 0, 0, 0.04);
+}
+img {
+  max-width:100%;
+  height: auto;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+</style>
+
+
+<style type="text/css">
+/* padding for bootstrap navbar */
+body {
+  padding-top: 45px;
+  padding-bottom: 40px;
+}
+/* offset scroll position for anchor links (for fixed navbar)  */
+.section h1 {
+  padding-top: 50px;
+  margin-top: -50px;
+}
+
+.section h2 {
+  padding-top: 50px;
+  margin-top: -50px;
+}
+.section h3 {
+  padding-top: 50px;
+  margin-top: -50px;
+}
+.section h4 {
+  padding-top: 50px;
+  margin-top: -50px;
+}
+.section h5 {
+  padding-top: 50px;
+  margin-top: -50px;
+}
+.section h6 {
+  padding-top: 50px;
+  margin-top: -50px;
+}
+</style>
+
+<script>
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.parent().addClass('active');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+});
+</script>
+
+
+<div class="container-fluid main-container">
+
+<!-- tabsets -->
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+</script>
+
+<!-- code folding -->
+
+
+
+
+
+<!-- fonts -->
+<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700|Roboto:100,100i,300,300i|Roboto+Mono:100i,300,700,700i" rel="stylesheet">
+
+<!-- navbar -->
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">
+        <img alt="Brand" src="site_content/img/rbmv_curve.png" id="rbmv">
+      </a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="index.html" onclick="fadeInOut()">
+    <span class="fa fa-home"></span>
+     
+    Home
+  </a>
+</li>
+<li>
+  <a href="blog.html" onclick="fadeInOut()">
+    <span class="fa fa-pencil-square-o"></span>
+     
+    Blog
+  </a>
+</li>
+<li>
+  <a href="about.html" onclick="fadeInOut()">
+    <span class="fa fa-newspaper-o"></span>
+     
+    About
+  </a>
+</li>
+<li>
+  <a href="vitae.html" onclick="fadeInOut()">
+    <span class="fa fa-paperclip"></span>
+     
+    Vitae
+  </a>
+</li>
+<li>
+  <a href="mailto:robert@robertmitchellv.com">
+    <span class="fa fa-send-o"></span>
+     
+    Contact
+  </a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    <span class="fa fa-link"></span>
+     
+    Connect
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li class="dropdown-header">Professional</li>
+    <li>
+      <a href="https://github.com/robertmitchellv">
+        <span class="fa fa-github"></span>
+         
+        Github
+      </a>
+    </li>
+    <li>
+      <a href="https://twitter.com/robertmitchellv">
+        <span class="fa fa-twitter"></span>
+         
+        Twitter
+      </a>
+    </li>
+    <li class="divider"></li>
+    <li class="dropdown-header">Personal</li>
+    <li>
+      <a href="https://www.instagram.com/robertmitchellv/">
+        <span class="fa fa-instagram"></span>
+         
+        Instagram
+      </a>
+    </li>
+    <li>
+      <a href="https://soundcloud.com/rbmv">
+        <span class="fa fa-soundcloud"></span>
+         
+        Soundcloud
+      </a>
+    </li>
+  </ul>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div class="fluid-row" id="header">
+
+
+
+<h1 class="title toc-ignore">BUILDING THIS SITE WITH RSTUDIO AND RMARKDOWN</h1>
+<h4 class="author"><em>Robert Mitchell</em></h4>
+<h4 class="date"><em>September 1, 2016</em></h4>
+
+</div>
+
+
+<blockquote>
+<p>There <em>may</em> be a special place in hell for blog posts like this that document how someone put together their static site website and hosted it on GitHub. Especially when there is really great <a href="rmarkdown.rstudio.com/rmarkdown_websites.html">documentation</a> availible that has been put together by really smart people<a href="#fn1" class="footnoteRef" id="fnref1"><sup>1</sup></a>. You can even look at Rmarkdown’s website source code on <a href="https://github.com/rstudio/rmarkdown/tree/gh-pages">GitHub</a> to see how they approached things and to get ideas. I should warn anyone interested in building a site with <code>rmarkdown</code> that you will not have some of the automation perks from Jekyll or Pelican with automatic tags and summaries created to extract from blog posts and render them on your home page. I decided to <em>not</em> retain any of the category or tag metadata that normally went into the <code>&lt;head&gt;</code> tag to be used for summarising because I wanted to keep things simple(text file <i class="fa fa-long-arrow-right"></i> blog). If that doesn’t sound like something you like, this may not be the right choice for your blog.</p>
+</blockquote>
+<p><br></p>
+<div id="quick-asidefeel-free-to-skip" class="section level3">
+<h3>QUICK ASIDE—FEEL FREE TO SKIP</h3>
+<p><br></p>
+<p>When I first began learning to code I felt insecure about not having given <em>any</em> attention to math or computer science courses during my undergrad. Without hesitation I had the best <del>4</del> 5 years of my life at UCLA (with one whole year spent in Paris for courses during the academic year and a summer in Germany and Scandinavia). Nevertheless, I worried that the most technical thing I did was the introduction to statistics course<a href="#fn2" class="footnoteRef" id="fnref2"><sup>2</sup></a> I needed to satisfy my math requirement and an introduction to formal logic, which was a requirement as a philosophy major. So, I tried emulating hardcore programmers when I began coding in Python by only using Vim in my terminal<a href="#fn3" class="footnoteRef" id="fnref3"><sup>3</sup></a> or Jupyter notebooks. After facing the truth of my insecurity and accepting my shadow<a href="#fn4" class="footnoteRef" id="fnref4"><sup>4</sup></a> I finally began using RStudio two months ago and I really can’t say enough nice things about RStudio after having spent lots of time coding in R. When I saw that there was a way to create websites with <code>rmarkdown</code> it immediately connected with me that if I put in a little work now I might <em>actually blog</em> in the future. Since this is my second post this week, I think it was a good idea.</p>
+<p><br></p>
+</div>
+<div id="what-youll-need-installed" class="section level3">
+<h3>WHAT YOU’LL NEED INSTALLED:</h3>
+<p><br></p>
+<ol style="list-style-type: decimal">
+<li><a href="www.rstudio.com/products/rstudio/download/preview/">RStudio Preview Release</a> so you can get the ‘build’ pane</li>
+<li><code>rmarkdown</code> (v0.9.6) which you can install from CRAN thusly:</li>
+</ol>
+<p><br></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">install.packages</span>(<span class="st">&quot;rmarkdown&quot;</span>, <span class="dt">type =</span> <span class="st">&quot;source&quot;</span>)</code></pre></div>
+<p><br></p>
+</div>
+<div id="what-files-you-need-in-your-sites-directory" class="section level3">
+<h3>WHAT FILES YOU NEED IN YOUR SITE’S DIRECTORY:</h3>
+<p><br></p>
+<p>After you have installed the preview version of RStudio and have the the correct version of <code>rmarkdown</code> there are two required files that are the minimum for building a site:</p>
+<p><br></p>
+<ol style="list-style-type: decimal">
+<li>A <code>_site.yml</code><a href="#fn5" class="footnoteRef" id="fnref5"><sup>5</sup></a> file</li>
+<li>An <code>Index.Rmd</code> file</li>
+</ol>
+<p><br></p>
+</div>
+<div id="here-are-example-files-you-can-use" class="section level3">
+<h3>HERE ARE EXAMPLE FILES YOU CAN USE:</h3>
+<p><br></p>
+<p>Or, you can <a href="https://github.com/rstudio/rmarkdown-website-examples/tree/master/hello-website">clone</a> the example site RStudio graciously put together.</p>
+<p><br></p>
+<p><code>_site.yml</code></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">name:<span class="st"> &quot;Your Site&#39;s Name&quot;</span>
+output_dir:<span class="st"> </span>.  <span class="co"># necessary for hosting on GitHub; just add it for now</span>
+navbar:<span class="st">  </span>
+<span class="st">  </span>title:<span class="st"> &quot;Your Site&#39;s Title&quot;</span>
+  left:<span class="st">  </span><span class="co"># you can also use &#39;right&#39;</span>
+<span class="st">    </span>-<span class="st"> </span>text:<span class="st"> &quot;Home&quot;</span>
+      icon:<span class="st"> </span>fa-home  <span class="co"># handy way to use FontAwesome icons in nav!</span>
+      href:<span class="st"> </span>index.html  <span class="co"># don&#39;t link to the .Rmd file</span>
+    -<span class="st"> </span>text:<span class="st"> &quot;About&quot;</span>
+      icon:<span class="st"> </span>fa-newspaper-o
+      href:<span class="st"> </span>about.html</code></pre></div>
+<p><br></p>
+<div id="a-couple-of-things-about-the-yml-file" class="section level4">
+<h4>A couple of things about the <code>yml</code> file:</h4>
+<ol style="list-style-type: decimal">
+<li><code>output_dir: .</code> changes the default behavior of placing rendered files into a <code>_site</code> directory to dumping them in the directory with your <code>Rmd</code> files. This can start to look a little messy so decide on some naming conventions to help with all the files you’ll be generating.</li>
+<li>If you care about having an image in your <code>navbar</code>, want to add the <code>fixed</code> class from Bootstrap to the <code>navbar</code>, or if you want to use <code>jquery</code> functions within the <code>onclick=</code> attribute then you’re going to need to create a <code>_navbar.html</code><a href="#fn6" class="footnoteRef" id="fnref6"><sup>6</sup></a> file rather than declare it in the <code>yml</code> file.</li>
+</ol>
+<blockquote>
+<p>TIP: If you want some of these things but don’t want to write the <code>html</code> from scratch, you can do what I did: finalize the <code>navbar</code>’s structure in the <code>yml</code> file, render it, open your <code>index.html</code> file, and copy everything from <code>&lt;navbar&gt;</code> to <code>&lt;/navbar&gt;</code> into an RStudio text file. Then all you need to do is save that file as <code>_navbar.html</code>, delete the <code>navbar</code> section from your <code>yml</code> file, and then re-build. You can also look at <a href="https://github.com/rstudio/rmarkdown-website/blob/master/_navbar.html">this</a> example from the <code>rmarkdown</code> site.</p>
+</blockquote>
+<ol start="3" style="list-style-type: decimal">
+<li>The <code>icon</code> field is set with a <a href="https://fortawesome.github.io/Font-Awesome/icons/">Font Awesome</a> icon, which I really, <em>really</em>, enjoy. You can even use <a href="http://ionicons.com/">Ionicons</a> or <a href="https://getbootstrap.com/components/#glyphicons">Bootstrap Glyphicons</a> as well.</li>
+</ol>
+<p><br></p>
+<p><code>index.Rmd</code></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">---
+title:<span class="st"> &quot;My Site&#39;s Title&quot;</span>
+---
+
+Welcome to my site!</code></pre></div>
+<p><br></p>
+<p><code>about.Rmd</code></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">---
+title:<span class="st"> &quot;About me&quot;</span>
+---
+<span class="st">  </span>
+A little more about my background ...</code></pre></div>
+<p><br></p>
+</div>
+</div>
+<div id="build-it" class="section level3">
+<h3>BUILD IT!</h3>
+<p><br></p>
+<p>Go ahead and click on ‘Build Website’ to see your beautiful creation!</p>
+<blockquote>
+<p>I don’t know if anyone else will run into this error, but when I first tried to build my site the build pane threw this error message: <code>Error in loadNamespace error: there is no package called 'rmarkdown'</code>. I found that <a href="https://stackoverflow.com/questions/26470909/rstudio-knit-pdf-in-rstudio-loadnamespacename-there-is-no-package-called-rma">this</a> was helpful in trying to get the site to build—you may not see this error message at all though and it might be due to my having altered the default directory in <code>.libPaths()</code>.</p>
+</blockquote>
+<p><br></p>
+</div>
+<div id="customize" class="section level3">
+<h3>CUSTOMIZE</h3>
+<p><br></p>
+<p>This is my favorite part because you can begin adding your own touches to things. A good first step is to set the <code>theme</code> in your <code>yml</code> file to one of <a href="https://bootswatch.com">these</a> themes. You can also add custom css with the <code>css</code> tag—you just have to leave the file in the same directory as everything else. I’ll share my <code>yml</code> file here so you can see what I’ve done (or you can see if I’ve made changes since posting this by checking <a href="https://github.com/robertmitchellv/robertmitchellv.github.io/blob/master/_site.yml">here</a>):</p>
+<p><br></p>
+<p><code>_site.yml</code></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">name:<span class="st"> &quot;rbmv | critical data analysis&quot;</span>
+output_dir:<span class="st"> </span>.
+output:
+<span class="st">  </span>html_document:
+<span class="st">    </span>theme:<span class="st"> </span>yeti
+    highlight:<span class="st"> </span>pygments
+    include:
+<span class="st">      </span>after_body:<span class="st"> </span>footer.html
+    css:<span class="st"> </span>style.css</code></pre></div>
+<p><br></p>
+<p>As you can see there isn’t a lot going on here. You may also notice that I am not using the <code>_site.yml</code> file for the <code>navbar</code>—this is because I am using a separate <code>_navbar.html</code><a href="#fn7" class="footnoteRef" id="fnref7"><sup>7</sup></a>. In fact, I have two <code>navbar</code> files: one for the home page and the other for the rest of the site’s content. I did this because I want the <code>navbar</code> links to behave differently and direct to different places on the homepage as opposed to the rest of the site. <strong>This is just prefrence.</strong></p>
+<p><br></p>
+<p>The great thing about <code>rmarkdown</code> is that each page has <code>yml</code> fields and you can control content really easily with includes. You only need to exclude whatever is default and include whatever you want to replace it with for that page. Here’s an example of this blog post’s <code>yml</code> metadata:</p>
+<p><br></p>
+<p><code>blog-building-site-with-rmarkdown.Rmd</code></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">---
+title:<span class="st"> &quot;BUILDING THIS SITE WITH RSTUDIO AND RMARKDOWN&quot;</span>
+author:<span class="st"> &quot;Robert Mitchell&quot;</span>
+date:<span class="st"> &quot;September 1, 2016&quot;</span>
+output:<span class="st"> </span>
+<span class="st">  </span>html_document:
+<span class="st">    </span>excludes:
+<span class="st">      </span>after_body:<span class="st"> </span>footer.html
+    includes:
+<span class="st">      </span>after_body:<span class="st"> </span>footer-disqus.html
+---</code></pre></div>
+<p><br></p>
+<p>I excluded the <code>footer.html</code> file that is set in the <code>html_document: include: after_body:</code> field to include, instead, a <code>footer</code> file that has the Disqus JavaScript function so that comments appear on blog posts only. You can also include a <code>navbar</code> file using the <code>html_document: include: before_body: navbar.html</code> field, which I used only for my <code>index</code> file to keep things simple. It would be a good idea to keep <a href="http://rmarkdown.rstudio.com/html_document_format.html">this</a> site handy since <code>html_document</code> has a ton of flexibility. Some of you that are <em>very</em> knowledgeable about <code>rmarkdown</code> will likely run with the possibilities.</p>
+<p><br></p>
+</div>
+<div id="things-that-werent-initially-clear" class="section level2">
+<h2>THINGS THAT WEREN’T INITIALLY CLEAR</h2>
+<p><br></p>
+<p>A few things I had to figure out on my own, which I’ll share to make things easier.</p>
+<p><br></p>
+<div id="footer-background-color-does-not-extend-across-the-page" class="section level4">
+<h4>FOOTER BACKGROUND COLOR DOES NOT EXTEND ACROSS THE PAGE</h4>
+<p><br></p>
+<p>This was tricky and what worked for me was looking at the <code>rmarkdown</code> site’s <a href="https://github.com/rstudio/rmarkdown/blob/gh-pages/include_footer.html">source code</a> and including two closing <code>&lt;div&gt;</code>’s—here’s how I worked it out in HTML and CSS:</p>
+<p><br></p>
+<p><code>footer-disqus.html</code></p>
+<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html">  <span class="kw">&lt;/div&gt;</span> <span class="co">&lt;!-- articleBandContent --&gt;</span>
+<span class="kw">&lt;/div&gt;</span> <span class="co">&lt;!-- pageContent --&gt;</span>
+
+<span class="kw">&lt;footer&gt;</span>
+  <span class="kw">&lt;div</span><span class="ot"> id=</span><span class="st">&quot;rbmvFooter&quot;</span><span class="ot"> class=</span><span class="st">&quot;footer&quot;</span><span class="kw">&gt;</span>
+    <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;footerContent&quot;</span><span class="kw">&gt;</span>
+    
+    <span class="co">&lt;!-- footer content --&gt;</span>
+    
+    <span class="kw">&lt;/div&gt;</span>
+  <span class="kw">&lt;/div&gt;</span>
+  
+  <span class="co">&lt;!-- js functions --&gt;</span>
+
+<span class="kw">&lt;/footer&gt;</span>
+
+<span class="co">&lt;!-- disqus js for comments --&gt;</span></code></pre></div>
+<p><br></p>
+<p>This is the CSS I used with the <code>footer</code> above:</p>
+<p><code>style.css</code></p>
+<div class="sourceCode"><pre class="sourceCode css"><code class="sourceCode css"><span class="fl">#rbmvFooter</span> <span class="kw">{</span>
+  <span class="kw">position:</span> <span class="dt">relative</span><span class="kw">;</span>
+  <span class="kw">z-index:</span> <span class="dt">2</span><span class="kw">;</span>
+  <span class="kw">box-sizing:</span> <span class="dt">border-box</span><span class="kw">;</span>
+  <span class="kw">height:</span> <span class="dt">25em</span><span class="kw">;</span>
+<span class="kw">}</span>
+
+<span class="fl">#rbmvFooter.footer</span> <span class="kw">{</span>
+  <span class="kw">background-color:</span> <span class="dt">#212121</span><span class="kw">;</span>  <span class="co">/* light black */</span>
+  <span class="kw">padding:</span> <span class="dt">4%</span> <span class="dt">8%</span><span class="kw">;</span>
+  <span class="kw">margin-top:</span> <span class="dt">7em</span><span class="kw">;</span>
+  <span class="kw">box-shadow:</span> <span class="dt">0px</span> <span class="dt">3px</span> <span class="dt">50px</span> <span class="dt">0px</span> <span class="dt">rgba(43</span>,<span class="dt">45</span>,<span class="dt">66</span>,<span class="dt">0.4)</span><span class="kw">;</span>
+  <span class="kw">font-weight:</span> <span class="dt">300</span><span class="kw">;</span>
+  <span class="kw">font-size:</span> <span class="dt">13px</span><span class="kw">;</span>
+  <span class="kw">line-height:</span> <span class="dt">25px</span><span class="kw">;</span>
+<span class="kw">}</span>
+
+<span class="fl">#rbmvFooter</span> <span class="fl">.footer</span> <span class="kw">{</span>
+  <span class="kw">color:</span> <span class="dt">#626262</span><span class="kw">;</span>  <span class="co">/* darker grey */</span>
+  <span class="kw">display:</span> flex<span class="kw">;</span>
+  <span class="kw">justify-content:</span> space-between<span class="kw">;</span>
+  <span class="kw">align-items:</span> <span class="dt">center</span><span class="kw">;</span>
+  <span class="kw">line-height:</span> <span class="dt">14px</span><span class="kw">;</span>
+<span class="kw">}</span>
+
+<span class="fl">#scrollTop</span> <span class="kw">{</span>
+  <span class="kw">color:</span> <span class="dt">#FFFFFF</span><span class="kw">!important;</span> <span class="co">/* white */</span>
+<span class="kw">}</span></code></pre></div>
+<p><br></p>
+</div>
+<div id="summarising-content-for-the-home-page" class="section level4">
+<h4>SUMMARISING CONTENT FOR THE HOME PAGE</h4>
+<p><br></p>
+<p>So this is probably the most painful thing you’ll have to do but it isn’t so bad! Once a post is finished, you’ll have to add the HTML to the <code>index.Rmd</code> file and link to the page. Tools like Jekyll and Pelican handle a lot of this stuff automatically, but it isn’t too bad once you have an idea of how you want it to look. This is what I do:</p>
+<p><br></p>
+<ol style="list-style-type: decimal">
+<li>Finish blog post.</li>
+<li>Add the post and summary / date info to the <code>blog.Rmd</code> file.</li>
+<li>Copy that HTML into the <code>index.Rmd</code> file with the three most up-to-date blog posts.</li>
+</ol>
+<p><br></p>
+<p>I find it easiest to leave a template in comments that I can just fill in the blanks from the blog post I’ve finished. I don’t think this is <em>too</em> much work. Also, RStudio may come up with some new tooling soon, you never know!</p>
+<p></br></p>
+<p><code>blog.Rmd</code></p>
+<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="co">&lt;!---</span>
+<span class="co">entries will follow this format:</span>
+<span class="co">&lt;article&gt;</span>
+<span class="co">&lt;h3&gt;&lt;a href=&quot;&quot;&gt; &lt;/a&gt;&lt;/h3&gt;</span>
+<span class="co">&lt;div class=&quot;summary&quot;&gt;</span>
+<span class="co">&lt;span&gt;&lt;i class=&quot;fa fa-calendar&quot;&gt;&lt;/i&gt; _date_&lt;/span&gt;</span>
+<span class="co">&lt;p&gt; ...&lt;/p&gt;</span>
+<span class="co">&lt;a class=&quot;btn btn-outline-primary btn-sm&quot; href=&quot;&quot;&gt;Full Post&lt;/a&gt;</span>
+<span class="co">&lt;/div&gt;</span>
+<span class="co">&lt;/article&gt;</span>
+<span class="co">---&gt;</span>
+
+<span class="kw">&lt;article&gt;</span>
+<span class="kw">&lt;h3&gt;&lt;a</span><span class="ot"> href=</span><span class="st">&quot;blog-the-move-to-r.html&quot;</span><span class="kw">&gt;</span>THE MOVE TO R<span class="kw">&lt;/a&gt;&lt;/h3&gt;</span>
+<span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;summary&quot;</span><span class="kw">&gt;</span>
+<span class="kw">&lt;span&gt;&lt;i</span><span class="ot"> class=</span><span class="st">&quot;fa fa-calendar&quot;</span><span class="kw">&gt;&lt;/i&gt;</span> _2016-08-29_<span class="kw">&lt;/span&gt;</span>
+<span class="kw">&lt;p&gt;</span>This is _not_ a language wars type post.  I do not think there is some Mordor forged language to _rule them all_.  I debated whether or not to even write a post like this.  Nevertheless, I had a chance to meet and talk to [Jake Powray](https://twitter.com/jakeporway) from [DataKind](http://www.datakind.org) at the [DoGoodData](http://www.dogooddata.com) conference and I...<span class="kw">&lt;/p&gt;</span>
+<span class="kw">&lt;a</span><span class="ot"> class=</span><span class="st">&quot;btn btn-outline-primary btn-sm&quot;</span><span class="ot"> href=</span><span class="st">&quot;blog-the-move-to-r.html&quot;</span><span class="kw">&gt;</span>Full Post<span class="kw">&lt;/a&gt;</span>
+<span class="kw">&lt;/div&gt;</span>
+<span class="kw">&lt;/article&gt;</span></code></pre></div>
+<p><br></p>
+</div>
+<div id="anchor-tag-in-page-links-missed-location" class="section level4">
+<h4>ANCHOR TAG IN PAGE LINKS MISSED LOCATION</h4>
+<p><br></p>
+<p>On my home page I use the smooth scrolling function to move between the summarized content with anchor links and the <code>id</code> attribute. Since I added the <code>fixed</code> class to my <code>_navbar.html</code> file, I forgot to adjust for those pixels. This was fixed with the following CSS:</p>
+<p><br></p>
+<p><code>style.css</code></p>
+<div class="sourceCode"><pre class="sourceCode css"><code class="sourceCode css">a<span class="fl">.anchor</span> <span class="kw">{</span>
+  <span class="kw">display:</span> <span class="dt">block</span><span class="kw">;</span>
+  <span class="kw">position:</span> <span class="dt">relative</span><span class="kw">;</span>
+  <span class="kw">top:</span> <span class="dt">-45px</span><span class="kw">;</span> <span class="co">/* fixed navbar height */</span>
+  <span class="kw">visibility:</span> <span class="dt">hidden</span><span class="kw">;</span>
+<span class="kw">}</span></code></pre></div>
+<p><br></p>
+</div>
+<div id="displaying-css-in-a-code-chunk" class="section level4">
+<h4>DISPLAYING CSS IN A CODE CHUNK</h4>
+<p><br></p>
+<p>To get CSS to display in this blog post I had to <code>git checkout gh-pages</code> in the clone of <code>rmarkdown</code> that I made (which I recommend!) to see what they did to display CSS. I mostly use the following format for code chunks: <code>{r, eval=FALSE}</code>, <code>{html, eval=FALSE}</code>, <code>{python, eval=FALSE}</code>, or any of the other engines <code>knitr</code> can handle. <code>{css, eval=FALSE}</code> wouldn’t render for me when writing this post. Instead I had to use the following:</p>
+<p><br></p>
+<pre class="markdown"><code>&#96;&#96;&#96;css
+.someClass {
+  color: #FFFF00;
+}
+&#96;&#96;&#96;
+</code></pre>
+<p><br></p>
+</div>
+<div id="also-how-do-you-put-a-code-chunk-in-a-code-chunk" class="section level4">
+<h4>ALSO, HOW DO YOU PUT A CODE CHUNK IN A CODE CHUNK?</h4>
+<p><br></p>
+<div class="figure">
+<img src="site_content/img/yo-dawg-knitr.jpg" />
+
+</div>
+<p><br></p>
+<p>Sorry, I had to do that. Trying to render the above CSS chunk proved harder than I thought. It lead me to try and figure out how to put a code chunk in a code chunk (and I thought of the ‘yo dawg’ meme right away). Boosted strait from RStudio’s site, this is how you accomplish it if you ever need to know:</p>
+<p><br></p>
+<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="kw">&lt;pre</span><span class="ot"> class=</span><span class="st">&quot;markdown&quot;</span><span class="kw">&gt;&lt;code&gt;</span><span class="dv">&amp;#96;&amp;#96;&amp;#96;</span>css
+.someClass {
+  color: #FFFF00;
+}
+<span class="dv">&amp;#96;&amp;#96;&amp;#96;</span>
+<span class="kw">&lt;/code&gt;&lt;/pre&gt;</span></code></pre></div>
+<p><br></p>
+</div>
+<div id="getting-disqus-to-work" class="section level4">
+<h4>GETTING DISQUS TO WORK</h4>
+<p><br></p>
+<p>I couldn’t get Disqus to work the way RStudio set it up in their <code>footer</code> file—if you encounter the same issue I was able to get around it by first adding the script tag that gives you a count of comments and then by adding just the function that you are not supposed to edit. Disqus wants you to set two variables but I couldn’t seem to get them to work with my site set up the way it is. If anyone has any insight into how the variables could be set up with an <code>rmarkdown</code> website, let me know in the comments!</p>
+<p><br></p>
+<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html"><span class="co">&lt;!-- disqus --&gt;</span>
+<span class="kw">&lt;script</span><span class="ot"> id=</span><span class="st">&quot;dsq-count-scr&quot;</span><span class="ot"> src=</span><span class="st">&quot;//rbmv.disqus.com/count.js&quot;</span><span class="ot"> async</span><span class="kw">&gt;&lt;/script&gt;</span>
+<span class="kw">&lt;div</span><span class="ot"> id=</span><span class="st">&quot;disqus_thread&quot;</span><span class="ot"> class=</span><span class="st">&quot;disqusPadding&quot;</span><span class="kw">&gt;&lt;/div&gt;</span>
+  <span class="kw">&lt;script&gt;</span>
+    (<span class="kw">function</span>() <span class="op">{</span> <span class="co">// DON&#39;T EDIT BELOW THIS LINE</span>
+      <span class="kw">var</span> d <span class="op">=</span> document<span class="op">,</span> s <span class="op">=</span> <span class="va">d</span>.<span class="at">createElement</span>(<span class="st">&#39;script&#39;</span>)<span class="op">;</span>
+      <span class="va">s</span>.<span class="at">src</span> <span class="op">=</span> <span class="st">&#39;//rbmv.disqus.com/embed.js&#39;</span><span class="op">;</span>
+      <span class="va">s</span>.<span class="at">setAttribute</span>(<span class="st">&#39;data-timestamp&#39;</span><span class="op">,</span> <span class="op">+</span><span class="kw">new</span> <span class="at">Date</span>())<span class="op">;</span>
+      (<span class="va">d</span>.<span class="at">head</span> <span class="op">||</span> <span class="va">d</span>.<span class="at">body</span>).<span class="at">appendChild</span>(s)<span class="op">;</span>
+    <span class="op">}</span>)()<span class="op">;</span>
+  <span class="op">&lt;</span><span class="ss">/script&gt;</span>
+<span class="ss">  &lt;noscript&gt;Please enable JavaScript to view the &lt;a href=&quot;https://disqus.com/</span><span class="op">?</span>ref_noscript<span class="st">&quot;&gt;comments powered by Disqus.&lt;/a&gt;&lt;/noscript&gt;</span></code></pre></div>
+<p><br></p>
+</div>
+<div id="syntax-highlighting" class="section level4">
+<h4>SYNTAX HIGHLIGHTING</h4>
+<p><br></p>
+<p>I’m not a big fan of the options we inherit from Pandoc. Also, the CSS generated from code chunks seems kind of arbitrary and doesn’t work with Pygments (which is a shame because there are <em>many</em> Pygments CSS files to be found online!). From what I can tell <a href="https://github.com/jeffbr13/benjeffrey.com/blob/master/posts/pandoc-syntax-highlighting-css.md">here</a> the markup classes come from the <a href="http://hackage.haskell.org/package/highlighting-kate">highlighting-kate</a> package. I took <a href="https://github.com/jeffbr13">Ben Jeffrey’s</a> solarized light CSS and tweaked things a bit more to get it to look the way I wanted with the darker theme. If you would like to use it as well, just copy this into your CSS:</p>
+<p><br></p>
+<p><code>style.css</code></p>
+<div class="sourceCode"><pre class="sourceCode css"><code class="sourceCode css">pre <span class="kw">{</span> <span class="kw">background-color:</span> <span class="dt">#002b36</span><span class="kw">;</span> <span class="kw">color:</span> <span class="dt">#93a1a1</span> <span class="kw">}</span>
+code <span class="kw">{</span> <span class="kw">font-family:</span> <span class="st">&#39;Roboto Mono&#39;</span>, <span class="dt">monospace</span> <span class="kw">;</span> <span class="kw">font-weight:</span> <span class="dt">300</span><span class="kw">;</span> <span class="kw">}</span>
+code &gt; span<span class="fl">.kw</span> <span class="kw">{</span> <span class="kw">color:</span> <span class="dt">#268bd2</span><span class="kw">;</span> <span class="kw">font-weight:</span> <span class="dt">700</span><span class="kw">;</span> <span class="kw">}</span> <span class="co">/* Keyword */</span>
+code &gt; span<span class="fl">.dt</span> <span class="kw">{</span> <span class="kw">color:</span> <span class="dt">#dc322f</span><span class="kw">;</span> <span class="kw">}</span> <span class="co">/* DataType */</span>
+code &gt; span<span class="fl">.dv</span> <span class="kw">{</span> <span class="kw">color:</span> <span class="dt">#93a1a1</span><span class="kw">;</span> <span class="kw">}</span> <span class="co">/* DecVal */</span>
+code &gt; span<span class="fl">.bn</span> <span class="kw">{</span> <span class="kw">color:</span> <span class="dt">#2aa198</span><span class="kw">;</span> <span class="kw">}</span> <span class="co">/* BaseN */</span>
+code &gt; span<span class="fl">.fl</span> <span class="kw">{</span> <span class="kw">color:</span> <span class="dt">#2aa198</span><span class="kw">;</span> <span class="kw">}</span> <span class="co">/* Float */</span>
+code &gt; span<span class="fl">.ch</span> <span class="kw">{</span> <span class="kw">color:</span> <span class="dt">#2aa198</span><span class="kw">;</span> <span class="kw">}</span> <span class="co">/* Char */</span>
+code &gt; span<span class="fl">.st</span> <span class="kw">{</span> <span class="kw">color:</span> <span class="dt">#2aa198</span><span class="kw">;</span> <span class="kw">}</span> <span class="co">/* String */</span>
+code &gt; span<span class="fl">.co</span> <span class="kw">{</span> <span class="kw">color:</span> <span class="dt">#586e75</span><span class="kw">;</span> <span class="kw">font-style:</span> <span class="dt">100</span>i<span class="kw">;</span> <span class="kw">}</span> <span class="co">/* Comment */</span>
+code &gt; span<span class="fl">.ot</span> <span class="kw">{</span> <span class="kw">color:</span> <span class="dt">#859900</span><span class="kw">;</span> <span class="kw">}</span> <span class="co">/* Other */</span>
+code &gt; span<span class="fl">.al</span> <span class="kw">{</span> <span class="kw">color:</span> <span class="dt">#ff0000</span><span class="kw">;</span> <span class="kw">font-weight:</span> <span class="dt">700</span><span class="kw">;</span> <span class="kw">}</span> <span class="co">/* Alert */</span>
+code &gt; span<span class="fl">.fu</span> <span class="kw">{</span> <span class="kw">color:</span> <span class="dt">#268bd2</span><span class="kw">;</span> <span class="kw">}</span> <span class="co">/* Function */</span>
+code &gt; span<span class="fl">.er</span> <span class="kw">{</span> <span class="kw">color:</span> <span class="dt">#93a1a1</span><span class="kw">;</span> <span class="kw">font-weight:</span> <span class="dt">700</span><span class="kw">;</span> <span class="kw">}</span> <span class="co">/* Error */</span>
+code &gt; span<span class="fl">.wa</span> <span class="kw">{</span> <span class="kw">color:</span> <span class="dt">#93a1a1</span><span class="kw">;</span> <span class="kw">font-weight:</span> <span class="dt">700</span>i<span class="kw">;</span> <span class="kw">}</span> <span class="co">/* Warning */</span>
+code &gt; span<span class="fl">.cn</span> <span class="kw">{</span> <span class="kw">color:</span> <span class="dt">#cb4b16</span><span class="kw">;</span> <span class="kw">}</span> <span class="co">/* Constant */</span>
+code &gt; span<span class="fl">.sc</span> <span class="kw">{</span> <span class="kw">color:</span> <span class="dt">#dc322f</span><span class="kw">;</span> <span class="kw">}</span> <span class="co">/* SpecialChar */</span>
+code &gt; span<span class="fl">.vs</span> <span class="kw">{</span> <span class="kw">color:</span> <span class="dt">#2aa198</span><span class="kw">;</span> <span class="kw">}</span> <span class="co">/* VerbatimString */</span>
+code &gt; span<span class="fl">.ss</span> <span class="kw">{</span> <span class="kw">color:</span> <span class="dt">#2aa198</span><span class="kw">;</span> <span class="kw">}</span> <span class="co">/* SpecialString */</span>
+code &gt; span<span class="fl">.im</span> <span class="kw">{</span> <span class="kw">color:</span> <span class="dt">#dc322f</span><span class="kw">;</span> <span class="kw">}</span> <span class="co">/* Import */</span>
+code &gt; span<span class="fl">.va</span> <span class="kw">{</span> <span class="kw">color:</span> <span class="dt">#268bd2</span><span class="kw">;</span> <span class="kw">}</span> <span class="co">/* Variable */</span>
+code &gt; span<span class="fl">.cf</span> <span class="kw">{</span> <span class="kw">color:</span> <span class="dt">#859900</span><span class="kw">;</span> <span class="kw">font-weight:</span> <span class="dt">700</span><span class="kw">;</span> <span class="kw">}</span> <span class="co">/* ControlFlow */</span>
+code &gt; span<span class="fl">.op</span> <span class="kw">{</span> <span class="kw">color:</span> <span class="dt">#859900</span><span class="kw">;</span> <span class="kw">}</span> <span class="co">/* Operator */</span>
+code &gt; span<span class="fl">.bu</span> <span class="kw">{</span> <span class="kw">color:</span> <span class="dt">#268bd2</span><span class="kw">;</span> <span class="kw">}</span> <span class="co">/* BuiltIn */</span>
+code &gt; span<span class="fl">.ex</span> <span class="kw">{</span> <span class="kw">}</span> <span class="co">/* Extension */</span></code></pre></div>
+<p><br></p>
+<p>You can also go crazy with this and create your own theme that mimics whatever color scheme you are going to use for your site. I thought these colors looked good with my site’s color scheme and the colors I plan to use for data visualizations are still in the works—I will likely change them pretty often.</p>
+<p><br></p>
+</div>
+<div id="put-some-ggplot-in-a-post" class="section level4">
+<h4>PUT SOME GGPLOT IN A POST!</h4>
+<p><br></p>
+<p>The most rewarding part about writing blog posts in <code>rmarkdown</code> is that you can really dive into an analysis workflow and it is automagically a blog post. It’s so easy—you just leave your code chunk as is or pass <code>eval = F</code> if you just want to show some code<a href="#fn8" class="footnoteRef" id="fnref8"><sup>8</sup></a> or <code>echo = F</code> to hide or display code the way you want to.</p>
+<p><br></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">suppressPackageStartupMessages</span>(<span class="kw">library</span>(ggplot2))
+<span class="kw">suppressPackageStartupMessages</span>(<span class="kw">library</span>(dplyr))
+
+<span class="co"># these are the colors I wanted to use for the site; may not be good for viz</span>
+rbmv_palette &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;#BFF073&quot;</span>, <span class="st">&quot;#0DC9F7&quot;</span>, <span class="st">&quot;#7F7F7F&quot;</span>, <span class="st">&quot;#F05B47&quot;</span>, <span class="st">&quot;#ED1C24&quot;</span>)
+
+mtcars %&gt;%
+<span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> disp, <span class="dt">y =</span> mpg)) +
+<span class="st">    </span><span class="kw">geom_point</span>(<span class="dt">color =</span> rbmv_palette[<span class="dv">3</span>]) +<span class="st"> </span>
+<span class="st">    </span><span class="kw">geom_smooth</span>(<span class="dt">formula =</span> y ~<span class="st"> </span>x, <span class="dt">se =</span> F, <span class="dt">color =</span> rbmv_palette[<span class="dv">2</span>])</code></pre></div>
+<p><img src="blog-building-site-with-rmarkdown_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
+<p><br></p>
+</div>
+<div id="ok-but-how-do-i-add-plotly-to-a-page" class="section level4">
+<h4>OK, BUT HOW DO I ADD PLOTLY TO A PAGE?</h4>
+<p><br></p>
+<p>I’ve been really into Plotly lately and one of the first things I wanted to do was add it to my website. There are a couple of hoops you have to jump through but luckily there is the wonderful <code>htmltools</code> package to help out. Oh, and pipes. Plotly loves <code>%&gt;%</code>’s. I’ll just redo the plot above so you get an idea.</p>
+<p><br></p>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">suppressPackageStartupMessages</span>(<span class="kw">library</span>(plotly))
+<span class="kw">suppressPackageStartupMessages</span>(<span class="kw">library</span>(htmltools))
+
+
+
+mtcars &lt;-<span class="st"> </span>mtcars[<span class="kw">order</span>(mtcars$disp), ]
+
+mtcars %&gt;%<span class="st"> </span><span class="kw">plot_ly</span>(<span class="dt">x =</span> disp, <span class="dt">y =</span> mpg, <span class="dt">mode =</span> <span class="st">&quot;markers&quot;</span>,
+                   <span class="dt">text =</span> <span class="kw">paste</span>(<span class="kw">rownames</span>(mtcars), <span class="st">&quot;&lt;br&gt;Mpg: &quot;</span>, 
+                                mpg, <span class="st">&quot;Disp: &quot;</span>, disp), 
+                   <span class="dt">showlegend =</span> <span class="ot">FALSE</span>,
+                   <span class="dt">colors =</span> rbmv_palette) %&gt;%
+<span class="st">  </span><span class="kw">add_trace</span>(<span class="dt">x =</span> disp, <span class="dt">y =</span> <span class="kw">fitted</span>(<span class="kw">loess</span>(mpg ~<span class="st"> </span>disp)), 
+            <span class="dt">mode =</span> <span class="st">&quot;lines&quot;</span>, <span class="dt">name =</span> <span class="st">&quot;Loess Smoother&quot;</span>, 
+            <span class="dt">showlegend =</span> <span class="ot">TRUE</span>, 
+            <span class="dt">line =</span> <span class="kw">list</span>(<span class="dt">color =</span> rbmv_palette[<span class="dv">2</span>])) %&gt;%
+<span class="st">  </span><span class="kw">as.widget</span>() %&gt;%<span class="st"> </span><span class="kw">list</span>() %&gt;%<span class="st"> </span><span class="kw">tagList</span>()</code></pre></div>
+<div id="htmlwidget-129f8b71b1bb23e8a4c3" style="width:100%;height:400px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-129f8b71b1bb23e8a4c3">{"x":{"data":[{"type":"scatter","inherit":false,"x":[71.1,75.7,78.7,79,95.1,108,120.1,120.3,121,140.8,145,146.7,160,160,167.6,167.6,225,258,275.8,275.8,275.8,301,304,318,350,351,360,360,400,440,460,472],"y":[33.9,30.4,32.4,27.3,30.4,22.8,21.5,26,21.4,22.8,19.7,24.4,21,21,19.2,17.8,18.1,21.4,16.4,17.3,15.2,15,15.2,15.5,13.3,15.8,18.7,14.3,19.2,14.7,10.4,10.4],"mode":"markers","text":["Toyota Corolla <br>Mpg:  33.9 Disp:  71.1","Honda Civic <br>Mpg:  30.4 Disp:  75.7","Fiat 128 <br>Mpg:  32.4 Disp:  78.7","Fiat X1-9 <br>Mpg:  27.3 Disp:  79","Lotus Europa <br>Mpg:  30.4 Disp:  95.1","Datsun 710 <br>Mpg:  22.8 Disp:  108","Toyota Corona <br>Mpg:  21.5 Disp:  120.1","Porsche 914-2 <br>Mpg:  26 Disp:  120.3","Volvo 142E <br>Mpg:  21.4 Disp:  121","Merc 230 <br>Mpg:  22.8 Disp:  140.8","Ferrari Dino <br>Mpg:  19.7 Disp:  145","Merc 240D <br>Mpg:  24.4 Disp:  146.7","Mazda RX4 <br>Mpg:  21 Disp:  160","Mazda RX4 Wag <br>Mpg:  21 Disp:  160","Merc 280 <br>Mpg:  19.2 Disp:  167.6","Merc 280C <br>Mpg:  17.8 Disp:  167.6","Valiant <br>Mpg:  18.1 Disp:  225","Hornet 4 Drive <br>Mpg:  21.4 Disp:  258","Merc 450SE <br>Mpg:  16.4 Disp:  275.8","Merc 450SL <br>Mpg:  17.3 Disp:  275.8","Merc 450SLC <br>Mpg:  15.2 Disp:  275.8","Maserati Bora <br>Mpg:  15 Disp:  301","AMC Javelin <br>Mpg:  15.2 Disp:  304","Dodge Challenger <br>Mpg:  15.5 Disp:  318","Camaro Z28 <br>Mpg:  13.3 Disp:  350","Ford Pantera L <br>Mpg:  15.8 Disp:  351","Hornet Sportabout <br>Mpg:  18.7 Disp:  360","Duster 360 <br>Mpg:  14.3 Disp:  360","Pontiac Firebird <br>Mpg:  19.2 Disp:  400","Chrysler Imperial <br>Mpg:  14.7 Disp:  440","Lincoln Continental <br>Mpg:  10.4 Disp:  460","Cadillac Fleetwood <br>Mpg:  10.4 Disp:  472"],"showlegend":false,"colors":["#BFF073","#0DC9F7","#7F7F7F","#F05B47","#ED1C24"]},{"x":[71.1,75.7,78.7,79,95.1,108,120.1,120.3,121,140.8,145,146.7,160,160,167.6,167.6,225,258,275.8,275.8,275.8,301,304,318,350,351,360,360,400,440,460,472],"y":[31.8587265478689,30.997160511089,30.4515688818864,30.3978766914933,27.6878765636072,25.7536029023605,24.1266208899878,24.1012302593287,24.0128145822842,21.7855370304885,21.3720222888,21.2095787437194,20.1233661948189,20.1233661948189,19.5876473362003,19.5876473362003,17.8667031510564,17.3361001159279,16.6706159588599,16.6706159588599,16.6706159588599,16.3557242808806,16.3295803630335,16.1508424685288,15.6175774563292,15.5983332500748,15.4036322355415,15.4036322355415,14.3441620745588,13.0380914865063,12.2654317142106,11.7573008148926],"mode":"lines","name":"Loess Smoother","showlegend":true,"line":{"color":"#0DC9F7"}}],"layout":{"xaxis":{"title":"disp"},"yaxis":{"title":"mpg"},"hovermode":"closest","margin":{"b":40,"l":60,"t":25,"r":10}},"url":null,"width":null,"height":null,"source":"A","config":{"modeBarButtonsToRemove":["sendDataToCloud"]},"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+<p><br></p>
+</div>
+<div id="thats-it" class="section level3">
+<h3>THAT’S IT!</h3>
+<p><br></p>
+<p>That’s really all I’ve done so far. I just rebuilt this site last week and I’m likely to learn a lot more as I continue but wanted to share what I’ve learned for anyone interested.</p>
+<p><br> <br> <br></p>
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol>
+<li id="fn1"><p><a href="https://en.m.wikipedia.org/wiki/Joseph_J._Allaire">J.J. Allaire</a>, <a href="https://mobile.twitter.com/xieyihui">Yihui Xie</a>, <a href="mobile.twitter.com/statgarrett">Garrett Grolemund</a>, <a href="https://www.rstudio.com/about/">et al.</a><a href="#fnref1">↩</a></p></li>
+<li id="fn2"><p>If only I had paid more attention in this course! I just wasn’t ready to dive into this subject at the time. Perhaps if we started with bootstrapping instead of the normal distribution and Chebyshev’s theorem I would have saw how interesting statistics is and how probability is really fun when coming from a philosophy background.<a href="#fnref2">↩</a></p></li>
+<li id="fn3"><p>I spent so much time trying to figure out other people’s complicated <code>.vimrc</code> files before I was even ready to utilize some of the shorthands that others were using for their own workflows—sometimes it’s ok to just start at the beginning and facing that realization was important.<a href="#fnref3">↩</a></p></li>
+<li id="fn4"><p>This is a sneaky way to introduce people to <a href="https://en.m.wikipedia.org/wiki/Carl_Jung">Jung’s</a> notion of the <a href="en.m.wikipedia.org/wiki/Shadow_(psychology)">shadow</a>, which I find to be a very powerful and interesting concept.<a href="#fnref4">↩</a></p></li>
+<li id="fn5"><p>Although a <code>yml</code> file, and <code>Rmd</code> files you place a ’_‘in front of will not be rendered. This can be useful for staging blog posts or for files you want to include in others. All <code>Rmd</code> files are rendered when you click ’Build Website’.<a href="#fnref5">↩</a></p></li>
+<li id="fn6"><p>You don’t need to include your navbar if it is named <code>_navbar.html</code>—it will automatically be included when you build your site.<a href="#fnref6">↩</a></p></li>
+<li id="fn7"><p>you can check out my <code>navbar</code> <a href="https://github.com/robertmitchellv/robertmitchellv.github.io/blob/master/_navbar.html">here</a> if you’re interested.<a href="#fnref7">↩</a></p></li>
+<li id="fn8"><p>I had to do this for some Python code from older blog posts—the syntax highlighting wasn’t <em>exactly</em> as it should be but it looked ok.<a href="#fnref8">↩</a></p></li>
+</ol>
+</div>
+
+  </div> <!-- articleBandContent -->
+</div> <!-- pageContent -->
+
+<footer>
+  <div id="rbmvFooter" class="footer">
+    <div class="footerContent">
+    
+      <!-- column 1 -->
+      <div class="col-md-4">
+        <p><i class="fa fa-send fa-lg"></i> Connect with me<br>
+        <a href="mailto:robert@robertmitchellv.com">robert@robertmitchellv.com</a>
+        <br>
+        <br>
+      </div>
+
+      <!-- column 2 -->
+      <div class="col-md-4">
+        <a href="https://github.com/robertmitchellv">
+          <i class="fa fa-github fa-lg"></i> RobertMitchellV</a>
+        <a href="https://twitter.com/robertmitchellv">
+          <br>
+          <i class="fa fa-twitter fa-lg"></i> RobertMitchellV</a>
+        <a href="https://www.linkedin.com/in/robertmitchellv">
+          <br>
+          <i class="fa fa-linkedin fa-lg"></i> RobertMitchellV</a>
+        <br>
+        <br>
+      </div>
+
+      <!-- column 3 -->
+      <div class="col-md-4">
+        <p class="text">I really enjoy talking philosophy, data, programming, analysis, fatherhood, wine/beer/coffee, vinyl, music, and lots more.  Feel free to use the email to the left or keep me in mind by following me on Twitter or GitHub. Thanks for stopping by!</p>
+        <br>
+        <br>
+      </div>
+      <div class="top">
+        <p class="pull-right">
+          <a id="scrollTop" class="slowly" onclick="slowScrollTop()" href=#>
+            <i class="fa fa-angle-double-up"></i> Back to top
+          </a>
+        </p>
+      </div>
+    </div>
+  </div>
+  
+  <!-- slow scrollTop function -->
+  <script type="text/javascript">
+    function slowScrollTop() { 
+      $('body').animate({ scrollTop: 0 }, 'slow'); 
+    } 
+  </script>
+  
+  <!-- page transition -->
+  <script type="text/javascript">
+    // fade content and not navbar in and out
+    $(document).ready(function fadeInOut() {
+      var non_navbar = $('.fluid-row,.section.level2,.summary,p,acrticle,h3,footer')
+      non_navbar.css('display', 'none');
+      non_navbar.fadeIn(800);
+    
+      $('.navbar-link').click(function(event) {
+        event.preventDefault();
+        newLocation = this.href;
+      
+        non_navbar.fadeOut('slow', newpage);
+      });
+    
+      function newpage() {
+        window.location = newLocation;
+      }
+    });
+  </script>
+  
+  <!-- google analytics -->
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-83611715-1', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+  
+</footer>
+
+<!-- disqus -->
+<script id="dsq-count-scr" src="//rbmv.disqus.com/count.js" async></script>
+<div id="disqus_thread" class="disqusPadding"></div>
+  <script>
+    (function() { // DON'T EDIT BELOW THIS LINE
+      var d = document, s = d.createElement('script');
+      s.src = '//rbmv.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+$(document).ready(function () {
+  $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
+});
+
+
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>
