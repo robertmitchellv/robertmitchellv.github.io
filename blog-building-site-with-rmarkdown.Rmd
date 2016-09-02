@@ -398,40 +398,64 @@ I couldn't get Disqus to work the way RStudio set it up in their `footer` file--
 
 <br>
 
-I'm not a big fan of the options we inherit from Pandoc.  Also, the CSS generated from code chunks seems kind of arbitrary and doesn't work with Pygments (which is a shame because there are _many_ Pygments CSS files to be found online!).  From what I can tell [here](https://github.com/jeffbr13/benjeffrey.com/blob/master/posts/pandoc-syntax-highlighting-css.md) the markup classes come from the [highlighting-kate](http://hackage.haskell.org/package/highlighting-kate) package.  I took [Ben Jeffrey's](https://github.com/jeffbr13) solarized light CSS and tweaked things a bit more to get it to look the way I wanted with the darker theme.  If you would like to use it as well, just copy this into your CSS:
+I'm not a big fan of the options we inherit from Pandoc.  Also, the CSS generated from code chunks seems kind of arbitrary and doesn't work with Pygments (which is a shame because there are _many_ Pygments CSS files to be found online!).  From what I can tell [here](https://github.com/jeffbr13/benjeffrey.com/blob/master/posts/pandoc-syntax-highlighting-css.md) the markup classes come from the [highlighting-kate](http://hackage.haskell.org/package/highlighting-kate) package.  When I looked at the [Solarized](http://ethanschoonover.com/solarized) webpage, there's a link to the pages [css](https://github.com/altercation/ethanschoonover.com/blob/master/resources/css/style.css) that gave me a bit of a head start.  I tweaked it a bit to try and make the chunks look like the syntax highlighting in R, but it isn't perfect.  If you would like to use my highlight theme, just copy this into your CSS:
 
 <br>
 
 `style.css`
 
-```css
-pre { background-color: #002b36; color: #93a1a1 }
-code { font-family: 'Roboto Mono', monospace ; font-weight: 300; }
-code > span.kw { color: #268bd2; font-weight: 700; } /* Keyword */
-code > span.dt { color: #dc322f; } /* DataType */
-code > span.dv { color: #93a1a1; } /* DecVal */
-code > span.bn { color: #2aa198; } /* BaseN */
-code > span.fl { color: #2aa198; } /* Float */
-code > span.ch { color: #2aa198; } /* Char */
-code > span.st { color: #2aa198; } /* String */
-code > span.co { color: #586e75; font-style: 100i; } /* Comment */
-code > span.ot { color: #859900; } /* Other */
-code > span.al { color: #ff0000; font-weight: 700; } /* Alert */
-code > span.fu { color: #268bd2; } /* Function */
-code > span.er { color: #93a1a1; font-weight: 700; } /* Error */
-code > span.wa { color: #93a1a1; font-weight: 700i; } /* Warning */
-code > span.cn { color: #cb4b16; } /* Constant */
-code > span.sc { color: #dc322f; } /* SpecialChar */
-code > span.vs { color: #2aa198; } /* VerbatimString */
-code > span.ss { color: #2aa198; } /* SpecialString */
-code > span.im { color: #dc322f; } /* Import */
-code > span.va { color: #268bd2; } /* Variable */
-code > span.cf { color: #859900; font-weight: 700; } /* ControlFlow */
-code > span.op { color: #859900; } /* Operator */
-code > span.bu { color: #268bd2; } /* BuiltIn */
-code > span.ex { } /* Extension */
+```{html, eval=FALSE}
+root: {
+  --base03: #002b36;  /* background */
+  --base02: #073642;  /* other background */
+  --base01: #586e75;  /* comments / secondary content */
+  --base1: #93a1a1;  /* body text / default code / primary content */
+  --yellow: #b58900;  /* keyword */
+  --orange: #cb4b16;  /* constants */
+  --red: #dc322f;  /* regex, special keywords */
+  --magenta: #d33682;  /* not sure what to do with this color yet */
+  --violet: #6c71c4;  /* not sure what to do with this color yet */
+  --blue: #268bd2;  /* reserved keywords */
+  --cyan: #2aa198;  /* strings, numbers */
+  --green: #859900;  /* operators, other keywords */
+}
+
+/*
+ * Solarized Dark 
+ * http://ethanschoonover.com/solarized
+ */
+
+pre, code { font-family: 'Roboto Mono', monospace ; font-weight: 300; }
+pre { background-color: var(--base03); color: var(--base1); }
+code.sourceCode .kw { color: var(--blue); font-weight: 700; } /* Keyword */
+code.sourceCode .dt { color: var(--cyan); } /* DataType */
+code.sourceCode .dv { color: var(--base01); } /* DecVal */
+code.sourceCode .bn { color: var(--orange); } /* BaseN */
+code.sourceCode .fl { color: var(--cyan); } /* Float */
+code.sourceCode .ch { color: var(--red); } /* Char */
+code.sourceCode .st { color: var(--green); } /* String */
+code.sourceCode .co { color: var(--base01); font-style: 100i; } /* Comment */
+code.sourceCode .ot { color: var(--base1); } /* Other */
+code.sourceCode .al { color: var(--green); font-weight: 700; } /* Alert */
+code.sourceCode .fu { color: var(--blue); } /* Function */
+code.sourceCode .er { color: var(--red); font-weight: 700; } /* Error */
+code.sourceCode .wa { color: var(--base1); font-weight: 700i; } /* Warning */
+code.sourceCode .cn { color: var(--orange); } /* Constant */
+code.sourceCode .sc { color: var(--red); } /* SpecialChar */
+code.sourceCode .vs { color: var(--cyan); } /* VerbatimString */
+code.sourceCode .ss { color: var(--cyan); } /* SpecialString */
+code.sourceCode .im { color: var(--red); } /* Import */
+code.sourceCode .va { color: var(--blue); } /* Variable */
+code.sourceCode .cf { color: var(--green); font-weight: 700; } /* ControlFlow */
+code.sourceCode .op { color: var(--yellow); } /* Operator */
+code.sourceCode .bu { color: var(--blue); } /* BuiltIn */
+code.sourceCode .ex { } /* Extension */
 
 ```
+
+<br>
+
+> I rand the code chunk above as `{html, eval=FALSE}` because some of the CSS variables were being classified as `.er`, which looked really off.  I'm still working on the best solution for the syntax highlighting.
 
 <br>
 
@@ -447,7 +471,7 @@ The most rewarding part about writing blog posts in `rmarkdown` is that you can 
 
 <br>
 
-```{r}
+```{r ggplot}
 suppressPackageStartupMessages(library(ggplot2))
 suppressPackageStartupMessages(library(dplyr))
 
@@ -459,13 +483,11 @@ mtcars %>%
     geom_point(color = rbmv_palette[3]) + 
     geom_smooth(formula = y ~ x, se = F, color = rbmv_palette[2])
   
-    
-
 ```
 
 <br>
 
-When using `ggplot` in this way, it creates a directory with an image file to use when creating the HTML.  One of the reasons its easier to just use Plotly for web/interactive type stuff.  
+> When using `ggplot` in this way, it creates a directory with an image file to use when creating the HTML.  One of the reasons its easier to just use Plotly for web/interactive type stuff.  
 
 <br>
 
@@ -476,8 +498,7 @@ When using `ggplot` in this way, it creates a directory with an image file to us
 I've been really into Plotly lately and one of the first things I wanted to do was add it to my website.  There are a couple of hoops you have to jump through but luckily there is the wonderful `htmltools` package to help out.  Oh, and pipes.  Plotly loves `%>%`'s.  I'll just redo the plot above so you get an idea.
 
 <br>
-
-```{r}
+```{r plotly}
 suppressPackageStartupMessages(library(plotly))
 suppressPackageStartupMessages(library(htmltools))
 

@@ -599,34 +599,58 @@ output:<span class="st"> </span>
 <div id="syntax-highlighting" class="section level4">
 <h4>SYNTAX HIGHLIGHTING</h4>
 <p><br></p>
-<p>I’m not a big fan of the options we inherit from Pandoc. Also, the CSS generated from code chunks seems kind of arbitrary and doesn’t work with Pygments (which is a shame because there are <em>many</em> Pygments CSS files to be found online!). From what I can tell <a href="https://github.com/jeffbr13/benjeffrey.com/blob/master/posts/pandoc-syntax-highlighting-css.md">here</a> the markup classes come from the <a href="http://hackage.haskell.org/package/highlighting-kate">highlighting-kate</a> package. I took <a href="https://github.com/jeffbr13">Ben Jeffrey’s</a> solarized light CSS and tweaked things a bit more to get it to look the way I wanted with the darker theme. If you would like to use it as well, just copy this into your CSS:</p>
+<p>I’m not a big fan of the options we inherit from Pandoc. Also, the CSS generated from code chunks seems kind of arbitrary and doesn’t work with Pygments (which is a shame because there are <em>many</em> Pygments CSS files to be found online!). From what I can tell <a href="https://github.com/jeffbr13/benjeffrey.com/blob/master/posts/pandoc-syntax-highlighting-css.md">here</a> the markup classes come from the <a href="http://hackage.haskell.org/package/highlighting-kate">highlighting-kate</a> package. When I looked at the <a href="http://ethanschoonover.com/solarized">Solarized</a> webpage, there’s a link to the pages <a href="https://github.com/altercation/ethanschoonover.com/blob/master/resources/css/style.css">css</a> that gave me a bit of a head start. I tweaked it a bit to try and make the chunks look like the syntax highlighting in R, but it isn’t perfect. If you would like to use my highlight theme, just copy this into your CSS:</p>
 <p><br></p>
 <p><code>style.css</code></p>
-<div class="sourceCode"><pre class="sourceCode css"><code class="sourceCode css">pre <span class="kw">{</span> <span class="kw">background-color:</span> <span class="dt">#002b36</span><span class="kw">;</span> <span class="kw">color:</span> <span class="dt">#93a1a1</span> <span class="kw">}</span>
-code <span class="kw">{</span> <span class="kw">font-family:</span> <span class="st">&#39;Roboto Mono&#39;</span>, <span class="dt">monospace</span> <span class="kw">;</span> <span class="kw">font-weight:</span> <span class="dt">300</span><span class="kw">;</span> <span class="kw">}</span>
-code &gt; span<span class="fl">.kw</span> <span class="kw">{</span> <span class="kw">color:</span> <span class="dt">#268bd2</span><span class="kw">;</span> <span class="kw">font-weight:</span> <span class="dt">700</span><span class="kw">;</span> <span class="kw">}</span> <span class="co">/* Keyword */</span>
-code &gt; span<span class="fl">.dt</span> <span class="kw">{</span> <span class="kw">color:</span> <span class="dt">#dc322f</span><span class="kw">;</span> <span class="kw">}</span> <span class="co">/* DataType */</span>
-code &gt; span<span class="fl">.dv</span> <span class="kw">{</span> <span class="kw">color:</span> <span class="dt">#93a1a1</span><span class="kw">;</span> <span class="kw">}</span> <span class="co">/* DecVal */</span>
-code &gt; span<span class="fl">.bn</span> <span class="kw">{</span> <span class="kw">color:</span> <span class="dt">#2aa198</span><span class="kw">;</span> <span class="kw">}</span> <span class="co">/* BaseN */</span>
-code &gt; span<span class="fl">.fl</span> <span class="kw">{</span> <span class="kw">color:</span> <span class="dt">#2aa198</span><span class="kw">;</span> <span class="kw">}</span> <span class="co">/* Float */</span>
-code &gt; span<span class="fl">.ch</span> <span class="kw">{</span> <span class="kw">color:</span> <span class="dt">#2aa198</span><span class="kw">;</span> <span class="kw">}</span> <span class="co">/* Char */</span>
-code &gt; span<span class="fl">.st</span> <span class="kw">{</span> <span class="kw">color:</span> <span class="dt">#2aa198</span><span class="kw">;</span> <span class="kw">}</span> <span class="co">/* String */</span>
-code &gt; span<span class="fl">.co</span> <span class="kw">{</span> <span class="kw">color:</span> <span class="dt">#586e75</span><span class="kw">;</span> <span class="kw">font-style:</span> <span class="dt">100</span>i<span class="kw">;</span> <span class="kw">}</span> <span class="co">/* Comment */</span>
-code &gt; span<span class="fl">.ot</span> <span class="kw">{</span> <span class="kw">color:</span> <span class="dt">#859900</span><span class="kw">;</span> <span class="kw">}</span> <span class="co">/* Other */</span>
-code &gt; span<span class="fl">.al</span> <span class="kw">{</span> <span class="kw">color:</span> <span class="dt">#ff0000</span><span class="kw">;</span> <span class="kw">font-weight:</span> <span class="dt">700</span><span class="kw">;</span> <span class="kw">}</span> <span class="co">/* Alert */</span>
-code &gt; span<span class="fl">.fu</span> <span class="kw">{</span> <span class="kw">color:</span> <span class="dt">#268bd2</span><span class="kw">;</span> <span class="kw">}</span> <span class="co">/* Function */</span>
-code &gt; span<span class="fl">.er</span> <span class="kw">{</span> <span class="kw">color:</span> <span class="dt">#93a1a1</span><span class="kw">;</span> <span class="kw">font-weight:</span> <span class="dt">700</span><span class="kw">;</span> <span class="kw">}</span> <span class="co">/* Error */</span>
-code &gt; span<span class="fl">.wa</span> <span class="kw">{</span> <span class="kw">color:</span> <span class="dt">#93a1a1</span><span class="kw">;</span> <span class="kw">font-weight:</span> <span class="dt">700</span>i<span class="kw">;</span> <span class="kw">}</span> <span class="co">/* Warning */</span>
-code &gt; span<span class="fl">.cn</span> <span class="kw">{</span> <span class="kw">color:</span> <span class="dt">#cb4b16</span><span class="kw">;</span> <span class="kw">}</span> <span class="co">/* Constant */</span>
-code &gt; span<span class="fl">.sc</span> <span class="kw">{</span> <span class="kw">color:</span> <span class="dt">#dc322f</span><span class="kw">;</span> <span class="kw">}</span> <span class="co">/* SpecialChar */</span>
-code &gt; span<span class="fl">.vs</span> <span class="kw">{</span> <span class="kw">color:</span> <span class="dt">#2aa198</span><span class="kw">;</span> <span class="kw">}</span> <span class="co">/* VerbatimString */</span>
-code &gt; span<span class="fl">.ss</span> <span class="kw">{</span> <span class="kw">color:</span> <span class="dt">#2aa198</span><span class="kw">;</span> <span class="kw">}</span> <span class="co">/* SpecialString */</span>
-code &gt; span<span class="fl">.im</span> <span class="kw">{</span> <span class="kw">color:</span> <span class="dt">#dc322f</span><span class="kw">;</span> <span class="kw">}</span> <span class="co">/* Import */</span>
-code &gt; span<span class="fl">.va</span> <span class="kw">{</span> <span class="kw">color:</span> <span class="dt">#268bd2</span><span class="kw">;</span> <span class="kw">}</span> <span class="co">/* Variable */</span>
-code &gt; span<span class="fl">.cf</span> <span class="kw">{</span> <span class="kw">color:</span> <span class="dt">#859900</span><span class="kw">;</span> <span class="kw">font-weight:</span> <span class="dt">700</span><span class="kw">;</span> <span class="kw">}</span> <span class="co">/* ControlFlow */</span>
-code &gt; span<span class="fl">.op</span> <span class="kw">{</span> <span class="kw">color:</span> <span class="dt">#859900</span><span class="kw">;</span> <span class="kw">}</span> <span class="co">/* Operator */</span>
-code &gt; span<span class="fl">.bu</span> <span class="kw">{</span> <span class="kw">color:</span> <span class="dt">#268bd2</span><span class="kw">;</span> <span class="kw">}</span> <span class="co">/* BuiltIn */</span>
-code &gt; span<span class="fl">.ex</span> <span class="kw">{</span> <span class="kw">}</span> <span class="co">/* Extension */</span></code></pre></div>
+<div class="sourceCode"><pre class="sourceCode html"><code class="sourceCode html">root: {
+  --base03: #002b36;  /* background */
+  --base02: #073642;  /* other background */
+  --base01: #586e75;  /* comments / secondary content */
+  --base1: #93a1a1;  /* body text / default code / primary content */
+  --yellow: #b58900;  /* keyword */
+  --orange: #cb4b16;  /* constants */
+  --red: #dc322f;  /* regex, special keywords */
+  --magenta: #d33682;  /* not sure what to do with this color yet */
+  --violet: #6c71c4;  /* not sure what to do with this color yet */
+  --blue: #268bd2;  /* reserved keywords */
+  --cyan: #2aa198;  /* strings, numbers */
+  --green: #859900;  /* operators, other keywords */
+}
+
+/*
+ * Solarized Dark 
+ * http://ethanschoonover.com/solarized
+ */
+
+pre, code { font-family: &#39;Roboto Mono&#39;, monospace ; font-weight: 300; }
+pre { background-color: var(--base03); color: var(--base1); }
+code.sourceCode .kw { color: var(--blue); font-weight: 700; } /* Keyword */
+code.sourceCode .dt { color: var(--cyan); } /* DataType */
+code.sourceCode .dv { color: var(--base01); } /* DecVal */
+code.sourceCode .bn { color: var(--orange); } /* BaseN */
+code.sourceCode .fl { color: var(--cyan); } /* Float */
+code.sourceCode .ch { color: var(--red); } /* Char */
+code.sourceCode .st { color: var(--green); } /* String */
+code.sourceCode .co { color: var(--base01); font-style: 100i; } /* Comment */
+code.sourceCode .ot { color: var(--base1); } /* Other */
+code.sourceCode .al { color: var(--green); font-weight: 700; } /* Alert */
+code.sourceCode .fu { color: var(--blue); } /* Function */
+code.sourceCode .er { color: var(--red); font-weight: 700; } /* Error */
+code.sourceCode .wa { color: var(--base1); font-weight: 700i; } /* Warning */
+code.sourceCode .cn { color: var(--orange); } /* Constant */
+code.sourceCode .sc { color: var(--red); } /* SpecialChar */
+code.sourceCode .vs { color: var(--cyan); } /* VerbatimString */
+code.sourceCode .ss { color: var(--cyan); } /* SpecialString */
+code.sourceCode .im { color: var(--red); } /* Import */
+code.sourceCode .va { color: var(--blue); } /* Variable */
+code.sourceCode .cf { color: var(--green); font-weight: 700; } /* ControlFlow */
+code.sourceCode .op { color: var(--yellow); } /* Operator */
+code.sourceCode .bu { color: var(--blue); } /* BuiltIn */
+code.sourceCode .ex { } /* Extension */</code></pre></div>
+<p><br></p>
+<blockquote>
+<p>I rand the code chunk above as <code>{html, eval=FALSE}</code> because some of the CSS variables were being classified as <code>.er</code>, which looked really off. I’m still working on the best solution for the syntax highlighting.</p>
+</blockquote>
 <p><br></p>
 <p>You can also go crazy with this and create your own theme that mimics whatever color scheme you are going to use for your site. I thought these colors looked good with my site’s color scheme and the colors I plan to use for data visualizations are still in the works—I will likely change them pretty often.</p>
 <p><br></p>
@@ -646,9 +670,11 @@ mtcars %&gt;%
 <span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> disp, <span class="dt">y =</span> mpg)) +
 <span class="st">    </span><span class="kw">geom_point</span>(<span class="dt">color =</span> rbmv_palette[<span class="dv">3</span>]) +<span class="st"> </span>
 <span class="st">    </span><span class="kw">geom_smooth</span>(<span class="dt">formula =</span> y ~<span class="st"> </span>x, <span class="dt">se =</span> F, <span class="dt">color =</span> rbmv_palette[<span class="dv">2</span>])</code></pre></div>
-<p><img src="blog-building-site-with-rmarkdown_files/figure-html/unnamed-chunk-11-1.png" width="672" /></p>
+<p><img src="blog-building-site-with-rmarkdown_files/figure-html/ggplot-1.png" width="672" /></p>
 <p><br></p>
+<blockquote>
 <p>When using <code>ggplot</code> in this way, it creates a directory with an image file to use when creating the HTML. One of the reasons its easier to just use Plotly for web/interactive type stuff.</p>
+</blockquote>
 <p><br></p>
 </div>
 <div id="ok-but-how-do-i-add-plotly-to-a-page" class="section level4">
@@ -673,8 +699,8 @@ mtcars %&gt;%<span class="st"> </span><span class="kw">plot_ly</span>(<span clas
             <span class="dt">showlegend =</span> <span class="ot">TRUE</span>, 
             <span class="dt">line =</span> <span class="kw">list</span>(<span class="dt">color =</span> rbmv_palette[<span class="dv">2</span>])) %&gt;%
 <span class="st">  </span><span class="kw">as.widget</span>() %&gt;%<span class="st"> </span><span class="kw">list</span>() %&gt;%<span class="st"> </span><span class="kw">tagList</span>()</code></pre></div>
-<div id="htmlwidget-29192acab48eb186e45a" style="width:100%;height:400px;" class="plotly html-widget"></div>
-<script type="application/json" data-for="htmlwidget-29192acab48eb186e45a">{"x":{"data":[{"type":"scatter","inherit":false,"x":[71.1,75.7,78.7,79,95.1,108,120.1,120.3,121,140.8,145,146.7,160,160,167.6,167.6,225,258,275.8,275.8,275.8,301,304,318,350,351,360,360,400,440,460,472],"y":[33.9,30.4,32.4,27.3,30.4,22.8,21.5,26,21.4,22.8,19.7,24.4,21,21,19.2,17.8,18.1,21.4,16.4,17.3,15.2,15,15.2,15.5,13.3,15.8,18.7,14.3,19.2,14.7,10.4,10.4],"mode":"markers","text":["Toyota Corolla <br>Mpg:  33.9 Disp:  71.1","Honda Civic <br>Mpg:  30.4 Disp:  75.7","Fiat 128 <br>Mpg:  32.4 Disp:  78.7","Fiat X1-9 <br>Mpg:  27.3 Disp:  79","Lotus Europa <br>Mpg:  30.4 Disp:  95.1","Datsun 710 <br>Mpg:  22.8 Disp:  108","Toyota Corona <br>Mpg:  21.5 Disp:  120.1","Porsche 914-2 <br>Mpg:  26 Disp:  120.3","Volvo 142E <br>Mpg:  21.4 Disp:  121","Merc 230 <br>Mpg:  22.8 Disp:  140.8","Ferrari Dino <br>Mpg:  19.7 Disp:  145","Merc 240D <br>Mpg:  24.4 Disp:  146.7","Mazda RX4 <br>Mpg:  21 Disp:  160","Mazda RX4 Wag <br>Mpg:  21 Disp:  160","Merc 280 <br>Mpg:  19.2 Disp:  167.6","Merc 280C <br>Mpg:  17.8 Disp:  167.6","Valiant <br>Mpg:  18.1 Disp:  225","Hornet 4 Drive <br>Mpg:  21.4 Disp:  258","Merc 450SE <br>Mpg:  16.4 Disp:  275.8","Merc 450SL <br>Mpg:  17.3 Disp:  275.8","Merc 450SLC <br>Mpg:  15.2 Disp:  275.8","Maserati Bora <br>Mpg:  15 Disp:  301","AMC Javelin <br>Mpg:  15.2 Disp:  304","Dodge Challenger <br>Mpg:  15.5 Disp:  318","Camaro Z28 <br>Mpg:  13.3 Disp:  350","Ford Pantera L <br>Mpg:  15.8 Disp:  351","Hornet Sportabout <br>Mpg:  18.7 Disp:  360","Duster 360 <br>Mpg:  14.3 Disp:  360","Pontiac Firebird <br>Mpg:  19.2 Disp:  400","Chrysler Imperial <br>Mpg:  14.7 Disp:  440","Lincoln Continental <br>Mpg:  10.4 Disp:  460","Cadillac Fleetwood <br>Mpg:  10.4 Disp:  472"],"showlegend":false,"colors":["#BFF073","#0DC9F7","#7F7F7F","#F05B47","#ED1C24"]},{"x":[71.1,75.7,78.7,79,95.1,108,120.1,120.3,121,140.8,145,146.7,160,160,167.6,167.6,225,258,275.8,275.8,275.8,301,304,318,350,351,360,360,400,440,460,472],"y":[31.8587265478689,30.997160511089,30.4515688818864,30.3978766914933,27.6878765636072,25.7536029023605,24.1266208899878,24.1012302593287,24.0128145822842,21.7855370304885,21.3720222888,21.2095787437194,20.1233661948189,20.1233661948189,19.5876473362003,19.5876473362003,17.8667031510564,17.3361001159279,16.6706159588599,16.6706159588599,16.6706159588599,16.3557242808806,16.3295803630335,16.1508424685288,15.6175774563292,15.5983332500748,15.4036322355415,15.4036322355415,14.3441620745588,13.0380914865063,12.2654317142106,11.7573008148926],"mode":"lines","name":"Loess Smoother","showlegend":true,"line":{"color":"#0DC9F7"}}],"layout":{"xaxis":{"title":"disp"},"yaxis":{"title":"mpg"},"hovermode":"closest","margin":{"b":40,"l":60,"t":25,"r":10}},"url":null,"width":null,"height":null,"source":"A","config":{"modeBarButtonsToRemove":["sendDataToCloud"]},"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+<div id="htmlwidget-147632ef83593d6507f4" style="width:100%;height:400px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-147632ef83593d6507f4">{"x":{"data":[{"type":"scatter","inherit":false,"x":[71.1,75.7,78.7,79,95.1,108,120.1,120.3,121,140.8,145,146.7,160,160,167.6,167.6,225,258,275.8,275.8,275.8,301,304,318,350,351,360,360,400,440,460,472],"y":[33.9,30.4,32.4,27.3,30.4,22.8,21.5,26,21.4,22.8,19.7,24.4,21,21,19.2,17.8,18.1,21.4,16.4,17.3,15.2,15,15.2,15.5,13.3,15.8,18.7,14.3,19.2,14.7,10.4,10.4],"mode":"markers","text":["Toyota Corolla <br>Mpg:  33.9 Disp:  71.1","Honda Civic <br>Mpg:  30.4 Disp:  75.7","Fiat 128 <br>Mpg:  32.4 Disp:  78.7","Fiat X1-9 <br>Mpg:  27.3 Disp:  79","Lotus Europa <br>Mpg:  30.4 Disp:  95.1","Datsun 710 <br>Mpg:  22.8 Disp:  108","Toyota Corona <br>Mpg:  21.5 Disp:  120.1","Porsche 914-2 <br>Mpg:  26 Disp:  120.3","Volvo 142E <br>Mpg:  21.4 Disp:  121","Merc 230 <br>Mpg:  22.8 Disp:  140.8","Ferrari Dino <br>Mpg:  19.7 Disp:  145","Merc 240D <br>Mpg:  24.4 Disp:  146.7","Mazda RX4 <br>Mpg:  21 Disp:  160","Mazda RX4 Wag <br>Mpg:  21 Disp:  160","Merc 280 <br>Mpg:  19.2 Disp:  167.6","Merc 280C <br>Mpg:  17.8 Disp:  167.6","Valiant <br>Mpg:  18.1 Disp:  225","Hornet 4 Drive <br>Mpg:  21.4 Disp:  258","Merc 450SE <br>Mpg:  16.4 Disp:  275.8","Merc 450SL <br>Mpg:  17.3 Disp:  275.8","Merc 450SLC <br>Mpg:  15.2 Disp:  275.8","Maserati Bora <br>Mpg:  15 Disp:  301","AMC Javelin <br>Mpg:  15.2 Disp:  304","Dodge Challenger <br>Mpg:  15.5 Disp:  318","Camaro Z28 <br>Mpg:  13.3 Disp:  350","Ford Pantera L <br>Mpg:  15.8 Disp:  351","Hornet Sportabout <br>Mpg:  18.7 Disp:  360","Duster 360 <br>Mpg:  14.3 Disp:  360","Pontiac Firebird <br>Mpg:  19.2 Disp:  400","Chrysler Imperial <br>Mpg:  14.7 Disp:  440","Lincoln Continental <br>Mpg:  10.4 Disp:  460","Cadillac Fleetwood <br>Mpg:  10.4 Disp:  472"],"showlegend":false,"colors":["#BFF073","#0DC9F7","#7F7F7F","#F05B47","#ED1C24"]},{"x":[71.1,75.7,78.7,79,95.1,108,120.1,120.3,121,140.8,145,146.7,160,160,167.6,167.6,225,258,275.8,275.8,275.8,301,304,318,350,351,360,360,400,440,460,472],"y":[31.8587265478689,30.997160511089,30.4515688818864,30.3978766914933,27.6878765636072,25.7536029023605,24.1266208899878,24.1012302593287,24.0128145822842,21.7855370304885,21.3720222888,21.2095787437194,20.1233661948189,20.1233661948189,19.5876473362003,19.5876473362003,17.8667031510564,17.3361001159279,16.6706159588599,16.6706159588599,16.6706159588599,16.3557242808806,16.3295803630335,16.1508424685288,15.6175774563292,15.5983332500748,15.4036322355415,15.4036322355415,14.3441620745588,13.0380914865063,12.2654317142106,11.7573008148926],"mode":"lines","name":"Loess Smoother","showlegend":true,"line":{"color":"#0DC9F7"}}],"layout":{"xaxis":{"title":"disp"},"yaxis":{"title":"mpg"},"hovermode":"closest","margin":{"b":40,"l":60,"t":25,"r":10}},"url":null,"width":null,"height":null,"source":"A","config":{"modeBarButtonsToRemove":["sendDataToCloud"]},"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
 <p><br></p>
 </div>
 <div id="thats-it" class="section level3">
