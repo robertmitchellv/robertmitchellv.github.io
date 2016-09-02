@@ -62,6 +62,15 @@ I hope to contribute posts on my site that interact with my interdisciplinary in
 <br>
 
 <article>
+<h3><a href="blog-building-site-with-rmarkdown.html">BUILDING THIS SITE WITH RSTUDIO AND RMARKDOWN</a></h3>
+<div class="summary">
+<span><i class="fa fa-calendar"></i> _2016-09-01_</span>
+<p>There _may_ be a special place in hell for blog posts like this that document how someone put together their static site website and hosted it on GitHub.  Especially when there is really great [documentation](rmarkdown.rstudio.com/rmarkdown_websites.html) availible that has been put together by really smart people.  You can even look at Rmarkdown's website source code on [GitHub](https://github.com/rstudio/rmarkdown/tree/gh-pages) to see...</p>
+<a class="btn btn-outline-primary btn-sm" href="">Full Post</a>
+</div>
+</article>
+
+<article>
 <h3><a href="blog-the-move-to-r.html">THE MOVE TO R</a></h3>
 <div class="summary">
 <p>This is _not_ a language wars type post.  I do not think there is some Mordor forged language to _rule them all_.  I debated whether or not to even write a post like this.  Nevertheless, I had a chance to meet and talk to [Jake Powray](https://twitter.com/jakeporway) from [DataKind](http://www.datakind.org) at the [DoGoodData](http://www.dogooddata.com) confrence and I...</p>
@@ -80,16 +89,6 @@ I hope to contribute posts on my site that interact with my interdisciplinary in
 </article>
 
 <hr>
-
-<article>
-<h3><a href="blog-bar-chart-annotations-pandas-mpl.html">BAR CHART ANNOTATIONS WITH PANDAS AND MATPLOTLIB</a></h3>
-<div class="summary">
-<p>When I first started using Pandas, I loved how much easier it was to stick a plot method on a DataFrame or Series to get a better sense of what was going on.  However, I was not very impressed with what the plots looked like.  Any time I wanted to do something slightly different from the "Plotting" documentation on the pydata site, I found myself arm...</p>
-<a class="btn btn-outline-primary btn-sm" href="blog-blog-bar-chart-annotations-pandas-mpl.html" role="button">Full Post</a>
-</div>
-</article>
-
-<br>
 
 <a class="btn btn-outline-secondary btn-lg" href="blog.html" role="button">More Posts</a>
 
