@@ -21,7 +21,7 @@ title: "VITAE"
 <br>
 
 <ul>
-  <i class="fa fa-angle-double-right fa-lg"></i> Ultimately I hope that the work I do is helpfult&#8212;that it enables discovery or provides clarity.  I hope to bring together practical and principled approaches and I hope to further grow as this philosophy guides me.
+  <i class="fa fa-angle-double-right fa-lg"></i> Ultimately I hope that the work I do is helpful&#8212;that it enables discovery or provides clarity.  I hope to bring together practical and principled approaches and I hope to further grow as this philosophy guides me.
 </ul>
 
 <br>
@@ -111,7 +111,7 @@ title: "VITAE"
   <i class="fa fa-angle-double-right fa-lg"></i> Data: Relational Databases, information retrieval, and knowledge organization theory.
 </ul>
 <ul>
-  <i class="fa fa-angle-double-right fa-lg"></i> Data Analysis: R is a big part of my workflow from reading in data, transforming and 'tidying' data, exploring and visualizing data, reporting, presenting, and tieing it all together in a dashboard.  I am a big 'tidyverse' fan and love the way some of R's APIs help frame an analysis workflow.  My favorite packages are: devtools, tidyr, dplyr, ggplot2, feather, plotly, leaflet, shiny, shinydashboard, caret, and flexclust.  I want to start learning more about purr, broom, and the myriad other packages on github and CRAN.
+  <i class="fa fa-angle-double-right fa-lg"></i> Data Analysis: R is a big part of my workflow from reading in data, transforming and 'tidying' data, exploring and visualizing data, reporting, presenting, and tying it all together in a dashboard.  I am a big 'tidyverse' fan and love the way some of R's APIs help frame an analysis workflow.  My favorite packages are: devtools, tidyr, dplyr, ggplot2, feather, plotly, leaflet, shiny, shinydashboard, caret, and flexclust.  I want to start learning more about purr, broom, and the myriad other packages on github and CRAN.
 </ul>
 <ul>
 <i class="fa fa-angle-double-right fa-lg"></i> Metadata schemas: knowledge of AACR2, RDA, MODS, METS, and PREMIS
@@ -144,7 +144,7 @@ title: "VITAE"
   <h3>Skid Row Housing Trust_Los Angeles, CA</h3>
   <h4>Data Analyst / August 2015&#8212;Present</h4>
   <ul>
-  <i class="fa fa-angle-double-right fa-lg"></i> provide strategic oversight to organization's data collection systems and reporting processes through the collection and anslysis of data, reporting on and capturing of outcome metrics, and providing input to create a more data-driven culture
+  <i class="fa fa-angle-double-right fa-lg"></i> provide strategic oversight to organization's data collection systems and reporting processes through the collection and analysis of data, reporting on and capturing of outcome metrics, and providing input to create a more data-driven culture
   </ul>
   <ul>
   <i class="fa fa-angle-double-right fa-lg"></i>   responsible for identifying, monitoring, and evaluating program and organizational outcomes to ensure compliance and effectiveness of programming
@@ -168,7 +168,7 @@ title: "VITAE"
   <i class="fa fa-angle-double-right fa-lg"></i> acting as core Efforts to Outcomes database administrator for the Resident Programs department; provides additional database support / programming support to internal departments as requested
   </ul>
   <ul>
-  <i class="fa fa-angle-double-right fa-lg"></i> working on data warehousing solutions to support executive dashbord to track high-level concerns
+  <i class="fa fa-angle-double-right fa-lg"></i> working on data warehousing solutions to support executive dashboard to track high-level concerns
   </ul>
   <ul>
   <i class="fa fa-angle-double-right fa-lg"></i> liaise with external organizations, research institutions, and contractors / consultants interested in or currently conducting research with residents to answer questions about what we currently are using to track outcomes / offer support
@@ -185,7 +185,7 @@ title: "VITAE"
   <i class="fa fa-angle-double-right fa-lg"></i> gathered baseline data on current resident enrollment in Medi-Cal, their health care utilization and access, history of chronic health conditions, as well as food intake.
   </ul>
   <ul>
-  <i class="fa fa-angle-double-right fa-lg"></i> performed statistical analysis of health survey data using Python--we had 200 respondants and were able to make programmatic changes based on our findings
+  <i class="fa fa-angle-double-right fa-lg"></i> performed statistical analysis of health survey data using Python--we had 200 respondents and were able to make programmatic changes based on our findings
   </ul>
   <ul>
   <i class="fa fa-angle-double-right fa-lg"></i> developed and implemented health training workshops and on-on-one guidance for Program Managers and Resident Services Coordinators to improve knowledge of new Affordable Care Act-driven insurance enrollment challenges for residents with advanced conditions
@@ -197,7 +197,7 @@ title: "VITAE"
   <i class="fa fa-angle-double-right fa-lg"></i> planed and coordinated resident health fairs in collaboration with community health providers to improve health literacy of residents in connection to both chronic conditions as well as the resources in their community
   </ul>
   <ul>
-  <i class="fa fa-angle-double-right fa-lg"></i> provided coordinating support to Program Managers and staff charged with oversight of existing on-site health resources and wellness programs.  Explored potential partnerships to provide residents improved health and wellbeing
+  <i class="fa fa-angle-double-right fa-lg"></i> provided coordinating support to Program Managers and staff charged with oversight of existing on-site health resources and wellness programs.  Explored potential partnerships to provide residents improved health and well-being
   </ul>
   <ul>
   <i class="fa fa-angle-double-right fa-lg"></i> prepared and maintained accurate reports and survey data utilizing the Efforts to Outcomes database
@@ -214,7 +214,7 @@ title: "VITAE"
   <h3>Skid Row Housing Trust_Los Angeles, CA</h3>
   <h4>Housing Transition Specialist / November 2013&#8212;September 2014</h4>
   <ul>
-  <i class="fa fa-angle-double-right fa-lg"></i> responsible for administering and uploading survey data to the Substance Abuse and Mental Health Services Administration (SAMHSA) and its affiliates while maintaining condidentiality and records keeping due diligence
+  <i class="fa fa-angle-double-right fa-lg"></i> responsible for administering and uploading survey data to the Substance Abuse and Mental Health Services Administration (SAMHSA) and its affiliates while maintaining confidentiality and records keeping due diligence
   </ul>
   <ul>
   <i class="fa fa-angle-double-right fa-lg"></i> worked with Resident Service Coordinators, programmatic staff, and grant evaluator on collecting and maintaining data pertinent mandated progress reports to SAMHSA
@@ -223,10 +223,10 @@ title: "VITAE"
   <i class="fa fa-angle-double-right fa-lg"></i> researched, wrote, and compiled bi-annual reports for the Cooperative Agreement to Benefit Homeless Individuals (CABHI) grant project
   </ul>
   <ul>
-  <i class="fa fa-angle-double-right fa-lg"></i> point-person/project manager for follow up and grant workplan compliance with Skid Row Community Consortium
+  <i class="fa fa-angle-double-right fa-lg"></i> point-person/project manager for follow up and grant work-plan compliance with Skid Row Community Consortium
   </ul>
   <ul>
-  <i class="fa fa-angle-double-right fa-lg"></i> researched and identfied future survey instruments for targeted subpopulations to improve data collection practices
+  <i class="fa fa-angle-double-right fa-lg"></i> researched and identified future survey instruments for targeted sub-populations to improve data collection practices
   </ul>
   <ul>
   <i class="fa fa-angle-double-right fa-lg"></i> participated in regular trainings, program evaluation, and program development
@@ -346,7 +346,7 @@ title: "VITAE"
 <br>
 
   <ul>  
-  <i class="fa fa-angle-double-right fa-lg"></i> Researched and implemented a suite of validated research questionnaires to collect survey data, deployed to database for end users to input; tidied, transformed, and modeled over 900 responses; and built and hosted a Shiny dashboard to communicate results.  To be a part of the process from beginning to end was a huge learning process and I see it as a great acomplishment.
+  <i class="fa fa-angle-double-right fa-lg"></i> Researched and implemented a suite of validated research questionnaires to collect survey data, deployed to database for end users to input; tidied, transformed, and modeled over 900 responses; and built and hosted a Shiny dashboard to communicate results.  To be a part of the process from beginning to end was a huge learning process and I see it as a great accomplishment.
   </ul>
   <ul>  
   <i class="fa fa-angle-double-right fa-lg"></i> Designed, proofed, prepared, and labored over Peer Advocate 'Zine for Skid Row Housing Trust's Hilton Project 'Zine "I Got You", which will be released during a end of grant event for all project participants
@@ -371,7 +371,7 @@ title: "VITAE"
   <i class="fa fa-angle-double-right fa-lg"></i> Coding: I will likely never code as neatly as an engineer but I try to up my analysis game when I'm able.  Learning more about R and trying to build a package that contains some custom functions I like using is the way I'm trying to dive into Hadley's Advanced R.
   </ul>
   <ul>
-  <i class="fa fa-angle-double-right fa-lg"></i> Beverages: third-wave coffee shops and light roasts (Heart from Portland is probably my favorite), pourovers on my V60, Chemex, and the occational Yama Siphon brew; natural wine and out of the ordinary grapes, flavors, and regions (with my cheap Spanish and Italiian weeklys from Trader Joe's); beers with lightly roasted malt--especially aged, or spontaneously fermented, especially sours!
+  <i class="fa fa-angle-double-right fa-lg"></i> Beverages: third-wave coffee shops and light roasts (Heart from Portland is probably my favorite), pourovers on my V60, Chemex, and the occasional Yama Siphon brew; natural wine and out of the ordinary grapes, flavors, and regions (with my cheap Spanish and Italian weeklys from Trader Joe's); beers with lightly roasted malt--especially aged, or spontaneously fermented, especially sours!
   </ul>
   <ul>
   <i class="fa fa-angle-double-right fa-lg"></i> Design: I love typefaces and modernist design, in another life I would love to work as a designer or artist so it is something I passionately admire and sometimes try to do when time permits.
