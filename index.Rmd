@@ -64,7 +64,6 @@ I hope to contribute posts on my site that interact with my interdisciplinary in
 <article>
 <h3><a href="blog-building-site-with-rmarkdown.html">BUILDING THIS SITE WITH RSTUDIO AND RMARKDOWN</a></h3>
 <div class="summary">
-<span><i class="fa fa-calendar"></i> _2016-09-01_</span>
 <p>There _may_ be a special place in hell for blog posts like this that document how someone put together their static site website and hosted it on GitHub.  Especially when there is really great [documentation](rmarkdown.rstudio.com/rmarkdown_websites.html) availible that has been put together by really smart people.  You can even look at Rmarkdown's website source code on [GitHub](https://github.com/rstudio/rmarkdown/tree/gh-pages) to see...</p>
 <a class="btn btn-outline-primary btn-sm" href="">Full Post</a>
 </div>
