@@ -224,6 +224,8 @@ This was tricky and what worked for me was looking at the `rmarkdown` site's [so
 
 This is the CSS I used with the `footer` above:
 
+<br>
+
 `style.css`
 
 ```css
@@ -372,7 +374,11 @@ Sorry, I had to do that.  Trying to render the above CSS chunk proved harder tha
 
 <br>
 
-I couldn't get Disqus to work the way RStudio set it up in their `footer` file---if you encounter the same issue I was able to get around it by first adding the script tag that gives you a count of comments and then by adding just the function that you are not supposed to edit.  Disqus wants you to set two variables but I couldn't seem to get them to work with my site set up the way it is.  If anyone has any insight into how the variables could be set up with an `rmarkdown` website, let me know in the comments!
+First you'll need to set up an account with [Disqus](https://disqus.com).  The instructions are pretty self expanatory for installing Disqus on your page.  Once you've followed all the instructions, you should be able to navigate to the 'Installation' tab, which presents you with options for installing.  You'll need to select "I don't see my platform listed, install manually with __Universal Code__".  You'll be presented with a Jacascript function to place in your site.
+
+<br>
+
+I initally didn't follow Disqus instructions and tried to make it work the way RStudio had it set up in their `footer` but couldn't get it to work---what I did was first add the script tag that gives you a count of comments (step 1 under the 'How to display comment count') and then add just the function right after (step 1).  If you look at the commented out section in the function, you'll see that Disqus wants you to set two variables and uncomment, but I couldn't seem to get them to work with my site set up the way it is.  If anyone has any insight into how the variables could be set up with an `rmarkdown` website, let me know in the comments!
 
 <br>
 
@@ -518,6 +524,51 @@ mtcars %>% plot_ly(x = disp, y = mpg, mode = "markers",
   as.widget() %>% list() %>% tagList()
 
 ```
+
+<br>
+
+### GITHUB PAGES
+
+<br>
+
+You really don't need to do a whole lot to host on GitHub.  GitHub has really helpful [instructions](https://pages.github.com) where you can see the two kinds of GitHub pages: a user or organizational account (which is what you'll use for your blog), or a project page.  The only other thing you'll need to do is creat a `.nojekyll` file in your repository which you can do quickly in Bash:
+
+<br>
+
+```{bash, eval=FALSE}
+touch .nojeckyll
+
+```
+
+<br>
+
+If you've purchased a domain and want to use it, you'll need a `CNAME` file in your directory as well.  This is a really easy file to create:
+
+<br>
+
+`CNAME`
+
+```{bash, eval=FALSE}
+vim CNAME
+```
+
+<br>
+
+You are now in Vim, a text editor, and if you've never been here will be really confused!  So just follow these steps:
+
+1. Press the `i` key to 'insert', or, type into the text editor.
+2. type your url into the file, in my case:
+
+```{bash, eval=FALSE}
+robertmitchellv.com
+
+```
+
+3. Hit the `esc` key to exit 'insert' mode
+4. Type the `:` key to enter a command (you enter the command at the bottom of the terminal window)
+5. Type 'wq' and then hit `return`
+
+Ok, that was sneaky, you can also just create a new file in RStudio (text file) and enter it that way and save it.  That will be much easier!
 
 <br>
 
