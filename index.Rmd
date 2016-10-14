@@ -62,10 +62,18 @@ I hope to contribute posts on my site that interact with my interdisciplinary in
 <br>
 
 <article>
+<h3><a href="blog-vaccine-heatmap.html">RECREATING THE VACCINE HEATMAP IN PLOTLY 4.0+ WITH R</a></h3>
+<div class="summary">
+<p>This took me a while to figure out how to implement.  Since `plotly` 4.0+ is so different and the documentation is still rolling out I wanted to challenge myself to make something complicated to better understand how things have changed...</p>
+<a class="btn btn-outline-primary btn-sm" href="blog-vaccine-heatmap.html">Full Post</a>
+</div>
+</article>
+
+<article>
 <h3><a href="blog-building-site-with-rmarkdown.html">BUILDING THIS SITE WITH RSTUDIO AND RMARKDOWN</a></h3>
 <div class="summary">
 <p>There _may_ be a special place in hell for blog posts like this that document how someone put together their static site website and hosted it on GitHub.  Especially when there is really great [documentation](rmarkdown.rstudio.com/rmarkdown_websites.html) availible that has been put together by really smart people.  You can even look at Rmarkdown's website source code on [GitHub](https://github.com/rstudio/rmarkdown/tree/gh-pages) to see...</p>
-<a class="btn btn-outline-primary btn-sm" href="">Full Post</a>
+<a class="btn btn-outline-primary btn-sm" href="blog-building-site-with-rmarkdown.html">Full Post</a>
 </div>
 </article>
 
@@ -74,16 +82,6 @@ I hope to contribute posts on my site that interact with my interdisciplinary in
 <div class="summary">
 <p>This is _not_ a language wars type post.  I do not think there is some Mordor forged language to _rule them all_.  I debated whether or not to even write a post like this.  Nevertheless, I had a chance to meet and talk to [Jake Powray](https://twitter.com/jakeporway) from [DataKind](http://www.datakind.org) at the [DoGoodData](http://www.dogooddata.com) confrence and I...</p>
 <a class="btn btn-outline-primary btn-sm" href="blog-the-move-to-r.html" role="button">Full Post</a>
-</div>
-</article>
-
-<hr>
-
-<article>
-<h3><a href="blog-p-hacking-and-ontology.html">P-HACKING AND ONTOLOGY</a></h3>
-<div class="summary">
-<p>In a recent FiveTirtyEight post by [Christie Aschwanden](https://twitter.com/cragcrest) about researcher bias and P-Hacking, there is a lovely interactive example of what variables a researcher would need include/exclude in the analysis in order to obtain a result that is statistically significant, i.e., _p&le;.05_; thus worthy of publishing.  The article brought many thoughts to mind...</p>
-<a class="btn btn-outline-primary btn-sm" href="blog-p-hacking-and-ontology.html" role="button">Full Post</a>
 </div>
 </article>
 

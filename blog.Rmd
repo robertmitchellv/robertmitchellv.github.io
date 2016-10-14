@@ -15,6 +15,15 @@ entries will follow this format:
 --->
 
 <article>
+<h3><a href="blog-vaccine-heatmap.html">RECREATING THE VACCINE HEATMAP IN PLOTLY WITH R</a></h3>
+<div class="summary">
+<span><i class="fa fa-calendar"></i> _2016-10-14_</span>
+<p>In order to get the data for this visualization you will need to create a free account over at [Project Tyco](www.website.com).  You can download all the datasets if you like but I'm just going to use the Polio data set.  These are the packages that I'm using:...</p>
+<a class="btn btn-outline-primary btn-sm" href="">Full Post</a>
+</div>
+</article>
+
+<article>
 <h3><a href="blog-building-site-with-rmarkdown.html">BUILDING THIS SITE WITH RSTUDIO AND RMARKDOWN</a></h3>
 <div class="summary">
 <span><i class="fa fa-calendar"></i> _2016-09-01_</span>
