@@ -487,7 +487,8 @@ rbmv_palette <- c("#BFF073", "#0DC9F7", "#7F7F7F", "#F05B47", "#ED1C24")
 mtcars %>%
   ggplot(aes(x = disp, y = mpg)) +
     geom_point(color = rbmv_palette[3]) + 
-    geom_smooth(formula = y ~ x, se = F, color = rbmv_palette[2])
+    geom_smooth(formula = y ~ x, se = F, method = "loess", 
+                color = rbmv_palette[2])
   
 ```
 
@@ -501,28 +502,28 @@ mtcars %>%
 
 <br>
 
-I've been really into Plotly lately and one of the first things I wanted to do was add it to my website.  There are a couple of hoops you have to jump through but luckily there is the wonderful `htmltools` package to help out.  Oh, and pipes.  Plotly loves `%>%`'s.  I'll just redo the plot above so you get an idea.
+I've been really into Plotly lately and one of the first things I wanted to do was add it to my website.  ~~There are a couple of hoops you have to jump through but luckily there is the wonderful `htmltools` package to help out~~[^10].  Oh, and pipes.  Plotly loves `%>%`'s.  I'll just redo the plot above so you get an idea.
 
 <br>
+
 ```{r plotly}
 suppressPackageStartupMessages(library(plotly))
-suppressPackageStartupMessages(library(htmltools))
 
-
+rbmv_palette <- c("#BFF073", "#0DC9F7", "#7F7F7F", "#F05B47", "#ED1C24")
 
 mtcars <- mtcars[order(mtcars$disp), ]
 
-mtcars %>% plot_ly(x = disp, y = mpg, mode = "markers",
-                   text = paste(rownames(mtcars), "<br>Mpg: ", 
-                                mpg, "Disp: ", disp), 
+mtcars %>% plot_ly(x = ~disp, y = ~mpg, 
+                   type = "scatter", mode = "markers",
+                   text = ~paste(rownames(mtcars), "<br>Mpg: ", 
+                                 mpg, "Disp: ", disp), 
                    showlegend = FALSE,
                    colors = rbmv_palette) %>%
-  add_trace(x = disp, y = fitted(loess(mpg ~ disp)), 
+  add_lines(x = ~disp, y = ~fitted(loess(mpg ~ disp)), 
             mode = "lines", name = "Loess Smoother", 
             showlegend = TRUE, 
-            line = list(color = rbmv_palette[2])) %>%
-  as.widget() %>% list() %>% tagList()
-
+            line = list(color = rbmv_palette[2])) 
+  
 ```
 
 <br>
@@ -591,3 +592,4 @@ That's really all I've done so far.  I just rebuilt this site last week and I'm 
 [^7]: You don't need to include your navbar if it is named `_navbar.html`---it will automatically be included when you build your site.
 [^8]: you can check out my `navbar` [here](https://github.com/robertmitchellv/robertmitchellv.github.io/blob/master/_navbar.html) if you're interested.
 [^9]: I had to do this for some Python code from older blog posts---the syntax highlighting wasn't _exactly_ as it should be but it looked ok.
+[^10]: You used to have to pipe your plotly object through `as.widget() %>% list() %>% tagList()` to get it to display on the site; however, now you don't need to do anything!
