@@ -1,6 +1,6 @@
 ---
 title: "RECREATING THE VACCINE HEATMAP IN PLOTLY 4.0+ WITH R"
-date: "September 8, 2015"
+date: "October 14, 2015"
 author: "Robert Mitchell"
 output:
   html_document:
