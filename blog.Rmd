@@ -23,6 +23,8 @@ entries will follow this format:
 </div>
 </article>
 
+<hr>
+
 <article>
 <h3><a href="blog-building-site-with-rmarkdown.html">BUILDING THIS SITE WITH RSTUDIO AND RMARKDOWN</a></h3>
 <div class="summary">
@@ -31,6 +33,8 @@ entries will follow this format:
 <a class="btn btn-outline-primary btn-sm" href="">Full Post</a>
 </div>
 </article>
+
+<hr>
 
 <article>
 <h3><a href="blog-the-move-to-r.html">THE MOVE TO R</a></h3>
@@ -63,6 +67,8 @@ entries will follow this format:
 </div>
 </article>
 
+<hr>
+
 <article>
 <h3><a href="blog-pandas-snippits.html">PANDAS SNIPPETS (EVOLVING)</a></h3>
 <div class="summary">
@@ -72,6 +78,8 @@ entries will follow this format:
 </div>
 </article>
 
+<hr>
+
 <article>
 <h3><a href="blog-first-kaggle-submission.html">FIRST KAGGLE SUBMISSION---RANDOM FOREST CLASSIFIER</a></h3>
 <div class="summary">
@@ -80,6 +88,8 @@ entries will follow this format:
 <a class="btn btn-outline-primary btn-sm" href="blog-first-kaggle-submission.html">Full Post</a>
 </div>
 </article>
+
+<hr>
 
 <article>
 <h3><a href="blog-python-journey.html">THE PYTHON JOURNEY---ONE SEMESTER WITH PYTHON 3.4</a></h3>
@@ -92,6 +102,8 @@ personalize it in some small way...</p>
 <a class="btn btn-outline-primary btn-sm" href="blog-python-journey.html">Full Post</a>
 </div>
 </article>
+
+<hr>
 
 <article>
 <h3><a href="blog-foucaults-challenge.html">FOUCAULT'S CHALLENGE TO MODERNIST CLASSIFICATION</a></h3>

@@ -85,8 +85,6 @@ I hope to contribute posts on my site that interact with my interdisciplinary in
 </div>
 </article>
 
-<hr>
-
 <a class="btn btn-outline-secondary btn-lg" href="blog.html" role="button">More Posts</a>
 
 <br>
