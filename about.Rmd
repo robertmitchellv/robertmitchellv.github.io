@@ -4,7 +4,7 @@ title: "ABOUT"
 
 <br>
 
-<img id="img-me" src="site_content/img/me.jpg" width="300px" height="auto">
+<img id="img-me" src="site_content/img/me.jpeg" width="300px" height="auto">
 
 <br>
 
