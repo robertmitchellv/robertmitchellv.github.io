@@ -153,7 +153,7 @@ $(document).ready(function () {
 <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700|Roboto:100,100i,300,300i|Roboto+Mono:100i,300,700,700i" rel="stylesheet">
 
 <!-- navbar -->
-<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+<div class="navbar navbar-default  navbar-fixed-top no-print" role="navigation">
   <div class="container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
@@ -393,7 +393,7 @@ In Foucault’s <em>Les Mots et les choses</em> (The Order of Things), he notes 
   </div> <!-- articleBandContent -->
 </div> <!-- pageContent -->
 
-<footer>
+<footer class="no-print">
   <div id="rbmvFooter" class="footer">
     <div class="footerContent">
     
@@ -509,7 +509,7 @@ $(document).ready(function () {
   (function () {
     var script = document.createElement("script");
     script.type = "text/javascript";
-    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
     document.getElementsByTagName("head")[0].appendChild(script);
   })();
 </script>

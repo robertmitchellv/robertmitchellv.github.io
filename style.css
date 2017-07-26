@@ -28,6 +28,48 @@
 }
 
 /*  
+ *  media queries
+ */
+@media all {
+	.page-break	{ display: none; }
+	.no-web, .no-web * {
+	  display: none;
+	}
+}
+
+@media print {
+  @page {
+    size: 215.9mm 279.4mm;
+    margin: 0mm;
+  }
+  body {
+    width: 1170px;
+    font-size: 7pt;
+  }
+  h1 {
+   font-size: 14pt; 
+  }
+  h2, h3 {
+    font-size: 12pt;
+  }
+  #rbmv-resume {
+    float: right;
+    height: auto;
+    width: 10em;
+  }
+  .no-print, .no-print * {
+	  display: none !important;
+	}
+	.no-web, .no-web * {
+	  display: block;
+	}
+  .page-break	{ 
+	  display: block; 
+	  page-break-before: always; 
+	}
+}
+
+/*  
  *  tags
  */
 a {
