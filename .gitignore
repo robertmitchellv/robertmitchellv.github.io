@@ -1,6 +1,15 @@
+# OS X
+.DS_Store
+
+# RStudio
 .Rproj.user
 .Rhistory
 .RData
 .Ruserdata
-.Scratchpad*
+
+# Filetypes
+scratch*.*
+scratch*
+
+# For RMarkdown websites
 _*.*
