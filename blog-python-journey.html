@@ -194,8 +194,8 @@ $(document).ready(function () {
 
 
 <!-- fonts -->
-<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700|Roboto:100,100i,300,300i|Roboto+Mono:100i,300,700,700i" rel="stylesheet">
-
+<!-- <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700|Roboto+Mono:100i,300,700,700i|Roboto:100,100i,300,300i" rel="stylesheet">
+-->
 <!-- navbar -->
 <div class="navbar navbar-default  navbar-fixed-top no-print" role="navigation">
   <div class="container">
@@ -378,7 +378,7 @@ main()</code></pre></div>
 
         <span class="co"># for an individual random number in the sample range</span>
         <span class="co"># --&gt; iterate and use number as index for the trivia questions</span>
-        <span class="cf">for</span> i <span class="op">in</span> randomGenerator:
+        <span class="cf">for</span> i <span class="kw">in</span> randomGenerator:
             question <span class="op">=</span> triviaDict[i][<span class="dv">0</span>]
             a1 <span class="op">=</span> triviaDict[i][<span class="dv">1</span>]
             a2<span class="op">=</span> triviaDict[i][<span class="dv">2</span>]
@@ -412,7 +412,7 @@ main()</code></pre></div>
 <span class="st">                       enter a number 1-4&#39;</span>)
                 choice <span class="op">=</span> <span class="bu">int</span>(<span class="bu">input</span>(<span class="st">&quot;</span><span class="ch">\n</span><span class="st">What&#39;s your answer? </span><span class="ch">\n</span><span class="st">--&gt; &quot;</span>))
             <span class="cf">finally</span>:
-                <span class="cf">if</span> choice <span class="op">in</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">5</span>):
+                <span class="cf">if</span> choice <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">5</span>):
                     <span class="cf">break</span>
 
         <span class="co"># if the question is correct, return true; if not, return false</span>
@@ -443,7 +443,7 @@ main()</code></pre></div>
                 rowDict <span class="op">=</span> {}
                 questionData <span class="op">=</span> {}
                 <span class="co"># reading the trivia questions</span>
-                <span class="cf">for</span> row <span class="op">in</span> readCSV:
+                <span class="cf">for</span> row <span class="kw">in</span> readCSV:
                     rowDict[index] <span class="op">=</span> row
                     question <span class="op">=</span> rowDict[index][<span class="dv">0</span>]
                     a1 <span class="op">=</span> rowDict[index][<span class="dv">1</span>]
@@ -505,7 +505,7 @@ main()</code></pre></div>
             gamePoints <span class="op">+=</span> <span class="dv">1</span>
 
         <span class="co"># let the user know what happenned this round</span>
-        <span class="bu">print</span>(<span class="st">&#39;you won {} points this game!&#39;</span>.<span class="bu">format</span>(gamePoints))
+        <span class="bu">print</span>(<span class="st">&#39;you won </span><span class="sc">{}</span><span class="st"> points this game!&#39;</span>.<span class="bu">format</span>(gamePoints))
 
         <span class="cf">return</span> gamePoints
 
@@ -520,7 +520,7 @@ main()</code></pre></div>
 
     <span class="co"># instance of Question class with filler data</span>
     questions <span class="op">=</span> Question(<span class="st">&#39;question&#39;</span>, <span class="st">&#39;a1&#39;</span>, <span class="st">&#39;a2&#39;</span>, <span class="st">&#39;a3&#39;</span>, <span class="st">&#39;a4&#39;</span>, <span class="op">\</span>
-                         <span class="co">&#39;answer&#39;</span>, <span class="st">&#39;ansNum&#39;</span>)
+                         <span class="st">&#39;answer&#39;</span>, <span class="st">&#39;ansNum&#39;</span>)
 
     <span class="co"># create both players</span>
     playerOne <span class="op">=</span> Game(<span class="bu">str</span>(<span class="bu">input</span>(<span class="st">&#39;PLAYER ONE//</span><span class="ch">\n</span><span class="st">Enter your name: &#39;</span>)), <span class="dv">0</span>,)
@@ -552,13 +552,13 @@ main()</code></pre></div>
         <span class="co"># figure out who won and use user&#39;s inputed name and their points</span>
         <span class="co"># in print statement</span>
         <span class="cf">if</span> p1round <span class="op">&lt;</span> p2round:
-            <span class="bu">print</span>(<span class="st">&#39;Thank you for playing!  {} is the winner with {} total \</span>
+            <span class="bu">print</span>(<span class="st">&#39;Thank you for playing!  </span><span class="sc">{}</span><span class="st"> is the winner with </span><span class="sc">{}</span><span class="st"> total \</span>
 <span class="st">                  game points!&#39;</span>.<span class="bu">format</span>(playerTwo.playerID, p2round))
         <span class="cf">elif</span> p2round <span class="op">&lt;</span> p1round:
-            <span class="bu">print</span>(<span class="st">&#39;Thank you for playing!  {} is the winner with {} total \</span>
+            <span class="bu">print</span>(<span class="st">&#39;Thank you for playing!  </span><span class="sc">{}</span><span class="st"> is the winner with </span><span class="sc">{}</span><span class="st"> total \</span>
 <span class="st">                  game points!&#39;</span>.<span class="bu">format</span>(playerOne.playerID, p1round))
         <span class="cf">elif</span> p2round <span class="op">==</span> p1round:
-            <span class="bu">print</span>(<span class="st">&#39;There was a tie!  Both {} and {} both earned {} total \</span>
+            <span class="bu">print</span>(<span class="st">&#39;There was a tie!  Both </span><span class="sc">{}</span><span class="st"> and </span><span class="sc">{}</span><span class="st"> both earned </span><span class="sc">{}</span><span class="st"> total \</span>
 <span class="st">                   game points; but you are both still \</span>
 <span class="st">                   winners!&#39;</span>.<span class="bu">format</span>(playerOne.playerID, playerTwo.playerID, <span class="op">\</span>
                    p1round))

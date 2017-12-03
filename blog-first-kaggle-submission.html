@@ -195,8 +195,8 @@ $(document).ready(function () {
 
 
 <!-- fonts -->
-<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700|Roboto:100,100i,300,300i|Roboto+Mono:100i,300,700,700i" rel="stylesheet">
-
+<!-- <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700|Roboto+Mono:100i,300,700,700i|Roboto:100,100i,300,300i" rel="stylesheet">
+-->
 <!-- navbar -->
 <div class="navbar navbar-default  navbar-fixed-top no-print" role="navigation">
   <div class="container">
@@ -361,7 +361,7 @@ $(document).ready(function () {
     rf.fit(train, target)
 
     <span class="co"># predict_proba(X) predict class probabilities for X as list</span>
-    predicted_probs <span class="op">=</span> [x[<span class="dv">1</span>] <span class="cf">for</span> x <span class="op">in</span> rf.predict_proba(test)]
+    predicted_probs <span class="op">=</span> [x[<span class="dv">1</span>] <span class="cf">for</span> x <span class="kw">in</span> rf.predict_proba(test)]
 
     <span class="co"># prep data for use in pd.Series</span>
     molID, predictProbs <span class="op">=</span> prepData(predicted_probs)
@@ -390,7 +390,7 @@ $(document).ready(function () {
 
         <span class="co"># for loop to set MoleculeID to match the benchmark;</span>
         <span class="co"># place values into list for easier wrangling as pd.Series</span>
-        <span class="cf">for</span> i <span class="op">in</span> alist:
+        <span class="cf">for</span> i <span class="kw">in</span> alist:
             colOne.append(idx)
             colTwo.append(i)
             idx <span class="op">+=</span> <span class="dv">1</span>
@@ -448,8 +448,8 @@ main()</code></pre></div>
     <span class="cf">except</span> <span class="pp">IOError</span>:
         <span class="bu">print</span>(<span class="st">&quot;io ERROR--&gt;Could not locate file.&quot;</span>)
 
-    target <span class="op">=</span> np.array([x[<span class="dv">0</span>] <span class="cf">for</span> x <span class="op">in</span> train])
-    train <span class="op">=</span> np.array([x[<span class="dv">1</span>:] <span class="cf">for</span> x <span class="op">in</span> train])
+    target <span class="op">=</span> np.array([x[<span class="dv">0</span>] <span class="cf">for</span> x <span class="kw">in</span> train])
+    train <span class="op">=</span> np.array([x[<span class="dv">1</span>:] <span class="cf">for</span> x <span class="kw">in</span> train])
 
     <span class="co"># in this case we&#39;ll use a random forest, but this could be any classifier</span>
     model <span class="op">=</span> RandomForestClassifier(n_estimators <span class="op">=</span> <span class="dv">100</span>, n_jobs <span class="op">=</span> <span class="op">-</span><span class="dv">1</span>)
@@ -460,9 +460,9 @@ main()</code></pre></div>
     <span class="co">#iterate through the training and test cross validation segments and</span>
     <span class="co">#run the classifier on each one, aggregating the results into a list</span>
     results <span class="op">=</span> []
-    <span class="cf">for</span> traincv, testcv <span class="op">in</span> cv:
+    <span class="cf">for</span> traincv, testcv <span class="kw">in</span> cv:
         prob <span class="op">=</span> model.fit(train[traincv], target[traincv]).predict_proba(train[testcv])
-        results.append(logloss.llfun(target[testcv], [x[<span class="dv">1</span>] <span class="cf">for</span> x <span class="op">in</span> prob]))
+        results.append(logloss.llfun(target[testcv], [x[<span class="dv">1</span>] <span class="cf">for</span> x <span class="kw">in</span> prob]))
 
     <span class="co">#print out the mean of the cross-validated results</span>
     <span class="bu">print</span>(<span class="st">&#39;Results: &#39;</span>, <span class="bu">str</span>(np.array(results).mean()))

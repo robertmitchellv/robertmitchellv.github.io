@@ -195,8 +195,8 @@ $(document).ready(function () {
 
 
 <!-- fonts -->
-<link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700|Roboto:100,100i,300,300i|Roboto+Mono:100i,300,700,700i" rel="stylesheet">
-
+<!-- <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed:400,700|Roboto+Mono:100i,300,700,700i|Roboto:100,100i,300,300i" rel="stylesheet">
+-->
 <!-- navbar -->
 <div class="navbar navbar-default  navbar-fixed-top no-print" role="navigation">
   <div class="container">
@@ -347,14 +347,14 @@ ax.set_xticks([<span class="dv">0</span>, <span class="dv">5</span>, <span class
 totals <span class="op">=</span> []
 
 <span class="co"># find the values and append to list</span>
-<span class="cf">for</span> i <span class="op">in</span> ax.patches:
+<span class="cf">for</span> i <span class="kw">in</span> ax.patches:
     totals.append(i.get_width())
 
 <span class="co"># set individual bar lables using above list</span>
 total <span class="op">=</span> <span class="bu">sum</span>(totals)
 
 <span class="co"># set individual bar lables using above list</span>
-<span class="cf">for</span> i <span class="op">in</span> ax.patches:
+<span class="cf">for</span> i <span class="kw">in</span> ax.patches:
     <span class="co"># get_width pulls left or right; get_y pushes up or down</span>
     ax.text(i.get_width()<span class="op">+</span>.<span class="dv">3</span>, i.get_y()<span class="op">+</span>.<span class="dv">38</span>, <span class="op">\</span>
             <span class="bu">str</span>(<span class="bu">round</span>((i.get_width()<span class="op">/</span>total)<span class="op">*</span><span class="dv">100</span>, <span class="dv">2</span>))<span class="op">+</span><span class="st">&#39;%&#39;</span>, fontsize<span class="op">=</span><span class="dv">15</span>,
@@ -380,14 +380,14 @@ ax.set_yticks([<span class="dv">0</span>, <span class="dv">5</span>, <span class
 totals <span class="op">=</span> []
 
 <span class="co"># find the values and append to list</span>
-<span class="cf">for</span> i <span class="op">in</span> ax.patches:
+<span class="cf">for</span> i <span class="kw">in</span> ax.patches:
     totals.append(i.get_height())
 
 <span class="co"># set individual bar lables using above list</span>
 total <span class="op">=</span> <span class="bu">sum</span>(totals)
 
 <span class="co"># set individual bar lables using above list</span>
-<span class="cf">for</span> i <span class="op">in</span> ax.patches:
+<span class="cf">for</span> i <span class="kw">in</span> ax.patches:
     <span class="co"># get_x pulls left or right; get_height pushes up or down</span>
     ax.text(i.get_x()<span class="op">-</span>.<span class="dv">03</span>, i.get_height()<span class="op">+</span>.<span class="dv">5</span>, <span class="op">\</span>
             <span class="bu">str</span>(<span class="bu">round</span>((i.get_height()<span class="op">/</span>total)<span class="op">*</span><span class="dv">100</span>, <span class="dv">2</span>))<span class="op">+</span><span class="st">&#39;%&#39;</span>, fontsize<span class="op">=</span><span class="dv">15</span>,
@@ -411,14 +411,14 @@ ax.set_yticks([<span class="dv">0</span>, <span class="dv">5</span>, <span class
 totals <span class="op">=</span> []
 
 <span class="co"># find the values and append to list</span>
-<span class="cf">for</span> i <span class="op">in</span> ax.patches:
+<span class="cf">for</span> i <span class="kw">in</span> ax.patches:
     totals.append(i.get_height())
 
 <span class="co"># set individual bar lables using above list</span>
 total <span class="op">=</span> <span class="bu">sum</span>(totals)
 
 <span class="co"># set individual bar lables using above list</span>
-<span class="cf">for</span> i <span class="op">in</span> ax.patches:
+<span class="cf">for</span> i <span class="kw">in</span> ax.patches:
     <span class="co"># get_x pulls left or right; get_height pushes up or down</span>
     ax.text(i.get_x()<span class="op">+</span>.<span class="dv">12</span>, i.get_height()<span class="op">-</span><span class="dv">3</span>, <span class="op">\</span>
             <span class="bu">str</span>(<span class="bu">round</span>((i.get_height()<span class="op">/</span>total)<span class="op">*</span><span class="dv">100</span>, <span class="dv">2</span>))<span class="op">+</span><span class="st">&#39;%&#39;</span>, fontsize<span class="op">=</span><span class="dv">22</span>,
@@ -441,7 +441,7 @@ ax.set_xlabel(<span class="st">&quot;Number of Battles&quot;</span>, fontsize<sp
 ax.set_xticks([<span class="dv">0</span>, <span class="dv">5</span>])
 
 <span class="co"># set individual bar lables using above list</span>
-<span class="cf">for</span> i <span class="op">in</span> ax.patches:
+<span class="cf">for</span> i <span class="kw">in</span> ax.patches:
     <span class="co"># get_width pulls left or right; get_y pushes up or down</span>
     ax.text(i.get_width()<span class="op">+</span>.<span class="dv">1</span>, i.get_y()<span class="op">+</span>.<span class="dv">31</span>, <span class="op">\</span>
             <span class="bu">str</span>(<span class="bu">round</span>((i.get_width()), <span class="dv">2</span>)), fontsize<span class="op">=</span><span class="dv">15</span>, color<span class="op">=</span><span class="st">&#39;dimgrey&#39;</span>)
@@ -464,11 +464,11 @@ fontsize<span class="op">=</span><span class="dv">18</span>)
 ax.set_ylabel(<span class="st">&quot;Number of Troops&quot;</span>, fontsize<span class="op">=</span><span class="dv">18</span>)<span class="op">;</span>
 ax.set_yticks([<span class="dv">0</span>, <span class="dv">20000</span>, <span class="dv">40000</span>, <span class="dv">60000</span>, <span class="dv">80000</span>, <span class="dv">100000</span>, <span class="dv">120000</span>, <span class="dv">140000</span>])
 ax.set_xticklabels([<span class="st">&quot;Robb v Joff/Tommen&quot;</span>, <span class="st">&quot;Joff/Tommen v Robb&quot;</span>, 
-                    <span class="co">&quot;Stannis v Joff/Tommen&quot;</span>, <span class="st">&quot;Robb v Joff/Tommen&quot;</span>, 
-                    <span class="co">&quot;Stannis v Mance&quot;</span>], rotation<span class="op">=</span><span class="dv">0</span>, fontsize<span class="op">=</span><span class="dv">11</span>)
+                    <span class="st">&quot;Stannis v Joff/Tommen&quot;</span>, <span class="st">&quot;Robb v Joff/Tommen&quot;</span>, 
+                    <span class="st">&quot;Stannis v Mance&quot;</span>], rotation<span class="op">=</span><span class="dv">0</span>, fontsize<span class="op">=</span><span class="dv">11</span>)
 
 <span class="co"># set individual bar lables using above list</span>
-<span class="cf">for</span> i <span class="op">in</span> ax.patches:
+<span class="cf">for</span> i <span class="kw">in</span> ax.patches:
     <span class="co"># get_x pulls left or right; get_height pushes up or down</span>
     ax.text(i.get_x()<span class="op">+</span>.<span class="dv">04</span>, i.get_height()<span class="op">+</span><span class="dv">12000</span>, <span class="op">\</span>
             <span class="bu">str</span>(<span class="bu">round</span>((i.get_height()), <span class="dv">2</span>)), fontsize<span class="op">=</span><span class="dv">11</span>, color<span class="op">=</span><span class="st">&#39;dimgrey&#39;</span>,
@@ -492,11 +492,11 @@ ax.set_xlabel(<span class="st">&quot;Number of Troops&quot;</span>, fontsize<spa
 ax.set_ylabel(<span class="st">&quot;First Name is Attacker&quot;</span>, fontsize<span class="op">=</span><span class="dv">18</span>)
 ax.set_xticks([<span class="dv">0</span>, <span class="dv">20000</span>, <span class="dv">40000</span>, <span class="dv">60000</span>, <span class="dv">80000</span>, <span class="dv">100000</span>, <span class="dv">120000</span>, <span class="dv">140000</span>])
 ax.set_yticklabels([<span class="st">&quot;Robb v Joff/Tommen&quot;</span>, <span class="st">&quot;Joff/Tommen v Robb&quot;</span>, 
-                    <span class="co">&quot;Stannis v Joff/Tommen&quot;</span>, <span class="st">&quot;Robb v Joff/Tommen&quot;</span>, 
-                    <span class="co">&quot;Stannis v Mance&quot;</span>])
+                    <span class="st">&quot;Stannis v Joff/Tommen&quot;</span>, <span class="st">&quot;Robb v Joff/Tommen&quot;</span>, 
+                    <span class="st">&quot;Stannis v Mance&quot;</span>])
 
 <span class="co"># set individual bar lables using above list</span>
-<span class="cf">for</span> i <span class="op">in</span> ax.patches:
+<span class="cf">for</span> i <span class="kw">in</span> ax.patches:
     <span class="co"># get_width pulls left or right; get_y pushes up or down</span>
     ax.text(i.get_width()<span class="op">+</span><span class="dv">700</span>, i.get_y()<span class="op">+</span>.<span class="dv">18</span>, <span class="op">\</span>
             <span class="bu">str</span>(<span class="bu">round</span>((i.get_width()), <span class="dv">2</span>)), fontsize<span class="op">=</span><span class="dv">11</span>, color<span class="op">=</span><span class="st">&#39;dimgrey&#39;</span>)
