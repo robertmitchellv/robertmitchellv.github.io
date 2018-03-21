@@ -63,6 +63,14 @@ For the full bio click [here](about.html) or the button below.
 <br>
 
 <article>
+<h3><a href="blog-uptake-fellowship-start.html">REFLECTIONS ON THE START OF MY DATA FELLOWSHIP WITH UPTAKE</a></h3>
+<div class="summary">
+<p>I can't believe it's been more than a week since I returned from my trip to Chicago. This was an incredible opportunity and before I start this post a few thank yous are in order: I really can't thank [Uptake](www.uptake.com) enough for being the kind of company that does more than just 'have an mission statement'--having the motivation to start a philanthropic arm...</p>
+<a class="btn btn-outline-primary btn-sm" href="blog-uptake-fellowship-start.html" role="button">Full Post</a>
+</div>
+</article>
+
+<article>
 <h3><a href="blog-adv-of-code-day-one.html">ADVENT OF CODE IN R: DAY 1</a></h3>
 <div class="summary">
 <span><i class="fa fa-calendar"></i> _2017-12-01_</span>
@@ -87,13 +95,6 @@ For the full bio click [here](about.html) or the button below.
 </div>
 </article>
 
-<article>
-<h3><a href="blog-the-move-to-r.html">THE MOVE TO R</a></h3>
-<div class="summary">
-<p>This is _not_ a language wars type post.  I do not think there is some Mordor forged language to _rule them all_.  I debated whether or not to even write a post like this.  Nevertheless, I had a chance to meet and talk to [Jake Powray](https://twitter.com/jakeporway) from [DataKind](http://www.datakind.org) at the [DoGoodData](http://www.dogooddata.com) confrence and I...</p>
-<a class="btn btn-outline-primary btn-sm" href="blog-the-move-to-r.html" role="button">Full Post</a>
-</div>
-</article>
 
 <a class="btn btn-outline-secondary btn-lg" href="blog.html" role="button">More Posts</a>
 
