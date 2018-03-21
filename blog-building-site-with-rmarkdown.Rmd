@@ -10,6 +10,8 @@ output:
       after_body: footer-disqus.html
 ---
 
+<br>
+
 > There _may_ be a special place in hell for blog posts like this that document how someone put together their static site website and hosted it on GitHub.  Especially when there is really great [documentation](rmarkdown.rstudio.com/rmarkdown_websites.html) availible that has been put together by really smart people[^1].  You can even look at Rmarkdown's website source code on [GitHub](https://github.com/rstudio/rmarkdown/tree/gh-pages) to see how they approached things and to get ideas.  I should warn anyone interested in building a site with `rmarkdown` that you will not have some of the automation perks from Jekyll or Pelican with automatic tags and summaries created to extract from blog posts and render them on your home page.  I decided to _not_ retain any of the category or tag metadata that normally went into the `<head>` tag to be used for summarising because I wanted to keep things simple(text file <i class="fa fa-long-arrow-right"></i> blog).  If that doesn't sound like something you like, this may not be the right choice for your blog.    
 
 <br>

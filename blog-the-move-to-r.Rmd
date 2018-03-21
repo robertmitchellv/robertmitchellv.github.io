@@ -10,6 +10,8 @@ output:
       after_body: footer-disqus.html
 ---
 
+<br>
+
 > This is _not_ a language wars type post.  I do not think there is some Mordor forged language to _rule them all_.  I debated whether or not to even write a post like this.  Nevertheless, I had a chance to meet and talk to [Jake Powray](https://twitter.com/jakeporway) from [DataKind](http://www.datakind.org) at the [DoGoodData](http://www.dogooddata.com) confrence and I mentioned my moving from Python to R, which he wanted to hear about since normally he hears about the movement going in the other direction.  Since my direction is a bit atypical and since my use case is also different, I decided to write about it.  If you have any thoughts feel free to comment below! 
 
 <br>

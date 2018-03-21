@@ -10,6 +10,8 @@ output:
       after_body: footer-disqus.html
 ---
 
+<br>
+
 In Foucault’s _Les Mots et les choses_ (The Order of Things), he notes a passage in Borges that, for him, demonstrates the limitations of taxonomic assertions in the face of exotic systems of thought---via Borges, he quotes a ‘certain Chinese encyclopedia’ in which it is written:
 
 <br>

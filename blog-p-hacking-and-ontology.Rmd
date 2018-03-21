@@ -10,6 +10,8 @@ output:
       after_body: footer-disqus.html
 ---
 
+<br>
+
 In a recent FiveTirtyEight post by [Christie Aschwanden](https://twitter.com/cragcrest) about researcher bias and P-Hacking, there is a lovely interactive example of what variables a researcher would need include/exclude in the analysis in order to obtain a result that is statistically significant, i.e., _p&le;.05_; thus worthy of publishing.  The article brought many thoughts to mind, which I am using this blog post to note.  The crux of the article, I feel, rests in the following passage from the article:   
 
 <br>
