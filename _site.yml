@@ -1,5 +1,5 @@
 name: "rbmv | critical data analysis"
-output_dir: .
+output_dir: "."
 output:
   html_document:
     theme: yeti
