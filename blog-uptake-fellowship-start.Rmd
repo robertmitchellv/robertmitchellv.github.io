@@ -12,7 +12,7 @@ output:
 
 <br>
 
-> I can't believe it's been more than a week since I returned from my trip to Chicago. This was an incredible opportunity and before I start this post a few thank yous are in order: I really can't thank [Uptake]() enough for being the kind of company that does more than just 'have an mission statement'--having the motivation to start a philanthropic arm (the `.org` side of [Uptake](www.uptake.com)) shows the company is serious about the work they intend to do in the sector. This is evident by the [data fellows](https://www.uptake.org/data-fellows.html) program specifically and I would be remiss if I did not personally thank [Andrew Means](http://meanswelldoesgood.com/) for designing such a wonderful program in the data for good space. That folks like me miss out on mentoring and growth because we're often the only data folks in our organization hit _very_ close to home. So, feeling very grateful all around `r emo::ji("smile")`
+> I can't believe it's been more than a week since I returned from my trip to Chicago. This was an incredible opportunity and before I start this post a few thank yous are in order: I really can't thank [Uptake](www.uptake.com) enough for being the kind of company that does more than just 'have an mission statement'--having the motivation to start a philanthropic arm (the `.org` side of [Uptake](www.uptake.org)) shows the company is serious about the work they intend to do in the sector. This is evident by the [data fellows](https://www.uptake.org/data-fellows.html) program specifically and I would be remiss if I did not personally thank [Andrew Means](http://meanswelldoesgood.com/) for designing such a wonderful program in the data for good space. That folks like me miss out on mentoring and growth because we're often the only data folks in our organization hit _very_ close to home. So, feeling very grateful all around `r emo::ji("smile")`
 
 <br>
 
@@ -39,7 +39,7 @@ When I decided that I really wanted to work in this sector this is how I felt:
 <ul>
   <li>`r emo::ji("x")` I once built an HTML page in the 10th grade about [Chrono Trigger](https://en.wikipedia.org/wiki/Chrono_Trigger) locally on a computer I built after the debut of the Pentium III chip so I could finally afford a the Pentium II chip AMA</li>
   <li>`r emo::ji("x")` Oh god, mathematics was my least favorite subject in school (tied with orthography)</li>
-  <li>`r emo::ji("x")` I took intro to stats for my general education requirements but did not really pay attention `r emp::ji("sob")`</li>
+  <li>`r emo::ji("x")` I took intro to stats for my general education requirements but did not really pay attention `r emo::ji("sob")`</li>
 </ul>
 
 <br>
