@@ -1,5 +1,5 @@
-name: "rbmv | critical data analysis"
-output_dir: "."
+name: rbmv | critical data analysis
+output_dir: '.'
 output:
   html_document:
     theme: yeti
@@ -7,3 +7,6 @@ output:
     include:
       after_body: footer.html
     css: style.css
+    lib_dir: site_libs
+    self_contained: no
+

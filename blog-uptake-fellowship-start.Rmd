@@ -20,7 +20,7 @@ output:
 
 <br>
 
-I always feel that it is important to highlight the path I took to get to the point where I am--the _non-traditional_ route, which begs the question, _"what is the traditional route to data science?"_ Rather than go down a semantics rabbithole I'd rather point out some of the raw ingredients that, at least I believed when I started down this path, make it _easier_ to get into data science/analysis:
+I always feel that it is important to highlight the path I took to get to the point where I am--the _non-traditional_ route, which begs the question, _"what is the traditional route to data science?"_ Rather than go down a semantics rabbit hole I'd rather point out some of the raw ingredients that, at least I believed when I started down this path, make it _easier_ to get into data science/analysis:
 
 <br>
 
@@ -88,7 +88,7 @@ This was an epiphany. The reports and dashboards and answers to questions that c
 
 <br>
 
-The second part of the ephiphany was that there really isn't anything wrong with a Minimum Viable Product (MVP) because it is the foundation for future iterations. After having the back and forth during a scoping process about what is possible/feasible, making your product effective is not measured in how tight and clean your code is or how complicated the model is; it's in how well you've managed to satisfy the party that needs your expertise. The easiest way to see if you're on the right track is to provide a MVP early to see how well it does in satisfying what was scoped out. If it doesn't work and more scoping is required; cool, you didn't waste any time polishing an artifact destined to the archive heap. If it works then there is ample room/time to really polish the product the way you might like. 
+The second part of the epiphany was that there really isn't anything wrong with a Minimum Viable Product (MVP) because it is the foundation for future iterations. After having the back and forth during a scoping process about what is possible/feasible, making your product effective is not measured in how tight and clean your code is or how complicated the model is; it's in how well you've managed to satisfy the party that needs your expertise. The easiest way to see if you're on the right track is to provide a MVP early to see how well it does in satisfying what was scoped out. If it doesn't work and more scoping is required; cool, you didn't waste any time polishing an artifact destined to the archive heap. If it works then there is ample room/time to really polish the product the way you might like. 
 
 <br>
 
@@ -100,7 +100,7 @@ This is my personal downfall as I care _wayyy_ too much about how the things I m
 
 <br>
 
-My data science mentor Andrew said something to me that really hadn't occured to me when I was explaining that I wanted to learn to build a Bayesian multi-level model for my project--I wanted to do this in Stan and really get a thorough grounding in this kind of approach. He said (I'm paraphrasing), "one of the things I've had to learn here is that this isn't a Kaggle competition--that often interpretable models like logistic regression perform very well in a surprising amount of use cases. Getting a model to perform 90% of the time is already a success in a lot of ways because going beyond that _will_ take more time and _may not_ opperationally improve what the model is predicting is a dramatic way". This is probably really difficult for those of us who really get excited about using something we just learned to tackle a problem, which I am in no way saying _'don't do that'_; what I'm saying is that often I have very limited time and in order to try and move the organization into a data driven future, there are many opportunities to deny myself the joy of overcomplicating things when it isn't necessary. This is something I am going to try and keep in mind as I work on my project for the data fellows program and as this process begins to unfold.
+My data science mentor Andrew said something to me that really hadn't occurred to me when I was explaining that I wanted to learn to build a Bayesian multi-level model for my project--I wanted to do this in Stan and really get a thorough grounding in this kind of approach. He said (I'm paraphrasing), "one of the things I've had to learn here is that this isn't a Kaggle competition--that often interpretable models like logistic regression perform very well in a surprising amount of use cases. Getting a model to perform 90% of the time is already a success in a lot of ways because going beyond that _will_ take more time and _may not_ operationally improve what the model is predicting is a dramatic way". This is probably really difficult for those of us who really get excited about using something we just learned to tackle a problem, which I am in no way saying _'don't do that'_; what I'm saying is that often I have very limited time and in order to try and move the organization into a data driven future, there are many opportunities to deny myself the joy of over-complicating things when it isn't necessary. This is something I am going to try and keep in mind as I work on my project for the data fellows program and as this process begins to unfold.
 
 <br>
 
