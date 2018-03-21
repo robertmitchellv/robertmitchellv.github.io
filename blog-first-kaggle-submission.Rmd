@@ -10,6 +10,12 @@ output:
       after_body: footer-disqus.html
 ---
 
+<br>
+
+```{r setup, include=F}
+knitr::opts_chunk$set(python.reticulate = FALSE)
+```
+
 I have seen kaggle mentioned on twitter a lot; mostly by the data scientists and researchers I look up to, but there's never been much confidence that the site was for me in any way---mostly because I was a long way from my dream data science job with yet so much to learn.  Notwithstanding, I cannot help but try and hack my way to my destination!  I think it's a part of my learning process: thrust myself in the midst of something I don't understand, get stuck, try to get unstuck, finish with some understanding of what I was doing.
 
 <br>
@@ -43,7 +49,7 @@ Since the competition wants us to predict binary values, Chris notes that this d
 <br>
 
 
-```{python eval=F} 
+```{python, eval=F} 
 ### Kaggle Submission Code
 """
     //kaggle submission
@@ -128,7 +134,7 @@ After performing this--Chris suggested to submit to kaggle; being an extra caref
 
 <br>
 
-```{python eval=F}
+```{python, eval=F}
 ### Evaluation/Logloss
 """
     //kaggle submission
@@ -161,7 +167,7 @@ comments how I was understanding what the code did at the time.
 
 <br>
 
-```{python eval=F}
+```{python, eval=F}
 ### Cross Validation
 """
     //kaggle submission

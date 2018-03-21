@@ -10,6 +10,12 @@ output:
       after_body: footer-disqus.html
 ---
 
+<br>
+
+```{r setup, include=F}
+knitr::opts_chunk$set(python.reticulate = FALSE)
+```
+
 > As I learn more this page will be updated (and hopefully improved!)
 
 <br>
@@ -18,7 +24,7 @@ The goal of this post is to keep me from googling pandas questions that I've for
 
 <br>
 
-```{python eval=F}
+```{python, eval=F}
 ### Make matplotlib.pyplot look better with no effort:
 import matplotlib.pyplot as plt
 plt.style.use('ggplot')

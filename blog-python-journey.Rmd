@@ -10,6 +10,12 @@ output:
       after_body: footer-disqus.html
 ---
 
+<br>
+
+```{r setup, include=F}
+knitr::opts_chunk$set(python.reticulate = FALSE)
+```
+
 This was _quite_ a journey for me.  I started the same way everyone else
 has; with my very _first_ "Hello World" program written in Python 3:
 

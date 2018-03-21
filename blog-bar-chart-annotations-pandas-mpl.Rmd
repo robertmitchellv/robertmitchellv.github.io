@@ -10,6 +10,12 @@ output:
       after_body: footer-disqus.html
 ---
 
+<br>
+
+```{r setup, include=F}
+knitr::opts_chunk$set(python.reticulate = FALSE)
+```
+
 When I first started using Pandas, I loved how much easier it was to stick a plot method on a DataFrame or Series to get a better sense of what was going on.  However, I was not very impressed with what the plots looked like.  Any time I wanted to do something slightly different from the "Plotting" documentation on the pydata site, I found myself arm deep in MPL code that did not make any damn sense to me.  This was a problem for me, as I ended up spending way too much time trying to make small edits and not enough time working on the code I was trying to visualize.
 
 <br>
@@ -26,7 +32,7 @@ I warn you, it is not the most elegent solution, I am sure, but it worked for me
 
 <br>
 
-```{python eval=F}
+```{python, eval=F}
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
@@ -40,7 +46,7 @@ pd.set_option('display.max_row', 1000)
 pd.set_option('display.max_columns', 50)
 
 # Load the dataset
-data = pd.read_csv('5kings_battles_v1.csv')
+data = pd.read_csv('site_content/data/5kings_battles_v1.csv')
 ```
 
 <br>
@@ -49,7 +55,7 @@ data = pd.read_csv('5kings_battles_v1.csv')
 
 <br>
 
-```{python eval=F}
+```{python, eval=F}
 ax = data['region'].value_counts().plot(kind='barh', figsize=(10,7),
                                         color="coral", fontsize=13);
 ax.set_alpha(0.8)
@@ -86,7 +92,7 @@ The image above is the output from the Jupyter notebook.  I think it is super cl
 
 <br>
   
-```{python eval=F}
+```{python, eval=F}
 ax = data['region'].value_counts().plot(kind='bar', figsize=(10,7),
                                         color="coral", fontsize=13);
 ax.set_alpha(0.8)
@@ -122,7 +128,7 @@ I play around with the mpl.text() numbers for almost each chart.  They are never
 
 <br>
 
-```{python eval=F}
+```{python, eval=F}
 ax = data['attacker_outcome'].value_counts().plot(kind='bar', figsize=(10,7),
                                                   color="indigo", fontsize=13);
 ax.set_alpha(0.8)
@@ -157,7 +163,7 @@ If you are like me, often you like to isolate a categorical value in one column 
 
 <br>
 
-```{python eval=F}
+```{python, eval=F}
 losses = data[data['attacker_outcome'].str.contains("loss", na=False)]
 
 ax = losses['attacker_king'].value_counts().plot(kind='barh', figsize=(10,7),
@@ -187,7 +193,7 @@ You can also just project a couple columns from those that lost to compare a cou
 
 <br>
 
-```{python eval=F}
+```{python, eval=F}
 ax = losses[['attacker_size', 'defender_size']].plot(kind='bar',
               figsize=(15,7), color=['dodgerblue', 'slategray'], fontsize=13);
 ax.set_alpha(0.8)
@@ -221,7 +227,7 @@ Here is the chart done horizontally, which I prefer:
 
 <br>
 
-```{python eval=F}
+```{python, eval=F}
 ax = losses[['attacker_size', 'defender_size']].plot(kind='barh',
               figsize=(10,7), color=['dodgerblue', 'slategray'], fontsize=13);
 ax.set_alpha(0.8)
