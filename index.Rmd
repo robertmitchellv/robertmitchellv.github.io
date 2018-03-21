@@ -73,7 +73,6 @@ For the full bio click [here](about.html) or the button below.
 <article>
 <h3><a href="blog-adv-of-code-day-one.html">ADVENT OF CODE IN R: DAY 1</a></h3>
 <div class="summary">
-<span><i class="fa fa-calendar"></i> _2017-12-01_</span>
 <p> Over on the `rOpenSci` Slack, [Sam](https://twitter.com/samfirke) asked if anyone was doing the (Advent of Code)[http://adventofcode.com/] challenges in R.  A few others said they were interested and I decided to go for it as well!  My solutions...</p>
 <a class="btn btn-outline-primary btn-sm" href="">Full Post</a>
 </div>
