@@ -311,6 +311,7 @@ $(document).ready(function () {
 </div>
 
 
+<p><br></p>
 <p>When I first started using Pandas, I loved how much easier it was to stick a plot method on a DataFrame or Series to get a better sense of what was going on. However, I was not very impressed with what the plots looked like. Any time I wanted to do something slightly different from the “Plotting” documentation on the pydata site, I found myself arm deep in MPL code that did not make any damn sense to me. This was a problem for me, as I ended up spending way too much time trying to make small edits and not enough time working on the code I was trying to visualize.</p>
 <p><br></p>
 <p>One thing in particular bugged me. I could find no easy to understand tutorial on annotating a bar chart on StackOverflow or any other site. MPL had some documentation, but it was too confusing for me at the time. I spent a lot of time trying to figure out how to put some text right above my bars. Since I would have loved to see a snippet of code to help me in my journey, I thought I would throw it together in a brief post so others could use my workaround.</p>
@@ -333,7 +334,7 @@ pd.set_option(<span class="st">&#39;display.max_row&#39;</span>, <span class="dv
 pd.set_option(<span class="st">&#39;display.max_columns&#39;</span>, <span class="dv">50</span>)
 
 <span class="co"># Load the dataset</span>
-data <span class="op">=</span> pd.read_csv(<span class="st">&#39;5kings_battles_v1.csv&#39;</span>)</code></pre></div>
+data <span class="op">=</span> pd.read_csv(<span class="st">&#39;site_content/data/5kings_battles_v1.csv&#39;</span>)</code></pre></div>
 <p><br></p>
 </div>
 <div id="first-visualization-with-annotations" class="section level4">
