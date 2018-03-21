@@ -63,7 +63,7 @@ __YES__ because there is just _too_ much out there for one person to learn and/o
 <ul>
   <li>`r icon::fa("angle-double-right")` I am actually making progress!</li>
   <li>`r icon::fa("angle-double-right")` My work output as product</li>
-  <li>`r icon::fa("angle-double-right")` A _little_ aceticism goes a long way</li>
+  <li>`r icon::fa("angle-double-right")` A _little_ asceticism goes a long way</li>
 </ul>
 
 <br>
@@ -96,11 +96,11 @@ This is my personal downfall as I care _wayyy_ too much about how the things I m
 
 <br>
 
-### A LITTLE ACETICISM GOES A LONG WAY
+### A LITTLE ASCETICISM GOES A LONG WAY
 
 <br>
 
-My data science mentor Andrew said something to me that really hadn't occurred to me when I was explaining that I wanted to learn to build a Bayesian multi-level model for my project--I wanted to do this in Stan and really get a thorough grounding in this kind of approach. He said (I'm paraphrasing), "one of the things I've had to learn here is that this isn't a Kaggle competition--that often interpretable models like logistic regression perform very well in a surprising amount of use cases. Getting a model to perform 90% of the time is already a success in a lot of ways because going beyond that _will_ take more time and _may not_ operationally improve what the model is predicting is a dramatic way". This is probably really difficult for those of us who really get excited about using something we just learned to tackle a problem, which I am in no way saying _'don't do that'_; what I'm saying is that often I have very limited time and in order to try and move the organization into a data driven future, there are many opportunities to deny myself the joy of over-complicating things when it isn't necessary. This is something I am going to try and keep in mind as I work on my project for the data fellows program and as this process begins to unfold.
+My data science mentor Andrew Hillard said something to me that really hadn't occurred to me when I was explaining that I wanted to learn to build a Bayesian multi-level model for my project--I wanted to do this in Stan and really get a thorough grounding in this kind of approach. He said (I'm paraphrasing), "one of the things I've had to learn here is that this isn't a Kaggle competition--that often interpretable models like logistic regression perform very well in a surprising amount of use cases. Getting a model to perform 90% of the time is already a success in a lot of ways because going beyond that _will_ take more time and _may not_ operationally improve what the model is predicting is a dramatic way". This is probably really difficult for those of us who really get excited about using something we just learned to tackle a problem, which I am in no way saying _'don't do that'_; what I'm saying is that often I have very limited time and in order to try and move the organization into a data driven future, there are many opportunities to deny myself the joy of over-complicating things when it isn't necessary. This is something I am going to try and keep in mind as I work on my project for the data fellows program and as this process begins to unfold.
 
 <br>
 
