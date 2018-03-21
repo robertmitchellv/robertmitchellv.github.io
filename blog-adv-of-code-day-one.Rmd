@@ -10,10 +10,7 @@ output:
       after_body: footer-disqus.html
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(cache = TRUE)
-```
-
+<br>
 
 Over on the `rOpenSci` Slack, [Sam](https://twitter.com/samfirke) asked if anyone was doing the [Advent of Code](http://adventofcode.com/) challenges in R.  A few others said they were interested and I decided to go for it as well!  My solutions are likely not as savvy as the other more experienced programmers, but it was a fun way to see how other people approach problems and if there is anything about their approach that you can incorporate into your programming style.
 

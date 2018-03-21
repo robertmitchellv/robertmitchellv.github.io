@@ -23,14 +23,12 @@ In order to get the data for this visualization you will need to create a free a
 __Load Packages__
 ```{r, eval=F}
 library(tidyverse)
-library(stringr)
 library(plotly)
 
 ```
 
 ```{r, include=F}
 library(tidyverse)
-library(stringr)
 library(plotly)
 library(DT)
 ```
@@ -170,26 +168,32 @@ polio_color <- tribble(
 __Plot the data__
 ```{r plotly}
 polio %>%
-  plot_ly(x = ~year, y = ~state) %>%
-    add_heatmap(z = ~totals, zmin = 0, zmax = 190,
-          text = ~paste("Year: ", year, "<br>State: ", state,
-                        "<br>Total Cases: ", totals),
-          hoverinfo = "text", colorscale = polio_color, showscale = F,
-          opacity = 0.85) %>%
-    add_annotations("Vaccine Introduced", x = 1957.5, y = -1.5, showarrow = F) %>%
-    add_segments(x = 1955, xend = 1955, y = ~state[3], yend = ~state[49],
-                 line = list(width = 2, color = "black"),
-                 name = "1955", hoverinfo = "text",
-                 text = paste("Vaccine Introduced: 1955")) %>%
-    layout(title = "Polio", 
-           xaxis = list(title = "", nticks = 10),
-           yaxis = list(title = "", autorange = "reversed"),
-           margin = m, autosize = F, height = 1000, width = 950)
+  plot_ly(
+    x = ~year, y = ~state,
+    height = 1000, width = 950) %>%
+  add_heatmap(
+    z = ~totals, zmin = 0, zmax = 190,
+    text = ~paste(
+      "Year: ", year, "<br>State: ", state,
+      "<br>Total Cases: ", totals),
+    hoverinfo = "text", colorscale = polio_color, showscale = F,
+    opacity = 0.85) %>%
+  add_annotations(
+    "Vaccine Introduced", x = 1957.5, y = -1.5, showarrow = F) %>%
+  add_segments(
+    x = 1955, xend = 1955, y = ~state[3], yend = ~state[49],
+    line = list(width = 2, color = "black"),
+    name = "1955", hoverinfo = "text",
+    text = paste("Vaccine Introduced: 1955")) %>%
+  layout(
+    title = "Polio",
+    xaxis = list(title = "", nticks = 10),
+    yaxis = list(title = "", autorange = "reversed"),
+    margin = m, autosize = F)
 
 ```
 
-<br><br><br><br><br><br><br><br><br><br><br><br><br>
-<br><br><br><br><br><br><br><br><br><br><br><br><br>
+<br>
 
 There's a lot going on here, but the code is not too verbose (at least I don't think).  I add the `year` and `state` data to the regular `plot_ly` function while placing the `z` data that transforms it into a heatmap in `add_heatmap`.  Even though I'm pushing the annotation outside of the plot, plotly doesn't add any more y ticks.  However, in `add_segments` if I used `y = ~min(state), yend = ~max(state)` there would have been two extra y ticks on the bottom (0 and 1).  This is annoying and I tried many different things to get everything to behave nicely but it's hard to get a heatmap and lines and annotations to work well together.  My workaround is to just make the segment line a little shorter, but I don't think it looks too bad.
 
