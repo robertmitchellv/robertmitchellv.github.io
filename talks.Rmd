@@ -1,0 +1,25 @@
+---
+title: "TALKS" 
+---
+
+<!---
+<article>
+<h3><a href="talk-2017-09-data-donuts.html">Ex-nihilo data analysis; getting up and running with limited resources</a></h3>
+<div class="summary">
+<span><i class="fa fa-calendar"></i> _2017-09_</span>
+<p>Data + Donuts | Los angeles, CA</p>
+<a class="btn btn-outline-primary btn-sm" href="talk-2017-09-data-donuts.html" role="button">Full Post</a>
+</div>
+</article>
+--->
+
+<article>
+<h3><a href="talk-2017-09-data-donuts.html">Ex-nihilo data analysis; getting up and running with limited resources</a></h3>
+<div class="summary">
+<span><i class="fa fa-calendar"></i> _2017-09_</span>
+<p>Data + Donuts | Los angeles, CA</p>
+<a class="btn btn-outline-primary btn-sm" href="talk-2017-09-data-donuts.html" role="button">Full Post</a>
+</div>
+</article>
+
+<br>

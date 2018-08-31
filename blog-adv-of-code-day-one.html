@@ -11,6 +11,7 @@
 
 <meta name="author" content="Robert Mitchell" />
 
+<meta name="date" content="2017-12-01" />
 
 <title>ADVENT OF CODE IN R: DAY 1</title>
 
@@ -21,46 +22,74 @@
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
-<link href="site_libs/font-awesome-4.5.0/css/font-awesome.min.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.0.13/css/fa-svg-with-js.css" rel="stylesheet" />
+<script src="site_libs/font-awesome-5.0.13/js/fontawesome-all.min.js"></script>
+<script src="site_libs/font-awesome-5.0.13/js/fa-v4-shims.min.js"></script>
 
 
 <style type="text/css">code{white-space: pre;}</style>
 <style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code > span.dt { color: #902000; } /* DataType */
-code > span.dv { color: #40a070; } /* DecVal */
-code > span.bn { color: #40a070; } /* BaseN */
-code > span.fl { color: #40a070; } /* Float */
-code > span.ch { color: #4070a0; } /* Char */
-code > span.st { color: #4070a0; } /* String */
-code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code > span.ot { color: #007020; } /* Other */
-code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code > span.fu { color: #06287e; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #880000; } /* Constant */
-code > span.sc { color: #4070a0; } /* SpecialChar */
-code > span.vs { color: #4070a0; } /* VerbatimString */
-code > span.ss { color: #bb6688; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #19177c; } /* Variable */
-code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #666666; } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #bc7a00; } /* Preprocessor */
-code > span.at { color: #7d9029; } /* Attribute */
-code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 <style type="text/css">
   pre:not([class]) {
@@ -118,6 +147,9 @@ img {
 }
 .tabbed-pane {
   padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
 }
 button.code-folding-btn:focus {
   outline: none;
@@ -232,6 +264,13 @@ $(document).ready(function () {
   </a>
 </li>
 <li>
+  <a href="talks.html" onclick="fadeInOut()">
+    <span class="fa fa-comments-o"></span>
+     
+    Talks
+  </a>
+</li>
+<li>
   <a href="about.html" onclick="fadeInOut()">
     <span class="fa fa-newspaper-o"></span>
      
@@ -332,43 +371,43 @@ $(document).ready(function () {
 <p><br></p>
 <p>Here are the packages I used</p>
 <p><strong>Load Packages</strong></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(tidyverse)</code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw">library</span>(tidyverse)</a></code></pre></div>
 <p><br></p>
 <p><strong>My puzzle input</strong></p>
 <p><br></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">data &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;6592822488931338589815525425236818285229555616392928433262436847386544514648645288129834834862363847542262953164877694234514375164927616649264122487182321437459646851966649732474925353281699895326824852555747127547527163197544539468632369858413232684269835288817735678173986264554586412678364433327621627496939956645283712453265255261565511586373551439198276373843771249563722914847255524452675842558622845416218195374459386785618255129831539984559644185369543662821311686162137672168266152494656448824719791398797359326412235723234585539515385352426579831251943911197862994974133738196775618715739412713224837531544346114877971977411275354168752719858889347588136787894798476123335894514342411742111135337286449968879251481449757294167363867119927811513529711239534914119292833111624483472466781475951494348516125474142532923858941279569675445694654355314925386833175795464912974865287564866767924677333599828829875283753669783176288899797691713766199641716546284841387455733132519649365113182432238477673375234793394595435816924453585513973119548841577126141962776649294322189695375451743747581241922657947182232454611837512564776273929815169367899818698892234618847815155578736875295629917247977658723868641411493551796998791839776335793682643551875947346347344695869874564432566956882395424267187552799458352121248147371938943799995158617871393289534789214852747976587432857675156884837634687257363975437535621197887877326295229195663235129213398178282549432599455965759999159247295857366485345759516622427833518837458236123723353817444545271644684925297477149298484753858863551357266259935298184325926848958828192317538375317946457985874965434486829387647425222952585293626473351211161684297351932771462665621764392833122236577353669215833721772482863775629244619639234636853267934895783891823877845198326665728659328729472456175285229681244974389248235457688922179237895954959228638193933854787917647154837695422429184757725387589969781672596568421191236374563718951738499591454571728641951699981615249635314789251239677393251756396&quot;</span>)</code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1">data &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;6592822488931338589815525425236818285229555616392928433262436847386544514648645288129834834862363847542262953164877694234514375164927616649264122487182321437459646851966649732474925353281699895326824852555747127547527163197544539468632369858413232684269835288817735678173986264554586412678364433327621627496939956645283712453265255261565511586373551439198276373843771249563722914847255524452675842558622845416218195374459386785618255129831539984559644185369543662821311686162137672168266152494656448824719791398797359326412235723234585539515385352426579831251943911197862994974133738196775618715739412713224837531544346114877971977411275354168752719858889347588136787894798476123335894514342411742111135337286449968879251481449757294167363867119927811513529711239534914119292833111624483472466781475951494348516125474142532923858941279569675445694654355314925386833175795464912974865287564866767924677333599828829875283753669783176288899797691713766199641716546284841387455733132519649365113182432238477673375234793394595435816924453585513973119548841577126141962776649294322189695375451743747581241922657947182232454611837512564776273929815169367899818698892234618847815155578736875295629917247977658723868641411493551796998791839776335793682643551875947346347344695869874564432566956882395424267187552799458352121248147371938943799995158617871393289534789214852747976587432857675156884837634687257363975437535621197887877326295229195663235129213398178282549432599455965759999159247295857366485345759516622427833518837458236123723353817444545271644684925297477149298484753858863551357266259935298184325926848958828192317538375317946457985874965434486829387647425222952585293626473351211161684297351932771462665621764392833122236577353669215833721772482863775629244619639234636853267934895783891823877845198326665728659328729472456175285229681244974389248235457688922179237895954959228638193933854787917647154837695422429184757725387589969781672596568421191236374563718951738499591454571728641951699981615249635314789251239677393251756396&quot;</span>)</a></code></pre></div>
 <p><br></p>
 <p>It may seem weird, but I thought it would be easier to read this in as a string and then use <code>stringr::str_split()</code> to get each value separated in order to aid in processing.</p>
 <p><strong>Split the data into a single digit vector</strong></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">digits &lt;-<span class="st"> </span>data <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">str_split</span>(<span class="st">&quot;&quot;</span>)</code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1">digits &lt;-<span class="st"> </span>data <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">str_split</span>(<span class="st">&quot;&quot;</span>)</a></code></pre></div>
 <p><br></p>
 <p>My next idea was to create an index so I don’t have to use a <code>for()</code> loop and rely on the index generated from that process. I also converted the digits back to the integer data type.</p>
 <p><strong>Convert vector to a tibble and add an index</strong></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">puzzle &lt;-<span class="st"> </span><span class="kw">tibble</span>(<span class="dt">digits =</span> digits[[<span class="dv">1</span>]]) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">mutate</span>(
-    <span class="dt">index =</span> <span class="kw">row_number</span>(),
-    <span class="dt">digits =</span> <span class="kw">parse_integer</span>(digits)) <span class="op">%&gt;%</span><span class="st"> </span>
-<span class="st">  </span><span class="kw">select</span>(index, digits)</code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1">puzzle &lt;-<span class="st"> </span><span class="kw">tibble</span>(<span class="dt">digits =</span> digits[[<span class="dv">1</span>]]) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb4-2" data-line-number="2"><span class="st">  </span><span class="kw">mutate</span>(</a>
+<a class="sourceLine" id="cb4-3" data-line-number="3">    <span class="dt">index =</span> <span class="kw">row_number</span>(),</a>
+<a class="sourceLine" id="cb4-4" data-line-number="4">    <span class="dt">digits =</span> <span class="kw">parse_integer</span>(digits)) <span class="op">%&gt;%</span><span class="st"> </span></a>
+<a class="sourceLine" id="cb4-5" data-line-number="5"><span class="st">  </span><span class="kw">select</span>(index, digits)</a></code></pre></div>
 <p><br></p>
 <p>I find setting up even really simple <code>if_else</code> logic so much easier when using <code>case_when()</code> since I don’t have to worry about the dataframe and can use the variable name. We’re just checking to see if the digit ahead is similar to the digit before and designating the flag in another column with either <code>Match</code> or <code>No Match</code>.</p>
 <p><strong>Find out where the matches are</strong></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">puzzle &lt;-<span class="st"> </span>puzzle <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">match =</span> <span class="kw">case_when</span>(
-    digits <span class="op">==</span><span class="st"> </span>digits[index <span class="op">+</span><span class="st"> </span><span class="dv">1</span>] <span class="op">~</span><span class="st"> &quot;Match&quot;</span>,
-    <span class="ot">TRUE</span> <span class="op">~</span><span class="st"> &quot;No Match&quot;</span>)) </code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1">puzzle &lt;-<span class="st"> </span>puzzle <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb5-2" data-line-number="2"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">match =</span> <span class="kw">case_when</span>(</a>
+<a class="sourceLine" id="cb5-3" data-line-number="3">    digits <span class="op">==</span><span class="st"> </span>digits[index <span class="op">+</span><span class="st"> </span><span class="dv">1</span>] <span class="op">~</span><span class="st"> &quot;Match&quot;</span>,</a>
+<a class="sourceLine" id="cb5-4" data-line-number="4">    <span class="ot">TRUE</span> <span class="op">~</span><span class="st"> &quot;No Match&quot;</span>)) </a></code></pre></div>
 <p>I was convinced for a second I could do something like <code>puzzle$digits[-1]</code> to get the last value but then remembered I was thinking about Python and not R–whoops! Here I’m just checking to see if the first and last digits match since the list is conceptually circular. This reminds me of the first and last lines of <em>Finnegan’s Wake</em> being circular. In any case, this is just a quick check.</p>
 <p><strong>Check if last and first digits match</strong></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">puzzle<span class="op">$</span>match[<span class="dv">1</span>] &lt;-<span class="st"> </span><span class="kw">if_else</span>(puzzle<span class="op">$</span>digits[<span class="dv">1</span>] <span class="op">==</span><span class="st"> </span>puzzle<span class="op">$</span>digits[<span class="kw">length</span>(puzzle<span class="op">$</span>digits)], <span class="st">&quot;Match&quot;</span>, <span class="st">&quot;No Match&quot;</span>)</code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1">puzzle<span class="op">$</span>match[<span class="dv">1</span>] &lt;-<span class="st"> </span><span class="kw">if_else</span>(puzzle<span class="op">$</span>digits[<span class="dv">1</span>] <span class="op">==</span><span class="st"> </span>puzzle<span class="op">$</span>digits[<span class="kw">length</span>(puzzle<span class="op">$</span>digits)], <span class="st">&quot;Match&quot;</span>, <span class="st">&quot;No Match&quot;</span>)</a></code></pre></div>
 <p><br></p>
 <p>Now we can get the sum and check our work to see if our solution returned a correct response.</p>
 <p><strong>Get the sum</strong></p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">puzzle <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">filter</span>(match <span class="op">==</span><span class="st"> &quot;Match&quot;</span>) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">summarise</span>(<span class="dt">sum_of_matches =</span> <span class="kw">sum</span>(digits))</code></pre></div>
-<pre><code>## # A tibble: 1 x 1
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb7-1" data-line-number="1">puzzle <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb7-2" data-line-number="2"><span class="st">  </span><span class="kw">filter</span>(match <span class="op">==</span><span class="st"> &quot;Match&quot;</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb7-3" data-line-number="3"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">sum_of_matches =</span> <span class="kw">sum</span>(digits))</a></code></pre></div>
+<pre><code>## [38;5;246m# A tibble: 1 x 1[39m
 ##   sum_of_matches
-##            &lt;int&gt;
-## 1           1029</code></pre>
+##            [3m[38;5;246m&lt;int&gt;[39m[23m
+## [38;5;250m1[39m           [4m1[24m029</code></pre>
 <p><br></p>
 <p><strong>YAY Correct!</strong> 🥂</p>
 <p><br></p>
@@ -388,30 +427,30 @@ $(document).ready(function () {
 </ul>
 <p><br></p>
 <p>My initial thought is to just break the dataframe in half and then check if the digits match, which is acomplished by <code>slice</code>ing it in half and preparing to bind the columns by renaming some variables.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">first_half &lt;-<span class="st"> </span>puzzle <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">slice</span>(<span class="dv">1</span><span class="op">:</span>(<span class="kw">nrow</span>(puzzle) <span class="op">/</span><span class="st"> </span><span class="dv">2</span>)) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">select</span>(<span class="op">-</span>match) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">rename</span>(
-    <span class="dt">first_index =</span> index,
-    <span class="dt">first_digits =</span> digits)
-
-second_half &lt;-<span class="st"> </span>puzzle <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">slice</span>(((<span class="kw">nrow</span>(puzzle) <span class="op">/</span><span class="st"> </span><span class="dv">2</span>) <span class="op">+</span><span class="st"> </span><span class="dv">1</span>)<span class="op">:</span><span class="kw">nrow</span>(puzzle)) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">select</span>(<span class="op">-</span>match) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">rename</span>(
-    <span class="dt">second_index =</span> index,
-    <span class="dt">second_digits =</span> digits)</code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb9-1" data-line-number="1">first_half &lt;-<span class="st"> </span>puzzle <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb9-2" data-line-number="2"><span class="st">  </span><span class="kw">slice</span>(<span class="dv">1</span><span class="op">:</span>(<span class="kw">nrow</span>(puzzle) <span class="op">/</span><span class="st"> </span><span class="dv">2</span>)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb9-3" data-line-number="3"><span class="st">  </span><span class="kw">select</span>(<span class="op">-</span>match) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb9-4" data-line-number="4"><span class="st">  </span><span class="kw">rename</span>(</a>
+<a class="sourceLine" id="cb9-5" data-line-number="5">    <span class="dt">first_index =</span> index,</a>
+<a class="sourceLine" id="cb9-6" data-line-number="6">    <span class="dt">first_digits =</span> digits)</a>
+<a class="sourceLine" id="cb9-7" data-line-number="7"></a>
+<a class="sourceLine" id="cb9-8" data-line-number="8">second_half &lt;-<span class="st"> </span>puzzle <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb9-9" data-line-number="9"><span class="st">  </span><span class="kw">slice</span>(((<span class="kw">nrow</span>(puzzle) <span class="op">/</span><span class="st"> </span><span class="dv">2</span>) <span class="op">+</span><span class="st"> </span><span class="dv">1</span>)<span class="op">:</span><span class="kw">nrow</span>(puzzle)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb9-10" data-line-number="10"><span class="st">  </span><span class="kw">select</span>(<span class="op">-</span>match) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb9-11" data-line-number="11"><span class="st">  </span><span class="kw">rename</span>(</a>
+<a class="sourceLine" id="cb9-12" data-line-number="12">    <span class="dt">second_index =</span> index,</a>
+<a class="sourceLine" id="cb9-13" data-line-number="13">    <span class="dt">second_digits =</span> digits)</a></code></pre></div>
 <p><br></p>
 <p>Now it is a simple <code>bind_cols</code> and then checking for matches, adding matches together and summing that column to get our answer.</p>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">first_half <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">bind_cols</span>(second_half) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">match =</span> <span class="kw">if_else</span>(first_digits <span class="op">==</span><span class="st"> </span>second_digits, <span class="st">&quot;Match&quot;</span>, <span class="st">&quot;No Match&quot;</span>)) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">filter</span>(match <span class="op">==</span><span class="st"> &quot;Match&quot;</span>) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">mutate</span>(<span class="dt">total =</span> first_digits <span class="op">+</span><span class="st"> </span>second_digits) <span class="op">%&gt;%</span>
-<span class="st">  </span><span class="kw">summarise</span>(<span class="dt">sum =</span> <span class="kw">sum</span>(total))</code></pre></div>
-<pre><code>## # A tibble: 1 x 1
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb10-1" data-line-number="1">first_half <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">bind_cols</span>(second_half) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb10-2" data-line-number="2"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">match =</span> <span class="kw">if_else</span>(first_digits <span class="op">==</span><span class="st"> </span>second_digits, <span class="st">&quot;Match&quot;</span>, <span class="st">&quot;No Match&quot;</span>)) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb10-3" data-line-number="3"><span class="st">  </span><span class="kw">filter</span>(match <span class="op">==</span><span class="st"> &quot;Match&quot;</span>) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb10-4" data-line-number="4"><span class="st">  </span><span class="kw">mutate</span>(<span class="dt">total =</span> first_digits <span class="op">+</span><span class="st"> </span>second_digits) <span class="op">%&gt;%</span></a>
+<a class="sourceLine" id="cb10-5" data-line-number="5"><span class="st">  </span><span class="kw">summarise</span>(<span class="dt">sum =</span> <span class="kw">sum</span>(total))</a></code></pre></div>
+<pre><code>## [38;5;246m# A tibble: 1 x 1[39m
 ##     sum
-##   &lt;int&gt;
-## 1  1220</code></pre>
+##   [3m[38;5;246m&lt;int&gt;[39m[23m
+## [38;5;250m1[39m  [4m1[24m220</code></pre>
 <p><strong>YES! Correct again!</strong> 🎉</p>
 </div>
 </div>

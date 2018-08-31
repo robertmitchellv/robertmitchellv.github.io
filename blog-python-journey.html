@@ -11,6 +11,7 @@
 
 <meta name="author" content="Robert Mitchell" />
 
+<meta name="date" content="2014-12-05" />
 
 <title>THE PYTHON JOURNEY—ONE SEMESTER WITH PYTHON 3.4</title>
 
@@ -21,46 +22,74 @@
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
-<link href="site_libs/font-awesome-4.5.0/css/font-awesome.min.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.0.13/css/fa-svg-with-js.css" rel="stylesheet" />
+<script src="site_libs/font-awesome-5.0.13/js/fontawesome-all.min.js"></script>
+<script src="site_libs/font-awesome-5.0.13/js/fa-v4-shims.min.js"></script>
 
 
 <style type="text/css">code{white-space: pre;}</style>
 <style type="text/css">
-div.sourceCode { overflow-x: auto; }
-table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
-  margin: 0; padding: 0; vertical-align: baseline; border: none; }
-table.sourceCode { width: 100%; line-height: 100%; }
-td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
-td.sourceCode { padding-left: 5px; }
-code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
-code > span.dt { color: #902000; } /* DataType */
-code > span.dv { color: #40a070; } /* DecVal */
-code > span.bn { color: #40a070; } /* BaseN */
-code > span.fl { color: #40a070; } /* Float */
-code > span.ch { color: #4070a0; } /* Char */
-code > span.st { color: #4070a0; } /* String */
-code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
-code > span.ot { color: #007020; } /* Other */
-code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
-code > span.fu { color: #06287e; } /* Function */
-code > span.er { color: #ff0000; font-weight: bold; } /* Error */
-code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
-code > span.cn { color: #880000; } /* Constant */
-code > span.sc { color: #4070a0; } /* SpecialChar */
-code > span.vs { color: #4070a0; } /* VerbatimString */
-code > span.ss { color: #bb6688; } /* SpecialString */
-code > span.im { } /* Import */
-code > span.va { color: #19177c; } /* Variable */
-code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
-code > span.op { color: #666666; } /* Operator */
-code > span.bu { } /* BuiltIn */
-code > span.ex { } /* Extension */
-code > span.pp { color: #bc7a00; } /* Preprocessor */
-code > span.at { color: #7d9029; } /* Attribute */
-code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
-code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
-code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
-code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(data-line-number);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
 </style>
 <style type="text/css">
   pre:not([class]) {
@@ -118,6 +147,9 @@ img {
 }
 .tabbed-pane {
   padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
 }
 button.code-folding-btn:focus {
   outline: none;
@@ -232,6 +264,13 @@ $(document).ready(function () {
   </a>
 </li>
 <li>
+  <a href="talks.html" onclick="fadeInOut()">
+    <span class="fa fa-comments-o"></span>
+     
+    Talks
+  </a>
+</li>
+<li>
   <a href="about.html" onclick="fadeInOut()">
     <span class="fa fa-newspaper-o"></span>
      
@@ -313,17 +352,17 @@ $(document).ready(function () {
 <p><br></p>
 <p>This was <em>quite</em> a journey for me. I started the same way everyone else has; with my very <em>first</em> “Hello World” program written in Python 3:</p>
 <p><br></p>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co"># Hello World! program.</span>
-<span class="kw">def</span> main():
-    <span class="co">#get the user&#39;s name</span>
-    name <span class="op">=</span> <span class="bu">input</span>(<span class="st">&#39;What is your name? &#39;</span>)
-    <span class="bu">print</span>(<span class="st">&#39;Hello World! I am&#39;</span>, name)
-
-<span class="co"># Call the main function</span>
-main()</code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="co"># Hello World! program.</span></a>
+<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="kw">def</span> main():</a>
+<a class="sourceLine" id="cb1-3" data-line-number="3">    <span class="co">#get the user&#39;s name</span></a>
+<a class="sourceLine" id="cb1-4" data-line-number="4">    name <span class="op">=</span> <span class="bu">input</span>(<span class="st">&#39;What is your name? &#39;</span>)</a>
+<a class="sourceLine" id="cb1-5" data-line-number="5">    <span class="bu">print</span>(<span class="st">&#39;Hello World! I am&#39;</span>, name)</a>
+<a class="sourceLine" id="cb1-6" data-line-number="6"></a>
+<a class="sourceLine" id="cb1-7" data-line-number="7"><span class="co"># Call the main function</span></a>
+<a class="sourceLine" id="cb1-8" data-line-number="8">main()</a></code></pre></div>
 <p>This was the first assignment for my Programming in Python course. I was not content to have it only print “Hello World”—no, I need to personalize it in some small way. The following was really interface (if I’m speaking pythonically); to a wider interest in programming <em>qua</em> programming:</p>
 <p><br></p>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python">name <span class="op">=</span> <span class="bu">input</span>(<span class="st">&#39;What is your name? &#39;</span>)</code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb2-1" data-line-number="1">name <span class="op">=</span> <span class="bu">input</span>(<span class="st">&#39;What is your name? &#39;</span>)</a></code></pre></div>
 <p><br></p>
 <p>Nevertheless, I was not content with this. I allowed myself to be sucked into a forceful vortex that had me thinking I’d be using Jupytr notebooks, matplotlib, etc., to show off how much I know about Python from Twitter. Notwithstanding, the above is what was submitted because I didn’t know how to do any of the fancy stuff I read about. I didn’t know how to use Pandas. I didn’t know how to use Blaze. I didn’t even know how to use <em>‘conda update conda’</em> in my terminal (oh; it’s a package manager—not just an easy way to install Python 3.4 on my computer at work without Admin privlages!).</p>
 <p><br></p>
@@ -350,243 +389,243 @@ main()</code></pre></div>
 <p><br></p>
 <p>Here are my solutions:</p>
 <p><br></p>
-<div class="sourceCode"><pre class="sourceCode python"><code class="sourceCode python"><span class="co"># -*- coding: utf-8 -*-</span>
-<span class="co">&quot;&quot;&quot;     A10--Trivia Game!</span>
-<span class="co">        --&gt; two player trivia game</span>
-<span class="co">        --&gt; OOP approach to building the game with classes and objects</span>
-<span class="co">&quot;&quot;&quot;</span>
-<span class="im">import</span> csv
-<span class="im">import</span> random
-
-<span class="co"># the Question class acts as a placeholder for the parts of the question</span>
-<span class="co"># needed to construct questions and check answers</span>
-<span class="kw">class</span> Question:
-    <span class="co"># __init__ uses the Data class method getData through composition</span>
-    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, question, a1, a2, a3, a4, answer, ansNum):
-        <span class="va">self</span>.getData <span class="op">=</span> Data(<span class="st">&#39;csv&#39;</span>)
-        <span class="va">self</span>.question <span class="op">=</span> question
-        <span class="va">self</span>.a1 <span class="op">=</span> a1
-        <span class="va">self</span>.a2 <span class="op">=</span> a2
-        <span class="va">self</span>.a3 <span class="op">=</span> a3
-        <span class="va">self</span>.a4 <span class="op">=</span> a4
-        <span class="va">self</span>.answer <span class="op">=</span> answer
-        <span class="va">self</span>.ansNum <span class="op">=</span> ansNum
-
-    <span class="co"># the method performs better as a class method since it instantiates the</span>
-    <span class="co"># Question class with sample questions for the game</span>
-    <span class="at">@classmethod</span>
-    <span class="kw">def</span> getQuestion(cls, triviaDict):
-        <span class="co"># using random to get 10 random numbers between a specific range for</span>
-        <span class="co"># trivia questions</span>
-        randomGenerator <span class="op">=</span> random.sample(<span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">817</span>), <span class="dv">1</span>)
-
-        <span class="co"># for an individual random number in the sample range</span>
-        <span class="co"># --&gt; iterate and use number as index for the trivia questions</span>
-        <span class="cf">for</span> i <span class="kw">in</span> randomGenerator:
-            question <span class="op">=</span> triviaDict[i][<span class="dv">0</span>]
-            a1 <span class="op">=</span> triviaDict[i][<span class="dv">1</span>]
-            a2<span class="op">=</span> triviaDict[i][<span class="dv">2</span>]
-            a3 <span class="op">=</span> triviaDict[i][<span class="dv">3</span>]
-            a4 <span class="op">=</span> triviaDict[i][<span class="dv">4</span>]
-            answer <span class="op">=</span> triviaDict[i][<span class="dv">5</span>]
-            ansNum <span class="op">=</span> triviaDict[i][<span class="dv">6</span>]
-
-        <span class="co"># this creates an instance to return (from question class)</span>
-        aQuestion <span class="op">=</span> Question(question, a1, a2, a3, a4, answer, ansNum)
-        <span class="cf">return</span> aQuestion
-
-    <span class="co"># this is a part of using composition rather than inheritance to get the</span>
-    <span class="co"># attributes from the getData method</span>
-    <span class="kw">def</span> <span class="fu">__getattr__</span>(<span class="va">self</span>, attr):
-        <span class="cf">return</span> <span class="bu">getattr</span>(<span class="va">self</span>.getData, attr)
-
-    <span class="co"># this method sets up the question (also checks answer)</span>
-    <span class="at">@classmethod</span>
-    <span class="kw">def</span> setupAsk(cls, q):
-        <span class="bu">print</span>(<span class="st">&#39;</span><span class="ch">\n</span><span class="st">&#39;</span>, q.question, <span class="st">&#39;</span><span class="ch">\n\t</span><span class="st">1: &#39;</span>, q.a1, <span class="st">&#39; \</span>
-<span class="st">                 </span><span class="ch">\n\t</span><span class="st">2: &#39;</span>, q.a2, <span class="st">&#39;</span><span class="ch">\n\t</span><span class="st">3: &#39;</span>, q.a3, <span class="st">&#39; \</span>
-<span class="st">                 </span><span class="ch">\n\t</span><span class="st">4: &#39;</span>, q.a4, <span class="st">&#39;</span><span class="ch">\n</span><span class="st">&#39;</span>)
-
-        <span class="co"># make sure the user&#39;s input works</span>
-        <span class="cf">while</span> <span class="va">True</span>:
-            <span class="cf">try</span>:
-                choice <span class="op">=</span> <span class="bu">int</span>(<span class="bu">input</span>(<span class="st">&quot;</span><span class="ch">\n</span><span class="st">What&#39;s your answer? </span><span class="ch">\n</span><span class="st">--&gt; &quot;</span>))
-            <span class="cf">except</span> <span class="pp">ValueError</span>:
-                <span class="bu">print</span>(<span class="st">&#39;</span><span class="ch">\n</span><span class="st">Sorry, the answer only accepts numbers; please \</span>
-<span class="st">                       enter a number 1-4&#39;</span>)
-                choice <span class="op">=</span> <span class="bu">int</span>(<span class="bu">input</span>(<span class="st">&quot;</span><span class="ch">\n</span><span class="st">What&#39;s your answer? </span><span class="ch">\n</span><span class="st">--&gt; &quot;</span>))
-            <span class="cf">finally</span>:
-                <span class="cf">if</span> choice <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">5</span>):
-                    <span class="cf">break</span>
-
-        <span class="co"># if the question is correct, return true; if not, return false</span>
-        <span class="cf">if</span> choice <span class="op">==</span> q.ansNum:
-            <span class="bu">print</span>(<span class="st">&#39;</span><span class="ch">\n</span><span class="st">Correct! </span><span class="ch">\n</span><span class="st">&#39;</span>, q.answer)
-            <span class="cf">return</span> <span class="va">True</span>
-        <span class="cf">elif</span> choice <span class="op">!=</span> q.ansNum:
-            <span class="bu">print</span>(<span class="st">&#39;</span><span class="ch">\n</span><span class="st">Incorrect!  </span><span class="ch">\n</span><span class="st">&#39;</span>, q.answer)
-            <span class="cf">return</span> <span class="va">False</span>
-
-<span class="co"># the Data class handles openning the file and preparing it to be used by</span>
-<span class="co"># the Question and Game class</span>
-<span class="kw">class</span> Data:
-    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, filetype):
-        <span class="va">self</span>.filetype <span class="op">=</span> filetype
-
-    <span class="co"># opens the CSV to read and prepare it to be used in computaiton later</span>
-    <span class="at">@classmethod</span>
-    <span class="kw">def</span> getData(cls):
-        <span class="co"># make sure there isn&#39;t an IO error</span>
-        <span class="cf">try</span>:
-            <span class="co"># open the csv file + use an index accumulator for dictionary</span>
-            <span class="cf">with</span> <span class="bu">open</span>(<span class="st">&#39;trivia.csv&#39;</span>) <span class="im">as</span> csvFile:
-                readCSV <span class="op">=</span> csv.reader(csvFile, delimiter<span class="op">=</span><span class="st">&#39;,&#39;</span>)
-                index <span class="op">=</span> <span class="dv">0</span>
-
-                <span class="co"># questions, answer choices, and answers dictionary</span>
-                rowDict <span class="op">=</span> {}
-                questionData <span class="op">=</span> {}
-                <span class="co"># reading the trivia questions</span>
-                <span class="cf">for</span> row <span class="kw">in</span> readCSV:
-                    rowDict[index] <span class="op">=</span> row
-                    question <span class="op">=</span> rowDict[index][<span class="dv">0</span>]
-                    a1 <span class="op">=</span> rowDict[index][<span class="dv">1</span>]
-                    a2 <span class="op">=</span> rowDict[index][<span class="dv">2</span>]
-                    a3 <span class="op">=</span> rowDict[index][<span class="dv">3</span>]
-                    a4 <span class="op">=</span> rowDict[index][<span class="dv">4</span>]
-                    answer <span class="op">=</span> rowDict[index][<span class="dv">5</span>]
-
-                    <span class="co"># figure out which answer is correct and assign a variable</span>
-                    <span class="cf">if</span> answer <span class="op">==</span> a1:
-                        ansNum <span class="op">=</span> <span class="dv">1</span>
-                    <span class="cf">elif</span> answer <span class="op">==</span> a2:
-                        ansNum <span class="op">=</span> <span class="dv">2</span>
-                    <span class="cf">elif</span> answer <span class="op">==</span> a3:
-                        ansNum <span class="op">=</span> <span class="dv">3</span>
-                    <span class="cf">elif</span> answer <span class="op">==</span> a4:
-                        ansNum <span class="op">=</span> <span class="dv">4</span>
-                    <span class="cf">else</span>:
-                        <span class="bu">print</span>(<span class="st">&quot;Error!  No correct answer&quot;</span>)
-
-                    <span class="co"># place questions into new dictionary in the right order</span>
-                    questionData[index] <span class="op">=</span> [question, a1, a2, a3, a4, <span class="op">\</span>
-                                            answer, ansNum]
-                    index <span class="op">+=</span> <span class="dv">1</span>
-
-                <span class="cf">return</span> questionData
-
-        <span class="cf">except</span> <span class="pp">IOError</span>:
-            <span class="bu">print</span>(<span class="st">&quot;The file could not be found.&quot;</span>)
-
-<span class="co"># the Game class is where the bulk of the game&#39;s structure is found</span>
-<span class="kw">class</span> Game:
-    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, playerID, gamePoints):
-        <span class="va">self</span>.playerID <span class="op">=</span> playerID
-        <span class="va">self</span>.gamePoints <span class="op">=</span> gamePoints
-
-    <span class="co"># method to create instances for questions and find out if a quesiton</span>
-    <span class="co"># was answered correctly or not</span>
-    <span class="kw">def</span> <span class="bu">round</span>(<span class="va">self</span>, qClass, data):
-        gamePoints <span class="op">=</span> <span class="dv">0</span> <span class="co"># reset to 0 for new round</span>
-
-        <span class="co"># instances</span>
-        q1 <span class="op">=</span> qClass.getQuestion(data)
-        q2 <span class="op">=</span> qClass.getQuestion(data)
-        q3 <span class="op">=</span> qClass.getQuestion(data)
-        q4 <span class="op">=</span> qClass.getQuestion(data)
-        q5 <span class="op">=</span> qClass.getQuestion(data)
-
-        <span class="co"># return value is true or false; this computes points</span>
-        <span class="cf">if</span> qClass.setupAsk(q1) <span class="op">==</span> <span class="va">True</span>:
-            gamePoints <span class="op">+=</span> <span class="dv">1</span>
-        <span class="cf">if</span> qClass.setupAsk(q2) <span class="op">==</span> <span class="va">True</span>:
-            gamePoints <span class="op">+=</span> <span class="dv">1</span>
-        <span class="cf">if</span> qClass.setupAsk(q3) <span class="op">==</span> <span class="va">True</span>:
-            gamePoints <span class="op">+=</span> <span class="dv">1</span>
-        <span class="cf">if</span> qClass.setupAsk(q4) <span class="op">==</span> <span class="va">True</span>:
-            gamePoints <span class="op">+=</span> <span class="dv">1</span>
-        <span class="cf">if</span> qClass.setupAsk(q5) <span class="op">==</span> <span class="va">True</span>:
-            gamePoints <span class="op">+=</span> <span class="dv">1</span>
-
-        <span class="co"># let the user know what happenned this round</span>
-        <span class="bu">print</span>(<span class="st">&#39;you won </span><span class="sc">{}</span><span class="st"> points this game!&#39;</span>.<span class="bu">format</span>(gamePoints))
-
-        <span class="cf">return</span> gamePoints
-
-<span class="kw">def</span> main():
-    <span class="co"># local variables</span>
-    flag <span class="op">=</span> <span class="va">False</span>
-    gameNum <span class="op">=</span> <span class="dv">1</span>
-
-    <span class="co"># instance of Data class</span>
-    data <span class="op">=</span> Data(<span class="st">&#39;csv&#39;</span>)
-    questionsData <span class="op">=</span> data.getData()
-
-    <span class="co"># instance of Question class with filler data</span>
-    questions <span class="op">=</span> Question(<span class="st">&#39;question&#39;</span>, <span class="st">&#39;a1&#39;</span>, <span class="st">&#39;a2&#39;</span>, <span class="st">&#39;a3&#39;</span>, <span class="st">&#39;a4&#39;</span>, <span class="op">\</span>
-                         <span class="st">&#39;answer&#39;</span>, <span class="st">&#39;ansNum&#39;</span>)
-
-    <span class="co"># create both players</span>
-    playerOne <span class="op">=</span> Game(<span class="bu">str</span>(<span class="bu">input</span>(<span class="st">&#39;PLAYER ONE//</span><span class="ch">\n</span><span class="st">Enter your name: &#39;</span>)), <span class="dv">0</span>,)
-    playerTwo <span class="op">=</span> Game(<span class="bu">str</span>(<span class="bu">input</span>(<span class="st">&#39;PLAYER TWO//</span><span class="ch">\n</span><span class="st">Enter your name: &#39;</span>)), <span class="dv">0</span>,)
-
-    <span class="co"># while loop to keep the game going if the user chooses</span>
-    <span class="cf">while</span> flag <span class="op">!=</span> <span class="va">True</span>:
-        <span class="co"># let the user know which round they&#39;re playing</span>
-        <span class="bu">print</span>(<span class="st">&#39;</span><span class="ch">\n</span><span class="st">ROUND &#39;</span>, gameNum, <span class="st">&#39;//</span><span class="ch">\n</span><span class="st">Player One&#39;</span>)
-
-        <span class="co"># first player instance; asks five questions</span>
-        p1round <span class="op">=</span> playerOne.<span class="bu">round</span>(questions, questionsData)
-
-        <span class="bu">print</span>(<span class="st">&quot;&quot;&quot;</span>
-<span class="st">        +++++++++++++++++++++++++++++++++++++++++++++++++</span>
-<span class="st">        +                   SWITCH PLAYERS!             +</span>
-<span class="st">        +++++++++++++++++++++++++++++++++++++++++++++++++</span>
-<span class="st">        &quot;&quot;&quot;</span>)
-
-        <span class="co"># let the user know to switch players</span>
-        <span class="bu">print</span>(<span class="st">&#39;</span><span class="ch">\n</span><span class="st">ROUND &#39;</span>, gameNum, <span class="st">&#39;//</span><span class="ch">\n</span><span class="st">Player Two&#39;</span>)
-
-        <span class="co"># second player instance; asks the five quesitons</span>
-        p2round <span class="op">=</span> playerTwo.<span class="bu">round</span>(questions, questionsData)
-
-        <span class="co"># let the user know which round they are on with accumulator</span>
-        gameNum <span class="op">+=</span> <span class="dv">1</span>
-
-        <span class="co"># figure out who won and use user&#39;s inputed name and their points</span>
-        <span class="co"># in print statement</span>
-        <span class="cf">if</span> p1round <span class="op">&lt;</span> p2round:
-            <span class="bu">print</span>(<span class="st">&#39;Thank you for playing!  </span><span class="sc">{}</span><span class="st"> is the winner with </span><span class="sc">{}</span><span class="st"> total \</span>
-<span class="st">                  game points!&#39;</span>.<span class="bu">format</span>(playerTwo.playerID, p2round))
-        <span class="cf">elif</span> p2round <span class="op">&lt;</span> p1round:
-            <span class="bu">print</span>(<span class="st">&#39;Thank you for playing!  </span><span class="sc">{}</span><span class="st"> is the winner with </span><span class="sc">{}</span><span class="st"> total \</span>
-<span class="st">                  game points!&#39;</span>.<span class="bu">format</span>(playerOne.playerID, p1round))
-        <span class="cf">elif</span> p2round <span class="op">==</span> p1round:
-            <span class="bu">print</span>(<span class="st">&#39;There was a tie!  Both </span><span class="sc">{}</span><span class="st"> and </span><span class="sc">{}</span><span class="st"> both earned </span><span class="sc">{}</span><span class="st"> total \</span>
-<span class="st">                   game points; but you are both still \</span>
-<span class="st">                   winners!&#39;</span>.<span class="bu">format</span>(playerOne.playerID, playerTwo.playerID, <span class="op">\</span>
-                   p1round))
-
-        <span class="co"># find out if user wants to continue + validate user response</span>
-        <span class="cf">while</span> <span class="va">True</span>:
-            <span class="cf">try</span>:
-                choice <span class="op">=</span> <span class="bu">str</span>(<span class="bu">input</span>(<span class="st">&quot;</span><span class="ch">\n</span><span class="st">Keep playing? </span><span class="ch">\n</span><span class="st">--&gt; &quot;</span>)).upper()
-            <span class="cf">except</span> <span class="pp">ValueError</span>:
-                <span class="bu">print</span>(<span class="st">&quot;Sorry, enter either a &#39;Y&#39; for &#39;Yes&#39;, or &#39;N&#39; for &#39;No&#39;.&quot;</span>)
-            <span class="cf">finally</span>:
-                <span class="cf">if</span> choice <span class="op">==</span> <span class="st">&#39;N&#39;</span>:
-                    flag <span class="op">=</span> <span class="va">True</span>
-                    <span class="cf">break</span>
-                <span class="cf">if</span> choice <span class="op">==</span> <span class="st">&#39;Y&#39;</span>:
-                    <span class="cf">break</span>
-                <span class="cf">else</span>:
-                    <span class="bu">print</span>(<span class="st">&quot;please enter either a &#39;Y&#39; for &#39;Yes&#39;, or &#39;N&#39; \</span>
-<span class="st">                           for &#39;No&#39;.&quot;</span>)
-
-    <span class="co"># say bye to players and quit the program</span>
-    <span class="bu">print</span>(<span class="st">&#39;</span><span class="ch">\n</span><span class="st">Thank you for playing!  See you next time!</span><span class="ch">\n</span><span class="st">&#39;</span>)
-
-main()</code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="co"># -*- coding: utf-8 -*-</span></a>
+<a class="sourceLine" id="cb3-2" data-line-number="2"><span class="co">&quot;&quot;&quot;     A10--Trivia Game!</span></a>
+<a class="sourceLine" id="cb3-3" data-line-number="3"><span class="co">        --&gt; two player trivia game</span></a>
+<a class="sourceLine" id="cb3-4" data-line-number="4"><span class="co">        --&gt; OOP approach to building the game with classes and objects</span></a>
+<a class="sourceLine" id="cb3-5" data-line-number="5"><span class="co">&quot;&quot;&quot;</span></a>
+<a class="sourceLine" id="cb3-6" data-line-number="6"><span class="im">import</span> csv</a>
+<a class="sourceLine" id="cb3-7" data-line-number="7"><span class="im">import</span> random</a>
+<a class="sourceLine" id="cb3-8" data-line-number="8"></a>
+<a class="sourceLine" id="cb3-9" data-line-number="9"><span class="co"># the Question class acts as a placeholder for the parts of the question</span></a>
+<a class="sourceLine" id="cb3-10" data-line-number="10"><span class="co"># needed to construct questions and check answers</span></a>
+<a class="sourceLine" id="cb3-11" data-line-number="11"><span class="kw">class</span> Question:</a>
+<a class="sourceLine" id="cb3-12" data-line-number="12">    <span class="co"># __init__ uses the Data class method getData through composition</span></a>
+<a class="sourceLine" id="cb3-13" data-line-number="13">    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, question, a1, a2, a3, a4, answer, ansNum):</a>
+<a class="sourceLine" id="cb3-14" data-line-number="14">        <span class="va">self</span>.getData <span class="op">=</span> Data(<span class="st">&#39;csv&#39;</span>)</a>
+<a class="sourceLine" id="cb3-15" data-line-number="15">        <span class="va">self</span>.question <span class="op">=</span> question</a>
+<a class="sourceLine" id="cb3-16" data-line-number="16">        <span class="va">self</span>.a1 <span class="op">=</span> a1</a>
+<a class="sourceLine" id="cb3-17" data-line-number="17">        <span class="va">self</span>.a2 <span class="op">=</span> a2</a>
+<a class="sourceLine" id="cb3-18" data-line-number="18">        <span class="va">self</span>.a3 <span class="op">=</span> a3</a>
+<a class="sourceLine" id="cb3-19" data-line-number="19">        <span class="va">self</span>.a4 <span class="op">=</span> a4</a>
+<a class="sourceLine" id="cb3-20" data-line-number="20">        <span class="va">self</span>.answer <span class="op">=</span> answer</a>
+<a class="sourceLine" id="cb3-21" data-line-number="21">        <span class="va">self</span>.ansNum <span class="op">=</span> ansNum</a>
+<a class="sourceLine" id="cb3-22" data-line-number="22"></a>
+<a class="sourceLine" id="cb3-23" data-line-number="23">    <span class="co"># the method performs better as a class method since it instantiates the</span></a>
+<a class="sourceLine" id="cb3-24" data-line-number="24">    <span class="co"># Question class with sample questions for the game</span></a>
+<a class="sourceLine" id="cb3-25" data-line-number="25">    <span class="at">@classmethod</span></a>
+<a class="sourceLine" id="cb3-26" data-line-number="26">    <span class="kw">def</span> getQuestion(cls, triviaDict):</a>
+<a class="sourceLine" id="cb3-27" data-line-number="27">        <span class="co"># using random to get 10 random numbers between a specific range for</span></a>
+<a class="sourceLine" id="cb3-28" data-line-number="28">        <span class="co"># trivia questions</span></a>
+<a class="sourceLine" id="cb3-29" data-line-number="29">        randomGenerator <span class="op">=</span> random.sample(<span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">817</span>), <span class="dv">1</span>)</a>
+<a class="sourceLine" id="cb3-30" data-line-number="30"></a>
+<a class="sourceLine" id="cb3-31" data-line-number="31">        <span class="co"># for an individual random number in the sample range</span></a>
+<a class="sourceLine" id="cb3-32" data-line-number="32">        <span class="co"># --&gt; iterate and use number as index for the trivia questions</span></a>
+<a class="sourceLine" id="cb3-33" data-line-number="33">        <span class="cf">for</span> i <span class="kw">in</span> randomGenerator:</a>
+<a class="sourceLine" id="cb3-34" data-line-number="34">            question <span class="op">=</span> triviaDict[i][<span class="dv">0</span>]</a>
+<a class="sourceLine" id="cb3-35" data-line-number="35">            a1 <span class="op">=</span> triviaDict[i][<span class="dv">1</span>]</a>
+<a class="sourceLine" id="cb3-36" data-line-number="36">            a2<span class="op">=</span> triviaDict[i][<span class="dv">2</span>]</a>
+<a class="sourceLine" id="cb3-37" data-line-number="37">            a3 <span class="op">=</span> triviaDict[i][<span class="dv">3</span>]</a>
+<a class="sourceLine" id="cb3-38" data-line-number="38">            a4 <span class="op">=</span> triviaDict[i][<span class="dv">4</span>]</a>
+<a class="sourceLine" id="cb3-39" data-line-number="39">            answer <span class="op">=</span> triviaDict[i][<span class="dv">5</span>]</a>
+<a class="sourceLine" id="cb3-40" data-line-number="40">            ansNum <span class="op">=</span> triviaDict[i][<span class="dv">6</span>]</a>
+<a class="sourceLine" id="cb3-41" data-line-number="41"></a>
+<a class="sourceLine" id="cb3-42" data-line-number="42">        <span class="co"># this creates an instance to return (from question class)</span></a>
+<a class="sourceLine" id="cb3-43" data-line-number="43">        aQuestion <span class="op">=</span> Question(question, a1, a2, a3, a4, answer, ansNum)</a>
+<a class="sourceLine" id="cb3-44" data-line-number="44">        <span class="cf">return</span> aQuestion</a>
+<a class="sourceLine" id="cb3-45" data-line-number="45"></a>
+<a class="sourceLine" id="cb3-46" data-line-number="46">    <span class="co"># this is a part of using composition rather than inheritance to get the</span></a>
+<a class="sourceLine" id="cb3-47" data-line-number="47">    <span class="co"># attributes from the getData method</span></a>
+<a class="sourceLine" id="cb3-48" data-line-number="48">    <span class="kw">def</span> <span class="fu">__getattr__</span>(<span class="va">self</span>, attr):</a>
+<a class="sourceLine" id="cb3-49" data-line-number="49">        <span class="cf">return</span> <span class="bu">getattr</span>(<span class="va">self</span>.getData, attr)</a>
+<a class="sourceLine" id="cb3-50" data-line-number="50"></a>
+<a class="sourceLine" id="cb3-51" data-line-number="51">    <span class="co"># this method sets up the question (also checks answer)</span></a>
+<a class="sourceLine" id="cb3-52" data-line-number="52">    <span class="at">@classmethod</span></a>
+<a class="sourceLine" id="cb3-53" data-line-number="53">    <span class="kw">def</span> setupAsk(cls, q):</a>
+<a class="sourceLine" id="cb3-54" data-line-number="54">        <span class="bu">print</span>(<span class="st">&#39;</span><span class="ch">\n</span><span class="st">&#39;</span>, q.question, <span class="st">&#39;</span><span class="ch">\n\t</span><span class="st">1: &#39;</span>, q.a1, <span class="st">&#39; \</span></a>
+<a class="sourceLine" id="cb3-55" data-line-number="55"><span class="st">                 </span><span class="ch">\n\t</span><span class="st">2: &#39;</span>, q.a2, <span class="st">&#39;</span><span class="ch">\n\t</span><span class="st">3: &#39;</span>, q.a3, <span class="st">&#39; \</span></a>
+<a class="sourceLine" id="cb3-56" data-line-number="56"><span class="st">                 </span><span class="ch">\n\t</span><span class="st">4: &#39;</span>, q.a4, <span class="st">&#39;</span><span class="ch">\n</span><span class="st">&#39;</span>)</a>
+<a class="sourceLine" id="cb3-57" data-line-number="57"></a>
+<a class="sourceLine" id="cb3-58" data-line-number="58">        <span class="co"># make sure the user&#39;s input works</span></a>
+<a class="sourceLine" id="cb3-59" data-line-number="59">        <span class="cf">while</span> <span class="va">True</span>:</a>
+<a class="sourceLine" id="cb3-60" data-line-number="60">            <span class="cf">try</span>:</a>
+<a class="sourceLine" id="cb3-61" data-line-number="61">                choice <span class="op">=</span> <span class="bu">int</span>(<span class="bu">input</span>(<span class="st">&quot;</span><span class="ch">\n</span><span class="st">What&#39;s your answer? </span><span class="ch">\n</span><span class="st">--&gt; &quot;</span>))</a>
+<a class="sourceLine" id="cb3-62" data-line-number="62">            <span class="cf">except</span> <span class="pp">ValueError</span>:</a>
+<a class="sourceLine" id="cb3-63" data-line-number="63">                <span class="bu">print</span>(<span class="st">&#39;</span><span class="ch">\n</span><span class="st">Sorry, the answer only accepts numbers; please \</span></a>
+<a class="sourceLine" id="cb3-64" data-line-number="64"><span class="st">                       enter a number 1-4&#39;</span>)</a>
+<a class="sourceLine" id="cb3-65" data-line-number="65">                choice <span class="op">=</span> <span class="bu">int</span>(<span class="bu">input</span>(<span class="st">&quot;</span><span class="ch">\n</span><span class="st">What&#39;s your answer? </span><span class="ch">\n</span><span class="st">--&gt; &quot;</span>))</a>
+<a class="sourceLine" id="cb3-66" data-line-number="66">            <span class="cf">finally</span>:</a>
+<a class="sourceLine" id="cb3-67" data-line-number="67">                <span class="cf">if</span> choice <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="dv">5</span>):</a>
+<a class="sourceLine" id="cb3-68" data-line-number="68">                    <span class="cf">break</span></a>
+<a class="sourceLine" id="cb3-69" data-line-number="69"></a>
+<a class="sourceLine" id="cb3-70" data-line-number="70">        <span class="co"># if the question is correct, return true; if not, return false</span></a>
+<a class="sourceLine" id="cb3-71" data-line-number="71">        <span class="cf">if</span> choice <span class="op">==</span> q.ansNum:</a>
+<a class="sourceLine" id="cb3-72" data-line-number="72">            <span class="bu">print</span>(<span class="st">&#39;</span><span class="ch">\n</span><span class="st">Correct! </span><span class="ch">\n</span><span class="st">&#39;</span>, q.answer)</a>
+<a class="sourceLine" id="cb3-73" data-line-number="73">            <span class="cf">return</span> <span class="va">True</span></a>
+<a class="sourceLine" id="cb3-74" data-line-number="74">        <span class="cf">elif</span> choice <span class="op">!=</span> q.ansNum:</a>
+<a class="sourceLine" id="cb3-75" data-line-number="75">            <span class="bu">print</span>(<span class="st">&#39;</span><span class="ch">\n</span><span class="st">Incorrect!  </span><span class="ch">\n</span><span class="st">&#39;</span>, q.answer)</a>
+<a class="sourceLine" id="cb3-76" data-line-number="76">            <span class="cf">return</span> <span class="va">False</span></a>
+<a class="sourceLine" id="cb3-77" data-line-number="77"></a>
+<a class="sourceLine" id="cb3-78" data-line-number="78"><span class="co"># the Data class handles openning the file and preparing it to be used by</span></a>
+<a class="sourceLine" id="cb3-79" data-line-number="79"><span class="co"># the Question and Game class</span></a>
+<a class="sourceLine" id="cb3-80" data-line-number="80"><span class="kw">class</span> Data:</a>
+<a class="sourceLine" id="cb3-81" data-line-number="81">    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, filetype):</a>
+<a class="sourceLine" id="cb3-82" data-line-number="82">        <span class="va">self</span>.filetype <span class="op">=</span> filetype</a>
+<a class="sourceLine" id="cb3-83" data-line-number="83"></a>
+<a class="sourceLine" id="cb3-84" data-line-number="84">    <span class="co"># opens the CSV to read and prepare it to be used in computaiton later</span></a>
+<a class="sourceLine" id="cb3-85" data-line-number="85">    <span class="at">@classmethod</span></a>
+<a class="sourceLine" id="cb3-86" data-line-number="86">    <span class="kw">def</span> getData(cls):</a>
+<a class="sourceLine" id="cb3-87" data-line-number="87">        <span class="co"># make sure there isn&#39;t an IO error</span></a>
+<a class="sourceLine" id="cb3-88" data-line-number="88">        <span class="cf">try</span>:</a>
+<a class="sourceLine" id="cb3-89" data-line-number="89">            <span class="co"># open the csv file + use an index accumulator for dictionary</span></a>
+<a class="sourceLine" id="cb3-90" data-line-number="90">            <span class="cf">with</span> <span class="bu">open</span>(<span class="st">&#39;trivia.csv&#39;</span>) <span class="im">as</span> csvFile:</a>
+<a class="sourceLine" id="cb3-91" data-line-number="91">                readCSV <span class="op">=</span> csv.reader(csvFile, delimiter<span class="op">=</span><span class="st">&#39;,&#39;</span>)</a>
+<a class="sourceLine" id="cb3-92" data-line-number="92">                index <span class="op">=</span> <span class="dv">0</span></a>
+<a class="sourceLine" id="cb3-93" data-line-number="93"></a>
+<a class="sourceLine" id="cb3-94" data-line-number="94">                <span class="co"># questions, answer choices, and answers dictionary</span></a>
+<a class="sourceLine" id="cb3-95" data-line-number="95">                rowDict <span class="op">=</span> {}</a>
+<a class="sourceLine" id="cb3-96" data-line-number="96">                questionData <span class="op">=</span> {}</a>
+<a class="sourceLine" id="cb3-97" data-line-number="97">                <span class="co"># reading the trivia questions</span></a>
+<a class="sourceLine" id="cb3-98" data-line-number="98">                <span class="cf">for</span> row <span class="kw">in</span> readCSV:</a>
+<a class="sourceLine" id="cb3-99" data-line-number="99">                    rowDict[index] <span class="op">=</span> row</a>
+<a class="sourceLine" id="cb3-100" data-line-number="100">                    question <span class="op">=</span> rowDict[index][<span class="dv">0</span>]</a>
+<a class="sourceLine" id="cb3-101" data-line-number="101">                    a1 <span class="op">=</span> rowDict[index][<span class="dv">1</span>]</a>
+<a class="sourceLine" id="cb3-102" data-line-number="102">                    a2 <span class="op">=</span> rowDict[index][<span class="dv">2</span>]</a>
+<a class="sourceLine" id="cb3-103" data-line-number="103">                    a3 <span class="op">=</span> rowDict[index][<span class="dv">3</span>]</a>
+<a class="sourceLine" id="cb3-104" data-line-number="104">                    a4 <span class="op">=</span> rowDict[index][<span class="dv">4</span>]</a>
+<a class="sourceLine" id="cb3-105" data-line-number="105">                    answer <span class="op">=</span> rowDict[index][<span class="dv">5</span>]</a>
+<a class="sourceLine" id="cb3-106" data-line-number="106"></a>
+<a class="sourceLine" id="cb3-107" data-line-number="107">                    <span class="co"># figure out which answer is correct and assign a variable</span></a>
+<a class="sourceLine" id="cb3-108" data-line-number="108">                    <span class="cf">if</span> answer <span class="op">==</span> a1:</a>
+<a class="sourceLine" id="cb3-109" data-line-number="109">                        ansNum <span class="op">=</span> <span class="dv">1</span></a>
+<a class="sourceLine" id="cb3-110" data-line-number="110">                    <span class="cf">elif</span> answer <span class="op">==</span> a2:</a>
+<a class="sourceLine" id="cb3-111" data-line-number="111">                        ansNum <span class="op">=</span> <span class="dv">2</span></a>
+<a class="sourceLine" id="cb3-112" data-line-number="112">                    <span class="cf">elif</span> answer <span class="op">==</span> a3:</a>
+<a class="sourceLine" id="cb3-113" data-line-number="113">                        ansNum <span class="op">=</span> <span class="dv">3</span></a>
+<a class="sourceLine" id="cb3-114" data-line-number="114">                    <span class="cf">elif</span> answer <span class="op">==</span> a4:</a>
+<a class="sourceLine" id="cb3-115" data-line-number="115">                        ansNum <span class="op">=</span> <span class="dv">4</span></a>
+<a class="sourceLine" id="cb3-116" data-line-number="116">                    <span class="cf">else</span>:</a>
+<a class="sourceLine" id="cb3-117" data-line-number="117">                        <span class="bu">print</span>(<span class="st">&quot;Error!  No correct answer&quot;</span>)</a>
+<a class="sourceLine" id="cb3-118" data-line-number="118"></a>
+<a class="sourceLine" id="cb3-119" data-line-number="119">                    <span class="co"># place questions into new dictionary in the right order</span></a>
+<a class="sourceLine" id="cb3-120" data-line-number="120">                    questionData[index] <span class="op">=</span> [question, a1, a2, a3, a4, <span class="op">\</span></a>
+<a class="sourceLine" id="cb3-121" data-line-number="121">                                            answer, ansNum]</a>
+<a class="sourceLine" id="cb3-122" data-line-number="122">                    index <span class="op">+=</span> <span class="dv">1</span></a>
+<a class="sourceLine" id="cb3-123" data-line-number="123"></a>
+<a class="sourceLine" id="cb3-124" data-line-number="124">                <span class="cf">return</span> questionData</a>
+<a class="sourceLine" id="cb3-125" data-line-number="125"></a>
+<a class="sourceLine" id="cb3-126" data-line-number="126">        <span class="cf">except</span> <span class="pp">IOError</span>:</a>
+<a class="sourceLine" id="cb3-127" data-line-number="127">            <span class="bu">print</span>(<span class="st">&quot;The file could not be found.&quot;</span>)</a>
+<a class="sourceLine" id="cb3-128" data-line-number="128"></a>
+<a class="sourceLine" id="cb3-129" data-line-number="129"><span class="co"># the Game class is where the bulk of the game&#39;s structure is found</span></a>
+<a class="sourceLine" id="cb3-130" data-line-number="130"><span class="kw">class</span> Game:</a>
+<a class="sourceLine" id="cb3-131" data-line-number="131">    <span class="kw">def</span> <span class="fu">__init__</span>(<span class="va">self</span>, playerID, gamePoints):</a>
+<a class="sourceLine" id="cb3-132" data-line-number="132">        <span class="va">self</span>.playerID <span class="op">=</span> playerID</a>
+<a class="sourceLine" id="cb3-133" data-line-number="133">        <span class="va">self</span>.gamePoints <span class="op">=</span> gamePoints</a>
+<a class="sourceLine" id="cb3-134" data-line-number="134"></a>
+<a class="sourceLine" id="cb3-135" data-line-number="135">    <span class="co"># method to create instances for questions and find out if a quesiton</span></a>
+<a class="sourceLine" id="cb3-136" data-line-number="136">    <span class="co"># was answered correctly or not</span></a>
+<a class="sourceLine" id="cb3-137" data-line-number="137">    <span class="kw">def</span> <span class="bu">round</span>(<span class="va">self</span>, qClass, data):</a>
+<a class="sourceLine" id="cb3-138" data-line-number="138">        gamePoints <span class="op">=</span> <span class="dv">0</span> <span class="co"># reset to 0 for new round</span></a>
+<a class="sourceLine" id="cb3-139" data-line-number="139"></a>
+<a class="sourceLine" id="cb3-140" data-line-number="140">        <span class="co"># instances</span></a>
+<a class="sourceLine" id="cb3-141" data-line-number="141">        q1 <span class="op">=</span> qClass.getQuestion(data)</a>
+<a class="sourceLine" id="cb3-142" data-line-number="142">        q2 <span class="op">=</span> qClass.getQuestion(data)</a>
+<a class="sourceLine" id="cb3-143" data-line-number="143">        q3 <span class="op">=</span> qClass.getQuestion(data)</a>
+<a class="sourceLine" id="cb3-144" data-line-number="144">        q4 <span class="op">=</span> qClass.getQuestion(data)</a>
+<a class="sourceLine" id="cb3-145" data-line-number="145">        q5 <span class="op">=</span> qClass.getQuestion(data)</a>
+<a class="sourceLine" id="cb3-146" data-line-number="146"></a>
+<a class="sourceLine" id="cb3-147" data-line-number="147">        <span class="co"># return value is true or false; this computes points</span></a>
+<a class="sourceLine" id="cb3-148" data-line-number="148">        <span class="cf">if</span> qClass.setupAsk(q1) <span class="op">==</span> <span class="va">True</span>:</a>
+<a class="sourceLine" id="cb3-149" data-line-number="149">            gamePoints <span class="op">+=</span> <span class="dv">1</span></a>
+<a class="sourceLine" id="cb3-150" data-line-number="150">        <span class="cf">if</span> qClass.setupAsk(q2) <span class="op">==</span> <span class="va">True</span>:</a>
+<a class="sourceLine" id="cb3-151" data-line-number="151">            gamePoints <span class="op">+=</span> <span class="dv">1</span></a>
+<a class="sourceLine" id="cb3-152" data-line-number="152">        <span class="cf">if</span> qClass.setupAsk(q3) <span class="op">==</span> <span class="va">True</span>:</a>
+<a class="sourceLine" id="cb3-153" data-line-number="153">            gamePoints <span class="op">+=</span> <span class="dv">1</span></a>
+<a class="sourceLine" id="cb3-154" data-line-number="154">        <span class="cf">if</span> qClass.setupAsk(q4) <span class="op">==</span> <span class="va">True</span>:</a>
+<a class="sourceLine" id="cb3-155" data-line-number="155">            gamePoints <span class="op">+=</span> <span class="dv">1</span></a>
+<a class="sourceLine" id="cb3-156" data-line-number="156">        <span class="cf">if</span> qClass.setupAsk(q5) <span class="op">==</span> <span class="va">True</span>:</a>
+<a class="sourceLine" id="cb3-157" data-line-number="157">            gamePoints <span class="op">+=</span> <span class="dv">1</span></a>
+<a class="sourceLine" id="cb3-158" data-line-number="158"></a>
+<a class="sourceLine" id="cb3-159" data-line-number="159">        <span class="co"># let the user know what happenned this round</span></a>
+<a class="sourceLine" id="cb3-160" data-line-number="160">        <span class="bu">print</span>(<span class="st">&#39;you won </span><span class="sc">{}</span><span class="st"> points this game!&#39;</span>.<span class="bu">format</span>(gamePoints))</a>
+<a class="sourceLine" id="cb3-161" data-line-number="161"></a>
+<a class="sourceLine" id="cb3-162" data-line-number="162">        <span class="cf">return</span> gamePoints</a>
+<a class="sourceLine" id="cb3-163" data-line-number="163"></a>
+<a class="sourceLine" id="cb3-164" data-line-number="164"><span class="kw">def</span> main():</a>
+<a class="sourceLine" id="cb3-165" data-line-number="165">    <span class="co"># local variables</span></a>
+<a class="sourceLine" id="cb3-166" data-line-number="166">    flag <span class="op">=</span> <span class="va">False</span></a>
+<a class="sourceLine" id="cb3-167" data-line-number="167">    gameNum <span class="op">=</span> <span class="dv">1</span></a>
+<a class="sourceLine" id="cb3-168" data-line-number="168"></a>
+<a class="sourceLine" id="cb3-169" data-line-number="169">    <span class="co"># instance of Data class</span></a>
+<a class="sourceLine" id="cb3-170" data-line-number="170">    data <span class="op">=</span> Data(<span class="st">&#39;csv&#39;</span>)</a>
+<a class="sourceLine" id="cb3-171" data-line-number="171">    questionsData <span class="op">=</span> data.getData()</a>
+<a class="sourceLine" id="cb3-172" data-line-number="172"></a>
+<a class="sourceLine" id="cb3-173" data-line-number="173">    <span class="co"># instance of Question class with filler data</span></a>
+<a class="sourceLine" id="cb3-174" data-line-number="174">    questions <span class="op">=</span> Question(<span class="st">&#39;question&#39;</span>, <span class="st">&#39;a1&#39;</span>, <span class="st">&#39;a2&#39;</span>, <span class="st">&#39;a3&#39;</span>, <span class="st">&#39;a4&#39;</span>, <span class="op">\</span></a>
+<a class="sourceLine" id="cb3-175" data-line-number="175">                         <span class="st">&#39;answer&#39;</span>, <span class="st">&#39;ansNum&#39;</span>)</a>
+<a class="sourceLine" id="cb3-176" data-line-number="176"></a>
+<a class="sourceLine" id="cb3-177" data-line-number="177">    <span class="co"># create both players</span></a>
+<a class="sourceLine" id="cb3-178" data-line-number="178">    playerOne <span class="op">=</span> Game(<span class="bu">str</span>(<span class="bu">input</span>(<span class="st">&#39;PLAYER ONE//</span><span class="ch">\n</span><span class="st">Enter your name: &#39;</span>)), <span class="dv">0</span>,)</a>
+<a class="sourceLine" id="cb3-179" data-line-number="179">    playerTwo <span class="op">=</span> Game(<span class="bu">str</span>(<span class="bu">input</span>(<span class="st">&#39;PLAYER TWO//</span><span class="ch">\n</span><span class="st">Enter your name: &#39;</span>)), <span class="dv">0</span>,)</a>
+<a class="sourceLine" id="cb3-180" data-line-number="180"></a>
+<a class="sourceLine" id="cb3-181" data-line-number="181">    <span class="co"># while loop to keep the game going if the user chooses</span></a>
+<a class="sourceLine" id="cb3-182" data-line-number="182">    <span class="cf">while</span> flag <span class="op">!=</span> <span class="va">True</span>:</a>
+<a class="sourceLine" id="cb3-183" data-line-number="183">        <span class="co"># let the user know which round they&#39;re playing</span></a>
+<a class="sourceLine" id="cb3-184" data-line-number="184">        <span class="bu">print</span>(<span class="st">&#39;</span><span class="ch">\n</span><span class="st">ROUND &#39;</span>, gameNum, <span class="st">&#39;//</span><span class="ch">\n</span><span class="st">Player One&#39;</span>)</a>
+<a class="sourceLine" id="cb3-185" data-line-number="185"></a>
+<a class="sourceLine" id="cb3-186" data-line-number="186">        <span class="co"># first player instance; asks five questions</span></a>
+<a class="sourceLine" id="cb3-187" data-line-number="187">        p1round <span class="op">=</span> playerOne.<span class="bu">round</span>(questions, questionsData)</a>
+<a class="sourceLine" id="cb3-188" data-line-number="188"></a>
+<a class="sourceLine" id="cb3-189" data-line-number="189">        <span class="bu">print</span>(<span class="st">&quot;&quot;&quot;</span></a>
+<a class="sourceLine" id="cb3-190" data-line-number="190"><span class="st">        +++++++++++++++++++++++++++++++++++++++++++++++++</span></a>
+<a class="sourceLine" id="cb3-191" data-line-number="191"><span class="st">        +                   SWITCH PLAYERS!             +</span></a>
+<a class="sourceLine" id="cb3-192" data-line-number="192"><span class="st">        +++++++++++++++++++++++++++++++++++++++++++++++++</span></a>
+<a class="sourceLine" id="cb3-193" data-line-number="193"><span class="st">        &quot;&quot;&quot;</span>)</a>
+<a class="sourceLine" id="cb3-194" data-line-number="194"></a>
+<a class="sourceLine" id="cb3-195" data-line-number="195">        <span class="co"># let the user know to switch players</span></a>
+<a class="sourceLine" id="cb3-196" data-line-number="196">        <span class="bu">print</span>(<span class="st">&#39;</span><span class="ch">\n</span><span class="st">ROUND &#39;</span>, gameNum, <span class="st">&#39;//</span><span class="ch">\n</span><span class="st">Player Two&#39;</span>)</a>
+<a class="sourceLine" id="cb3-197" data-line-number="197"></a>
+<a class="sourceLine" id="cb3-198" data-line-number="198">        <span class="co"># second player instance; asks the five quesitons</span></a>
+<a class="sourceLine" id="cb3-199" data-line-number="199">        p2round <span class="op">=</span> playerTwo.<span class="bu">round</span>(questions, questionsData)</a>
+<a class="sourceLine" id="cb3-200" data-line-number="200"></a>
+<a class="sourceLine" id="cb3-201" data-line-number="201">        <span class="co"># let the user know which round they are on with accumulator</span></a>
+<a class="sourceLine" id="cb3-202" data-line-number="202">        gameNum <span class="op">+=</span> <span class="dv">1</span></a>
+<a class="sourceLine" id="cb3-203" data-line-number="203"></a>
+<a class="sourceLine" id="cb3-204" data-line-number="204">        <span class="co"># figure out who won and use user&#39;s inputed name and their points</span></a>
+<a class="sourceLine" id="cb3-205" data-line-number="205">        <span class="co"># in print statement</span></a>
+<a class="sourceLine" id="cb3-206" data-line-number="206">        <span class="cf">if</span> p1round <span class="op">&lt;</span> p2round:</a>
+<a class="sourceLine" id="cb3-207" data-line-number="207">            <span class="bu">print</span>(<span class="st">&#39;Thank you for playing!  </span><span class="sc">{}</span><span class="st"> is the winner with </span><span class="sc">{}</span><span class="st"> total \</span></a>
+<a class="sourceLine" id="cb3-208" data-line-number="208"><span class="st">                  game points!&#39;</span>.<span class="bu">format</span>(playerTwo.playerID, p2round))</a>
+<a class="sourceLine" id="cb3-209" data-line-number="209">        <span class="cf">elif</span> p2round <span class="op">&lt;</span> p1round:</a>
+<a class="sourceLine" id="cb3-210" data-line-number="210">            <span class="bu">print</span>(<span class="st">&#39;Thank you for playing!  </span><span class="sc">{}</span><span class="st"> is the winner with </span><span class="sc">{}</span><span class="st"> total \</span></a>
+<a class="sourceLine" id="cb3-211" data-line-number="211"><span class="st">                  game points!&#39;</span>.<span class="bu">format</span>(playerOne.playerID, p1round))</a>
+<a class="sourceLine" id="cb3-212" data-line-number="212">        <span class="cf">elif</span> p2round <span class="op">==</span> p1round:</a>
+<a class="sourceLine" id="cb3-213" data-line-number="213">            <span class="bu">print</span>(<span class="st">&#39;There was a tie!  Both </span><span class="sc">{}</span><span class="st"> and </span><span class="sc">{}</span><span class="st"> both earned </span><span class="sc">{}</span><span class="st"> total \</span></a>
+<a class="sourceLine" id="cb3-214" data-line-number="214"><span class="st">                   game points; but you are both still \</span></a>
+<a class="sourceLine" id="cb3-215" data-line-number="215"><span class="st">                   winners!&#39;</span>.<span class="bu">format</span>(playerOne.playerID, playerTwo.playerID, <span class="op">\</span></a>
+<a class="sourceLine" id="cb3-216" data-line-number="216">                   p1round))</a>
+<a class="sourceLine" id="cb3-217" data-line-number="217"></a>
+<a class="sourceLine" id="cb3-218" data-line-number="218">        <span class="co"># find out if user wants to continue + validate user response</span></a>
+<a class="sourceLine" id="cb3-219" data-line-number="219">        <span class="cf">while</span> <span class="va">True</span>:</a>
+<a class="sourceLine" id="cb3-220" data-line-number="220">            <span class="cf">try</span>:</a>
+<a class="sourceLine" id="cb3-221" data-line-number="221">                choice <span class="op">=</span> <span class="bu">str</span>(<span class="bu">input</span>(<span class="st">&quot;</span><span class="ch">\n</span><span class="st">Keep playing? </span><span class="ch">\n</span><span class="st">--&gt; &quot;</span>)).upper()</a>
+<a class="sourceLine" id="cb3-222" data-line-number="222">            <span class="cf">except</span> <span class="pp">ValueError</span>:</a>
+<a class="sourceLine" id="cb3-223" data-line-number="223">                <span class="bu">print</span>(<span class="st">&quot;Sorry, enter either a &#39;Y&#39; for &#39;Yes&#39;, or &#39;N&#39; for &#39;No&#39;.&quot;</span>)</a>
+<a class="sourceLine" id="cb3-224" data-line-number="224">            <span class="cf">finally</span>:</a>
+<a class="sourceLine" id="cb3-225" data-line-number="225">                <span class="cf">if</span> choice <span class="op">==</span> <span class="st">&#39;N&#39;</span>:</a>
+<a class="sourceLine" id="cb3-226" data-line-number="226">                    flag <span class="op">=</span> <span class="va">True</span></a>
+<a class="sourceLine" id="cb3-227" data-line-number="227">                    <span class="cf">break</span></a>
+<a class="sourceLine" id="cb3-228" data-line-number="228">                <span class="cf">if</span> choice <span class="op">==</span> <span class="st">&#39;Y&#39;</span>:</a>
+<a class="sourceLine" id="cb3-229" data-line-number="229">                    <span class="cf">break</span></a>
+<a class="sourceLine" id="cb3-230" data-line-number="230">                <span class="cf">else</span>:</a>
+<a class="sourceLine" id="cb3-231" data-line-number="231">                    <span class="bu">print</span>(<span class="st">&quot;please enter either a &#39;Y&#39; for &#39;Yes&#39;, or &#39;N&#39; \</span></a>
+<a class="sourceLine" id="cb3-232" data-line-number="232"><span class="st">                           for &#39;No&#39;.&quot;</span>)</a>
+<a class="sourceLine" id="cb3-233" data-line-number="233"></a>
+<a class="sourceLine" id="cb3-234" data-line-number="234">    <span class="co"># say bye to players and quit the program</span></a>
+<a class="sourceLine" id="cb3-235" data-line-number="235">    <span class="bu">print</span>(<span class="st">&#39;</span><span class="ch">\n</span><span class="st">Thank you for playing!  See you next time!</span><span class="ch">\n</span><span class="st">&#39;</span>)</a>
+<a class="sourceLine" id="cb3-236" data-line-number="236"></a>
+<a class="sourceLine" id="cb3-237" data-line-number="237">main()</a></code></pre></div>
 <p><br></p>
 <p>I couldn’t help but think about Plato when I was trying to understand how Objects work in Python. There’s something really similar about how a <em>‘class’</em> has a kind of <em>ontos</em>—that it isn’t just a blueprint—it exists, and it did exist before the <em>‘init’</em> method gave it attributes; that prescriptive human speculation we come up with when describing the form of something abstract like ‘the Beautiful’ (although it’s been a while since my Phil 100A course at UCLA—I hope I’m not misrepresenting the <em>Phaedo</em>).</p>
 <p><br></p>

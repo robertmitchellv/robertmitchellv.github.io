@@ -20,7 +20,9 @@
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
-<link href="site_libs/font-awesome-4.5.0/css/font-awesome.min.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.0.13/css/fa-svg-with-js.css" rel="stylesheet" />
+<script src="site_libs/font-awesome-5.0.13/js/fontawesome-all.min.js"></script>
+<script src="site_libs/font-awesome-5.0.13/js/fa-v4-shims.min.js"></script>
 
 
 
@@ -74,6 +76,9 @@ img {
 }
 .tabbed-pane {
   padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
 }
 button.code-folding-btn:focus {
   outline: none;
@@ -188,6 +193,13 @@ $(document).ready(function () {
   </a>
 </li>
 <li>
+  <a href="talks.html" onclick="fadeInOut()">
+    <span class="fa fa-comments-o"></span>
+     
+    Talks
+  </a>
+</li>
+<li>
   <a href="about.html" onclick="fadeInOut()">
     <span class="fa fa-newspaper-o"></span>
      
@@ -290,6 +302,13 @@ $(document).ready(function () {
     <span class="fa fa-pencil-square-o"></span>
      
     Blog
+  </a>
+</li>
+<li>
+  <a href="#talks" onclick="slowScroll()">
+    <span class="fa fa-comments-o"></span>
+     
+    Talks
   </a>
 </li>
 <li>
@@ -457,6 +476,25 @@ There <em>may</em> be a special place in hell for blog posts like this that docu
 <br>
 <hr>
 <p><br></p>
+<p><a class="anchor" id="talks"></a></p>
+<h1>
+TALKS
+</h1>
+<p><br></p>
+<article>
+<h3>
+<a href="talk-2017-09-data-donuts.html">Ex-nihilo data analysis; getting up and running with limited resources</a>
+</h3>
+<div class="summary">
+<span><i class="fa fa-calendar"></i> <em>2017-09</em></span>
+<p>
+Data + Donuts | Los angeles, CA
+</p>
+<p><a class="btn btn-outline-primary btn-sm" href="talk-2017-09-data-donuts.html" role="button">Slides</a></p>
+</div>
+</article>
+<p><a class="btn btn-outline-secondary btn-lg" href="talks.html" role="button">All Talks</a></p>
+<p><br> <br> <br></p>
 <p><a class="anchor" id="vitae"></a></p>
 <h1>
 VITAE

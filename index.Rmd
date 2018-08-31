@@ -94,11 +94,31 @@ For the full bio click [here](about.html) or the button below.
 </div>
 </article>
 
-
 <a class="btn btn-outline-secondary btn-lg" href="blog.html" role="button">More Posts</a>
 
 <br>
 <hr>
+<br>
+
+<a class="anchor" id="talks"></a>
+
+<h1>TALKS</h1>
+
+<br>
+
+<article>
+<h3><a href="talk-2017-09-data-donuts.html">Ex-nihilo data analysis; getting up and running with limited resources</a></h3>
+<div class="summary">
+<span><i class="fa fa-calendar"></i> _2017-09_</span>
+<p>Data + Donuts | Los angeles, CA</p>
+<a class="btn btn-outline-primary btn-sm" href="talk-2017-09-data-donuts.html" role="button">Slides</a>
+</div>
+</article>
+
+<a class="btn btn-outline-secondary btn-lg" href="talks.html" role="button">All Talks</a>
+
+<br>
+<br>
 <br>
 
 <a class="anchor" id="vitae"></a>
