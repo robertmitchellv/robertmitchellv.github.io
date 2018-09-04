@@ -14,11 +14,22 @@ title: "TALKS"
 --->
 
 <article>
+<h3><a href="talk-2018-09-ucla-cpl.html">Thoughts and perspectives on PSH from the ground</a></h3>
+<div class="summary">
+<span><i class="fa fa-calendar"></i> _2018-09_</span>
+<p>UCLA, California Policy Lab | Los angeles, CA</p>
+<a class="btn btn-outline-primary btn-sm" href="talk-2018-09-ucla-cpl.html" role="button">Slides</a>
+</div>
+</article>
+
+<br>
+
+<article>
 <h3><a href="talk-2017-09-data-donuts.html">Ex-nihilo data analysis; getting up and running with limited resources</a></h3>
 <div class="summary">
 <span><i class="fa fa-calendar"></i> _2017-09_</span>
 <p>Data + Donuts | Los angeles, CA</p>
-<a class="btn btn-outline-primary btn-sm" href="talk-2017-09-data-donuts.html" role="button">Full Post</a>
+<a class="btn btn-outline-primary btn-sm" href="talk-2017-09-data-donuts.html" role="button">Slides</a>
 </div>
 </article>
 
