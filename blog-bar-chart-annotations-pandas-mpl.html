@@ -7,6 +7,7 @@
 <meta charset="utf-8" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
 <meta name="author" content="Robert Mitchell" />
@@ -22,16 +23,15 @@
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
-<link href="site_libs/font-awesome-5.0.13/css/fa-svg-with-js.css" rel="stylesheet" />
-<script src="site_libs/font-awesome-5.0.13/js/fontawesome-all.min.js"></script>
-<script src="site_libs/font-awesome-5.0.13/js/fa-v4-shims.min.js"></script>
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
 
 
 <style type="text/css">code{white-space: pre;}</style>
-<style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
+<style type="text/css" data-origin="pandoc">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
 div.sourceCode { margin: 1em 0; }
@@ -41,14 +41,16 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
+    border: none; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -57,9 +59,9 @@ pre.numberSource a.sourceLine::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {  }
+  {   }
 @media screen {
-a.sourceLine::before { text-decoration: underline; }
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -90,7 +92,29 @@ code span.st { color: #4070a0; } /* String */
 code span.va { color: #19177c; } /* Variable */
 code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+
 </style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    for (var j = 0; j < rules.length; j++) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' && rule.style.backgroundColor === '') continue;
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
 <style type="text/css">
   pre:not([class]) {
     background-color: white;
@@ -127,9 +151,7 @@ h6 {
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 
-</head>
 
-<body>
 
 <style type = "text/css">
 .main-container {
@@ -143,7 +165,6 @@ code {
 }
 img {
   max-width:100%;
-  height: auto;
 }
 .tabbed-pane {
   padding-top: 12px;
@@ -153,6 +174,9 @@ img {
 }
 button.code-folding-btn:focus {
   outline: none;
+}
+summary {
+  display: list-item;
 }
 </style>
 
@@ -168,7 +192,6 @@ body {
   padding-top: 50px;
   margin-top: -50px;
 }
-
 .section h2 {
   padding-top: 50px;
   margin-top: -50px;
@@ -188,6 +211,43 @@ body {
 .section h6 {
   padding-top: 50px;
   margin-top: -50px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
 }
 </style>
 
@@ -209,19 +269,73 @@ $(document).ready(function () {
 });
 </script>
 
-
-<div class="container-fluid main-container">
-
 <!-- tabsets -->
-<script>
-$(document).ready(function () {
-  window.buildTabsets("TOC");
-});
-</script>
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
 
 <!-- code folding -->
 
 
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
 
 
 
@@ -343,13 +457,16 @@ $(document).ready(function () {
 
 
 <h1 class="title toc-ignore">BAR CHART ANNOTATIONS WITH PANDAS AND MATPLOTLIB</h1>
-<h4 class="author"><em>Robert Mitchell</em></h4>
-<h4 class="date"><em>June 15, 2015</em></h4>
+<h4 class="author">Robert Mitchell</h4>
+<h4 class="date">June 15, 2015</h4>
 
 </div>
 
 
 <p><br></p>
+<blockquote>
+<p>This is a very old post. The Pandas API has matured greatly and most of this is very outdated. This remains here as a record for myself</p>
+</blockquote>
 <p>When I first started using Pandas, I loved how much easier it was to stick a plot method on a DataFrame or Series to get a better sense of what was going on. However, I was not very impressed with what the plots looked like. Any time I wanted to do something slightly different from the “Plotting” documentation on the pydata site, I found myself arm deep in MPL code that did not make any damn sense to me. This was a problem for me, as I ended up spending way too much time trying to make small edits and not enough time working on the code I was trying to visualize.</p>
 <p><br></p>
 <p>One thing in particular bugged me. I could find no easy to understand tutorial on annotating a bar chart on StackOverflow or any other site. MPL had some documentation, but it was too confusing for me at the time. I spent a lot of time trying to figure out how to put some text right above my bars. Since I would have loved to see a snippet of code to help me in my journey, I thought I would throw it together in a brief post so others could use my workaround.</p>
@@ -359,150 +476,150 @@ $(document).ready(function () {
 <div id="setup-import-data" class="section level4">
 <h4>Setup + Import Data</h4>
 <p><br></p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="im">import</span> numpy <span class="im">as</span> np</a>
-<a class="sourceLine" id="cb1-2" data-line-number="2"><span class="im">import</span> pandas <span class="im">as</span> pd</a>
-<a class="sourceLine" id="cb1-3" data-line-number="3"><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</a>
-<a class="sourceLine" id="cb1-4" data-line-number="4">plt.style.use(<span class="st">&#39;ggplot&#39;</span>)</a>
-<a class="sourceLine" id="cb1-5" data-line-number="5"><span class="op">%</span>matplotlib inline</a>
-<a class="sourceLine" id="cb1-6" data-line-number="6"></a>
-<a class="sourceLine" id="cb1-7" data-line-number="7"><span class="co"># set jupyter&#39;s max row display</span></a>
-<a class="sourceLine" id="cb1-8" data-line-number="8">pd.set_option(<span class="st">&#39;display.max_row&#39;</span>, <span class="dv">1000</span>)</a>
-<a class="sourceLine" id="cb1-9" data-line-number="9"></a>
-<a class="sourceLine" id="cb1-10" data-line-number="10"><span class="co"># set jupyter&#39;s max column width to 50</span></a>
-<a class="sourceLine" id="cb1-11" data-line-number="11">pd.set_option(<span class="st">&#39;display.max_columns&#39;</span>, <span class="dv">50</span>)</a>
-<a class="sourceLine" id="cb1-12" data-line-number="12"></a>
-<a class="sourceLine" id="cb1-13" data-line-number="13"><span class="co"># Load the dataset</span></a>
-<a class="sourceLine" id="cb1-14" data-line-number="14">data <span class="op">=</span> pd.read_csv(<span class="st">&#39;site_content/data/5kings_battles_v1.csv&#39;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-4"><a href="#cb1-4"></a>plt.style.use(<span class="st">&#39;ggplot&#39;</span>)</span>
+<span id="cb1-5"><a href="#cb1-5"></a><span class="op">%</span>matplotlib inline</span>
+<span id="cb1-6"><a href="#cb1-6"></a></span>
+<span id="cb1-7"><a href="#cb1-7"></a><span class="co"># set jupyter&#39;s max row display</span></span>
+<span id="cb1-8"><a href="#cb1-8"></a>pd.set_option(<span class="st">&#39;display.max_row&#39;</span>, <span class="dv">1000</span>)</span>
+<span id="cb1-9"><a href="#cb1-9"></a></span>
+<span id="cb1-10"><a href="#cb1-10"></a><span class="co"># set jupyter&#39;s max column width to 50</span></span>
+<span id="cb1-11"><a href="#cb1-11"></a>pd.set_option(<span class="st">&#39;display.max_columns&#39;</span>, <span class="dv">50</span>)</span>
+<span id="cb1-12"><a href="#cb1-12"></a></span>
+<span id="cb1-13"><a href="#cb1-13"></a><span class="co"># Load the dataset</span></span>
+<span id="cb1-14"><a href="#cb1-14"></a>data <span class="op">=</span> pd.read_csv(<span class="st">&#39;site_content/data/5kings_battles_v1.csv&#39;</span>)</span></code></pre></div>
 <p><br></p>
 </div>
 <div id="first-visualization-with-annotations" class="section level4">
 <h4>First visualization with annotations</h4>
 <p><br></p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb2-1" data-line-number="1">ax <span class="op">=</span> data[<span class="st">&#39;region&#39;</span>].value_counts().plot(kind<span class="op">=</span><span class="st">&#39;barh&#39;</span>, figsize<span class="op">=</span>(<span class="dv">10</span>,<span class="dv">7</span>),</a>
-<a class="sourceLine" id="cb2-2" data-line-number="2">                                        color<span class="op">=</span><span class="st">&quot;coral&quot;</span>, fontsize<span class="op">=</span><span class="dv">13</span>)<span class="op">;</span></a>
-<a class="sourceLine" id="cb2-3" data-line-number="3">ax.set_alpha(<span class="fl">0.8</span>)</a>
-<a class="sourceLine" id="cb2-4" data-line-number="4">ax.set_title(<span class="st">&quot;Where were the battles fought?&quot;</span>, fontsize<span class="op">=</span><span class="dv">18</span>)</a>
-<a class="sourceLine" id="cb2-5" data-line-number="5">ax.set_xlabel(<span class="st">&quot;Number of Battles&quot;</span>, fontsize<span class="op">=</span><span class="dv">18</span>)<span class="op">;</span></a>
-<a class="sourceLine" id="cb2-6" data-line-number="6">ax.set_xticks([<span class="dv">0</span>, <span class="dv">5</span>, <span class="dv">10</span>, <span class="dv">15</span>, <span class="dv">20</span>])</a>
-<a class="sourceLine" id="cb2-7" data-line-number="7"></a>
-<a class="sourceLine" id="cb2-8" data-line-number="8"><span class="co"># create a list to collect the plt.patches data</span></a>
-<a class="sourceLine" id="cb2-9" data-line-number="9">totals <span class="op">=</span> []</a>
-<a class="sourceLine" id="cb2-10" data-line-number="10"></a>
-<a class="sourceLine" id="cb2-11" data-line-number="11"><span class="co"># find the values and append to list</span></a>
-<a class="sourceLine" id="cb2-12" data-line-number="12"><span class="cf">for</span> i <span class="kw">in</span> ax.patches:</a>
-<a class="sourceLine" id="cb2-13" data-line-number="13">    totals.append(i.get_width())</a>
-<a class="sourceLine" id="cb2-14" data-line-number="14"></a>
-<a class="sourceLine" id="cb2-15" data-line-number="15"><span class="co"># set individual bar lables using above list</span></a>
-<a class="sourceLine" id="cb2-16" data-line-number="16">total <span class="op">=</span> <span class="bu">sum</span>(totals)</a>
-<a class="sourceLine" id="cb2-17" data-line-number="17"></a>
-<a class="sourceLine" id="cb2-18" data-line-number="18"><span class="co"># set individual bar lables using above list</span></a>
-<a class="sourceLine" id="cb2-19" data-line-number="19"><span class="cf">for</span> i <span class="kw">in</span> ax.patches:</a>
-<a class="sourceLine" id="cb2-20" data-line-number="20">    <span class="co"># get_width pulls left or right; get_y pushes up or down</span></a>
-<a class="sourceLine" id="cb2-21" data-line-number="21">    ax.text(i.get_width()<span class="op">+</span>.<span class="dv">3</span>, i.get_y()<span class="op">+</span>.<span class="dv">38</span>, <span class="op">\</span></a>
-<a class="sourceLine" id="cb2-22" data-line-number="22">            <span class="bu">str</span>(<span class="bu">round</span>((i.get_width()<span class="op">/</span>total)<span class="op">*</span><span class="dv">100</span>, <span class="dv">2</span>))<span class="op">+</span><span class="st">&#39;%&#39;</span>, fontsize<span class="op">=</span><span class="dv">15</span>,</a>
-<a class="sourceLine" id="cb2-23" data-line-number="23">color<span class="op">=</span><span class="st">&#39;dimgrey&#39;</span>)</a>
-<a class="sourceLine" id="cb2-24" data-line-number="24"></a>
-<a class="sourceLine" id="cb2-25" data-line-number="25"><span class="co"># invert for largest on top </span></a>
-<a class="sourceLine" id="cb2-26" data-line-number="26">ax.invert_yaxis()</a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a>ax <span class="op">=</span> data[<span class="st">&#39;region&#39;</span>].value_counts().plot(kind<span class="op">=</span><span class="st">&#39;barh&#39;</span>, figsize<span class="op">=</span>(<span class="dv">10</span>,<span class="dv">7</span>),</span>
+<span id="cb2-2"><a href="#cb2-2"></a>                                        color<span class="op">=</span><span class="st">&quot;coral&quot;</span>, fontsize<span class="op">=</span><span class="dv">13</span>)<span class="op">;</span></span>
+<span id="cb2-3"><a href="#cb2-3"></a>ax.set_alpha(<span class="fl">0.8</span>)</span>
+<span id="cb2-4"><a href="#cb2-4"></a>ax.set_title(<span class="st">&quot;Where were the battles fought?&quot;</span>, fontsize<span class="op">=</span><span class="dv">18</span>)</span>
+<span id="cb2-5"><a href="#cb2-5"></a>ax.set_xlabel(<span class="st">&quot;Number of Battles&quot;</span>, fontsize<span class="op">=</span><span class="dv">18</span>)<span class="op">;</span></span>
+<span id="cb2-6"><a href="#cb2-6"></a>ax.set_xticks([<span class="dv">0</span>, <span class="dv">5</span>, <span class="dv">10</span>, <span class="dv">15</span>, <span class="dv">20</span>])</span>
+<span id="cb2-7"><a href="#cb2-7"></a></span>
+<span id="cb2-8"><a href="#cb2-8"></a><span class="co"># create a list to collect the plt.patches data</span></span>
+<span id="cb2-9"><a href="#cb2-9"></a>totals <span class="op">=</span> []</span>
+<span id="cb2-10"><a href="#cb2-10"></a></span>
+<span id="cb2-11"><a href="#cb2-11"></a><span class="co"># find the values and append to list</span></span>
+<span id="cb2-12"><a href="#cb2-12"></a><span class="cf">for</span> i <span class="kw">in</span> ax.patches:</span>
+<span id="cb2-13"><a href="#cb2-13"></a>    totals.append(i.get_width())</span>
+<span id="cb2-14"><a href="#cb2-14"></a></span>
+<span id="cb2-15"><a href="#cb2-15"></a><span class="co"># set individual bar lables using above list</span></span>
+<span id="cb2-16"><a href="#cb2-16"></a>total <span class="op">=</span> <span class="bu">sum</span>(totals)</span>
+<span id="cb2-17"><a href="#cb2-17"></a></span>
+<span id="cb2-18"><a href="#cb2-18"></a><span class="co"># set individual bar lables using above list</span></span>
+<span id="cb2-19"><a href="#cb2-19"></a><span class="cf">for</span> i <span class="kw">in</span> ax.patches:</span>
+<span id="cb2-20"><a href="#cb2-20"></a>    <span class="co"># get_width pulls left or right; get_y pushes up or down</span></span>
+<span id="cb2-21"><a href="#cb2-21"></a>    ax.text(i.get_width()<span class="op">+</span>.<span class="dv">3</span>, i.get_y()<span class="op">+</span>.<span class="dv">38</span>, <span class="op">\</span></span>
+<span id="cb2-22"><a href="#cb2-22"></a>            <span class="bu">str</span>(<span class="bu">round</span>((i.get_width()<span class="op">/</span>total)<span class="op">*</span><span class="dv">100</span>, <span class="dv">2</span>))<span class="op">+</span><span class="st">&#39;%&#39;</span>, fontsize<span class="op">=</span><span class="dv">15</span>,</span>
+<span id="cb2-23"><a href="#cb2-23"></a>color<span class="op">=</span><span class="st">&#39;dimgrey&#39;</span>)</span>
+<span id="cb2-24"><a href="#cb2-24"></a></span>
+<span id="cb2-25"><a href="#cb2-25"></a><span class="co"># invert for largest on top </span></span>
+<span id="cb2-26"><a href="#cb2-26"></a>ax.invert_yaxis()</span></code></pre></div>
 <p><br></p>
 <p><img src="site_content/img/5kings-1.png" /></p>
 <p>The image above is the output from the Jupyter notebook. I think it is super clear and gives a lot of information about where the battles were fought. However, I am very parital to horizontal bar charts, as I really think they are easier to read, however, I understand that a lot of people would rather see this chart implemented in a regular bar chart. So, here is the code to do that; you will notice that a few things have changed in order to create the annotation.</p>
 <p><br></p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb3-1" data-line-number="1">ax <span class="op">=</span> data[<span class="st">&#39;region&#39;</span>].value_counts().plot(kind<span class="op">=</span><span class="st">&#39;bar&#39;</span>, figsize<span class="op">=</span>(<span class="dv">10</span>,<span class="dv">7</span>),</a>
-<a class="sourceLine" id="cb3-2" data-line-number="2">                                        color<span class="op">=</span><span class="st">&quot;coral&quot;</span>, fontsize<span class="op">=</span><span class="dv">13</span>)<span class="op">;</span></a>
-<a class="sourceLine" id="cb3-3" data-line-number="3">ax.set_alpha(<span class="fl">0.8</span>)</a>
-<a class="sourceLine" id="cb3-4" data-line-number="4">ax.set_title(<span class="st">&quot;Where were the battles fought?&quot;</span>, fontsize<span class="op">=</span><span class="dv">18</span>)</a>
-<a class="sourceLine" id="cb3-5" data-line-number="5">ax.set_ylabel(<span class="st">&quot;Number of Battles&quot;</span>, fontsize<span class="op">=</span><span class="dv">18</span>)<span class="op">;</span></a>
-<a class="sourceLine" id="cb3-6" data-line-number="6">ax.set_yticks([<span class="dv">0</span>, <span class="dv">5</span>, <span class="dv">10</span>, <span class="dv">15</span>, <span class="dv">20</span>])</a>
-<a class="sourceLine" id="cb3-7" data-line-number="7"></a>
-<a class="sourceLine" id="cb3-8" data-line-number="8"><span class="co"># create a list to collect the plt.patches data</span></a>
-<a class="sourceLine" id="cb3-9" data-line-number="9">totals <span class="op">=</span> []</a>
-<a class="sourceLine" id="cb3-10" data-line-number="10"></a>
-<a class="sourceLine" id="cb3-11" data-line-number="11"><span class="co"># find the values and append to list</span></a>
-<a class="sourceLine" id="cb3-12" data-line-number="12"><span class="cf">for</span> i <span class="kw">in</span> ax.patches:</a>
-<a class="sourceLine" id="cb3-13" data-line-number="13">    totals.append(i.get_height())</a>
-<a class="sourceLine" id="cb3-14" data-line-number="14"></a>
-<a class="sourceLine" id="cb3-15" data-line-number="15"><span class="co"># set individual bar lables using above list</span></a>
-<a class="sourceLine" id="cb3-16" data-line-number="16">total <span class="op">=</span> <span class="bu">sum</span>(totals)</a>
-<a class="sourceLine" id="cb3-17" data-line-number="17"></a>
-<a class="sourceLine" id="cb3-18" data-line-number="18"><span class="co"># set individual bar lables using above list</span></a>
-<a class="sourceLine" id="cb3-19" data-line-number="19"><span class="cf">for</span> i <span class="kw">in</span> ax.patches:</a>
-<a class="sourceLine" id="cb3-20" data-line-number="20">    <span class="co"># get_x pulls left or right; get_height pushes up or down</span></a>
-<a class="sourceLine" id="cb3-21" data-line-number="21">    ax.text(i.get_x()<span class="op">-</span>.<span class="dv">03</span>, i.get_height()<span class="op">+</span>.<span class="dv">5</span>, <span class="op">\</span></a>
-<a class="sourceLine" id="cb3-22" data-line-number="22">            <span class="bu">str</span>(<span class="bu">round</span>((i.get_height()<span class="op">/</span>total)<span class="op">*</span><span class="dv">100</span>, <span class="dv">2</span>))<span class="op">+</span><span class="st">&#39;%&#39;</span>, fontsize<span class="op">=</span><span class="dv">15</span>,</a>
-<a class="sourceLine" id="cb3-23" data-line-number="23">                color<span class="op">=</span><span class="st">&#39;dimgrey&#39;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1"></a>ax <span class="op">=</span> data[<span class="st">&#39;region&#39;</span>].value_counts().plot(kind<span class="op">=</span><span class="st">&#39;bar&#39;</span>, figsize<span class="op">=</span>(<span class="dv">10</span>,<span class="dv">7</span>),</span>
+<span id="cb3-2"><a href="#cb3-2"></a>                                        color<span class="op">=</span><span class="st">&quot;coral&quot;</span>, fontsize<span class="op">=</span><span class="dv">13</span>)<span class="op">;</span></span>
+<span id="cb3-3"><a href="#cb3-3"></a>ax.set_alpha(<span class="fl">0.8</span>)</span>
+<span id="cb3-4"><a href="#cb3-4"></a>ax.set_title(<span class="st">&quot;Where were the battles fought?&quot;</span>, fontsize<span class="op">=</span><span class="dv">18</span>)</span>
+<span id="cb3-5"><a href="#cb3-5"></a>ax.set_ylabel(<span class="st">&quot;Number of Battles&quot;</span>, fontsize<span class="op">=</span><span class="dv">18</span>)<span class="op">;</span></span>
+<span id="cb3-6"><a href="#cb3-6"></a>ax.set_yticks([<span class="dv">0</span>, <span class="dv">5</span>, <span class="dv">10</span>, <span class="dv">15</span>, <span class="dv">20</span>])</span>
+<span id="cb3-7"><a href="#cb3-7"></a></span>
+<span id="cb3-8"><a href="#cb3-8"></a><span class="co"># create a list to collect the plt.patches data</span></span>
+<span id="cb3-9"><a href="#cb3-9"></a>totals <span class="op">=</span> []</span>
+<span id="cb3-10"><a href="#cb3-10"></a></span>
+<span id="cb3-11"><a href="#cb3-11"></a><span class="co"># find the values and append to list</span></span>
+<span id="cb3-12"><a href="#cb3-12"></a><span class="cf">for</span> i <span class="kw">in</span> ax.patches:</span>
+<span id="cb3-13"><a href="#cb3-13"></a>    totals.append(i.get_height())</span>
+<span id="cb3-14"><a href="#cb3-14"></a></span>
+<span id="cb3-15"><a href="#cb3-15"></a><span class="co"># set individual bar lables using above list</span></span>
+<span id="cb3-16"><a href="#cb3-16"></a>total <span class="op">=</span> <span class="bu">sum</span>(totals)</span>
+<span id="cb3-17"><a href="#cb3-17"></a></span>
+<span id="cb3-18"><a href="#cb3-18"></a><span class="co"># set individual bar lables using above list</span></span>
+<span id="cb3-19"><a href="#cb3-19"></a><span class="cf">for</span> i <span class="kw">in</span> ax.patches:</span>
+<span id="cb3-20"><a href="#cb3-20"></a>    <span class="co"># get_x pulls left or right; get_height pushes up or down</span></span>
+<span id="cb3-21"><a href="#cb3-21"></a>    ax.text(i.get_x()<span class="op">-</span>.<span class="dv">03</span>, i.get_height()<span class="op">+</span>.<span class="dv">5</span>, <span class="op">\</span></span>
+<span id="cb3-22"><a href="#cb3-22"></a>            <span class="bu">str</span>(<span class="bu">round</span>((i.get_height()<span class="op">/</span>total)<span class="op">*</span><span class="dv">100</span>, <span class="dv">2</span>))<span class="op">+</span><span class="st">&#39;%&#39;</span>, fontsize<span class="op">=</span><span class="dv">15</span>,</span>
+<span id="cb3-23"><a href="#cb3-23"></a>                color<span class="op">=</span><span class="st">&#39;dimgrey&#39;</span>)</span></code></pre></div>
 <p><br></p>
 <p><img src="site_content/img/5kings-2.png" /></p>
 <p><br></p>
 <p>I play around with the mpl.text() numbers for almost each chart. They are never exactly where they need to be, which often means moving thigs around a hair here and .03 there. You can add or subtract, which means you can also do this:</p>
 <p><br></p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb4-1" data-line-number="1">ax <span class="op">=</span> data[<span class="st">&#39;attacker_outcome&#39;</span>].value_counts().plot(kind<span class="op">=</span><span class="st">&#39;bar&#39;</span>, figsize<span class="op">=</span>(<span class="dv">10</span>,<span class="dv">7</span>),</a>
-<a class="sourceLine" id="cb4-2" data-line-number="2">                                                  color<span class="op">=</span><span class="st">&quot;indigo&quot;</span>, fontsize<span class="op">=</span><span class="dv">13</span>)<span class="op">;</span></a>
-<a class="sourceLine" id="cb4-3" data-line-number="3">ax.set_alpha(<span class="fl">0.8</span>)</a>
-<a class="sourceLine" id="cb4-4" data-line-number="4">ax.set_title(<span class="st">&quot;Do attackers usually win or loose?&quot;</span>, fontsize<span class="op">=</span><span class="dv">18</span>)</a>
-<a class="sourceLine" id="cb4-5" data-line-number="5">ax.set_ylabel(<span class="st">&quot;Number of Battles&quot;</span>, fontsize<span class="op">=</span><span class="dv">18</span>)<span class="op">;</span></a>
-<a class="sourceLine" id="cb4-6" data-line-number="6">ax.set_yticks([<span class="dv">0</span>, <span class="dv">5</span>, <span class="dv">10</span>, <span class="dv">15</span>, <span class="dv">20</span>, <span class="dv">25</span>, <span class="dv">30</span>, <span class="dv">35</span>, <span class="dv">40</span>])</a>
-<a class="sourceLine" id="cb4-7" data-line-number="7"></a>
-<a class="sourceLine" id="cb4-8" data-line-number="8"><span class="co"># create a list to collect the plt.patches data</span></a>
-<a class="sourceLine" id="cb4-9" data-line-number="9">totals <span class="op">=</span> []</a>
-<a class="sourceLine" id="cb4-10" data-line-number="10"></a>
-<a class="sourceLine" id="cb4-11" data-line-number="11"><span class="co"># find the values and append to list</span></a>
-<a class="sourceLine" id="cb4-12" data-line-number="12"><span class="cf">for</span> i <span class="kw">in</span> ax.patches:</a>
-<a class="sourceLine" id="cb4-13" data-line-number="13">    totals.append(i.get_height())</a>
-<a class="sourceLine" id="cb4-14" data-line-number="14"></a>
-<a class="sourceLine" id="cb4-15" data-line-number="15"><span class="co"># set individual bar lables using above list</span></a>
-<a class="sourceLine" id="cb4-16" data-line-number="16">total <span class="op">=</span> <span class="bu">sum</span>(totals)</a>
-<a class="sourceLine" id="cb4-17" data-line-number="17"></a>
-<a class="sourceLine" id="cb4-18" data-line-number="18"><span class="co"># set individual bar lables using above list</span></a>
-<a class="sourceLine" id="cb4-19" data-line-number="19"><span class="cf">for</span> i <span class="kw">in</span> ax.patches:</a>
-<a class="sourceLine" id="cb4-20" data-line-number="20">    <span class="co"># get_x pulls left or right; get_height pushes up or down</span></a>
-<a class="sourceLine" id="cb4-21" data-line-number="21">    ax.text(i.get_x()<span class="op">+</span>.<span class="dv">12</span>, i.get_height()<span class="op">-</span><span class="dv">3</span>, <span class="op">\</span></a>
-<a class="sourceLine" id="cb4-22" data-line-number="22">            <span class="bu">str</span>(<span class="bu">round</span>((i.get_height()<span class="op">/</span>total)<span class="op">*</span><span class="dv">100</span>, <span class="dv">2</span>))<span class="op">+</span><span class="st">&#39;%&#39;</span>, fontsize<span class="op">=</span><span class="dv">22</span>,</a>
-<a class="sourceLine" id="cb4-23" data-line-number="23">                color<span class="op">=</span><span class="st">&#39;white&#39;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1"></a>ax <span class="op">=</span> data[<span class="st">&#39;attacker_outcome&#39;</span>].value_counts().plot(kind<span class="op">=</span><span class="st">&#39;bar&#39;</span>, figsize<span class="op">=</span>(<span class="dv">10</span>,<span class="dv">7</span>),</span>
+<span id="cb4-2"><a href="#cb4-2"></a>                                                  color<span class="op">=</span><span class="st">&quot;indigo&quot;</span>, fontsize<span class="op">=</span><span class="dv">13</span>)<span class="op">;</span></span>
+<span id="cb4-3"><a href="#cb4-3"></a>ax.set_alpha(<span class="fl">0.8</span>)</span>
+<span id="cb4-4"><a href="#cb4-4"></a>ax.set_title(<span class="st">&quot;Do attackers usually win or loose?&quot;</span>, fontsize<span class="op">=</span><span class="dv">18</span>)</span>
+<span id="cb4-5"><a href="#cb4-5"></a>ax.set_ylabel(<span class="st">&quot;Number of Battles&quot;</span>, fontsize<span class="op">=</span><span class="dv">18</span>)<span class="op">;</span></span>
+<span id="cb4-6"><a href="#cb4-6"></a>ax.set_yticks([<span class="dv">0</span>, <span class="dv">5</span>, <span class="dv">10</span>, <span class="dv">15</span>, <span class="dv">20</span>, <span class="dv">25</span>, <span class="dv">30</span>, <span class="dv">35</span>, <span class="dv">40</span>])</span>
+<span id="cb4-7"><a href="#cb4-7"></a></span>
+<span id="cb4-8"><a href="#cb4-8"></a><span class="co"># create a list to collect the plt.patches data</span></span>
+<span id="cb4-9"><a href="#cb4-9"></a>totals <span class="op">=</span> []</span>
+<span id="cb4-10"><a href="#cb4-10"></a></span>
+<span id="cb4-11"><a href="#cb4-11"></a><span class="co"># find the values and append to list</span></span>
+<span id="cb4-12"><a href="#cb4-12"></a><span class="cf">for</span> i <span class="kw">in</span> ax.patches:</span>
+<span id="cb4-13"><a href="#cb4-13"></a>    totals.append(i.get_height())</span>
+<span id="cb4-14"><a href="#cb4-14"></a></span>
+<span id="cb4-15"><a href="#cb4-15"></a><span class="co"># set individual bar lables using above list</span></span>
+<span id="cb4-16"><a href="#cb4-16"></a>total <span class="op">=</span> <span class="bu">sum</span>(totals)</span>
+<span id="cb4-17"><a href="#cb4-17"></a></span>
+<span id="cb4-18"><a href="#cb4-18"></a><span class="co"># set individual bar lables using above list</span></span>
+<span id="cb4-19"><a href="#cb4-19"></a><span class="cf">for</span> i <span class="kw">in</span> ax.patches:</span>
+<span id="cb4-20"><a href="#cb4-20"></a>    <span class="co"># get_x pulls left or right; get_height pushes up or down</span></span>
+<span id="cb4-21"><a href="#cb4-21"></a>    ax.text(i.get_x()<span class="op">+</span>.<span class="dv">12</span>, i.get_height()<span class="op">-</span><span class="dv">3</span>, <span class="op">\</span></span>
+<span id="cb4-22"><a href="#cb4-22"></a>            <span class="bu">str</span>(<span class="bu">round</span>((i.get_height()<span class="op">/</span>total)<span class="op">*</span><span class="dv">100</span>, <span class="dv">2</span>))<span class="op">+</span><span class="st">&#39;%&#39;</span>, fontsize<span class="op">=</span><span class="dv">22</span>,</span>
+<span id="cb4-23"><a href="#cb4-23"></a>                color<span class="op">=</span><span class="st">&#39;white&#39;</span>)</span></code></pre></div>
 <p><br></p>
 <p><img src="site_content/img/5kings-3.png" /></p>
 <p><br></p>
 <p>If you are like me, often you like to isolate a categorical value in one column and see what the rest of the dataframe looks like in light of that. It is a simply way of drilling down, but a percentage really would not be as appropriate as a count. Here is an example of using a count rather than a percentage:</p>
 <p><br></p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb5-1" data-line-number="1">losses <span class="op">=</span> data[data[<span class="st">&#39;attacker_outcome&#39;</span>].<span class="bu">str</span>.contains(<span class="st">&quot;loss&quot;</span>, na<span class="op">=</span><span class="va">False</span>)]</a>
-<a class="sourceLine" id="cb5-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb5-3" data-line-number="3">ax <span class="op">=</span> losses[<span class="st">&#39;attacker_king&#39;</span>].value_counts().plot(kind<span class="op">=</span><span class="st">&#39;barh&#39;</span>, figsize<span class="op">=</span>(<span class="dv">10</span>,<span class="dv">7</span>),</a>
-<a class="sourceLine" id="cb5-4" data-line-number="4">                                                 color<span class="op">=</span><span class="st">&quot;slateblue&quot;</span>, fontsize<span class="op">=</span><span class="dv">13</span>)<span class="op">;</span></a>
-<a class="sourceLine" id="cb5-5" data-line-number="5">ax.set_alpha(<span class="fl">0.8</span>)</a>
-<a class="sourceLine" id="cb5-6" data-line-number="6">ax.set_title(<span class="st">&quot;Who were the attackers who lost?&quot;</span>, fontsize<span class="op">=</span><span class="dv">18</span>)</a>
-<a class="sourceLine" id="cb5-7" data-line-number="7">ax.set_xlabel(<span class="st">&quot;Number of Battles&quot;</span>, fontsize<span class="op">=</span><span class="dv">18</span>)<span class="op">;</span></a>
-<a class="sourceLine" id="cb5-8" data-line-number="8">ax.set_xticks([<span class="dv">0</span>, <span class="dv">5</span>])</a>
-<a class="sourceLine" id="cb5-9" data-line-number="9"></a>
-<a class="sourceLine" id="cb5-10" data-line-number="10"><span class="co"># set individual bar lables using above list</span></a>
-<a class="sourceLine" id="cb5-11" data-line-number="11"><span class="cf">for</span> i <span class="kw">in</span> ax.patches:</a>
-<a class="sourceLine" id="cb5-12" data-line-number="12">    <span class="co"># get_width pulls left or right; get_y pushes up or down</span></a>
-<a class="sourceLine" id="cb5-13" data-line-number="13">    ax.text(i.get_width()<span class="op">+</span>.<span class="dv">1</span>, i.get_y()<span class="op">+</span>.<span class="dv">31</span>, <span class="op">\</span></a>
-<a class="sourceLine" id="cb5-14" data-line-number="14">            <span class="bu">str</span>(<span class="bu">round</span>((i.get_width()), <span class="dv">2</span>)), fontsize<span class="op">=</span><span class="dv">15</span>, color<span class="op">=</span><span class="st">&#39;dimgrey&#39;</span>)</a>
-<a class="sourceLine" id="cb5-15" data-line-number="15"></a>
-<a class="sourceLine" id="cb5-16" data-line-number="16"><span class="co"># invert for largest on top </span></a>
-<a class="sourceLine" id="cb5-17" data-line-number="17">ax.invert_yaxis()</a></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb5-1"><a href="#cb5-1"></a>losses <span class="op">=</span> data[data[<span class="st">&#39;attacker_outcome&#39;</span>].<span class="bu">str</span>.contains(<span class="st">&quot;loss&quot;</span>, na<span class="op">=</span><span class="va">False</span>)]</span>
+<span id="cb5-2"><a href="#cb5-2"></a></span>
+<span id="cb5-3"><a href="#cb5-3"></a>ax <span class="op">=</span> losses[<span class="st">&#39;attacker_king&#39;</span>].value_counts().plot(kind<span class="op">=</span><span class="st">&#39;barh&#39;</span>, figsize<span class="op">=</span>(<span class="dv">10</span>,<span class="dv">7</span>),</span>
+<span id="cb5-4"><a href="#cb5-4"></a>                                                 color<span class="op">=</span><span class="st">&quot;slateblue&quot;</span>, fontsize<span class="op">=</span><span class="dv">13</span>)<span class="op">;</span></span>
+<span id="cb5-5"><a href="#cb5-5"></a>ax.set_alpha(<span class="fl">0.8</span>)</span>
+<span id="cb5-6"><a href="#cb5-6"></a>ax.set_title(<span class="st">&quot;Who were the attackers who lost?&quot;</span>, fontsize<span class="op">=</span><span class="dv">18</span>)</span>
+<span id="cb5-7"><a href="#cb5-7"></a>ax.set_xlabel(<span class="st">&quot;Number of Battles&quot;</span>, fontsize<span class="op">=</span><span class="dv">18</span>)<span class="op">;</span></span>
+<span id="cb5-8"><a href="#cb5-8"></a>ax.set_xticks([<span class="dv">0</span>, <span class="dv">5</span>])</span>
+<span id="cb5-9"><a href="#cb5-9"></a></span>
+<span id="cb5-10"><a href="#cb5-10"></a><span class="co"># set individual bar lables using above list</span></span>
+<span id="cb5-11"><a href="#cb5-11"></a><span class="cf">for</span> i <span class="kw">in</span> ax.patches:</span>
+<span id="cb5-12"><a href="#cb5-12"></a>    <span class="co"># get_width pulls left or right; get_y pushes up or down</span></span>
+<span id="cb5-13"><a href="#cb5-13"></a>    ax.text(i.get_width()<span class="op">+</span>.<span class="dv">1</span>, i.get_y()<span class="op">+</span>.<span class="dv">31</span>, <span class="op">\</span></span>
+<span id="cb5-14"><a href="#cb5-14"></a>            <span class="bu">str</span>(<span class="bu">round</span>((i.get_width()), <span class="dv">2</span>)), fontsize<span class="op">=</span><span class="dv">15</span>, color<span class="op">=</span><span class="st">&#39;dimgrey&#39;</span>)</span>
+<span id="cb5-15"><a href="#cb5-15"></a></span>
+<span id="cb5-16"><a href="#cb5-16"></a><span class="co"># invert for largest on top </span></span>
+<span id="cb5-17"><a href="#cb5-17"></a>ax.invert_yaxis()</span></code></pre></div>
 <p><br></p>
 <p><img src="site_content/img/5kings-4.png" /></p>
 <p><br></p>
 <p>You can also just project a couple columns from those that lost to compare a couple of values; I think bar charts are great for this purpose. I am not sure what the best way would be do accomplish this, but here is my implementation:</p>
 <p><br></p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb6-1" data-line-number="1">ax <span class="op">=</span> losses[[<span class="st">&#39;attacker_size&#39;</span>, <span class="st">&#39;defender_size&#39;</span>]].plot(kind<span class="op">=</span><span class="st">&#39;bar&#39;</span>,</a>
-<a class="sourceLine" id="cb6-2" data-line-number="2">              figsize<span class="op">=</span>(<span class="dv">15</span>,<span class="dv">7</span>), color<span class="op">=</span>[<span class="st">&#39;dodgerblue&#39;</span>, <span class="st">&#39;slategray&#39;</span>], fontsize<span class="op">=</span><span class="dv">13</span>)<span class="op">;</span></a>
-<a class="sourceLine" id="cb6-3" data-line-number="3">ax.set_alpha(<span class="fl">0.8</span>)</a>
-<a class="sourceLine" id="cb6-4" data-line-number="4">ax.set_title(<span class="st">&quot;For Attacker Losses, What was the Difference in Size?&quot;</span>,</a>
-<a class="sourceLine" id="cb6-5" data-line-number="5">fontsize<span class="op">=</span><span class="dv">18</span>)</a>
-<a class="sourceLine" id="cb6-6" data-line-number="6">ax.set_ylabel(<span class="st">&quot;Number of Troops&quot;</span>, fontsize<span class="op">=</span><span class="dv">18</span>)<span class="op">;</span></a>
-<a class="sourceLine" id="cb6-7" data-line-number="7">ax.set_yticks([<span class="dv">0</span>, <span class="dv">20000</span>, <span class="dv">40000</span>, <span class="dv">60000</span>, <span class="dv">80000</span>, <span class="dv">100000</span>, <span class="dv">120000</span>, <span class="dv">140000</span>])</a>
-<a class="sourceLine" id="cb6-8" data-line-number="8">ax.set_xticklabels([<span class="st">&quot;Robb v Joff/Tommen&quot;</span>, <span class="st">&quot;Joff/Tommen v Robb&quot;</span>, </a>
-<a class="sourceLine" id="cb6-9" data-line-number="9">                    <span class="st">&quot;Stannis v Joff/Tommen&quot;</span>, <span class="st">&quot;Robb v Joff/Tommen&quot;</span>, </a>
-<a class="sourceLine" id="cb6-10" data-line-number="10">                    <span class="st">&quot;Stannis v Mance&quot;</span>], rotation<span class="op">=</span><span class="dv">0</span>, fontsize<span class="op">=</span><span class="dv">11</span>)</a>
-<a class="sourceLine" id="cb6-11" data-line-number="11"></a>
-<a class="sourceLine" id="cb6-12" data-line-number="12"><span class="co"># set individual bar lables using above list</span></a>
-<a class="sourceLine" id="cb6-13" data-line-number="13"><span class="cf">for</span> i <span class="kw">in</span> ax.patches:</a>
-<a class="sourceLine" id="cb6-14" data-line-number="14">    <span class="co"># get_x pulls left or right; get_height pushes up or down</span></a>
-<a class="sourceLine" id="cb6-15" data-line-number="15">    ax.text(i.get_x()<span class="op">+</span>.<span class="dv">04</span>, i.get_height()<span class="op">+</span><span class="dv">12000</span>, <span class="op">\</span></a>
-<a class="sourceLine" id="cb6-16" data-line-number="16">            <span class="bu">str</span>(<span class="bu">round</span>((i.get_height()), <span class="dv">2</span>)), fontsize<span class="op">=</span><span class="dv">11</span>, color<span class="op">=</span><span class="st">&#39;dimgrey&#39;</span>,</a>
-<a class="sourceLine" id="cb6-17" data-line-number="17">                rotation<span class="op">=</span><span class="dv">45</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a>ax <span class="op">=</span> losses[[<span class="st">&#39;attacker_size&#39;</span>, <span class="st">&#39;defender_size&#39;</span>]].plot(kind<span class="op">=</span><span class="st">&#39;bar&#39;</span>,</span>
+<span id="cb6-2"><a href="#cb6-2"></a>              figsize<span class="op">=</span>(<span class="dv">15</span>,<span class="dv">7</span>), color<span class="op">=</span>[<span class="st">&#39;dodgerblue&#39;</span>, <span class="st">&#39;slategray&#39;</span>], fontsize<span class="op">=</span><span class="dv">13</span>)<span class="op">;</span></span>
+<span id="cb6-3"><a href="#cb6-3"></a>ax.set_alpha(<span class="fl">0.8</span>)</span>
+<span id="cb6-4"><a href="#cb6-4"></a>ax.set_title(<span class="st">&quot;For Attacker Losses, What was the Difference in Size?&quot;</span>,</span>
+<span id="cb6-5"><a href="#cb6-5"></a>fontsize<span class="op">=</span><span class="dv">18</span>)</span>
+<span id="cb6-6"><a href="#cb6-6"></a>ax.set_ylabel(<span class="st">&quot;Number of Troops&quot;</span>, fontsize<span class="op">=</span><span class="dv">18</span>)<span class="op">;</span></span>
+<span id="cb6-7"><a href="#cb6-7"></a>ax.set_yticks([<span class="dv">0</span>, <span class="dv">20000</span>, <span class="dv">40000</span>, <span class="dv">60000</span>, <span class="dv">80000</span>, <span class="dv">100000</span>, <span class="dv">120000</span>, <span class="dv">140000</span>])</span>
+<span id="cb6-8"><a href="#cb6-8"></a>ax.set_xticklabels([<span class="st">&quot;Robb v Joff/Tommen&quot;</span>, <span class="st">&quot;Joff/Tommen v Robb&quot;</span>, </span>
+<span id="cb6-9"><a href="#cb6-9"></a>                    <span class="st">&quot;Stannis v Joff/Tommen&quot;</span>, <span class="st">&quot;Robb v Joff/Tommen&quot;</span>, </span>
+<span id="cb6-10"><a href="#cb6-10"></a>                    <span class="st">&quot;Stannis v Mance&quot;</span>], rotation<span class="op">=</span><span class="dv">0</span>, fontsize<span class="op">=</span><span class="dv">11</span>)</span>
+<span id="cb6-11"><a href="#cb6-11"></a></span>
+<span id="cb6-12"><a href="#cb6-12"></a><span class="co"># set individual bar lables using above list</span></span>
+<span id="cb6-13"><a href="#cb6-13"></a><span class="cf">for</span> i <span class="kw">in</span> ax.patches:</span>
+<span id="cb6-14"><a href="#cb6-14"></a>    <span class="co"># get_x pulls left or right; get_height pushes up or down</span></span>
+<span id="cb6-15"><a href="#cb6-15"></a>    ax.text(i.get_x()<span class="op">+</span>.<span class="dv">04</span>, i.get_height()<span class="op">+</span><span class="dv">12000</span>, <span class="op">\</span></span>
+<span id="cb6-16"><a href="#cb6-16"></a>            <span class="bu">str</span>(<span class="bu">round</span>((i.get_height()), <span class="dv">2</span>)), fontsize<span class="op">=</span><span class="dv">11</span>, color<span class="op">=</span><span class="st">&#39;dimgrey&#39;</span>,</span>
+<span id="cb6-17"><a href="#cb6-17"></a>                rotation<span class="op">=</span><span class="dv">45</span>)</span></code></pre></div>
 <p><br></p>
 <p><img src="site_content/img/5kings-5.png" /></p>
 <p><br></p>
@@ -510,26 +627,26 @@ $(document).ready(function () {
 <p><br></p>
 <p>Here is the chart done horizontally, which I prefer:</p>
 <p><br></p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><a class="sourceLine" id="cb7-1" data-line-number="1">ax <span class="op">=</span> losses[[<span class="st">&#39;attacker_size&#39;</span>, <span class="st">&#39;defender_size&#39;</span>]].plot(kind<span class="op">=</span><span class="st">&#39;barh&#39;</span>,</a>
-<a class="sourceLine" id="cb7-2" data-line-number="2">              figsize<span class="op">=</span>(<span class="dv">10</span>,<span class="dv">7</span>), color<span class="op">=</span>[<span class="st">&#39;dodgerblue&#39;</span>, <span class="st">&#39;slategray&#39;</span>], fontsize<span class="op">=</span><span class="dv">13</span>)<span class="op">;</span></a>
-<a class="sourceLine" id="cb7-3" data-line-number="3">ax.set_alpha(<span class="fl">0.8</span>)</a>
-<a class="sourceLine" id="cb7-4" data-line-number="4">ax.set_title(<span class="st">&quot;For Attacker Losses, What was the Difference in Size?&quot;</span>,</a>
-<a class="sourceLine" id="cb7-5" data-line-number="5">fontsize<span class="op">=</span><span class="dv">18</span>)</a>
-<a class="sourceLine" id="cb7-6" data-line-number="6">ax.set_xlabel(<span class="st">&quot;Number of Troops&quot;</span>, fontsize<span class="op">=</span><span class="dv">18</span>)</a>
-<a class="sourceLine" id="cb7-7" data-line-number="7">ax.set_ylabel(<span class="st">&quot;First Name is Attacker&quot;</span>, fontsize<span class="op">=</span><span class="dv">18</span>)</a>
-<a class="sourceLine" id="cb7-8" data-line-number="8">ax.set_xticks([<span class="dv">0</span>, <span class="dv">20000</span>, <span class="dv">40000</span>, <span class="dv">60000</span>, <span class="dv">80000</span>, <span class="dv">100000</span>, <span class="dv">120000</span>, <span class="dv">140000</span>])</a>
-<a class="sourceLine" id="cb7-9" data-line-number="9">ax.set_yticklabels([<span class="st">&quot;Robb v Joff/Tommen&quot;</span>, <span class="st">&quot;Joff/Tommen v Robb&quot;</span>, </a>
-<a class="sourceLine" id="cb7-10" data-line-number="10">                    <span class="st">&quot;Stannis v Joff/Tommen&quot;</span>, <span class="st">&quot;Robb v Joff/Tommen&quot;</span>, </a>
-<a class="sourceLine" id="cb7-11" data-line-number="11">                    <span class="st">&quot;Stannis v Mance&quot;</span>])</a>
-<a class="sourceLine" id="cb7-12" data-line-number="12"></a>
-<a class="sourceLine" id="cb7-13" data-line-number="13"><span class="co"># set individual bar lables using above list</span></a>
-<a class="sourceLine" id="cb7-14" data-line-number="14"><span class="cf">for</span> i <span class="kw">in</span> ax.patches:</a>
-<a class="sourceLine" id="cb7-15" data-line-number="15">    <span class="co"># get_width pulls left or right; get_y pushes up or down</span></a>
-<a class="sourceLine" id="cb7-16" data-line-number="16">    ax.text(i.get_width()<span class="op">+</span><span class="dv">700</span>, i.get_y()<span class="op">+</span>.<span class="dv">18</span>, <span class="op">\</span></a>
-<a class="sourceLine" id="cb7-17" data-line-number="17">            <span class="bu">str</span>(<span class="bu">round</span>((i.get_width()), <span class="dv">2</span>)), fontsize<span class="op">=</span><span class="dv">11</span>, color<span class="op">=</span><span class="st">&#39;dimgrey&#39;</span>)</a>
-<a class="sourceLine" id="cb7-18" data-line-number="18"></a>
-<a class="sourceLine" id="cb7-19" data-line-number="19"><span class="co"># invert for largest on top </span></a>
-<a class="sourceLine" id="cb7-20" data-line-number="20">ax.invert_yaxis()</a></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a>ax <span class="op">=</span> losses[[<span class="st">&#39;attacker_size&#39;</span>, <span class="st">&#39;defender_size&#39;</span>]].plot(kind<span class="op">=</span><span class="st">&#39;barh&#39;</span>,</span>
+<span id="cb7-2"><a href="#cb7-2"></a>              figsize<span class="op">=</span>(<span class="dv">10</span>,<span class="dv">7</span>), color<span class="op">=</span>[<span class="st">&#39;dodgerblue&#39;</span>, <span class="st">&#39;slategray&#39;</span>], fontsize<span class="op">=</span><span class="dv">13</span>)<span class="op">;</span></span>
+<span id="cb7-3"><a href="#cb7-3"></a>ax.set_alpha(<span class="fl">0.8</span>)</span>
+<span id="cb7-4"><a href="#cb7-4"></a>ax.set_title(<span class="st">&quot;For Attacker Losses, What was the Difference in Size?&quot;</span>,</span>
+<span id="cb7-5"><a href="#cb7-5"></a>fontsize<span class="op">=</span><span class="dv">18</span>)</span>
+<span id="cb7-6"><a href="#cb7-6"></a>ax.set_xlabel(<span class="st">&quot;Number of Troops&quot;</span>, fontsize<span class="op">=</span><span class="dv">18</span>)</span>
+<span id="cb7-7"><a href="#cb7-7"></a>ax.set_ylabel(<span class="st">&quot;First Name is Attacker&quot;</span>, fontsize<span class="op">=</span><span class="dv">18</span>)</span>
+<span id="cb7-8"><a href="#cb7-8"></a>ax.set_xticks([<span class="dv">0</span>, <span class="dv">20000</span>, <span class="dv">40000</span>, <span class="dv">60000</span>, <span class="dv">80000</span>, <span class="dv">100000</span>, <span class="dv">120000</span>, <span class="dv">140000</span>])</span>
+<span id="cb7-9"><a href="#cb7-9"></a>ax.set_yticklabels([<span class="st">&quot;Robb v Joff/Tommen&quot;</span>, <span class="st">&quot;Joff/Tommen v Robb&quot;</span>, </span>
+<span id="cb7-10"><a href="#cb7-10"></a>                    <span class="st">&quot;Stannis v Joff/Tommen&quot;</span>, <span class="st">&quot;Robb v Joff/Tommen&quot;</span>, </span>
+<span id="cb7-11"><a href="#cb7-11"></a>                    <span class="st">&quot;Stannis v Mance&quot;</span>])</span>
+<span id="cb7-12"><a href="#cb7-12"></a></span>
+<span id="cb7-13"><a href="#cb7-13"></a><span class="co"># set individual bar lables using above list</span></span>
+<span id="cb7-14"><a href="#cb7-14"></a><span class="cf">for</span> i <span class="kw">in</span> ax.patches:</span>
+<span id="cb7-15"><a href="#cb7-15"></a>    <span class="co"># get_width pulls left or right; get_y pushes up or down</span></span>
+<span id="cb7-16"><a href="#cb7-16"></a>    ax.text(i.get_width()<span class="op">+</span><span class="dv">700</span>, i.get_y()<span class="op">+</span>.<span class="dv">18</span>, <span class="op">\</span></span>
+<span id="cb7-17"><a href="#cb7-17"></a>            <span class="bu">str</span>(<span class="bu">round</span>((i.get_width()), <span class="dv">2</span>)), fontsize<span class="op">=</span><span class="dv">11</span>, color<span class="op">=</span><span class="st">&#39;dimgrey&#39;</span>)</span>
+<span id="cb7-18"><a href="#cb7-18"></a></span>
+<span id="cb7-19"><a href="#cb7-19"></a><span class="co"># invert for largest on top </span></span>
+<span id="cb7-20"><a href="#cb7-20"></a>ax.invert_yaxis()</span></code></pre></div>
 <p><br></p>
 <p><img src="site_content/img/5kings-6.png" /></p>
 <p><br></p>
@@ -656,6 +773,23 @@ $(document).ready(function () {
 
 
 </script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>

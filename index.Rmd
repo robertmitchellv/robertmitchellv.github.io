@@ -70,6 +70,8 @@ For the full bio click [here](about.html) or the button below.
 </div>
 </article>
 
+<br>
+
 <article>
 <h3><a href="blog-adv-of-code-day-one.html">ADVENT OF CODE IN R: DAY 1</a></h3>
 <div class="summary">
@@ -78,6 +80,8 @@ For the full bio click [here](about.html) or the button below.
 </div>
 </article>
 
+<br>
+
 <article>
 <h3><a href="blog-vaccine-heatmap.html">RECREATING THE VACCINE HEATMAP IN PLOTLY 4.0+ WITH R</a></h3>
 <div class="summary">
@@ -85,6 +89,8 @@ For the full bio click [here](about.html) or the button below.
 <a class="btn btn-outline-primary btn-sm" href="blog-vaccine-heatmap.html">Full Post</a>
 </div>
 </article>
+
+<br>
 
 <article>
 <h3><a href="blog-building-site-with-rmarkdown.html">BUILDING THIS SITE WITH RSTUDIO AND RMARKDOWN</a></h3>
@@ -107,6 +113,17 @@ For the full bio click [here](about.html) or the button below.
 <br>
 
 <article>
+<h3><a href="talk-2018-12-east-la-r-users.html">Interactive Dashboards with Shiny</a></h3>
+<div class="summary">
+<span><i class="fa fa-calendar"></i> _2018-12_</span>
+<p>LA East R Users Group | Los angeles, CA</p>
+<a class="btn btn-outline-primary btn-sm" href="talk-2018-12-east-la-r-users.html" role="button">Slides</a>
+</div>
+</article>
+
+<br>
+
+<article>
 <h3><a href="talk-2018-09-ucla-cpl.html">Thoughts and perspectives on PSH from the ground</a></h3>
 <div class="summary">
 <span><i class="fa fa-calendar"></i> _2018-09_</span>
@@ -116,15 +133,6 @@ For the full bio click [here](about.html) or the button below.
 </article>
 
 <br>
-
-<article>
-<h3><a href="talk-2017-09-data-donuts.html">Ex-nihilo data analysis; getting up and running with limited resources</a></h3>
-<div class="summary">
-<span><i class="fa fa-calendar"></i> _2017-09_</span>
-<p>Data + Donuts | Los angeles, CA</p>
-<a class="btn btn-outline-primary btn-sm" href="talk-2017-09-data-donuts.html" role="button">Slides</a>
-</div>
-</article>
 
 <a class="btn btn-outline-secondary btn-lg" href="talks.html" role="button">All Talks</a>
 
@@ -158,39 +166,30 @@ For the full bio click [here](about.html) or the button below.
 
 <br>
 
-<!-- SRHT / Data Analyst -->
+<!-- DHS / Staff Analyst, Health -->
 <ul>  
-  <h3>Skid Row Housing Trust_Los Angeles, CA</h3>
-  <h4>Data Analyst / August 2015---Present</h4>
+  <h3>County of Los Angeles, Department of Health Services_Los Angeles, CA</h3>
+  <h4>Staff Analyst, Health (Whole Person Care) / February 2019--Present</h4>
   <ul>
-  <i class="fa fa-angle-double-right fa-lg"></i> provide strategic oversight to organization's data collection systems and reporting processes through the collection and anslysis of data, reporting on and capturing of outcome metrics, and providing input to create a more data-driven culture
+  <i class="fa fa-angle-double-right fa-lg"></i> spearheading data integration projects with Whole Person Care program; optimizing links to internal master data management, countywide master data management, community/clinic based HIEs, and MCOs.  
   </ul>
   <ul>
-  <i class="fa fa-angle-double-right fa-lg"></i>   responsible for identifying, monitoring, and evaluating program and organizational outcomes to ensure compliance and effectiveness of programming
+  <i class="fa fa-angle-double-right fa-lg"></i> help prototype operational dashboards for analyst team to put into production, working with clinical staff on creating tools that will add value rather than distract or oversaturate 
   </ul>
   <ul>
-  <i class="fa fa-angle-double-right fa-lg"></i> exploring open-source database alternatives to reduce organizational cost and fit within the IT ecosystem
+  <i class="fa fa-angle-double-right fa-lg"></i> work with leadership on identifying KPIs and other operationally valuable markers for high level dashboard applications that allow users to explore and interact 
   </ul>
   <ul>
-  <i class="fa fa-angle-double-right fa-lg"></i> liaise with internal departments for reporting/proposal questions, demographic data, and to answer questions about the Resident Programs department's model and outcomes strategy
+  <i class="fa fa-angle-double-right fa-lg"></i> liaise with external county departments and MCOs regarding data sharing for WPC population--up to speed on current federal and state regulations for what _can_ and what _cannot_ be shared depending on context 
   </ul>
   <ul>
-  <i class="fa fa-angle-double-right fa-lg"></i> prepare recurring and special aggregated data reports and related decision support tools for Resident Programs department (and organization if needed) to support analytics value chain: data<i class="fa fa-arrow-right"></i>reporting<i class="fa fa-arrow-right"></i>analysis<i class="fa fa-arrow-right"></i>action<i class="fa fa-arrow-right"></i>value
+  <i class="fa fa-angle-double-right fa-lg"></i> assist in authoring analysis billing rules for data team to use to correctly produce mandatory reporting given complexities of WPC funding via Medi-Cal waiver program and shifting horizen of competing and complimentary programming 
   </ul>
   <ul>
-  <i class="fa fa-angle-double-right fa-lg"></i> oversee the application and implementation of assessment procedures; provides feedback and training in its use and answers questions about what is tracked and why
+  <i class="fa fa-angle-double-right fa-lg"></i> responsible for calculating program milestones and incentives for state billing--working with front line program staff to improve workflows and capture the data the demonstrates achievement for the WPC program
   </ul>
   <ul>
-  <i class="fa fa-angle-double-right fa-lg"></i> gathers, formats, and analyzes data using descriptive and inferential statics with visualizations of outcome metrics to enable the organization to tell its narrative with data
-  </ul>
-  <ul>
-  <i class="fa fa-angle-double-right fa-lg"></i> acting as core Efforts to Outcomes database administrator for the Resident Programs department; provides additional database support / programming support to internal departments as requested
-  </ul>
-  <ul>
-  <i class="fa fa-angle-double-right fa-lg"></i> working on data warehousing solutions to support executive dashbord to track high-level concerns
-  </ul>
-  <ul>
-  <i class="fa fa-angle-double-right fa-lg"></i> liaise with external organizations, research institutions, and contractors / consultants interested in or currently conducting research with residents to answer questions about what we currently are using to track outcomes / offer support
+  <i class="fa fa-angle-double-right fa-lg"></i> act as bridge between IT, data team, evaluation team, and leadership on all data related matters--working to improve programming workflows through version control and software engineering best practices
   </ul>
 </ul>
 

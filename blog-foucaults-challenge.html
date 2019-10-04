@@ -7,6 +7,7 @@
 <meta charset="utf-8" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
 <meta name="author" content="Robert Mitchell" />
@@ -22,9 +23,8 @@
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
-<link href="site_libs/font-awesome-5.0.13/css/fa-svg-with-js.css" rel="stylesheet" />
-<script src="site_libs/font-awesome-5.0.13/js/fontawesome-all.min.js"></script>
-<script src="site_libs/font-awesome-5.0.13/js/fa-v4-shims.min.js"></script>
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
 
 
 
@@ -58,9 +58,7 @@ h6 {
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 
-</head>
 
-<body>
 
 <style type = "text/css">
 .main-container {
@@ -74,7 +72,6 @@ code {
 }
 img {
   max-width:100%;
-  height: auto;
 }
 .tabbed-pane {
   padding-top: 12px;
@@ -84,6 +81,9 @@ img {
 }
 button.code-folding-btn:focus {
   outline: none;
+}
+summary {
+  display: list-item;
 }
 </style>
 
@@ -99,7 +99,6 @@ body {
   padding-top: 50px;
   margin-top: -50px;
 }
-
 .section h2 {
   padding-top: 50px;
   margin-top: -50px;
@@ -119,6 +118,43 @@ body {
 .section h6 {
   padding-top: 50px;
   margin-top: -50px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
 }
 </style>
 
@@ -140,19 +176,73 @@ $(document).ready(function () {
 });
 </script>
 
-
-<div class="container-fluid main-container">
-
 <!-- tabsets -->
-<script>
-$(document).ready(function () {
-  window.buildTabsets("TOC");
-});
-</script>
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
 
 <!-- code folding -->
 
 
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
 
 
 
@@ -274,8 +364,8 @@ $(document).ready(function () {
 
 
 <h1 class="title toc-ignore">FOUCAULT’S CHALLENGE TO MODERNIST CLASSIFICATION</h1>
-<h4 class="author"><em>Robert Mitchell</em></h4>
-<h4 class="date"><em>September 4, 2013</em></h4>
+<h4 class="author">Robert Mitchell</h4>
+<h4 class="date">September 4, 2013</h4>
 
 </div>
 
@@ -296,14 +386,14 @@ $(document).ready(function () {
 <div class="footnotes">
 <hr />
 <ol>
-<li id="fn1"><p>Foucault, M. 2002. The order of things an archaeology of the human sciences. London and New York: Routledge Classics (Original work published 1966).<a href="#fnref1" class="footnote-back">↩</a></p></li>
-<li id="fn2"><p>Ibid<a href="#fnref2" class="footnote-back">↩</a></p></li>
-<li id="fn3"><p>Ibid<a href="#fnref3" class="footnote-back">↩</a></p></li>
-<li id="fn4"><p>Ibid<a href="#fnref4" class="footnote-back">↩</a></p></li>
-<li id="fn5"><p>Ibid<a href="#fnref5" class="footnote-back">↩</a></p></li>
-<li id="fn6"><p>“Different from utopias, which also have no locality, heterotopias are disturbing because they undermine language, make impossible the naming of ‘this’ or ‘that’, because they shatter both the syntax that humans construct sentences with, as well as the syntax that holds words and things together”<a href="#fnref6" class="footnote-back">↩</a></p></li>
-<li id="fn7"><p>Foucault, 2002<a href="#fnref7" class="footnote-back">↩</a></p></li>
-<li id="fn8"><p>Ibid<a href="#fnref8" class="footnote-back">↩</a></p></li>
+<li id="fn1"><p>Foucault, M. 2002. The order of things an archaeology of the human sciences. London and New York: Routledge Classics (Original work published 1966).<a href="#fnref1" class="footnote-back">↩︎</a></p></li>
+<li id="fn2"><p>Ibid<a href="#fnref2" class="footnote-back">↩︎</a></p></li>
+<li id="fn3"><p>Ibid<a href="#fnref3" class="footnote-back">↩︎</a></p></li>
+<li id="fn4"><p>Ibid<a href="#fnref4" class="footnote-back">↩︎</a></p></li>
+<li id="fn5"><p>Ibid<a href="#fnref5" class="footnote-back">↩︎</a></p></li>
+<li id="fn6"><p>“Different from utopias, which also have no locality, heterotopias are disturbing because they undermine language, make impossible the naming of ‘this’ or ‘that’, because they shatter both the syntax that humans construct sentences with, as well as the syntax that holds words and things together”<a href="#fnref6" class="footnote-back">↩︎</a></p></li>
+<li id="fn7"><p>Foucault, 2002<a href="#fnref7" class="footnote-back">↩︎</a></p></li>
+<li id="fn8"><p>Ibid<a href="#fnref8" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
 
@@ -423,6 +513,23 @@ $(document).ready(function () {
 
 
 </script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>

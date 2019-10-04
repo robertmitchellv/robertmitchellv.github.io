@@ -16,7 +16,7 @@ output:
 knitr::opts_chunk$set(python.reticulate = FALSE)
 ```
 
-> As I learn more this page will be updated (and hopefully improved!)
+> This is a very old post. The Pandas API has matured greatly and most of this is very outdated. This remains here as a record for myself 
 
 <br>
 

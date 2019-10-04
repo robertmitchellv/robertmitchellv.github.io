@@ -7,6 +7,7 @@
 <meta charset="utf-8" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
 <meta name="author" content="Robert Mitchell" />
@@ -22,9 +23,8 @@
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
-<link href="site_libs/font-awesome-5.0.13/css/fa-svg-with-js.css" rel="stylesheet" />
-<script src="site_libs/font-awesome-5.0.13/js/fontawesome-all.min.js"></script>
-<script src="site_libs/font-awesome-5.0.13/js/fa-v4-shims.min.js"></script>
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
 
 
 
@@ -58,9 +58,7 @@ h6 {
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 
-</head>
 
-<body>
 
 <style type = "text/css">
 .main-container {
@@ -74,7 +72,6 @@ code {
 }
 img {
   max-width:100%;
-  height: auto;
 }
 .tabbed-pane {
   padding-top: 12px;
@@ -84,6 +81,9 @@ img {
 }
 button.code-folding-btn:focus {
   outline: none;
+}
+summary {
+  display: list-item;
 }
 </style>
 
@@ -99,7 +99,6 @@ body {
   padding-top: 50px;
   margin-top: -50px;
 }
-
 .section h2 {
   padding-top: 50px;
   margin-top: -50px;
@@ -119,6 +118,43 @@ body {
 .section h6 {
   padding-top: 50px;
   margin-top: -50px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
 }
 </style>
 
@@ -140,19 +176,73 @@ $(document).ready(function () {
 });
 </script>
 
-
-<div class="container-fluid main-container">
-
 <!-- tabsets -->
-<script>
-$(document).ready(function () {
-  window.buildTabsets("TOC");
-});
-</script>
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
 
 <!-- code folding -->
 
 
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
 
 
 
@@ -274,8 +364,8 @@ $(document).ready(function () {
 
 
 <h1 class="title toc-ignore">P-HACKING AND ONTOLOGY</h1>
-<h4 class="author"><em>Robert Mitchell</em></h4>
-<h4 class="date"><em>August 25, 2015</em></h4>
+<h4 class="author">Robert Mitchell</h4>
+<h4 class="date">August 25, 2015</h4>
 
 </div>
 
@@ -317,15 +407,15 @@ $(document).ready(function () {
 <div class="footnotes">
 <hr />
 <ol>
-<li id="fn1"><p>Aschwanden, C. (2015, August 19). Science Isn’t Broken: It’s just a hell of a lot harder than we give it credit for. Retrieved August 25, 2015, from <a href="https://fivethirtyeight.com/features/science-isnt-broken/" class="uri">https://fivethirtyeight.com/features/science-isnt-broken/</a><a href="#fnref1" class="footnote-back">↩</a></p></li>
-<li id="fn2"><p>Tennis, J. T. (2002). “Subject Ontogeny: Subject Access through Time and the Dimensionality of Classification.” In <em>Challenges in Knowledge Representation and Organization for the 21st Century: Integration of Knowledge across Boundaries: Proceedings of the Seventh International ISKO Confrence</em>. (Granada, Spain, July 10-13, 2002). Advances in Knowledge Organization, vol. 8. Wurzburg: Ergon: 54-59.<a href="#fnref2" class="footnote-back">↩</a></p></li>
-<li id="fn3"><p>I inherited this opinion from Dr. John McCumber through his various philosophy courses and seminars. See <a href="http://www.germanic.ucla.edu/people/faculty/mccumber/" class="uri">http://www.germanic.ucla.edu/people/faculty/mccumber/</a> for more info.<a href="#fnref3" class="footnote-back">↩</a></p></li>
-<li id="fn4"><p><a href="https://en.wikiquote.org/wiki/Heraclitus" class="uri">https://en.wikiquote.org/wiki/Heraclitus</a><a href="#fnref4" class="footnote-back">↩</a></p></li>
-<li id="fn5"><p>What I mean is that, when reading the passage, we are in the river; the thing we are trying to classify—to understand. The fact that we have no bird’s eye view is an important caveat to working toward understanding the world in a realistic way. We call it one thing, but it <em>is</em> something else outside of the way humans communicate it to each other through language.<a href="#fnref5" class="footnote-back">↩</a></p></li>
-<li id="fn6"><p>Tennis (2002)<a href="#fnref6" class="footnote-back">↩</a></p></li>
-<li id="fn7"><p>McCumber, J. (1989). <em>Poetic interaction: Language, freedom, reason.</em> Chicaco: University of Chicago Press<a href="#fnref7" class="footnote-back">↩</a></p></li>
-<li id="fn8"><p><a href="https://en.wikipedia.org/wiki/Ontology_(information_science)" class="uri">https://en.wikipedia.org/wiki/Ontology_(information_science)</a><a href="#fnref8" class="footnote-back">↩</a></p></li>
-<li id="fn9"><p>Aschwanden (2015)<a href="#fnref9" class="footnote-back">↩</a></p></li>
+<li id="fn1"><p>Aschwanden, C. (2015, August 19). Science Isn’t Broken: It’s just a hell of a lot harder than we give it credit for. Retrieved August 25, 2015, from <a href="https://fivethirtyeight.com/features/science-isnt-broken/" class="uri">https://fivethirtyeight.com/features/science-isnt-broken/</a><a href="#fnref1" class="footnote-back">↩︎</a></p></li>
+<li id="fn2"><p>Tennis, J. T. (2002). “Subject Ontogeny: Subject Access through Time and the Dimensionality of Classification.” In <em>Challenges in Knowledge Representation and Organization for the 21st Century: Integration of Knowledge across Boundaries: Proceedings of the Seventh International ISKO Confrence</em>. (Granada, Spain, July 10-13, 2002). Advances in Knowledge Organization, vol. 8. Wurzburg: Ergon: 54-59.<a href="#fnref2" class="footnote-back">↩︎</a></p></li>
+<li id="fn3"><p>I inherited this opinion from Dr. John McCumber through his various philosophy courses and seminars. See <a href="http://www.germanic.ucla.edu/people/faculty/mccumber/" class="uri">http://www.germanic.ucla.edu/people/faculty/mccumber/</a> for more info.<a href="#fnref3" class="footnote-back">↩︎</a></p></li>
+<li id="fn4"><p><a href="https://en.wikiquote.org/wiki/Heraclitus" class="uri">https://en.wikiquote.org/wiki/Heraclitus</a><a href="#fnref4" class="footnote-back">↩︎</a></p></li>
+<li id="fn5"><p>What I mean is that, when reading the passage, we are in the river; the thing we are trying to classify—to understand. The fact that we have no bird’s eye view is an important caveat to working toward understanding the world in a realistic way. We call it one thing, but it <em>is</em> something else outside of the way humans communicate it to each other through language.<a href="#fnref5" class="footnote-back">↩︎</a></p></li>
+<li id="fn6"><p>Tennis (2002)<a href="#fnref6" class="footnote-back">↩︎</a></p></li>
+<li id="fn7"><p>McCumber, J. (1989). <em>Poetic interaction: Language, freedom, reason.</em> Chicaco: University of Chicago Press<a href="#fnref7" class="footnote-back">↩︎</a></p></li>
+<li id="fn8"><p><a href="https://en.wikipedia.org/wiki/Ontology_(information_science)" class="uri">https://en.wikipedia.org/wiki/Ontology_(information_science)</a><a href="#fnref8" class="footnote-back">↩︎</a></p></li>
+<li id="fn9"><p>Aschwanden (2015)<a href="#fnref9" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
 
@@ -445,6 +535,23 @@ $(document).ready(function () {
 
 
 </script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>

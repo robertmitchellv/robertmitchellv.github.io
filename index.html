@@ -7,6 +7,7 @@
 <meta charset="utf-8" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
 
@@ -20,9 +21,8 @@
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
-<link href="site_libs/font-awesome-5.0.13/css/fa-svg-with-js.css" rel="stylesheet" />
-<script src="site_libs/font-awesome-5.0.13/js/fontawesome-all.min.js"></script>
-<script src="site_libs/font-awesome-5.0.13/js/fa-v4-shims.min.js"></script>
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
 
 
 
@@ -56,9 +56,7 @@ h6 {
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 
-</head>
 
-<body>
 
 <style type = "text/css">
 .main-container {
@@ -72,7 +70,6 @@ code {
 }
 img {
   max-width:100%;
-  height: auto;
 }
 .tabbed-pane {
   padding-top: 12px;
@@ -82,6 +79,9 @@ img {
 }
 button.code-folding-btn:focus {
   outline: none;
+}
+summary {
+  display: list-item;
 }
 </style>
 
@@ -97,7 +97,6 @@ body {
   padding-top: 50px;
   margin-top: -50px;
 }
-
 .section h2 {
   padding-top: 50px;
   margin-top: -50px;
@@ -117,6 +116,43 @@ body {
 .section h6 {
   padding-top: 50px;
   margin-top: -50px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
 }
 </style>
 
@@ -138,19 +174,73 @@ $(document).ready(function () {
 });
 </script>
 
-
-<div class="container-fluid main-container">
-
 <!-- tabsets -->
-<script>
-$(document).ready(function () {
-  window.buildTabsets("TOC");
-});
-</script>
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
 
 <!-- code folding -->
 
 
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
 
 
 
@@ -439,6 +529,7 @@ I can’t believe it’s been more than a week since I returned from my trip to 
 <p><a class="btn btn-outline-primary btn-sm" href="blog-uptake-fellowship-start.html" role="button">Full Post</a></p>
 </div>
 </article>
+<p><br></p>
 <article>
 <h3>
 <a href="blog-adv-of-code-day-one.html">ADVENT OF CODE IN R: DAY 1</a>
@@ -450,6 +541,7 @@ Over on the <code>rOpenSci</code> Slack, <a href="https://twitter.com/samfirke">
 <p><a class="btn btn-outline-primary btn-sm" href="">Full Post</a></p>
 </div>
 </article>
+<p><br></p>
 <article>
 <h3>
 <a href="blog-vaccine-heatmap.html">RECREATING THE VACCINE HEATMAP IN PLOTLY 4.0+ WITH R</a>
@@ -461,6 +553,7 @@ This took me a while to figure out how to implement. Since <code>plotly</code> 4
 <p><a class="btn btn-outline-primary btn-sm" href="blog-vaccine-heatmap.html">Full Post</a></p>
 </div>
 </article>
+<p><br></p>
 <article>
 <h3>
 <a href="blog-building-site-with-rmarkdown.html">BUILDING THIS SITE WITH RSTUDIO AND RMARKDOWN</a>
@@ -483,6 +576,19 @@ TALKS
 <p><br></p>
 <article>
 <h3>
+<a href="talk-2018-12-east-la-r-users.html">Interactive Dashboards with Shiny</a>
+</h3>
+<div class="summary">
+<span><i class="fa fa-calendar"></i> <em>2018-12</em></span>
+<p>
+LA East R Users Group | Los angeles, CA
+</p>
+<p><a class="btn btn-outline-primary btn-sm" href="talk-2018-12-east-la-r-users.html" role="button">Slides</a></p>
+</div>
+</article>
+<p><br></p>
+<article>
+<h3>
 <a href="talk-2018-09-ucla-cpl.html">Thoughts and perspectives on PSH from the ground</a>
 </h3>
 <div class="summary">
@@ -494,18 +600,6 @@ UCLA, California Policy Lab | Los angeles, CA
 </div>
 </article>
 <p><br></p>
-<article>
-<h3>
-<a href="talk-2017-09-data-donuts.html">Ex-nihilo data analysis; getting up and running with limited resources</a>
-</h3>
-<div class="summary">
-<span><i class="fa fa-calendar"></i> <em>2017-09</em></span>
-<p>
-Data + Donuts | Los angeles, CA
-</p>
-<p><a class="btn btn-outline-primary btn-sm" href="talk-2017-09-data-donuts.html" role="button">Slides</a></p>
-</div>
-</article>
 <p><a class="btn btn-outline-secondary btn-lg" href="talks.html" role="button">All Talks</a></p>
 <p><br> <br> <br></p>
 <p><a class="anchor" id="vitae"></a></p>
@@ -531,43 +625,35 @@ VITAE
 <i class="fa fa-institution fa-lg"></i> Work Experience
 </h3>
 <p><br></p>
-<!-- SRHT / Data Analyst -->
+<!-- DHS / Staff Analyst, Health -->
 <ul>
 <h3>
-Skid Row Housing Trust_Los Angeles, CA
+County of Los Angeles, Department of Health Services_Los Angeles, CA
 </h3>
 <h4>
-Data Analyst / August 2015—Present
+Staff Analyst, Health (Whole Person Care) / February 2019–Present
 </h4>
 <ul>
-<i class="fa fa-angle-double-right fa-lg"></i> provide strategic oversight to organization’s data collection systems and reporting processes through the collection and anslysis of data, reporting on and capturing of outcome metrics, and providing input to create a more data-driven culture
+<i class="fa fa-angle-double-right fa-lg"></i> spearheading data integration projects with Whole Person Care program; optimizing links to internal master data management, countywide master data management, community/clinic based HIEs, and MCOs.<br />
+
 </ul>
 <ul>
-<i class="fa fa-angle-double-right fa-lg"></i> responsible for identifying, monitoring, and evaluating program and organizational outcomes to ensure compliance and effectiveness of programming
+<i class="fa fa-angle-double-right fa-lg"></i> help prototype operational dashboards for analyst team to put into production, working with clinical staff on creating tools that will add value rather than distract or oversaturate
 </ul>
 <ul>
-<i class="fa fa-angle-double-right fa-lg"></i> exploring open-source database alternatives to reduce organizational cost and fit within the IT ecosystem
+<i class="fa fa-angle-double-right fa-lg"></i> work with leadership on identifying KPIs and other operationally valuable markers for high level dashboard applications that allow users to explore and interact
 </ul>
 <ul>
-<i class="fa fa-angle-double-right fa-lg"></i> liaise with internal departments for reporting/proposal questions, demographic data, and to answer questions about the Resident Programs department’s model and outcomes strategy
+<i class="fa fa-angle-double-right fa-lg"></i> liaise with external county departments and MCOs regarding data sharing for WPC population–up to speed on current federal and state regulations for what <em>can</em> and what <em>cannot</em> be shared depending on context
 </ul>
 <ul>
-<i class="fa fa-angle-double-right fa-lg"></i> prepare recurring and special aggregated data reports and related decision support tools for Resident Programs department (and organization if needed) to support analytics value chain: data<i class="fa fa-arrow-right"></i>reporting<i class="fa fa-arrow-right"></i>analysis<i class="fa fa-arrow-right"></i>action<i class="fa fa-arrow-right"></i>value
+<i class="fa fa-angle-double-right fa-lg"></i> assist in authoring analysis billing rules for data team to use to correctly produce mandatory reporting given complexities of WPC funding via Medi-Cal waiver program and shifting horizen of competing and complimentary programming
 </ul>
 <ul>
-<i class="fa fa-angle-double-right fa-lg"></i> oversee the application and implementation of assessment procedures; provides feedback and training in its use and answers questions about what is tracked and why
+<i class="fa fa-angle-double-right fa-lg"></i> responsible for calculating program milestones and incentives for state billing–working with front line program staff to improve workflows and capture the data the demonstrates achievement for the WPC program
 </ul>
 <ul>
-<i class="fa fa-angle-double-right fa-lg"></i> gathers, formats, and analyzes data using descriptive and inferential statics with visualizations of outcome metrics to enable the organization to tell its narrative with data
-</ul>
-<ul>
-<i class="fa fa-angle-double-right fa-lg"></i> acting as core Efforts to Outcomes database administrator for the Resident Programs department; provides additional database support / programming support to internal departments as requested
-</ul>
-<ul>
-<i class="fa fa-angle-double-right fa-lg"></i> working on data warehousing solutions to support executive dashbord to track high-level concerns
-</ul>
-<ul>
-<i class="fa fa-angle-double-right fa-lg"></i> liaise with external organizations, research institutions, and contractors / consultants interested in or currently conducting research with residents to answer questions about what we currently are using to track outcomes / offer support
+<i class="fa fa-angle-double-right fa-lg"></i> act as bridge between IT, data team, evaluation team, and leadership on all data related matters–working to improve programming workflows through version control and software engineering best practices
 </ul>
 </ul>
 <p><br></p>
@@ -687,6 +773,23 @@ $(document).ready(function () {
 
 
 </script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>

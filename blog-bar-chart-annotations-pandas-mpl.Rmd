@@ -16,6 +16,8 @@ output:
 knitr::opts_chunk$set(python.reticulate = FALSE)
 ```
 
+> This is a very old post. The Pandas API has matured greatly and most of this is very outdated. This remains here as a record for myself 
+
 When I first started using Pandas, I loved how much easier it was to stick a plot method on a DataFrame or Series to get a better sense of what was going on.  However, I was not very impressed with what the plots looked like.  Any time I wanted to do something slightly different from the "Plotting" documentation on the pydata site, I found myself arm deep in MPL code that did not make any damn sense to me.  This was a problem for me, as I ended up spending way too much time trying to make small edits and not enough time working on the code I was trying to visualize.
 
 <br>

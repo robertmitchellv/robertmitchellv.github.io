@@ -23,7 +23,7 @@ title: "VITAE"
 <br>
 
 <ul>
-  <i class="fa fa-angle-double-right fa-lg"></i> I bring a lot of energy and enthusiasm to the projects that I become involved in.  I thrive in situations that require imagination and innovation.  My interests are varied; among my passions I would list: academic inquiry, classical and contemporary thought, the music and cuisine of other cultures, the arts, travelling, languages, and social justice.  I believe that our most vulnerable deserve respect and to be treated with dignity and fairness.
+  <i class="fa fa-angle-double-right fa-lg"></i> I bring a lot of energy and enthusiasm to the projects that I become involved in.  I thrive in situations that require imagination and innovation.  My interests are varied; among my passions I would list: academic inquiry, classical and contemporary thought, the music and cuisine of other cultures, the arts, traveling, languages, and social justice.  I believe that our most vulnerable deserve respect and to be treated with dignity and fairness.
 </ul>
 
 <br>
@@ -115,7 +115,7 @@ title: "VITAE"
   <i class="fa fa-angle-double-right fa-lg"></i>   Coding: R, Python, and Javascript.
 </ul>
 <ul>
-  <i class="fa fa-angle-double-right fa-lg"></i> OSs: OS X, Linux, and Windows.  I love the terminal and wish vim bindings were universal.
+  <i class="fa fa-angle-double-right fa-lg"></i> OSs: OS X, Linux, and Windows.  I love the terminal and wish `vim` bindings were universal.
 </ul>
 <ul>
   <i class="fa fa-angle-double-right fa-lg"></i> Data: Relational Databases (data modeling and SQL); information retrieval; taxonomies and ontologies; and, knowledge organization theory.
@@ -147,41 +147,93 @@ title: "VITAE"
 
 ## <i class="fa fa-institution fa-lg"></i>  Work Experience
 
+<!-- DHS / Staff Analyst, Health -->
+<ul>  
+  <h3>County of Los Angeles, Department of Health Services_Los Angeles, CA</h3>
+  <h4>Staff Analyst, Health (Whole Person Care) / February 2019--Present</h4>
+  <ul>
+  <i class="fa fa-angle-double-right fa-lg"></i> spearheading data integration projects with Whole Person Care program; optimizing links to internal master data management, countywide master data management, community/clinic based HIEs, and MCOs.  
+  </ul>
+  <ul>
+  <i class="fa fa-angle-double-right fa-lg"></i> help prototype operational dashboards for analyst team to put into production, working with clinical staff on creating tools that will add value rather than distract or oversaturate 
+  </ul>
+  <ul>
+  <i class="fa fa-angle-double-right fa-lg"></i> work with leadership on identifying KPIs and other operationally valuable markers for high level dashboard applications that allow users to explore and interact 
+  </ul>
+  <ul>
+  <i class="fa fa-angle-double-right fa-lg"></i> liaise with external county departments and MCOs regarding data sharing for WPC population--up to speed on current federal and state regulations for what _can_ and what _cannot_ be shared depending on context 
+  </ul>
+  <ul>
+  <i class="fa fa-angle-double-right fa-lg"></i> assist in authoring analysis billing rules for data team to use to correctly produce mandatory reporting given complexities of WPC funding via Medi-Cal waiver program and shifting horizen of competing and complimentary programming 
+  </ul>
+  <ul>
+  <i class="fa fa-angle-double-right fa-lg"></i> responsible for calculating program milestones and incentives for state billing--working with front line program staff to improve workflows and capture the data the demonstrates achievement for the WPC program
+  </ul>
+  <ul>
+  <i class="fa fa-angle-double-right fa-lg"></i> act as bridge between IT, data team, evaluation team, and leadership on all data related matters--working to improve programming workflows through version control and software engineering best practices
+  </ul>
+</ul>
+
+<br>
+
+<div class="page-break"></div>
+
+<!-- SRHT / Manage of Data + Analytics -->
+<ul>  
+  <h3>Skid Row Housing Trust_Los Angeles, CA</h3>
+  <h4>Manager of Data + Analytics / July 2018--January 2019</h4>
+  <ul>
+  <i class="fa fa-angle-double-right fa-lg"></i> provide strategic oversight to organization's data collection systems and reporting processes through the collection and analysis of data, reporting on and capturing of outcome metrics, and providing input to create a more data-driven culture
+  </ul>
+  <ul>
+  <i class="fa fa-angle-double-right fa-lg"></i> responsible for identifying, monitoring, and evaluating program and organizational outcomes to ensure compliance and effectiveness of programming
+  </ul>
+  <ul>
+  <i class="fa fa-angle-double-right fa-lg"></i> Moved social service database from a no access closed system to AWS to reduce organizational cost and optimize IT ecosystem 
+  </ul>
+  <ul>
+  <i class="fa fa-angle-double-right fa-lg"></i> liaised with internal departments for reporting/proposal questions, and to answer questions about resident population trends, funding and compliance layers for affordable housing; and, how the two work toward a broader outcomes strategy
+  </ul>
+  <ul>
+  <i class="fa fa-angle-double-right fa-lg"></i> prepare recurring and special aggregated data reports and related decision support tools for organization to support analytics value chain: data<i class="fa fa-arrow-right"></i>reporting<i class="fa fa-arrow-right"></i>analysis<i class="fa fa-arrow-right"></i>action<i class="fa fa-arrow-right"></i>value
+  </ul>
+  <ul>
+  <i class="fa fa-angle-double-right fa-lg"></i> oversaw the application and implementation of assessment procedures for longitudinal data collection; provided training in the use of survey instruments and answers to questions about what is tracked and why
+  </ul>
+  <ul>
+  <i class="fa fa-angle-double-right fa-lg"></i> Leveraged agglomerative clustering models, survival models, generalized linear models, and binary classifiers like logistic regression in order to build a wider understanding of how people fare in permanent supportive housing to see if we can detect negative outcomes early and target support services early. 
+  </ul>
+  <ul>
+  <i class="fa fa-angle-double-right fa-lg"></i> Converted all data workflows to version control via GitHub for all projects including web application and some of the data engineering
+  </ul>
+  <ul>
+  <i class="fa fa-angle-double-right fa-lg"></i> liaise with external organizations, research institutions, and contractors / consultants interested in or currently conducting research with organization to answer questions about what we currently are using to track outcomes / offer support
+  </ul>
+</ul>
+
 <br>
 
 <!-- SRHT / Data Analyst -->
 <ul>  
   <h3>Skid Row Housing Trust_Los Angeles, CA</h3>
-  <h4>Data Analyst / August 2015--Present</h4>
+  <h4>Data Analyst / August 2015--June 2018</h4>
   <ul>
-  <i class="fa fa-angle-double-right fa-lg"></i> provide strategic oversight to organization's data collection systems and reporting processes through the collection and analysis of data, reporting on and capturing of outcome metrics, and providing input to create a more data-driven culture
+  <i class="fa fa-angle-double-right fa-lg"></i> provide in-depth analysis of both the resident population and underlying subsidy and compliance structure for entire portfolio
   </ul>
   <ul>
-  <i class="fa fa-angle-double-right fa-lg"></i>   responsible for identifying, monitoring, and evaluating program and organizational outcomes to ensure compliance and effectiveness of programming
+  <i class="fa fa-angle-double-right fa-lg"></i> leverage validated research tools to improve data collection; providing a pathway for future program evaluation based on real measurements that have reliable sensitivity and specificity 
   </ul>
   <ul>
-  <i class="fa fa-angle-double-right fa-lg"></i> exploring open-source database alternatives to reduce organizational cost and fit within the IT ecosystem
+  <i class="fa fa-angle-double-right fa-lg"></i> explored open-source database alternatives to reduce organizational cost and fit within the IT ecosystem
   </ul>
   <ul>
-  <i class="fa fa-angle-double-right fa-lg"></i> liaise with internal departments for reporting/proposal questions, demographic data, and to answer questions about the Resident Programs department's model and outcomes strategy
+  <i class="fa fa-angle-double-right fa-lg"></i> actively participated in internal organizational dialog around the need to pivot from demonstrating _need_ to demonstrating _efficacy_--championed the role data could play in program development, intervention, and outcomes
   </ul>
   <ul>
-  <i class="fa fa-angle-double-right fa-lg"></i> prepare recurring and special aggregated data reports and related decision support tools for Resident Programs department (and organization if needed) to support analytics value chain: data<i class="fa fa-arrow-right"></i>reporting<i class="fa fa-arrow-right"></i>analysis<i class="fa fa-arrow-right"></i>action<i class="fa fa-arrow-right"></i>value
+  <i class="fa fa-angle-double-right fa-lg"></i> prepared recurring and special aggregated data reports for asset management compliance, annual organizational audit, resident programs grant reporting, and housing development RFP/RSFQ submissions  
   </ul>
   <ul>
-  <i class="fa fa-angle-double-right fa-lg"></i> oversee the application and implementation of assessment procedures; provides feedback and training in its use and answers questions about what is tracked and why
-  </ul>
-  <ul>
-  <i class="fa fa-angle-double-right fa-lg"></i> gathers, formats, and analyzes data using descriptive and inferential statics with visualizations of outcome metrics to enable the organization to tell its narrative with data
-  </ul>
-  <ul>
-  <i class="fa fa-angle-double-right fa-lg"></i> acting as core Efforts to Outcomes database administrator for the Resident Programs department; and Yardi Systems database administrator under Asset Management; provides additional database support / programming support to internal departments as requested
-  </ul>
-  <ul>
-  <i class="fa fa-angle-double-right fa-lg"></i> working on data warehousing solutions to support executive dashboard to track high-level concerns.
-  </ul>
-  <ul>
-  <i class="fa fa-angle-double-right fa-lg"></i> liaise with external organizations, research institutions, and contractors / consultants interested in or currently conducting research with residents to answer questions about what we currently are using to track outcomes / offer support
+  <i class="fa fa-angle-double-right fa-lg"></i> assist in any data related projects with community partners and research institutions 
   </ul>
 </ul>
 
@@ -379,10 +431,10 @@ title: "VITAE"
 <br>
 
   <ul>
-  <i class="fa fa-angle-double-right fa-lg"></i> Learning more about statistics and data science; particularly its applications in R.  I am more and more becoming interested in Bayesian approaches as well.  
+  <i class="fa fa-angle-double-right fa-lg"></i> Learning more about statistics and data science; particularly its applications in R.  I am more and more becoming interested in Bayesian approaches.  
   </ul>
   <ul>
-  <i class="fa fa-angle-double-right fa-lg"></i> Coding: I will likely never code as neatly as an engineer but I try to up my analysis game when I'm able.  Learning more about R and trying to build a package that contains some custom functions I like using is the way I'm trying to dive into Hadley's Advanced R.
+  <i class="fa fa-angle-double-right fa-lg"></i> Coding: I will likely never code as neatly as an engineer but I try to incorporate software enginnering best practicies as I can--I am very keen to become more proficient with workflows in `airflow`, deploying APIs to `AWS`, and taking on more data engineering as practicable.
   </ul>
   <ul>
   <i class="fa fa-angle-double-right fa-lg"></i> Design: I love typefaces and modernist design, in another life I would love to work as a designer or artist so it is something I passionately admire and sometimes try to do when time permits.

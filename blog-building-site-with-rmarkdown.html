@@ -7,6 +7,7 @@
 <meta charset="utf-8" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
 <meta name="author" content="Robert Mitchell" />
@@ -22,23 +23,22 @@
 <script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
 <script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
-<script src="site_libs/htmlwidgets-1.2/htmlwidgets.js"></script>
-<script src="site_libs/plotly-binding-4.8.0.9000/plotly.js"></script>
+<script src="site_libs/htmlwidgets-1.3/htmlwidgets.js"></script>
+<script src="site_libs/plotly-binding-4.9.0/plotly.js"></script>
 <script src="site_libs/typedarray-0.1/typedarray.min.js"></script>
 <link href="site_libs/crosstalk-1.0.0/css/crosstalk.css" rel="stylesheet" />
 <script src="site_libs/crosstalk-1.0.0/js/crosstalk.min.js"></script>
-<link href="site_libs/plotly-htmlwidgets-css-1.39.2/plotly-htmlwidgets.css" rel="stylesheet" />
-<script src="site_libs/plotly-main-1.39.2/plotly-latest.min.js"></script>
-<link href="site_libs/font-awesome-5.0.13/css/fa-svg-with-js.css" rel="stylesheet" />
-<script src="site_libs/font-awesome-5.0.13/js/fontawesome-all.min.js"></script>
-<script src="site_libs/font-awesome-5.0.13/js/fa-v4-shims.min.js"></script>
+<link href="site_libs/plotly-htmlwidgets-css-1.46.1/plotly-htmlwidgets.css" rel="stylesheet" />
+<script src="site_libs/plotly-main-1.46.1/plotly-latest.min.js"></script>
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
 
 
 <style type="text/css">code{white-space: pre;}</style>
-<style type="text/css">
-a.sourceLine { display: inline-block; line-height: 1.25; }
-a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
-a.sourceLine:empty { height: 1.2em; }
+<style type="text/css" data-origin="pandoc">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
 code.sourceCode { white-space: pre; position: relative; }
 div.sourceCode { margin: 1em 0; }
@@ -48,14 +48,16 @@ div.sourceCode { overflow: auto; }
 }
 @media print {
 code.sourceCode { white-space: pre-wrap; }
-a.sourceLine { text-indent: -1em; padding-left: 1em; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
-pre.numberSource a.sourceLine
-  { position: relative; left: -4em; }
-pre.numberSource a.sourceLine::before
-  { content: attr(data-line-number);
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
     position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; pointer-events: all; display: inline-block;
+    border: none; display: inline-block;
     -webkit-touch-callout: none; -webkit-user-select: none;
     -khtml-user-select: none; -moz-user-select: none;
     -ms-user-select: none; user-select: none;
@@ -64,9 +66,9 @@ pre.numberSource a.sourceLine::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {  }
+  {   }
 @media screen {
-a.sourceLine::before { text-decoration: underline; }
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
@@ -97,7 +99,29 @@ code span.st { color: #4070a0; } /* String */
 code span.va { color: #19177c; } /* Variable */
 code span.vs { color: #4070a0; } /* VerbatimString */
 code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+
 </style>
+<script>
+// apply pandoc div.sourceCode style to pre.sourceCode instead
+(function() {
+  var sheets = document.styleSheets;
+  for (var i = 0; i < sheets.length; i++) {
+    if (sheets[i].ownerNode.dataset["origin"] !== "pandoc") continue;
+    try { var rules = sheets[i].cssRules; } catch (e) { continue; }
+    for (var j = 0; j < rules.length; j++) {
+      var rule = rules[j];
+      // check if there is a div.sourceCode rule
+      if (rule.type !== rule.STYLE_RULE || rule.selectorText !== "div.sourceCode") continue;
+      var style = rule.style.cssText;
+      // check if color or background-color is set
+      if (rule.style.color === '' && rule.style.backgroundColor === '') continue;
+      // replace div.sourceCode by a pre.sourceCode rule
+      sheets[i].deleteRule(j);
+      sheets[i].insertRule('pre.sourceCode{' + style + '}', j);
+    }
+  }
+})();
+</script>
 <style type="text/css">
   pre:not([class]) {
     background-color: white;
@@ -134,9 +158,7 @@ h6 {
 
 <link rel="stylesheet" href="style.css" type="text/css" />
 
-</head>
 
-<body>
 
 <style type = "text/css">
 .main-container {
@@ -150,7 +172,6 @@ code {
 }
 img {
   max-width:100%;
-  height: auto;
 }
 .tabbed-pane {
   padding-top: 12px;
@@ -160,6 +181,9 @@ img {
 }
 button.code-folding-btn:focus {
   outline: none;
+}
+summary {
+  display: list-item;
 }
 </style>
 
@@ -175,7 +199,6 @@ body {
   padding-top: 50px;
   margin-top: -50px;
 }
-
 .section h2 {
   padding-top: 50px;
   margin-top: -50px;
@@ -195,6 +218,43 @@ body {
 .section h6 {
   padding-top: 50px;
   margin-top: -50px;
+}
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #ffffff;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
 }
 </style>
 
@@ -216,19 +276,73 @@ $(document).ready(function () {
 });
 </script>
 
-
-<div class="container-fluid main-container">
-
 <!-- tabsets -->
-<script>
-$(document).ready(function () {
-  window.buildTabsets("TOC");
-});
-</script>
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
 
 <!-- code folding -->
 
 
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
 
 
 
@@ -350,8 +464,8 @@ $(document).ready(function () {
 
 
 <h1 class="title toc-ignore">BUILDING THIS SITE WITH RSTUDIO AND RMARKDOWN</h1>
-<h4 class="author"><em>Robert Mitchell</em></h4>
-<h4 class="date"><em>September 1, 2016</em></h4>
+<h4 class="author">Robert Mitchell</h4>
+<h4 class="date">September 1, 2016</h4>
 
 </div>
 
@@ -375,7 +489,7 @@ $(document).ready(function () {
 <li><code>rmarkdown</code> (v0.9.6) which you can install from CRAN thusly:</li>
 </ol>
 <p><br></p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb1-1" data-line-number="1"><span class="kw">install.packages</span>(<span class="st">&quot;rmarkdown&quot;</span>, <span class="dt">type =</span> <span class="st">&quot;source&quot;</span>)</a></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="kw">install.packages</span>(<span class="st">&quot;rmarkdown&quot;</span>, <span class="dt">type =</span> <span class="st">&quot;source&quot;</span>)</span></code></pre></div>
 <p><br></p>
 </div>
 <div id="what-files-you-need-in-your-sites-directory" class="section level3">
@@ -395,17 +509,17 @@ $(document).ready(function () {
 <p>Or, you can <a href="https://github.com/rstudio/rmarkdown-website-examples/tree/master/hello-website">clone</a> the example site RStudio graciously put together.</p>
 <p><br></p>
 <p><code>_site.yml</code></p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb2-1" data-line-number="1">name<span class="op">:</span><span class="st"> &quot;Your Site&#39;s Name&quot;</span></a>
-<a class="sourceLine" id="cb2-2" data-line-number="2">output_dir<span class="op">:</span><span class="st"> </span>.  <span class="co"># necessary for hosting on GitHub; just add it for now</span></a>
-<a class="sourceLine" id="cb2-3" data-line-number="3">navbar<span class="op">:</span><span class="st">  </span></a>
-<a class="sourceLine" id="cb2-4" data-line-number="4"><span class="st">  </span>title<span class="op">:</span><span class="st"> &quot;Your Site&#39;s Title&quot;</span></a>
-<a class="sourceLine" id="cb2-5" data-line-number="5">  left<span class="op">:</span><span class="st">  </span><span class="co"># you can also use &#39;right&#39;</span></a>
-<a class="sourceLine" id="cb2-6" data-line-number="6"><span class="st">    </span><span class="op">-</span><span class="st"> </span>text<span class="op">:</span><span class="st"> &quot;Home&quot;</span></a>
-<a class="sourceLine" id="cb2-7" data-line-number="7">      icon<span class="op">:</span><span class="st"> </span>fa<span class="op">-</span>home  <span class="co"># handy way to use FontAwesome icons in nav!</span></a>
-<a class="sourceLine" id="cb2-8" data-line-number="8">      href<span class="op">:</span><span class="st"> </span>index.html  <span class="co"># don&#39;t link to the .Rmd file</span></a>
-<a class="sourceLine" id="cb2-9" data-line-number="9">    <span class="op">-</span><span class="st"> </span>text<span class="op">:</span><span class="st"> &quot;About&quot;</span></a>
-<a class="sourceLine" id="cb2-10" data-line-number="10">      icon<span class="op">:</span><span class="st"> </span>fa<span class="op">-</span>newspaper<span class="op">-</span>o</a>
-<a class="sourceLine" id="cb2-11" data-line-number="11">      href<span class="op">:</span><span class="st"> </span>about.html</a></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a>name<span class="op">:</span><span class="st"> &quot;Your Site&#39;s Name&quot;</span></span>
+<span id="cb2-2"><a href="#cb2-2"></a>output_dir<span class="op">:</span><span class="st"> </span>.  <span class="co"># necessary for hosting on GitHub; just add it for now</span></span>
+<span id="cb2-3"><a href="#cb2-3"></a>navbar<span class="op">:</span><span class="st">  </span></span>
+<span id="cb2-4"><a href="#cb2-4"></a><span class="st">  </span>title<span class="op">:</span><span class="st"> &quot;Your Site&#39;s Title&quot;</span></span>
+<span id="cb2-5"><a href="#cb2-5"></a>  left<span class="op">:</span><span class="st">  </span><span class="co"># you can also use &#39;right&#39;</span></span>
+<span id="cb2-6"><a href="#cb2-6"></a><span class="st">    </span><span class="op">-</span><span class="st"> </span>text<span class="op">:</span><span class="st"> &quot;Home&quot;</span></span>
+<span id="cb2-7"><a href="#cb2-7"></a>      icon<span class="op">:</span><span class="st"> </span>fa<span class="op">-</span>home  <span class="co"># handy way to use FontAwesome icons in nav!</span></span>
+<span id="cb2-8"><a href="#cb2-8"></a>      href<span class="op">:</span><span class="st"> </span>index.html  <span class="co"># don&#39;t link to the .Rmd file</span></span>
+<span id="cb2-9"><a href="#cb2-9"></a>    <span class="op">-</span><span class="st"> </span>text<span class="op">:</span><span class="st"> &quot;About&quot;</span></span>
+<span id="cb2-10"><a href="#cb2-10"></a>      icon<span class="op">:</span><span class="st"> </span>fa<span class="op">-</span>newspaper<span class="op">-</span>o</span>
+<span id="cb2-11"><a href="#cb2-11"></a>      href<span class="op">:</span><span class="st"> </span>about.html</span></code></pre></div>
 <p><br></p>
 <div id="a-couple-of-things-about-the-yml-file" class="section level4">
 <h4>A couple of things about the <code>yml</code> file:</h4>
@@ -421,18 +535,18 @@ $(document).ready(function () {
 </ol>
 <p><br></p>
 <p><code>index.Rmd</code></p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb3-1" data-line-number="1"><span class="op">---</span></a>
-<a class="sourceLine" id="cb3-2" data-line-number="2">title<span class="op">:</span><span class="st"> &quot;My Site&#39;s Title&quot;</span></a>
-<a class="sourceLine" id="cb3-3" data-line-number="3"><span class="op">---</span></a>
-<a class="sourceLine" id="cb3-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb3-5" data-line-number="5">Welcome to my site<span class="op">!</span></a></code></pre></div>
+<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a><span class="op">---</span></span>
+<span id="cb3-2"><a href="#cb3-2"></a>title<span class="op">:</span><span class="st"> &quot;My Site&#39;s Title&quot;</span></span>
+<span id="cb3-3"><a href="#cb3-3"></a><span class="op">---</span></span>
+<span id="cb3-4"><a href="#cb3-4"></a></span>
+<span id="cb3-5"><a href="#cb3-5"></a>Welcome to my site<span class="op">!</span></span></code></pre></div>
 <p><br></p>
 <p><code>about.Rmd</code></p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb4-1" data-line-number="1"><span class="op">---</span></a>
-<a class="sourceLine" id="cb4-2" data-line-number="2">title<span class="op">:</span><span class="st"> &quot;About me&quot;</span></a>
-<a class="sourceLine" id="cb4-3" data-line-number="3"><span class="op">---</span></a>
-<a class="sourceLine" id="cb4-4" data-line-number="4"><span class="st">  </span></a>
-<a class="sourceLine" id="cb4-5" data-line-number="5">A little more about my background ...</a></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a><span class="op">---</span></span>
+<span id="cb4-2"><a href="#cb4-2"></a>title<span class="op">:</span><span class="st"> &quot;About me&quot;</span></span>
+<span id="cb4-3"><a href="#cb4-3"></a><span class="op">---</span></span>
+<span id="cb4-4"><a href="#cb4-4"></a><span class="st">  </span></span>
+<span id="cb4-5"><a href="#cb4-5"></a>A little more about my background ...</span></code></pre></div>
 <p><br></p>
 </div>
 </div>
@@ -451,32 +565,32 @@ $(document).ready(function () {
 <p>This is my favorite part because you can begin adding your own touches to things. A good first step is to set the <code>theme</code> in your <code>yml</code> file to one of <a href="https://bootswatch.com">these</a> themes. You can also add custom css with the <code>css</code> tag—you just have to leave the file in the same directory as everything else. I’ll share my <code>yml</code> file here so you can see what I’ve done (or you can see if I’ve made changes since posting this by checking <a href="https://github.com/robertmitchellv/robertmitchellv.github.io/blob/master/_site.yml">here</a>):</p>
 <p><br></p>
 <p><code>_site.yml</code></p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb5-1" data-line-number="1">name<span class="op">:</span><span class="st"> &quot;rbmv | critical data analysis&quot;</span></a>
-<a class="sourceLine" id="cb5-2" data-line-number="2">output_dir<span class="op">:</span><span class="st"> </span>.</a>
-<a class="sourceLine" id="cb5-3" data-line-number="3">output<span class="op">:</span></a>
-<a class="sourceLine" id="cb5-4" data-line-number="4"><span class="st">  </span>html_document<span class="op">:</span></a>
-<a class="sourceLine" id="cb5-5" data-line-number="5"><span class="st">    </span>theme<span class="op">:</span><span class="st"> </span>yeti</a>
-<a class="sourceLine" id="cb5-6" data-line-number="6">    highlight<span class="op">:</span><span class="st"> </span>pygments</a>
-<a class="sourceLine" id="cb5-7" data-line-number="7">    include<span class="op">:</span></a>
-<a class="sourceLine" id="cb5-8" data-line-number="8"><span class="st">      </span>after_body<span class="op">:</span><span class="st"> </span>footer.html</a>
-<a class="sourceLine" id="cb5-9" data-line-number="9">    css<span class="op">:</span><span class="st"> </span>style.css</a></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1"></a>name<span class="op">:</span><span class="st"> &quot;rbmv | critical data analysis&quot;</span></span>
+<span id="cb5-2"><a href="#cb5-2"></a>output_dir<span class="op">:</span><span class="st"> </span>.</span>
+<span id="cb5-3"><a href="#cb5-3"></a>output<span class="op">:</span></span>
+<span id="cb5-4"><a href="#cb5-4"></a><span class="st">  </span>html_document<span class="op">:</span></span>
+<span id="cb5-5"><a href="#cb5-5"></a><span class="st">    </span>theme<span class="op">:</span><span class="st"> </span>yeti</span>
+<span id="cb5-6"><a href="#cb5-6"></a>    highlight<span class="op">:</span><span class="st"> </span>pygments</span>
+<span id="cb5-7"><a href="#cb5-7"></a>    include<span class="op">:</span></span>
+<span id="cb5-8"><a href="#cb5-8"></a><span class="st">      </span>after_body<span class="op">:</span><span class="st"> </span>footer.html</span>
+<span id="cb5-9"><a href="#cb5-9"></a>    css<span class="op">:</span><span class="st"> </span>style.css</span></code></pre></div>
 <p><br></p>
 <p>As you can see there isn’t a lot going on here. You may also notice that I am not using the <code>_site.yml</code> file for the <code>navbar</code>—this is because I am using a separate <code>_navbar.html</code><a href="#fn7" class="footnote-ref" id="fnref7"><sup>7</sup></a>. In fact, I have two <code>navbar</code> files: one for the home page and the other for the rest of the site’s content. I did this because I want the <code>navbar</code> links to behave differently and direct to different places on the homepage as opposed to the rest of the site. <strong>This is just prefrence.</strong></p>
 <p><br></p>
 <p>The great thing about <code>rmarkdown</code> is that each page has <code>yml</code> fields and you can control content really easily with includes. You only need to exclude whatever is default and include whatever you want to replace it with for that page. Here’s an example of this blog post’s <code>yml</code> metadata:</p>
 <p><br></p>
 <p><code>blog-building-site-with-rmarkdown.Rmd</code></p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb6-1" data-line-number="1"><span class="op">---</span></a>
-<a class="sourceLine" id="cb6-2" data-line-number="2">title<span class="op">:</span><span class="st"> &quot;BUILDING THIS SITE WITH RSTUDIO AND RMARKDOWN&quot;</span></a>
-<a class="sourceLine" id="cb6-3" data-line-number="3">author<span class="op">:</span><span class="st"> &quot;Robert Mitchell&quot;</span></a>
-<a class="sourceLine" id="cb6-4" data-line-number="4">date<span class="op">:</span><span class="st"> &quot;September 1, 2016&quot;</span></a>
-<a class="sourceLine" id="cb6-5" data-line-number="5">output<span class="op">:</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb6-6" data-line-number="6"><span class="st">  </span>html_document<span class="op">:</span></a>
-<a class="sourceLine" id="cb6-7" data-line-number="7"><span class="st">    </span>excludes<span class="op">:</span></a>
-<a class="sourceLine" id="cb6-8" data-line-number="8"><span class="st">      </span>after_body<span class="op">:</span><span class="st"> </span>footer.html</a>
-<a class="sourceLine" id="cb6-9" data-line-number="9">    includes<span class="op">:</span></a>
-<a class="sourceLine" id="cb6-10" data-line-number="10"><span class="st">      </span>after_body<span class="op">:</span><span class="st"> </span>footer<span class="op">-</span>disqus.html</a>
-<a class="sourceLine" id="cb6-11" data-line-number="11"><span class="op">---</span></a></code></pre></div>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1"></a><span class="op">---</span></span>
+<span id="cb6-2"><a href="#cb6-2"></a>title<span class="op">:</span><span class="st"> &quot;BUILDING THIS SITE WITH RSTUDIO AND RMARKDOWN&quot;</span></span>
+<span id="cb6-3"><a href="#cb6-3"></a>author<span class="op">:</span><span class="st"> &quot;Robert Mitchell&quot;</span></span>
+<span id="cb6-4"><a href="#cb6-4"></a>date<span class="op">:</span><span class="st"> &quot;September 1, 2016&quot;</span></span>
+<span id="cb6-5"><a href="#cb6-5"></a>output<span class="op">:</span><span class="st"> </span></span>
+<span id="cb6-6"><a href="#cb6-6"></a><span class="st">  </span>html_document<span class="op">:</span></span>
+<span id="cb6-7"><a href="#cb6-7"></a><span class="st">    </span>excludes<span class="op">:</span></span>
+<span id="cb6-8"><a href="#cb6-8"></a><span class="st">      </span>after_body<span class="op">:</span><span class="st"> </span>footer.html</span>
+<span id="cb6-9"><a href="#cb6-9"></a>    includes<span class="op">:</span></span>
+<span id="cb6-10"><a href="#cb6-10"></a><span class="st">      </span>after_body<span class="op">:</span><span class="st"> </span>footer<span class="op">-</span>disqus.html</span>
+<span id="cb6-11"><a href="#cb6-11"></a><span class="op">---</span></span></code></pre></div>
 <p><br></p>
 <p>I excluded the <code>footer.html</code> file that is set in the <code>html_document: include: after_body:</code> field to include, instead, a <code>footer</code> file that has the Disqus JavaScript function so that comments appear on blog posts only. You can also include a <code>navbar</code> file using the <code>html_document: include: before_body: navbar.html</code> field, which I used only for my <code>index</code> file to keep things simple. It would be a good idea to keep <a href="http://rmarkdown.rstudio.com/html_document_format.html">this</a> site handy since <code>html_document</code> has a ton of flexibility. Some of you that are <em>very</em> knowledgeable about <code>rmarkdown</code> will likely run with the possibilities.</p>
 <p><br></p>
@@ -492,55 +606,55 @@ $(document).ready(function () {
 <p>This was tricky and what worked for me was looking at the <code>rmarkdown</code> site’s <a href="https://github.com/rstudio/rmarkdown/blob/gh-pages/include_footer.html">source code</a> and including two closing <code>&lt;div&gt;</code>’s—here’s how I worked it out in HTML and CSS:</p>
 <p><br></p>
 <p><code>footer-disqus.html</code></p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb7-1" data-line-number="1">  <span class="kw">&lt;/div&gt;</span> <span class="co">&lt;!-- articleBandContent --&gt;</span></a>
-<a class="sourceLine" id="cb7-2" data-line-number="2"><span class="kw">&lt;/div&gt;</span> <span class="co">&lt;!-- pageContent --&gt;</span></a>
-<a class="sourceLine" id="cb7-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb7-4" data-line-number="4"><span class="kw">&lt;footer&gt;</span></a>
-<a class="sourceLine" id="cb7-5" data-line-number="5">  <span class="kw">&lt;div</span><span class="ot"> id=</span><span class="st">&quot;rbmvFooter&quot;</span><span class="ot"> class=</span><span class="st">&quot;footer&quot;</span><span class="kw">&gt;</span></a>
-<a class="sourceLine" id="cb7-6" data-line-number="6">    <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;footerContent&quot;</span><span class="kw">&gt;</span></a>
-<a class="sourceLine" id="cb7-7" data-line-number="7">    </a>
-<a class="sourceLine" id="cb7-8" data-line-number="8">    <span class="co">&lt;!-- footer content --&gt;</span></a>
-<a class="sourceLine" id="cb7-9" data-line-number="9">    </a>
-<a class="sourceLine" id="cb7-10" data-line-number="10">    <span class="kw">&lt;/div&gt;</span></a>
-<a class="sourceLine" id="cb7-11" data-line-number="11">  <span class="kw">&lt;/div&gt;</span></a>
-<a class="sourceLine" id="cb7-12" data-line-number="12">  </a>
-<a class="sourceLine" id="cb7-13" data-line-number="13">  <span class="co">&lt;!-- js functions --&gt;</span></a>
-<a class="sourceLine" id="cb7-14" data-line-number="14"></a>
-<a class="sourceLine" id="cb7-15" data-line-number="15"><span class="kw">&lt;/footer&gt;</span></a>
-<a class="sourceLine" id="cb7-16" data-line-number="16"></a>
-<a class="sourceLine" id="cb7-17" data-line-number="17"><span class="co">&lt;!-- disqus js for comments --&gt;</span></a></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb7-1"><a href="#cb7-1"></a>  <span class="kw">&lt;/div&gt;</span> <span class="co">&lt;!-- articleBandContent --&gt;</span></span>
+<span id="cb7-2"><a href="#cb7-2"></a><span class="kw">&lt;/div&gt;</span> <span class="co">&lt;!-- pageContent --&gt;</span></span>
+<span id="cb7-3"><a href="#cb7-3"></a></span>
+<span id="cb7-4"><a href="#cb7-4"></a><span class="kw">&lt;footer&gt;</span></span>
+<span id="cb7-5"><a href="#cb7-5"></a>  <span class="kw">&lt;div</span><span class="ot"> id=</span><span class="st">&quot;rbmvFooter&quot;</span><span class="ot"> class=</span><span class="st">&quot;footer&quot;</span><span class="kw">&gt;</span></span>
+<span id="cb7-6"><a href="#cb7-6"></a>    <span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;footerContent&quot;</span><span class="kw">&gt;</span></span>
+<span id="cb7-7"><a href="#cb7-7"></a>    </span>
+<span id="cb7-8"><a href="#cb7-8"></a>    <span class="co">&lt;!-- footer content --&gt;</span></span>
+<span id="cb7-9"><a href="#cb7-9"></a>    </span>
+<span id="cb7-10"><a href="#cb7-10"></a>    <span class="kw">&lt;/div&gt;</span></span>
+<span id="cb7-11"><a href="#cb7-11"></a>  <span class="kw">&lt;/div&gt;</span></span>
+<span id="cb7-12"><a href="#cb7-12"></a>  </span>
+<span id="cb7-13"><a href="#cb7-13"></a>  <span class="co">&lt;!-- js functions --&gt;</span></span>
+<span id="cb7-14"><a href="#cb7-14"></a></span>
+<span id="cb7-15"><a href="#cb7-15"></a><span class="kw">&lt;/footer&gt;</span></span>
+<span id="cb7-16"><a href="#cb7-16"></a></span>
+<span id="cb7-17"><a href="#cb7-17"></a><span class="co">&lt;!-- disqus js for comments --&gt;</span></span></code></pre></div>
 <p><br></p>
 <p>This is the CSS I used with the <code>footer</code> above:</p>
 <p><br></p>
 <p><code>style.css</code></p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode css"><code class="sourceCode css"><a class="sourceLine" id="cb8-1" data-line-number="1"><span class="pp">#rbmvFooter</span> {</a>
-<a class="sourceLine" id="cb8-2" data-line-number="2">  <span class="kw">position</span>: <span class="dv">relative</span>;</a>
-<a class="sourceLine" id="cb8-3" data-line-number="3">  <span class="kw">z-index</span>: <span class="dv">2</span>;</a>
-<a class="sourceLine" id="cb8-4" data-line-number="4">  <span class="kw">box-sizing</span>: <span class="dv">border-box</span>;</a>
-<a class="sourceLine" id="cb8-5" data-line-number="5">  <span class="kw">height</span>: <span class="dv">25em</span>;</a>
-<a class="sourceLine" id="cb8-6" data-line-number="6">}</a>
-<a class="sourceLine" id="cb8-7" data-line-number="7"></a>
-<a class="sourceLine" id="cb8-8" data-line-number="8"><span class="pp">#rbmvFooter</span><span class="fu">.footer</span> {</a>
-<a class="sourceLine" id="cb8-9" data-line-number="9">  <span class="kw">background-color</span>: <span class="dv">#212121</span>;  <span class="co">/* light black */</span></a>
-<a class="sourceLine" id="cb8-10" data-line-number="10">  <span class="kw">padding</span>: <span class="dv">4%</span> <span class="dv">8%</span>;</a>
-<a class="sourceLine" id="cb8-11" data-line-number="11">  <span class="kw">margin-top</span>: <span class="dv">7em</span>;</a>
-<a class="sourceLine" id="cb8-12" data-line-number="12">  <span class="kw">box-shadow</span>: <span class="dv">0px</span> <span class="dv">3px</span> <span class="dv">50px</span> <span class="dv">0px</span> <span class="fu">rgba</span>(<span class="dv">43</span>,<span class="dv">45</span>,<span class="dv">66</span>,<span class="dv">0.4</span>);</a>
-<a class="sourceLine" id="cb8-13" data-line-number="13">  <span class="kw">font-weight</span>: <span class="dv">300</span>;</a>
-<a class="sourceLine" id="cb8-14" data-line-number="14">  <span class="kw">font-size</span>: <span class="dv">13px</span>;</a>
-<a class="sourceLine" id="cb8-15" data-line-number="15">  <span class="kw">line-height</span>: <span class="dv">25px</span>;</a>
-<a class="sourceLine" id="cb8-16" data-line-number="16">}</a>
-<a class="sourceLine" id="cb8-17" data-line-number="17"></a>
-<a class="sourceLine" id="cb8-18" data-line-number="18"><span class="pp">#rbmvFooter</span> <span class="fu">.footer</span> {</a>
-<a class="sourceLine" id="cb8-19" data-line-number="19">  <span class="kw">color</span>: <span class="dv">#626262</span>;  <span class="co">/* darker grey */</span></a>
-<a class="sourceLine" id="cb8-20" data-line-number="20">  <span class="kw">display</span>: flex;</a>
-<a class="sourceLine" id="cb8-21" data-line-number="21">  <span class="kw">justify-content</span>: space-between;</a>
-<a class="sourceLine" id="cb8-22" data-line-number="22">  <span class="kw">align-items</span>: <span class="dv">center</span>;</a>
-<a class="sourceLine" id="cb8-23" data-line-number="23">  <span class="kw">line-height</span>: <span class="dv">14px</span>;</a>
-<a class="sourceLine" id="cb8-24" data-line-number="24">}</a>
-<a class="sourceLine" id="cb8-25" data-line-number="25"></a>
-<a class="sourceLine" id="cb8-26" data-line-number="26"><span class="pp">#scrollTop</span> {</a>
-<a class="sourceLine" id="cb8-27" data-line-number="27">  <span class="kw">color</span>: <span class="dv">#FFFFFF</span><span class="at">!important</span>; <span class="co">/* white */</span></a>
-<a class="sourceLine" id="cb8-28" data-line-number="28">}</a></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode css"><code class="sourceCode css"><span id="cb8-1"><a href="#cb8-1"></a><span class="pp">#rbmvFooter</span> {</span>
+<span id="cb8-2"><a href="#cb8-2"></a>  <span class="kw">position</span>: <span class="dv">relative</span><span class="op">;</span></span>
+<span id="cb8-3"><a href="#cb8-3"></a>  <span class="kw">z-index</span>: <span class="dv">2</span><span class="op">;</span></span>
+<span id="cb8-4"><a href="#cb8-4"></a>  <span class="kw">box-sizing</span>: <span class="dv">border-box</span><span class="op">;</span></span>
+<span id="cb8-5"><a href="#cb8-5"></a>  <span class="kw">height</span>: <span class="dv">25</span><span class="dt">em</span><span class="op">;</span></span>
+<span id="cb8-6"><a href="#cb8-6"></a>}</span>
+<span id="cb8-7"><a href="#cb8-7"></a></span>
+<span id="cb8-8"><a href="#cb8-8"></a><span class="pp">#rbmvFooter</span><span class="fu">.footer</span> {</span>
+<span id="cb8-9"><a href="#cb8-9"></a>  <span class="kw">background-color</span>: <span class="cn">#212121</span><span class="op">;</span>  <span class="co">/* light black */</span></span>
+<span id="cb8-10"><a href="#cb8-10"></a>  <span class="kw">padding</span>: <span class="dv">4</span><span class="dt">%</span> <span class="dv">8</span><span class="dt">%</span><span class="op">;</span></span>
+<span id="cb8-11"><a href="#cb8-11"></a>  <span class="kw">margin-top</span>: <span class="dv">7</span><span class="dt">em</span><span class="op">;</span></span>
+<span id="cb8-12"><a href="#cb8-12"></a>  <span class="kw">box-shadow</span>: <span class="dv">0</span><span class="dt">px</span> <span class="dv">3</span><span class="dt">px</span> <span class="dv">50</span><span class="dt">px</span> <span class="dv">0</span><span class="dt">px</span> <span class="fu">rgba(</span><span class="dv">43</span><span class="op">,</span><span class="dv">45</span><span class="op">,</span><span class="dv">66</span><span class="op">,</span><span class="dv">0.4</span><span class="fu">)</span><span class="op">;</span></span>
+<span id="cb8-13"><a href="#cb8-13"></a>  <span class="kw">font-weight</span>: <span class="dv">300</span><span class="op">;</span></span>
+<span id="cb8-14"><a href="#cb8-14"></a>  <span class="kw">font-size</span>: <span class="dv">13</span><span class="dt">px</span><span class="op">;</span></span>
+<span id="cb8-15"><a href="#cb8-15"></a>  <span class="kw">line-height</span>: <span class="dv">25</span><span class="dt">px</span><span class="op">;</span></span>
+<span id="cb8-16"><a href="#cb8-16"></a>}</span>
+<span id="cb8-17"><a href="#cb8-17"></a></span>
+<span id="cb8-18"><a href="#cb8-18"></a><span class="pp">#rbmvFooter</span> <span class="fu">.footer</span> {</span>
+<span id="cb8-19"><a href="#cb8-19"></a>  <span class="kw">color</span>: <span class="cn">#626262</span><span class="op">;</span>  <span class="co">/* darker grey */</span></span>
+<span id="cb8-20"><a href="#cb8-20"></a>  <span class="kw">display</span>: flex<span class="op">;</span></span>
+<span id="cb8-21"><a href="#cb8-21"></a>  <span class="kw">justify-content</span>: space-between<span class="op">;</span></span>
+<span id="cb8-22"><a href="#cb8-22"></a>  <span class="kw">align-items</span>: <span class="dv">center</span><span class="op">;</span></span>
+<span id="cb8-23"><a href="#cb8-23"></a>  <span class="kw">line-height</span>: <span class="dv">14</span><span class="dt">px</span><span class="op">;</span></span>
+<span id="cb8-24"><a href="#cb8-24"></a>}</span>
+<span id="cb8-25"><a href="#cb8-25"></a></span>
+<span id="cb8-26"><a href="#cb8-26"></a><span class="pp">#scrollTop</span> {</span>
+<span id="cb8-27"><a href="#cb8-27"></a>  <span class="kw">color</span>: <span class="cn">#FFFFFF</span><span class="at">!important</span><span class="op">;</span> <span class="co">/* white */</span></span>
+<span id="cb8-28"><a href="#cb8-28"></a>}</span></code></pre></div>
 <p><br></p>
 </div>
 <div id="summarising-content-for-the-home-page" class="section level4">
@@ -557,26 +671,26 @@ $(document).ready(function () {
 <p>I find it easiest to leave a template in comments that I can just fill in the blanks from the blog post I’ve finished. I don’t think this is <em>too</em> much work. Also, RStudio may come up with some new tooling soon, you never know!</p>
 <p></br></p>
 <p><code>blog.Rmd</code></p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb9-1" data-line-number="1"><span class="co">&lt;!---</span></a>
-<a class="sourceLine" id="cb9-2" data-line-number="2"><span class="co">entries will follow this format:</span></a>
-<a class="sourceLine" id="cb9-3" data-line-number="3"><span class="co">&lt;article&gt;</span></a>
-<a class="sourceLine" id="cb9-4" data-line-number="4"><span class="co">&lt;h3&gt;&lt;a href=&quot;&quot;&gt; &lt;/a&gt;&lt;/h3&gt;</span></a>
-<a class="sourceLine" id="cb9-5" data-line-number="5"><span class="co">&lt;div class=&quot;summary&quot;&gt;</span></a>
-<a class="sourceLine" id="cb9-6" data-line-number="6"><span class="co">&lt;span&gt;&lt;i class=&quot;fa fa-calendar&quot;&gt;&lt;/i&gt; _date_&lt;/span&gt;</span></a>
-<a class="sourceLine" id="cb9-7" data-line-number="7"><span class="co">&lt;p&gt; ...&lt;/p&gt;</span></a>
-<a class="sourceLine" id="cb9-8" data-line-number="8"><span class="co">&lt;a class=&quot;btn btn-outline-primary btn-sm&quot; href=&quot;&quot;&gt;Full Post&lt;/a&gt;</span></a>
-<a class="sourceLine" id="cb9-9" data-line-number="9"><span class="co">&lt;/div&gt;</span></a>
-<a class="sourceLine" id="cb9-10" data-line-number="10"><span class="co">&lt;/article&gt;</span></a>
-<a class="sourceLine" id="cb9-11" data-line-number="11"><span class="co">---&gt;</span></a>
-<a class="sourceLine" id="cb9-12" data-line-number="12"></a>
-<a class="sourceLine" id="cb9-13" data-line-number="13"><span class="kw">&lt;article&gt;</span></a>
-<a class="sourceLine" id="cb9-14" data-line-number="14"><span class="kw">&lt;h3&gt;&lt;a</span><span class="ot"> href=</span><span class="st">&quot;blog-the-move-to-r.html&quot;</span><span class="kw">&gt;</span>THE MOVE TO R<span class="kw">&lt;/a&gt;&lt;/h3&gt;</span></a>
-<a class="sourceLine" id="cb9-15" data-line-number="15"><span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;summary&quot;</span><span class="kw">&gt;</span></a>
-<a class="sourceLine" id="cb9-16" data-line-number="16"><span class="kw">&lt;span&gt;&lt;i</span><span class="ot"> class=</span><span class="st">&quot;fa fa-calendar&quot;</span><span class="kw">&gt;&lt;/i&gt;</span> _2016-08-29_<span class="kw">&lt;/span&gt;</span></a>
-<a class="sourceLine" id="cb9-17" data-line-number="17"><span class="kw">&lt;p&gt;</span>This is _not_ a language wars type post.  I do not think there is some Mordor forged language to _rule them all_.  I debated whether or not to even write a post like this.  Nevertheless, I had a chance to meet and talk to [Jake Powray](https://twitter.com/jakeporway) from [DataKind](http://www.datakind.org) at the [DoGoodData](http://www.dogooddata.com) conference and I...<span class="kw">&lt;/p&gt;</span></a>
-<a class="sourceLine" id="cb9-18" data-line-number="18"><span class="kw">&lt;a</span><span class="ot"> class=</span><span class="st">&quot;btn btn-outline-primary btn-sm&quot;</span><span class="ot"> href=</span><span class="st">&quot;blog-the-move-to-r.html&quot;</span><span class="kw">&gt;</span>Full Post<span class="kw">&lt;/a&gt;</span></a>
-<a class="sourceLine" id="cb9-19" data-line-number="19"><span class="kw">&lt;/div&gt;</span></a>
-<a class="sourceLine" id="cb9-20" data-line-number="20"><span class="kw">&lt;/article&gt;</span></a></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb9-1"><a href="#cb9-1"></a><span class="co">&lt;!---</span></span>
+<span id="cb9-2"><a href="#cb9-2"></a><span class="co">entries will follow this format:</span></span>
+<span id="cb9-3"><a href="#cb9-3"></a><span class="co">&lt;article&gt;</span></span>
+<span id="cb9-4"><a href="#cb9-4"></a><span class="co">&lt;h3&gt;&lt;a href=&quot;&quot;&gt; &lt;/a&gt;&lt;/h3&gt;</span></span>
+<span id="cb9-5"><a href="#cb9-5"></a><span class="co">&lt;div class=&quot;summary&quot;&gt;</span></span>
+<span id="cb9-6"><a href="#cb9-6"></a><span class="co">&lt;span&gt;&lt;i class=&quot;fa fa-calendar&quot;&gt;&lt;/i&gt; _date_&lt;/span&gt;</span></span>
+<span id="cb9-7"><a href="#cb9-7"></a><span class="co">&lt;p&gt; ...&lt;/p&gt;</span></span>
+<span id="cb9-8"><a href="#cb9-8"></a><span class="co">&lt;a class=&quot;btn btn-outline-primary btn-sm&quot; href=&quot;&quot;&gt;Full Post&lt;/a&gt;</span></span>
+<span id="cb9-9"><a href="#cb9-9"></a><span class="co">&lt;/div&gt;</span></span>
+<span id="cb9-10"><a href="#cb9-10"></a><span class="co">&lt;/article&gt;</span></span>
+<span id="cb9-11"><a href="#cb9-11"></a><span class="co">---&gt;</span></span>
+<span id="cb9-12"><a href="#cb9-12"></a></span>
+<span id="cb9-13"><a href="#cb9-13"></a><span class="kw">&lt;article&gt;</span></span>
+<span id="cb9-14"><a href="#cb9-14"></a><span class="kw">&lt;h3&gt;&lt;a</span><span class="ot"> href=</span><span class="st">&quot;blog-the-move-to-r.html&quot;</span><span class="kw">&gt;</span>THE MOVE TO R<span class="kw">&lt;/a&gt;&lt;/h3&gt;</span></span>
+<span id="cb9-15"><a href="#cb9-15"></a><span class="kw">&lt;div</span><span class="ot"> class=</span><span class="st">&quot;summary&quot;</span><span class="kw">&gt;</span></span>
+<span id="cb9-16"><a href="#cb9-16"></a><span class="kw">&lt;span&gt;&lt;i</span><span class="ot"> class=</span><span class="st">&quot;fa fa-calendar&quot;</span><span class="kw">&gt;&lt;/i&gt;</span> _2016-08-29_<span class="kw">&lt;/span&gt;</span></span>
+<span id="cb9-17"><a href="#cb9-17"></a><span class="kw">&lt;p&gt;</span>This is _not_ a language wars type post.  I do not think there is some Mordor forged language to _rule them all_.  I debated whether or not to even write a post like this.  Nevertheless, I had a chance to meet and talk to [Jake Powray](https://twitter.com/jakeporway) from [DataKind](http://www.datakind.org) at the [DoGoodData](http://www.dogooddata.com) conference and I...<span class="kw">&lt;/p&gt;</span></span>
+<span id="cb9-18"><a href="#cb9-18"></a><span class="kw">&lt;a</span><span class="ot"> class=</span><span class="st">&quot;btn btn-outline-primary btn-sm&quot;</span><span class="ot"> href=</span><span class="st">&quot;blog-the-move-to-r.html&quot;</span><span class="kw">&gt;</span>Full Post<span class="kw">&lt;/a&gt;</span></span>
+<span id="cb9-19"><a href="#cb9-19"></a><span class="kw">&lt;/div&gt;</span></span>
+<span id="cb9-20"><a href="#cb9-20"></a><span class="kw">&lt;/article&gt;</span></span></code></pre></div>
 <p><br></p>
 </div>
 <div id="anchor-tag-in-page-links-missed-location" class="section level4">
@@ -585,12 +699,12 @@ $(document).ready(function () {
 <p>On my home page I use the smooth scrolling function to move between the summarized content with anchor links and the <code>id</code> attribute. Since I added the <code>fixed</code> class to my <code>_navbar.html</code> file, I forgot to adjust for those pixels. This was fixed with the following CSS:</p>
 <p><br></p>
 <p><code>style.css</code></p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode css"><code class="sourceCode css"><a class="sourceLine" id="cb10-1" data-line-number="1">a<span class="fu">.anchor</span> {</a>
-<a class="sourceLine" id="cb10-2" data-line-number="2">  <span class="kw">display</span>: <span class="dv">block</span>;</a>
-<a class="sourceLine" id="cb10-3" data-line-number="3">  <span class="kw">position</span>: <span class="dv">relative</span>;</a>
-<a class="sourceLine" id="cb10-4" data-line-number="4">  <span class="kw">top</span>: <span class="dv">-45px</span>; <span class="co">/* fixed navbar height */</span></a>
-<a class="sourceLine" id="cb10-5" data-line-number="5">  <span class="kw">visibility</span>: <span class="dv">hidden</span>;</a>
-<a class="sourceLine" id="cb10-6" data-line-number="6">}</a></code></pre></div>
+<div class="sourceCode" id="cb10"><pre class="sourceCode css"><code class="sourceCode css"><span id="cb10-1"><a href="#cb10-1"></a>a<span class="fu">.anchor</span> {</span>
+<span id="cb10-2"><a href="#cb10-2"></a>  <span class="kw">display</span>: <span class="dv">block</span><span class="op">;</span></span>
+<span id="cb10-3"><a href="#cb10-3"></a>  <span class="kw">position</span>: <span class="dv">relative</span><span class="op">;</span></span>
+<span id="cb10-4"><a href="#cb10-4"></a>  <span class="kw">top</span>: <span class="dv">-45</span><span class="dt">px</span><span class="op">;</span> <span class="co">/* fixed navbar height */</span></span>
+<span id="cb10-5"><a href="#cb10-5"></a>  <span class="kw">visibility</span>: <span class="dv">hidden</span><span class="op">;</span></span>
+<span id="cb10-6"><a href="#cb10-6"></a>}</span></code></pre></div>
 <p><br></p>
 </div>
 <div id="displaying-css-in-a-code-chunk" class="section level4">
@@ -613,12 +727,12 @@ $(document).ready(function () {
 <p><br></p>
 <p>Sorry, I had to do that. Trying to render the above CSS chunk proved harder than I thought. It lead me to try and figure out how to put a code chunk in a code chunk (and I thought of the ‘yo dawg’ meme right away). Boosted strait from RStudio’s site, this is how you accomplish it if you ever need to know:</p>
 <p><br></p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb11-1" data-line-number="1"><span class="kw">&lt;pre</span><span class="ot"> class=</span><span class="st">&quot;markdown&quot;</span><span class="kw">&gt;&lt;code&gt;</span><span class="dv">&amp;#96;&amp;#96;&amp;#96;</span>css</a>
-<a class="sourceLine" id="cb11-2" data-line-number="2">.someClass {</a>
-<a class="sourceLine" id="cb11-3" data-line-number="3">  color: #FFFF00;</a>
-<a class="sourceLine" id="cb11-4" data-line-number="4">}</a>
-<a class="sourceLine" id="cb11-5" data-line-number="5"><span class="dv">&amp;#96;&amp;#96;&amp;#96;</span></a>
-<a class="sourceLine" id="cb11-6" data-line-number="6"><span class="kw">&lt;/code&gt;&lt;/pre&gt;</span></a></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb11-1"><a href="#cb11-1"></a><span class="kw">&lt;pre</span><span class="ot"> class=</span><span class="st">&quot;markdown&quot;</span><span class="kw">&gt;&lt;code&gt;</span><span class="dv">&amp;#96;&amp;#96;&amp;#96;</span>css</span>
+<span id="cb11-2"><a href="#cb11-2"></a>.someClass {</span>
+<span id="cb11-3"><a href="#cb11-3"></a>  color: #FFFF00;</span>
+<span id="cb11-4"><a href="#cb11-4"></a>}</span>
+<span id="cb11-5"><a href="#cb11-5"></a><span class="dv">&amp;#96;&amp;#96;&amp;#96;</span></span>
+<span id="cb11-6"><a href="#cb11-6"></a><span class="kw">&lt;/code&gt;&lt;/pre&gt;</span></span></code></pre></div>
 <p><br></p>
 </div>
 <div id="getting-disqus-to-work" class="section level4">
@@ -628,18 +742,18 @@ $(document).ready(function () {
 <p><br></p>
 <p>I initally didn’t follow Disqus instructions and tried to make it work the way RStudio had it set up in their <code>footer</code> but couldn’t get it to work—what I did was first add the script tag that gives you a count of comments (step 1 under the ‘How to display comment count’) and then add just the function right after (step 1). If you look at the commented out section in the function, you’ll see that Disqus wants you to set two variables and uncomment, but I couldn’t seem to get them to work with my site set up the way it is. If anyone has any insight into how the variables could be set up with an <code>rmarkdown</code> website, let me know in the comments!</p>
 <p><br></p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb12-1" data-line-number="1"><span class="co">&lt;!-- disqus --&gt;</span></a>
-<a class="sourceLine" id="cb12-2" data-line-number="2"><span class="kw">&lt;script</span><span class="ot"> id=</span><span class="st">&quot;dsq-count-scr&quot;</span><span class="ot"> src=</span><span class="st">&quot;//rbmv.disqus.com/count.js&quot;</span><span class="ot"> async</span><span class="kw">&gt;&lt;/script&gt;</span></a>
-<a class="sourceLine" id="cb12-3" data-line-number="3"><span class="kw">&lt;div</span><span class="ot"> id=</span><span class="st">&quot;disqus_thread&quot;</span><span class="ot"> class=</span><span class="st">&quot;disqusPadding&quot;</span><span class="kw">&gt;&lt;/div&gt;</span></a>
-<a class="sourceLine" id="cb12-4" data-line-number="4">  <span class="kw">&lt;script&gt;</span></a>
-<a class="sourceLine" id="cb12-5" data-line-number="5">    (<span class="kw">function</span>() <span class="op">{</span> <span class="co">// DON&#39;T EDIT BELOW THIS LINE</span></a>
-<a class="sourceLine" id="cb12-6" data-line-number="6">      <span class="kw">var</span> d <span class="op">=</span> document<span class="op">,</span> s <span class="op">=</span> <span class="va">d</span>.<span class="at">createElement</span>(<span class="st">&#39;script&#39;</span>)<span class="op">;</span></a>
-<a class="sourceLine" id="cb12-7" data-line-number="7">      <span class="va">s</span>.<span class="at">src</span> <span class="op">=</span> <span class="st">&#39;//rbmv.disqus.com/embed.js&#39;</span><span class="op">;</span></a>
-<a class="sourceLine" id="cb12-8" data-line-number="8">      <span class="va">s</span>.<span class="at">setAttribute</span>(<span class="st">&#39;data-timestamp&#39;</span><span class="op">,</span> <span class="op">+</span><span class="kw">new</span> <span class="at">Date</span>())<span class="op">;</span></a>
-<a class="sourceLine" id="cb12-9" data-line-number="9">      (<span class="va">d</span>.<span class="at">head</span> <span class="op">||</span> <span class="va">d</span>.<span class="at">body</span>).<span class="at">appendChild</span>(s)<span class="op">;</span></a>
-<a class="sourceLine" id="cb12-10" data-line-number="10">    <span class="op">}</span>)()<span class="op">;</span></a>
-<a class="sourceLine" id="cb12-11" data-line-number="11">  <span class="kw">&lt;/script&gt;</span></a>
-<a class="sourceLine" id="cb12-12" data-line-number="12">  <span class="kw">&lt;noscript&gt;</span>Please enable JavaScript to view the <span class="kw">&lt;a</span><span class="ot"> href=</span><span class="st">&quot;https://disqus.com/?ref_noscript&quot;</span><span class="kw">&gt;</span>comments powered by Disqus.<span class="kw">&lt;/a&gt;&lt;/noscript&gt;</span></a></code></pre></div>
+<div class="sourceCode" id="cb12"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb12-1"><a href="#cb12-1"></a><span class="co">&lt;!-- disqus --&gt;</span></span>
+<span id="cb12-2"><a href="#cb12-2"></a><span class="kw">&lt;script</span><span class="ot"> id=</span><span class="st">&quot;dsq-count-scr&quot;</span><span class="ot"> src=</span><span class="st">&quot;//rbmv.disqus.com/count.js&quot;</span><span class="ot"> async</span><span class="kw">&gt;&lt;/script&gt;</span></span>
+<span id="cb12-3"><a href="#cb12-3"></a><span class="kw">&lt;div</span><span class="ot"> id=</span><span class="st">&quot;disqus_thread&quot;</span><span class="ot"> class=</span><span class="st">&quot;disqusPadding&quot;</span><span class="kw">&gt;&lt;/div&gt;</span></span>
+<span id="cb12-4"><a href="#cb12-4"></a>  <span class="kw">&lt;script&gt;</span></span>
+<span id="cb12-5"><a href="#cb12-5"></a>    (<span class="kw">function</span>() <span class="op">{</span> <span class="co">// DON&#39;T EDIT BELOW THIS LINE</span></span>
+<span id="cb12-6"><a href="#cb12-6"></a>      <span class="kw">var</span> d <span class="op">=</span> document<span class="op">,</span> s <span class="op">=</span> <span class="va">d</span>.<span class="at">createElement</span>(<span class="st">&#39;script&#39;</span>)<span class="op">;</span></span>
+<span id="cb12-7"><a href="#cb12-7"></a>      <span class="va">s</span>.<span class="at">src</span> <span class="op">=</span> <span class="st">&#39;//rbmv.disqus.com/embed.js&#39;</span><span class="op">;</span></span>
+<span id="cb12-8"><a href="#cb12-8"></a>      <span class="va">s</span>.<span class="at">setAttribute</span>(<span class="st">&#39;data-timestamp&#39;</span><span class="op">,</span> <span class="op">+</span><span class="kw">new</span> <span class="at">Date</span>())<span class="op">;</span></span>
+<span id="cb12-9"><a href="#cb12-9"></a>      (<span class="va">d</span>.<span class="at">head</span> <span class="op">||</span> <span class="va">d</span>.<span class="at">body</span>).<span class="at">appendChild</span>(s)<span class="op">;</span></span>
+<span id="cb12-10"><a href="#cb12-10"></a>    <span class="op">}</span>)()<span class="op">;</span></span>
+<span id="cb12-11"><a href="#cb12-11"></a>  <span class="kw">&lt;/script&gt;</span></span>
+<span id="cb12-12"><a href="#cb12-12"></a>  <span class="kw">&lt;noscript&gt;</span>Please enable JavaScript to view the <span class="kw">&lt;a</span><span class="ot"> href=</span><span class="st">&quot;https://disqus.com/?ref_noscript&quot;</span><span class="kw">&gt;</span>comments powered by Disqus.<span class="kw">&lt;/a&gt;&lt;/noscript&gt;</span></span></code></pre></div>
 <p><br></p>
 </div>
 <div id="syntax-highlighting" class="section level4">
@@ -648,51 +762,51 @@ $(document).ready(function () {
 <p>I’m not a big fan of the options we inherit from Pandoc. Also, the CSS generated from code chunks seems kind of arbitrary and doesn’t work with Pygments (which is a shame because there are <em>many</em> Pygments CSS files to be found online!). From what I can tell <a href="https://github.com/jeffbr13/benjeffrey.com/blob/master/posts/pandoc-syntax-highlighting-css.md">here</a> the markup classes come from the <a href="http://hackage.haskell.org/package/highlighting-kate">highlighting-kate</a> package. When I looked at the <a href="http://ethanschoonover.com/solarized">Solarized</a> webpage, there’s a link to the pages <a href="https://github.com/altercation/ethanschoonover.com/blob/master/resources/css/style.css">css</a> that gave me a bit of a head start. I tweaked it a bit to try and make the chunks look like the syntax highlighting in R, but it isn’t perfect. If you would like to use my highlight theme, just copy this into your CSS:</p>
 <p><br></p>
 <p><code>style.css</code></p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode html"><code class="sourceCode html"><a class="sourceLine" id="cb13-1" data-line-number="1">root: {</a>
-<a class="sourceLine" id="cb13-2" data-line-number="2">  --base03: #002b36;  /* background */</a>
-<a class="sourceLine" id="cb13-3" data-line-number="3">  --base02: #073642;  /* other background */</a>
-<a class="sourceLine" id="cb13-4" data-line-number="4">  --base01: #586e75;  /* comments / secondary content */</a>
-<a class="sourceLine" id="cb13-5" data-line-number="5">  --base1: #93a1a1;  /* body text / default code / primary content */</a>
-<a class="sourceLine" id="cb13-6" data-line-number="6">  --yellow: #b58900;  /* keyword */</a>
-<a class="sourceLine" id="cb13-7" data-line-number="7">  --orange: #cb4b16;  /* constants */</a>
-<a class="sourceLine" id="cb13-8" data-line-number="8">  --red: #dc322f;  /* regex, special keywords */</a>
-<a class="sourceLine" id="cb13-9" data-line-number="9">  --magenta: #d33682;  /* not sure what to do with this color yet */</a>
-<a class="sourceLine" id="cb13-10" data-line-number="10">  --violet: #6c71c4;  /* not sure what to do with this color yet */</a>
-<a class="sourceLine" id="cb13-11" data-line-number="11">  --blue: #268bd2;  /* reserved keywords */</a>
-<a class="sourceLine" id="cb13-12" data-line-number="12">  --cyan: #2aa198;  /* strings, numbers */</a>
-<a class="sourceLine" id="cb13-13" data-line-number="13">  --green: #859900;  /* operators, other keywords */</a>
-<a class="sourceLine" id="cb13-14" data-line-number="14">}</a>
-<a class="sourceLine" id="cb13-15" data-line-number="15"></a>
-<a class="sourceLine" id="cb13-16" data-line-number="16">/*</a>
-<a class="sourceLine" id="cb13-17" data-line-number="17"> * Solarized Dark </a>
-<a class="sourceLine" id="cb13-18" data-line-number="18"> * http://ethanschoonover.com/solarized</a>
-<a class="sourceLine" id="cb13-19" data-line-number="19"> */</a>
-<a class="sourceLine" id="cb13-20" data-line-number="20"></a>
-<a class="sourceLine" id="cb13-21" data-line-number="21">pre, code { font-family: &#39;Roboto Mono&#39;, monospace ; font-weight: 300; }</a>
-<a class="sourceLine" id="cb13-22" data-line-number="22">pre { background-color: var(--base03); color: var(--base1); }</a>
-<a class="sourceLine" id="cb13-23" data-line-number="23">code.sourceCode .kw { color: var(--blue); font-weight: 700; } /* Keyword */</a>
-<a class="sourceLine" id="cb13-24" data-line-number="24">code.sourceCode .dt { color: var(--cyan); } /* DataType */</a>
-<a class="sourceLine" id="cb13-25" data-line-number="25">code.sourceCode .dv { color: var(--base01); } /* DecVal */</a>
-<a class="sourceLine" id="cb13-26" data-line-number="26">code.sourceCode .bn { color: var(--orange); } /* BaseN */</a>
-<a class="sourceLine" id="cb13-27" data-line-number="27">code.sourceCode .fl { color: var(--cyan); } /* Float */</a>
-<a class="sourceLine" id="cb13-28" data-line-number="28">code.sourceCode .ch { color: var(--red); } /* Char */</a>
-<a class="sourceLine" id="cb13-29" data-line-number="29">code.sourceCode .st { color: var(--green); } /* String */</a>
-<a class="sourceLine" id="cb13-30" data-line-number="30">code.sourceCode .co { color: var(--base01); font-style: 100i; } /* Comment */</a>
-<a class="sourceLine" id="cb13-31" data-line-number="31">code.sourceCode .ot { color: var(--base1); } /* Other */</a>
-<a class="sourceLine" id="cb13-32" data-line-number="32">code.sourceCode .al { color: var(--green); font-weight: 700; } /* Alert */</a>
-<a class="sourceLine" id="cb13-33" data-line-number="33">code.sourceCode .fu { color: var(--blue); } /* Function */</a>
-<a class="sourceLine" id="cb13-34" data-line-number="34">code.sourceCode .er { color: var(--red); font-weight: 700; } /* Error */</a>
-<a class="sourceLine" id="cb13-35" data-line-number="35">code.sourceCode .wa { color: var(--base1); font-weight: 700i; } /* Warning */</a>
-<a class="sourceLine" id="cb13-36" data-line-number="36">code.sourceCode .cn { color: var(--orange); } /* Constant */</a>
-<a class="sourceLine" id="cb13-37" data-line-number="37">code.sourceCode .sc { color: var(--red); } /* SpecialChar */</a>
-<a class="sourceLine" id="cb13-38" data-line-number="38">code.sourceCode .vs { color: var(--cyan); } /* VerbatimString */</a>
-<a class="sourceLine" id="cb13-39" data-line-number="39">code.sourceCode .ss { color: var(--cyan); } /* SpecialString */</a>
-<a class="sourceLine" id="cb13-40" data-line-number="40">code.sourceCode .im { color: var(--red); } /* Import */</a>
-<a class="sourceLine" id="cb13-41" data-line-number="41">code.sourceCode .va { color: var(--blue); } /* Variable */</a>
-<a class="sourceLine" id="cb13-42" data-line-number="42">code.sourceCode .cf { color: var(--green); font-weight: 700; } /* ControlFlow */</a>
-<a class="sourceLine" id="cb13-43" data-line-number="43">code.sourceCode .op { color: var(--yellow); } /* Operator */</a>
-<a class="sourceLine" id="cb13-44" data-line-number="44">code.sourceCode .bu { color: var(--blue); } /* BuiltIn */</a>
-<a class="sourceLine" id="cb13-45" data-line-number="45">code.sourceCode .ex { } /* Extension */</a></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode html"><code class="sourceCode html"><span id="cb13-1"><a href="#cb13-1"></a>root: {</span>
+<span id="cb13-2"><a href="#cb13-2"></a>  --base03: #002b36;  /* background */</span>
+<span id="cb13-3"><a href="#cb13-3"></a>  --base02: #073642;  /* other background */</span>
+<span id="cb13-4"><a href="#cb13-4"></a>  --base01: #586e75;  /* comments / secondary content */</span>
+<span id="cb13-5"><a href="#cb13-5"></a>  --base1: #93a1a1;  /* body text / default code / primary content */</span>
+<span id="cb13-6"><a href="#cb13-6"></a>  --yellow: #b58900;  /* keyword */</span>
+<span id="cb13-7"><a href="#cb13-7"></a>  --orange: #cb4b16;  /* constants */</span>
+<span id="cb13-8"><a href="#cb13-8"></a>  --red: #dc322f;  /* regex, special keywords */</span>
+<span id="cb13-9"><a href="#cb13-9"></a>  --magenta: #d33682;  /* not sure what to do with this color yet */</span>
+<span id="cb13-10"><a href="#cb13-10"></a>  --violet: #6c71c4;  /* not sure what to do with this color yet */</span>
+<span id="cb13-11"><a href="#cb13-11"></a>  --blue: #268bd2;  /* reserved keywords */</span>
+<span id="cb13-12"><a href="#cb13-12"></a>  --cyan: #2aa198;  /* strings, numbers */</span>
+<span id="cb13-13"><a href="#cb13-13"></a>  --green: #859900;  /* operators, other keywords */</span>
+<span id="cb13-14"><a href="#cb13-14"></a>}</span>
+<span id="cb13-15"><a href="#cb13-15"></a></span>
+<span id="cb13-16"><a href="#cb13-16"></a>/*</span>
+<span id="cb13-17"><a href="#cb13-17"></a> * Solarized Dark </span>
+<span id="cb13-18"><a href="#cb13-18"></a> * http://ethanschoonover.com/solarized</span>
+<span id="cb13-19"><a href="#cb13-19"></a> */</span>
+<span id="cb13-20"><a href="#cb13-20"></a></span>
+<span id="cb13-21"><a href="#cb13-21"></a>pre, code { font-family: &#39;Roboto Mono&#39;, monospace ; font-weight: 300; }</span>
+<span id="cb13-22"><a href="#cb13-22"></a>pre { background-color: var(--base03); color: var(--base1); }</span>
+<span id="cb13-23"><a href="#cb13-23"></a>code.sourceCode .kw { color: var(--blue); font-weight: 700; } /* Keyword */</span>
+<span id="cb13-24"><a href="#cb13-24"></a>code.sourceCode .dt { color: var(--cyan); } /* DataType */</span>
+<span id="cb13-25"><a href="#cb13-25"></a>code.sourceCode .dv { color: var(--base01); } /* DecVal */</span>
+<span id="cb13-26"><a href="#cb13-26"></a>code.sourceCode .bn { color: var(--orange); } /* BaseN */</span>
+<span id="cb13-27"><a href="#cb13-27"></a>code.sourceCode .fl { color: var(--cyan); } /* Float */</span>
+<span id="cb13-28"><a href="#cb13-28"></a>code.sourceCode .ch { color: var(--red); } /* Char */</span>
+<span id="cb13-29"><a href="#cb13-29"></a>code.sourceCode .st { color: var(--green); } /* String */</span>
+<span id="cb13-30"><a href="#cb13-30"></a>code.sourceCode .co { color: var(--base01); font-style: 100i; } /* Comment */</span>
+<span id="cb13-31"><a href="#cb13-31"></a>code.sourceCode .ot { color: var(--base1); } /* Other */</span>
+<span id="cb13-32"><a href="#cb13-32"></a>code.sourceCode .al { color: var(--green); font-weight: 700; } /* Alert */</span>
+<span id="cb13-33"><a href="#cb13-33"></a>code.sourceCode .fu { color: var(--blue); } /* Function */</span>
+<span id="cb13-34"><a href="#cb13-34"></a>code.sourceCode .er { color: var(--red); font-weight: 700; } /* Error */</span>
+<span id="cb13-35"><a href="#cb13-35"></a>code.sourceCode .wa { color: var(--base1); font-weight: 700i; } /* Warning */</span>
+<span id="cb13-36"><a href="#cb13-36"></a>code.sourceCode .cn { color: var(--orange); } /* Constant */</span>
+<span id="cb13-37"><a href="#cb13-37"></a>code.sourceCode .sc { color: var(--red); } /* SpecialChar */</span>
+<span id="cb13-38"><a href="#cb13-38"></a>code.sourceCode .vs { color: var(--cyan); } /* VerbatimString */</span>
+<span id="cb13-39"><a href="#cb13-39"></a>code.sourceCode .ss { color: var(--cyan); } /* SpecialString */</span>
+<span id="cb13-40"><a href="#cb13-40"></a>code.sourceCode .im { color: var(--red); } /* Import */</span>
+<span id="cb13-41"><a href="#cb13-41"></a>code.sourceCode .va { color: var(--blue); } /* Variable */</span>
+<span id="cb13-42"><a href="#cb13-42"></a>code.sourceCode .cf { color: var(--green); font-weight: 700; } /* ControlFlow */</span>
+<span id="cb13-43"><a href="#cb13-43"></a>code.sourceCode .op { color: var(--yellow); } /* Operator */</span>
+<span id="cb13-44"><a href="#cb13-44"></a>code.sourceCode .bu { color: var(--blue); } /* BuiltIn */</span>
+<span id="cb13-45"><a href="#cb13-45"></a>code.sourceCode .ex { } /* Extension */</span></code></pre></div>
 <p><br></p>
 <blockquote>
 <p>I rand the code chunk above as <code>{html, eval=FALSE}</code> because some of the CSS variables were being classified as <code>.er</code>, which looked really off. I’m still working on the best solution for the syntax highlighting.</p>
@@ -706,17 +820,17 @@ $(document).ready(function () {
 <p><br></p>
 <p>The most rewarding part about writing blog posts in <code>rmarkdown</code> is that you can really dive into an analysis workflow and it is automagically a blog post. It’s so easy—you just leave your code chunk as is or pass <code>eval = F</code> if you just want to show some code<a href="#fn8" class="footnote-ref" id="fnref8"><sup>8</sup></a> or <code>echo = F</code> to hide or display code the way you want to.</p>
 <p><br></p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb14-1" data-line-number="1"><span class="kw">suppressPackageStartupMessages</span>(<span class="kw">library</span>(ggplot2))</a>
-<a class="sourceLine" id="cb14-2" data-line-number="2"><span class="kw">suppressPackageStartupMessages</span>(<span class="kw">library</span>(dplyr))</a>
-<a class="sourceLine" id="cb14-3" data-line-number="3"></a>
-<a class="sourceLine" id="cb14-4" data-line-number="4"><span class="co"># these are the colors I wanted to use for the site; may not be good for viz</span></a>
-<a class="sourceLine" id="cb14-5" data-line-number="5">rbmv_palette &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;#BFF073&quot;</span>, <span class="st">&quot;#0DC9F7&quot;</span>, <span class="st">&quot;#7F7F7F&quot;</span>, <span class="st">&quot;#F05B47&quot;</span>, <span class="st">&quot;#ED1C24&quot;</span>)</a>
-<a class="sourceLine" id="cb14-6" data-line-number="6"></a>
-<a class="sourceLine" id="cb14-7" data-line-number="7">mtcars <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb14-8" data-line-number="8"><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> disp, <span class="dt">y =</span> mpg)) <span class="op">+</span></a>
-<a class="sourceLine" id="cb14-9" data-line-number="9"><span class="st">    </span><span class="kw">geom_point</span>(<span class="dt">color =</span> rbmv_palette[<span class="dv">3</span>]) <span class="op">+</span><span class="st"> </span></a>
-<a class="sourceLine" id="cb14-10" data-line-number="10"><span class="st">    </span><span class="kw">geom_smooth</span>(<span class="dt">formula =</span> y <span class="op">~</span><span class="st"> </span>x, <span class="dt">se =</span> F, <span class="dt">method =</span> <span class="st">&quot;loess&quot;</span>, </a>
-<a class="sourceLine" id="cb14-11" data-line-number="11">                <span class="dt">color =</span> rbmv_palette[<span class="dv">2</span>])</a></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1"></a><span class="kw">suppressPackageStartupMessages</span>(<span class="kw">library</span>(ggplot2))</span>
+<span id="cb14-2"><a href="#cb14-2"></a><span class="kw">suppressPackageStartupMessages</span>(<span class="kw">library</span>(dplyr))</span>
+<span id="cb14-3"><a href="#cb14-3"></a></span>
+<span id="cb14-4"><a href="#cb14-4"></a><span class="co"># these are the colors I wanted to use for the site; may not be good for viz</span></span>
+<span id="cb14-5"><a href="#cb14-5"></a>rbmv_palette &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;#BFF073&quot;</span>, <span class="st">&quot;#0DC9F7&quot;</span>, <span class="st">&quot;#7F7F7F&quot;</span>, <span class="st">&quot;#F05B47&quot;</span>, <span class="st">&quot;#ED1C24&quot;</span>)</span>
+<span id="cb14-6"><a href="#cb14-6"></a></span>
+<span id="cb14-7"><a href="#cb14-7"></a>mtcars <span class="op">%&gt;%</span></span>
+<span id="cb14-8"><a href="#cb14-8"></a><span class="st">  </span><span class="kw">ggplot</span>(<span class="kw">aes</span>(<span class="dt">x =</span> disp, <span class="dt">y =</span> mpg)) <span class="op">+</span></span>
+<span id="cb14-9"><a href="#cb14-9"></a><span class="st">    </span><span class="kw">geom_point</span>(<span class="dt">color =</span> rbmv_palette[<span class="dv">3</span>]) <span class="op">+</span><span class="st"> </span></span>
+<span id="cb14-10"><a href="#cb14-10"></a><span class="st">    </span><span class="kw">geom_smooth</span>(<span class="dt">formula =</span> y <span class="op">~</span><span class="st"> </span>x, <span class="dt">se =</span> F, <span class="dt">method =</span> <span class="st">&quot;loess&quot;</span>, </span>
+<span id="cb14-11"><a href="#cb14-11"></a>                <span class="dt">color =</span> rbmv_palette[<span class="dv">2</span>])</span></code></pre></div>
 <p><img src="blog-building-site-with-rmarkdown_files/figure-html/ggplot-1.png" width="672" /></p>
 <p><br></p>
 <blockquote>
@@ -729,24 +843,24 @@ $(document).ready(function () {
 <p><br></p>
 <p>I’ve been really into Plotly lately and one of the first things I wanted to do was add it to my website. <del>There are a couple of hoops you have to jump through but luckily there is the wonderful <code>htmltools</code> package to help out</del><a href="#fn9" class="footnote-ref" id="fnref9"><sup>9</sup></a>. Oh, and pipes. Plotly loves <code>%&gt;%</code>’s. I’ll just redo the plot above so you get an idea.</p>
 <p><br></p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><a class="sourceLine" id="cb15-1" data-line-number="1"><span class="kw">suppressPackageStartupMessages</span>(<span class="kw">library</span>(plotly))</a>
-<a class="sourceLine" id="cb15-2" data-line-number="2"></a>
-<a class="sourceLine" id="cb15-3" data-line-number="3">rbmv_palette &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;#BFF073&quot;</span>, <span class="st">&quot;#0DC9F7&quot;</span>, <span class="st">&quot;#7F7F7F&quot;</span>, <span class="st">&quot;#F05B47&quot;</span>, <span class="st">&quot;#ED1C24&quot;</span>)</a>
-<a class="sourceLine" id="cb15-4" data-line-number="4"></a>
-<a class="sourceLine" id="cb15-5" data-line-number="5">mtcars &lt;-<span class="st"> </span>mtcars[<span class="kw">order</span>(mtcars<span class="op">$</span>disp), ]</a>
-<a class="sourceLine" id="cb15-6" data-line-number="6"></a>
-<a class="sourceLine" id="cb15-7" data-line-number="7">mtcars <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">plot_ly</span>(<span class="dt">x =</span> <span class="op">~</span>disp, <span class="dt">y =</span> <span class="op">~</span>mpg, </a>
-<a class="sourceLine" id="cb15-8" data-line-number="8">                   <span class="dt">type =</span> <span class="st">&quot;scatter&quot;</span>, <span class="dt">mode =</span> <span class="st">&quot;markers&quot;</span>,</a>
-<a class="sourceLine" id="cb15-9" data-line-number="9">                   <span class="dt">text =</span> <span class="op">~</span><span class="kw">paste</span>(<span class="kw">rownames</span>(mtcars), <span class="st">&quot;&lt;br&gt;Mpg: &quot;</span>, </a>
-<a class="sourceLine" id="cb15-10" data-line-number="10">                                 mpg, <span class="st">&quot;Disp: &quot;</span>, disp), </a>
-<a class="sourceLine" id="cb15-11" data-line-number="11">                   <span class="dt">showlegend =</span> <span class="ot">FALSE</span>,</a>
-<a class="sourceLine" id="cb15-12" data-line-number="12">                   <span class="dt">colors =</span> rbmv_palette) <span class="op">%&gt;%</span></a>
-<a class="sourceLine" id="cb15-13" data-line-number="13"><span class="st">  </span><span class="kw">add_lines</span>(<span class="dt">x =</span> <span class="op">~</span>disp, <span class="dt">y =</span> <span class="op">~</span><span class="kw">fitted</span>(<span class="kw">loess</span>(mpg <span class="op">~</span><span class="st"> </span>disp)), </a>
-<a class="sourceLine" id="cb15-14" data-line-number="14">            <span class="dt">mode =</span> <span class="st">&quot;lines&quot;</span>, <span class="dt">name =</span> <span class="st">&quot;Loess Smoother&quot;</span>, </a>
-<a class="sourceLine" id="cb15-15" data-line-number="15">            <span class="dt">showlegend =</span> <span class="ot">TRUE</span>, </a>
-<a class="sourceLine" id="cb15-16" data-line-number="16">            <span class="dt">line =</span> <span class="kw">list</span>(<span class="dt">color =</span> rbmv_palette[<span class="dv">2</span>])) </a></code></pre></div>
-<div id="htmlwidget-75ce2001ee52421fd0b3" style="width:672px;height:480px;" class="plotly html-widget"></div>
-<script type="application/json" data-for="htmlwidget-75ce2001ee52421fd0b3">{"x":{"visdat":{"638725e3f21":["function () ","plotlyVisDat"]},"cur_data":"638725e3f21","attrs":{"638725e3f21":{"x":{},"y":{},"mode":"markers","text":{},"showlegend":false,"colors":["#BFF073","#0DC9F7","#7F7F7F","#F05B47","#ED1C24"],"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatter"},"638725e3f21.1":{"x":{},"y":{},"mode":"lines","text":{},"showlegend":true,"colors":["#BFF073","#0DC9F7","#7F7F7F","#F05B47","#ED1C24"],"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatter","name":"Loess Smoother","line":{"color":"#0DC9F7"},"inherit":true}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"xaxis":{"domain":[0,1],"automargin":true,"title":"disp"},"yaxis":{"domain":[0,1],"automargin":true,"title":"mpg"},"hovermode":"closest","showlegend":false},"source":"A","config":{"modeBarButtonsToAdd":[{"name":"Collaborate","icon":{"width":1000,"ascent":500,"descent":-50,"path":"M487 375c7-10 9-23 5-36l-79-259c-3-12-11-23-22-31-11-8-22-12-35-12l-263 0c-15 0-29 5-43 15-13 10-23 23-28 37-5 13-5 25-1 37 0 0 0 3 1 7 1 5 1 8 1 11 0 2 0 4-1 6 0 3-1 5-1 6 1 2 2 4 3 6 1 2 2 4 4 6 2 3 4 5 5 7 5 7 9 16 13 26 4 10 7 19 9 26 0 2 0 5 0 9-1 4-1 6 0 8 0 2 2 5 4 8 3 3 5 5 5 7 4 6 8 15 12 26 4 11 7 19 7 26 1 1 0 4 0 9-1 4-1 7 0 8 1 2 3 5 6 8 4 4 6 6 6 7 4 5 8 13 13 24 4 11 7 20 7 28 1 1 0 4 0 7-1 3-1 6-1 7 0 2 1 4 3 6 1 1 3 4 5 6 2 3 3 5 5 6 1 2 3 5 4 9 2 3 3 7 5 10 1 3 2 6 4 10 2 4 4 7 6 9 2 3 4 5 7 7 3 2 7 3 11 3 3 0 8 0 13-1l0-1c7 2 12 2 14 2l218 0c14 0 25-5 32-16 8-10 10-23 6-37l-79-259c-7-22-13-37-20-43-7-7-19-10-37-10l-248 0c-5 0-9-2-11-5-2-3-2-7 0-12 4-13 18-20 41-20l264 0c5 0 10 2 16 5 5 3 8 6 10 11l85 282c2 5 2 10 2 17 7-3 13-7 17-13z m-304 0c-1-3-1-5 0-7 1-1 3-2 6-2l174 0c2 0 4 1 7 2 2 2 4 4 5 7l6 18c0 3 0 5-1 7-1 1-3 2-6 2l-173 0c-3 0-5-1-8-2-2-2-4-4-4-7z m-24-73c-1-3-1-5 0-7 2-2 3-2 6-2l174 0c2 0 5 0 7 2 3 2 4 4 5 7l6 18c1 2 0 5-1 6-1 2-3 3-5 3l-174 0c-3 0-5-1-7-3-3-1-4-4-5-6z"},"click":"function(gd) { \n        // is this being viewed in RStudio?\n        if (location.search == '?viewer_pane=1') {\n          alert('To learn about plotly for collaboration, visit:\\n https://cpsievert.github.io/plotly_book/plot-ly-for-collaboration.html');\n        } else {\n          window.open('https://cpsievert.github.io/plotly_book/plot-ly-for-collaboration.html', '_blank');\n        }\n      }"}],"cloud":false},"data":[{"x":[71.1,75.7,78.7,79,95.1,108,120.1,120.3,121,140.8,145,146.7,160,160,167.6,167.6,225,258,275.8,275.8,275.8,301,304,318,350,351,360,360,400,440,460,472],"y":[33.9,30.4,32.4,27.3,30.4,22.8,21.5,26,21.4,22.8,19.7,24.4,21,21,19.2,17.8,18.1,21.4,16.4,17.3,15.2,15,15.2,15.5,13.3,15.8,18.7,14.3,19.2,14.7,10.4,10.4],"mode":"markers","text":["Toyota Corolla <br>Mpg:  33.9 Disp:  71.1","Honda Civic <br>Mpg:  30.4 Disp:  75.7","Fiat 128 <br>Mpg:  32.4 Disp:  78.7","Fiat X1-9 <br>Mpg:  27.3 Disp:  79","Lotus Europa <br>Mpg:  30.4 Disp:  95.1","Datsun 710 <br>Mpg:  22.8 Disp:  108","Toyota Corona <br>Mpg:  21.5 Disp:  120.1","Porsche 914-2 <br>Mpg:  26 Disp:  120.3","Volvo 142E <br>Mpg:  21.4 Disp:  121","Merc 230 <br>Mpg:  22.8 Disp:  140.8","Ferrari Dino <br>Mpg:  19.7 Disp:  145","Merc 240D <br>Mpg:  24.4 Disp:  146.7","Mazda RX4 <br>Mpg:  21 Disp:  160","Mazda RX4 Wag <br>Mpg:  21 Disp:  160","Merc 280 <br>Mpg:  19.2 Disp:  167.6","Merc 280C <br>Mpg:  17.8 Disp:  167.6","Valiant <br>Mpg:  18.1 Disp:  225","Hornet 4 Drive <br>Mpg:  21.4 Disp:  258","Merc 450SE <br>Mpg:  16.4 Disp:  275.8","Merc 450SL <br>Mpg:  17.3 Disp:  275.8","Merc 450SLC <br>Mpg:  15.2 Disp:  275.8","Maserati Bora <br>Mpg:  15 Disp:  301","AMC Javelin <br>Mpg:  15.2 Disp:  304","Dodge Challenger <br>Mpg:  15.5 Disp:  318","Camaro Z28 <br>Mpg:  13.3 Disp:  350","Ford Pantera L <br>Mpg:  15.8 Disp:  351","Hornet Sportabout <br>Mpg:  18.7 Disp:  360","Duster 360 <br>Mpg:  14.3 Disp:  360","Pontiac Firebird <br>Mpg:  19.2 Disp:  400","Chrysler Imperial <br>Mpg:  14.7 Disp:  440","Lincoln Continental <br>Mpg:  10.4 Disp:  460","Cadillac Fleetwood <br>Mpg:  10.4 Disp:  472"],"showlegend":false,"type":"scatter","marker":{"color":"rgba(31,119,180,1)","line":{"color":"rgba(31,119,180,1)"}},"error_y":{"color":"rgba(31,119,180,1)"},"error_x":{"color":"rgba(31,119,180,1)"},"line":{"color":"rgba(31,119,180,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":[71.1,75.7,78.7,79,95.1,108,120.1,120.3,121,140.8,145,146.7,160,160,167.6,167.6,225,258,275.8,275.8,275.8,301,304,318,350,351,360,360,400,440,460,472],"y":[31.8587265478689,30.997160511089,30.4515688818864,30.3978766914933,27.6878765636073,25.7536029023605,24.1266208899878,24.1012302593287,24.0128145822842,21.7855370304886,21.3720222888,21.2095787437194,20.1233661948189,20.1233661948189,19.5876473362002,19.5876473362002,17.8667031510564,17.3361001159279,16.6706159588599,16.6706159588599,16.6706159588599,16.3557242808806,16.3295803630335,16.1508424685288,15.6175774563292,15.5983332500748,15.4036322355415,15.4036322355415,14.3441620745589,13.0380914865063,12.2654317142106,11.7573008148926],"mode":"lines","text":["Toyota Corolla <br>Mpg:  33.9 Disp:  71.1","Honda Civic <br>Mpg:  30.4 Disp:  75.7","Fiat 128 <br>Mpg:  32.4 Disp:  78.7","Fiat X1-9 <br>Mpg:  27.3 Disp:  79","Lotus Europa <br>Mpg:  30.4 Disp:  95.1","Datsun 710 <br>Mpg:  22.8 Disp:  108","Toyota Corona <br>Mpg:  21.5 Disp:  120.1","Porsche 914-2 <br>Mpg:  26 Disp:  120.3","Volvo 142E <br>Mpg:  21.4 Disp:  121","Merc 230 <br>Mpg:  22.8 Disp:  140.8","Ferrari Dino <br>Mpg:  19.7 Disp:  145","Merc 240D <br>Mpg:  24.4 Disp:  146.7","Mazda RX4 <br>Mpg:  21 Disp:  160","Mazda RX4 Wag <br>Mpg:  21 Disp:  160","Merc 280 <br>Mpg:  19.2 Disp:  167.6","Merc 280C <br>Mpg:  17.8 Disp:  167.6","Valiant <br>Mpg:  18.1 Disp:  225","Hornet 4 Drive <br>Mpg:  21.4 Disp:  258","Merc 450SE <br>Mpg:  16.4 Disp:  275.8","Merc 450SL <br>Mpg:  17.3 Disp:  275.8","Merc 450SLC <br>Mpg:  15.2 Disp:  275.8","Maserati Bora <br>Mpg:  15 Disp:  301","AMC Javelin <br>Mpg:  15.2 Disp:  304","Dodge Challenger <br>Mpg:  15.5 Disp:  318","Camaro Z28 <br>Mpg:  13.3 Disp:  350","Ford Pantera L <br>Mpg:  15.8 Disp:  351","Hornet Sportabout <br>Mpg:  18.7 Disp:  360","Duster 360 <br>Mpg:  14.3 Disp:  360","Pontiac Firebird <br>Mpg:  19.2 Disp:  400","Chrysler Imperial <br>Mpg:  14.7 Disp:  440","Lincoln Continental <br>Mpg:  10.4 Disp:  460","Cadillac Fleetwood <br>Mpg:  10.4 Disp:  472"],"showlegend":true,"type":"scatter","name":"Loess Smoother","line":{"color":"#0DC9F7"},"marker":{"color":"rgba(255,127,14,1)","line":{"color":"rgba(255,127,14,1)"}},"error_y":{"color":"rgba(255,127,14,1)"},"error_x":{"color":"rgba(255,127,14,1)"},"xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"base_url":"https://plot.ly"},"evals":["config.modeBarButtonsToAdd.0.click"],"jsHooks":[]}</script>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a><span class="kw">suppressPackageStartupMessages</span>(<span class="kw">library</span>(plotly))</span>
+<span id="cb15-2"><a href="#cb15-2"></a></span>
+<span id="cb15-3"><a href="#cb15-3"></a>rbmv_palette &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;#BFF073&quot;</span>, <span class="st">&quot;#0DC9F7&quot;</span>, <span class="st">&quot;#7F7F7F&quot;</span>, <span class="st">&quot;#F05B47&quot;</span>, <span class="st">&quot;#ED1C24&quot;</span>)</span>
+<span id="cb15-4"><a href="#cb15-4"></a></span>
+<span id="cb15-5"><a href="#cb15-5"></a>mtcars &lt;-<span class="st"> </span>mtcars[<span class="kw">order</span>(mtcars<span class="op">$</span>disp), ]</span>
+<span id="cb15-6"><a href="#cb15-6"></a></span>
+<span id="cb15-7"><a href="#cb15-7"></a>mtcars <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">plot_ly</span>(<span class="dt">x =</span> <span class="op">~</span>disp, <span class="dt">y =</span> <span class="op">~</span>mpg, </span>
+<span id="cb15-8"><a href="#cb15-8"></a>                   <span class="dt">type =</span> <span class="st">&quot;scatter&quot;</span>, <span class="dt">mode =</span> <span class="st">&quot;markers&quot;</span>,</span>
+<span id="cb15-9"><a href="#cb15-9"></a>                   <span class="dt">text =</span> <span class="op">~</span><span class="kw">paste</span>(<span class="kw">rownames</span>(mtcars), <span class="st">&quot;&lt;br&gt;Mpg: &quot;</span>, </span>
+<span id="cb15-10"><a href="#cb15-10"></a>                                 mpg, <span class="st">&quot;Disp: &quot;</span>, disp), </span>
+<span id="cb15-11"><a href="#cb15-11"></a>                   <span class="dt">showlegend =</span> <span class="ot">FALSE</span>,</span>
+<span id="cb15-12"><a href="#cb15-12"></a>                   <span class="dt">colors =</span> rbmv_palette) <span class="op">%&gt;%</span></span>
+<span id="cb15-13"><a href="#cb15-13"></a><span class="st">  </span><span class="kw">add_lines</span>(<span class="dt">x =</span> <span class="op">~</span>disp, <span class="dt">y =</span> <span class="op">~</span><span class="kw">fitted</span>(<span class="kw">loess</span>(mpg <span class="op">~</span><span class="st"> </span>disp)), </span>
+<span id="cb15-14"><a href="#cb15-14"></a>            <span class="dt">mode =</span> <span class="st">&quot;lines&quot;</span>, <span class="dt">name =</span> <span class="st">&quot;Loess Smoother&quot;</span>, </span>
+<span id="cb15-15"><a href="#cb15-15"></a>            <span class="dt">showlegend =</span> <span class="ot">TRUE</span>, </span>
+<span id="cb15-16"><a href="#cb15-16"></a>            <span class="dt">line =</span> <span class="kw">list</span>(<span class="dt">color =</span> rbmv_palette[<span class="dv">2</span>])) </span></code></pre></div>
+<div id="htmlwidget-5300573b732024b595d8" style="width:672px;height:480px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-5300573b732024b595d8">{"x":{"visdat":{"82ca28a2a026":["function () ","plotlyVisDat"]},"cur_data":"82ca28a2a026","attrs":{"82ca28a2a026":{"x":{},"y":{},"mode":"markers","text":{},"showlegend":false,"colors":["#BFF073","#0DC9F7","#7F7F7F","#F05B47","#ED1C24"],"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatter"},"82ca28a2a026.1":{"x":{},"y":{},"mode":"lines","text":{},"showlegend":true,"colors":["#BFF073","#0DC9F7","#7F7F7F","#F05B47","#ED1C24"],"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatter","name":"Loess Smoother","line":{"color":"#0DC9F7"},"inherit":true}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"xaxis":{"domain":[0,1],"automargin":true,"title":"disp"},"yaxis":{"domain":[0,1],"automargin":true,"title":"mpg"},"hovermode":"closest","showlegend":false},"source":"A","config":{"showSendToCloud":false},"data":[{"x":[71.1,75.7,78.7,79,95.1,108,120.1,120.3,121,140.8,145,146.7,160,160,167.6,167.6,225,258,275.8,275.8,275.8,301,304,318,350,351,360,360,400,440,460,472],"y":[33.9,30.4,32.4,27.3,30.4,22.8,21.5,26,21.4,22.8,19.7,24.4,21,21,19.2,17.8,18.1,21.4,16.4,17.3,15.2,15,15.2,15.5,13.3,15.8,18.7,14.3,19.2,14.7,10.4,10.4],"mode":"markers","text":["Toyota Corolla <br>Mpg:  33.9 Disp:  71.1","Honda Civic <br>Mpg:  30.4 Disp:  75.7","Fiat 128 <br>Mpg:  32.4 Disp:  78.7","Fiat X1-9 <br>Mpg:  27.3 Disp:  79","Lotus Europa <br>Mpg:  30.4 Disp:  95.1","Datsun 710 <br>Mpg:  22.8 Disp:  108","Toyota Corona <br>Mpg:  21.5 Disp:  120.1","Porsche 914-2 <br>Mpg:  26 Disp:  120.3","Volvo 142E <br>Mpg:  21.4 Disp:  121","Merc 230 <br>Mpg:  22.8 Disp:  140.8","Ferrari Dino <br>Mpg:  19.7 Disp:  145","Merc 240D <br>Mpg:  24.4 Disp:  146.7","Mazda RX4 <br>Mpg:  21 Disp:  160","Mazda RX4 Wag <br>Mpg:  21 Disp:  160","Merc 280 <br>Mpg:  19.2 Disp:  167.6","Merc 280C <br>Mpg:  17.8 Disp:  167.6","Valiant <br>Mpg:  18.1 Disp:  225","Hornet 4 Drive <br>Mpg:  21.4 Disp:  258","Merc 450SE <br>Mpg:  16.4 Disp:  275.8","Merc 450SL <br>Mpg:  17.3 Disp:  275.8","Merc 450SLC <br>Mpg:  15.2 Disp:  275.8","Maserati Bora <br>Mpg:  15 Disp:  301","AMC Javelin <br>Mpg:  15.2 Disp:  304","Dodge Challenger <br>Mpg:  15.5 Disp:  318","Camaro Z28 <br>Mpg:  13.3 Disp:  350","Ford Pantera L <br>Mpg:  15.8 Disp:  351","Hornet Sportabout <br>Mpg:  18.7 Disp:  360","Duster 360 <br>Mpg:  14.3 Disp:  360","Pontiac Firebird <br>Mpg:  19.2 Disp:  400","Chrysler Imperial <br>Mpg:  14.7 Disp:  440","Lincoln Continental <br>Mpg:  10.4 Disp:  460","Cadillac Fleetwood <br>Mpg:  10.4 Disp:  472"],"showlegend":false,"type":"scatter","marker":{"color":"rgba(31,119,180,1)","line":{"color":"rgba(31,119,180,1)"}},"error_y":{"color":"rgba(31,119,180,1)"},"error_x":{"color":"rgba(31,119,180,1)"},"line":{"color":"rgba(31,119,180,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":[71.1,75.7,78.7,79,95.1,108,120.1,120.3,121,140.8,145,146.7,160,160,167.6,167.6,225,258,275.8,275.8,275.8,301,304,318,350,351,360,360,400,440,460,472],"y":[31.8587265478689,30.997160511089,30.4515688818864,30.3978766914933,27.6878765636073,25.7536029023605,24.1266208899877,24.1012302593287,24.0128145822842,21.7855370304886,21.3720222888,21.2095787437194,20.1233661948189,20.1233661948189,19.5876473362003,19.5876473362003,17.8667031510564,17.3361001159279,16.6706159588599,16.6706159588599,16.6706159588599,16.3557242808806,16.3295803630335,16.1508424685288,15.6175774563292,15.5983332500748,15.4036322355415,15.4036322355415,14.3441620745589,13.0380914865063,12.2654317142106,11.7573008148926],"mode":"lines","text":["Toyota Corolla <br>Mpg:  33.9 Disp:  71.1","Honda Civic <br>Mpg:  30.4 Disp:  75.7","Fiat 128 <br>Mpg:  32.4 Disp:  78.7","Fiat X1-9 <br>Mpg:  27.3 Disp:  79","Lotus Europa <br>Mpg:  30.4 Disp:  95.1","Datsun 710 <br>Mpg:  22.8 Disp:  108","Toyota Corona <br>Mpg:  21.5 Disp:  120.1","Porsche 914-2 <br>Mpg:  26 Disp:  120.3","Volvo 142E <br>Mpg:  21.4 Disp:  121","Merc 230 <br>Mpg:  22.8 Disp:  140.8","Ferrari Dino <br>Mpg:  19.7 Disp:  145","Merc 240D <br>Mpg:  24.4 Disp:  146.7","Mazda RX4 <br>Mpg:  21 Disp:  160","Mazda RX4 Wag <br>Mpg:  21 Disp:  160","Merc 280 <br>Mpg:  19.2 Disp:  167.6","Merc 280C <br>Mpg:  17.8 Disp:  167.6","Valiant <br>Mpg:  18.1 Disp:  225","Hornet 4 Drive <br>Mpg:  21.4 Disp:  258","Merc 450SE <br>Mpg:  16.4 Disp:  275.8","Merc 450SL <br>Mpg:  17.3 Disp:  275.8","Merc 450SLC <br>Mpg:  15.2 Disp:  275.8","Maserati Bora <br>Mpg:  15 Disp:  301","AMC Javelin <br>Mpg:  15.2 Disp:  304","Dodge Challenger <br>Mpg:  15.5 Disp:  318","Camaro Z28 <br>Mpg:  13.3 Disp:  350","Ford Pantera L <br>Mpg:  15.8 Disp:  351","Hornet Sportabout <br>Mpg:  18.7 Disp:  360","Duster 360 <br>Mpg:  14.3 Disp:  360","Pontiac Firebird <br>Mpg:  19.2 Disp:  400","Chrysler Imperial <br>Mpg:  14.7 Disp:  440","Lincoln Continental <br>Mpg:  10.4 Disp:  460","Cadillac Fleetwood <br>Mpg:  10.4 Disp:  472"],"showlegend":true,"type":"scatter","name":"Loess Smoother","line":{"color":"#0DC9F7"},"marker":{"color":"rgba(255,127,14,1)","line":{"color":"rgba(255,127,14,1)"}},"error_y":{"color":"rgba(255,127,14,1)"},"error_x":{"color":"rgba(255,127,14,1)"},"xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
 <p><br></p>
 </div>
 <div id="github-pages" class="section level3">
@@ -754,19 +868,19 @@ $(document).ready(function () {
 <p><br></p>
 <p>You really don’t need to do a whole lot to host on GitHub. GitHub has really helpful <a href="https://pages.github.com">instructions</a> where you can see the two kinds of GitHub pages: a user or organizational account (which is what you’ll use for your blog), or a project page. The only other thing you’ll need to do is creat a <code>.nojekyll</code> file in your repository which you can do quickly in Bash:</p>
 <p><br></p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb16-1" data-line-number="1"><span class="fu">touch</span> .nojeckyll</a></code></pre></div>
+<div class="sourceCode" id="cb16"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1"></a><span class="fu">touch</span> .nojeckyll</span></code></pre></div>
 <p><br></p>
 <p>If you’ve purchased a domain and want to use it, you’ll need a <code>CNAME</code> file in your directory as well. This is a really easy file to create:</p>
 <p><br></p>
 <p><code>CNAME</code></p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb17-1" data-line-number="1"><span class="ex">vim</span> CNAME</a></code></pre></div>
+<div class="sourceCode" id="cb17"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1"></a><span class="ex">vim</span> CNAME</span></code></pre></div>
 <p><br></p>
 <p>You are now in Vim, a text editor, and if you’ve never been here will be really confused! So just follow these steps:</p>
 <ol style="list-style-type: decimal">
 <li>Press the <code>i</code> key to ‘insert’, or, type into the text editor.</li>
 <li>type your url into the file, in my case:</li>
 </ol>
-<div class="sourceCode" id="cb18"><pre class="sourceCode bash"><code class="sourceCode bash"><a class="sourceLine" id="cb18-1" data-line-number="1"><span class="ex">robertmitchellv.com</span></a></code></pre></div>
+<div class="sourceCode" id="cb18"><pre class="sourceCode bash"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1"></a><span class="ex">robertmitchellv.com</span></span></code></pre></div>
 <ol start="3" style="list-style-type: decimal">
 <li>Hit the <code>esc</code> key to exit ‘insert’ mode</li>
 <li>Type the <code>:</code> key to enter a command (you enter the command at the bottom of the terminal window)</li>
@@ -785,15 +899,15 @@ $(document).ready(function () {
 <div class="footnotes">
 <hr />
 <ol>
-<li id="fn1"><p><a href="https://en.m.wikipedia.org/wiki/Joseph_J._Allaire">J.J. Allaire</a>, <a href="https://mobile.twitter.com/xieyihui">Yihui Xie</a>, <a href="mobile.twitter.com/statgarrett">Garrett Grolemund</a>, <a href="https://www.rstudio.com/about/">et al.</a><a href="#fnref1" class="footnote-back">↩</a></p></li>
-<li id="fn2"><p>If only I had paid more attention in this course! I just wasn’t ready to dive into this subject at the time. Perhaps if we started with bootstrapping instead of the normal distribution and Chebyshev’s theorem I would have saw how interesting statistics is and how probability is really fun when coming from a philosophy background.<a href="#fnref2" class="footnote-back">↩</a></p></li>
-<li id="fn3"><p>I spent so much time trying to figure out other people’s complicated <code>.vimrc</code> files before I was even ready to utilize some of the shorthands that others were using for their own workflows—sometimes it’s ok to just start at the beginning and facing that realization was important.<a href="#fnref3" class="footnote-back">↩</a></p></li>
-<li id="fn4"><p>This is a sneaky way to introduce people to <a href="https://en.m.wikipedia.org/wiki/Carl_Jung">Jung’s</a> notion of the <a href="en.m.wikipedia.org/wiki/Shadow_(psychology)">shadow</a>, which I find to be a very powerful and interesting concept.<a href="#fnref4" class="footnote-back">↩</a></p></li>
-<li id="fn5"><p>Although a <code>yml</code> file, and <code>Rmd</code> files you place a ’_’ in front of will not be rendered. This can be useful for staging blog posts or for files you want to include in others. All <code>Rmd</code> files are rendered when you click ‘Build Website’.<a href="#fnref5" class="footnote-back">↩</a></p></li>
-<li id="fn6"><p>You don’t need to include your navbar if it is named <code>_navbar.html</code>—it will automatically be included when you build your site.<a href="#fnref6" class="footnote-back">↩</a></p></li>
-<li id="fn7"><p>you can check out my <code>navbar</code> <a href="https://github.com/robertmitchellv/robertmitchellv.github.io/blob/master/_navbar.html">here</a> if you’re interested.<a href="#fnref7" class="footnote-back">↩</a></p></li>
-<li id="fn8"><p>I had to do this for some Python code from older blog posts—the syntax highlighting wasn’t <em>exactly</em> as it should be but it looked ok.<a href="#fnref8" class="footnote-back">↩</a></p></li>
-<li id="fn9"><p>You used to have to pipe your plotly object through <code>as.widget() %&gt;% list() %&gt;% tagList()</code> to get it to display on the site; however, now you don’t need to do anything!<a href="#fnref9" class="footnote-back">↩</a></p></li>
+<li id="fn1"><p><a href="https://en.m.wikipedia.org/wiki/Joseph_J._Allaire">J.J. Allaire</a>, <a href="https://mobile.twitter.com/xieyihui">Yihui Xie</a>, <a href="mobile.twitter.com/statgarrett">Garrett Grolemund</a>, <a href="https://www.rstudio.com/about/">et al.</a><a href="#fnref1" class="footnote-back">↩︎</a></p></li>
+<li id="fn2"><p>If only I had paid more attention in this course! I just wasn’t ready to dive into this subject at the time. Perhaps if we started with bootstrapping instead of the normal distribution and Chebyshev’s theorem I would have saw how interesting statistics is and how probability is really fun when coming from a philosophy background.<a href="#fnref2" class="footnote-back">↩︎</a></p></li>
+<li id="fn3"><p>I spent so much time trying to figure out other people’s complicated <code>.vimrc</code> files before I was even ready to utilize some of the shorthands that others were using for their own workflows—sometimes it’s ok to just start at the beginning and facing that realization was important.<a href="#fnref3" class="footnote-back">↩︎</a></p></li>
+<li id="fn4"><p>This is a sneaky way to introduce people to <a href="https://en.m.wikipedia.org/wiki/Carl_Jung">Jung’s</a> notion of the <a href="en.m.wikipedia.org/wiki/Shadow_(psychology)">shadow</a>, which I find to be a very powerful and interesting concept.<a href="#fnref4" class="footnote-back">↩︎</a></p></li>
+<li id="fn5"><p>Although a <code>yml</code> file, and <code>Rmd</code> files you place a ’_’ in front of will not be rendered. This can be useful for staging blog posts or for files you want to include in others. All <code>Rmd</code> files are rendered when you click ‘Build Website’.<a href="#fnref5" class="footnote-back">↩︎</a></p></li>
+<li id="fn6"><p>You don’t need to include your navbar if it is named <code>_navbar.html</code>—it will automatically be included when you build your site.<a href="#fnref6" class="footnote-back">↩︎</a></p></li>
+<li id="fn7"><p>you can check out my <code>navbar</code> <a href="https://github.com/robertmitchellv/robertmitchellv.github.io/blob/master/_navbar.html">here</a> if you’re interested.<a href="#fnref7" class="footnote-back">↩︎</a></p></li>
+<li id="fn8"><p>I had to do this for some Python code from older blog posts—the syntax highlighting wasn’t <em>exactly</em> as it should be but it looked ok.<a href="#fnref8" class="footnote-back">↩︎</a></p></li>
+<li id="fn9"><p>You used to have to pipe your plotly object through <code>as.widget() %&gt;% list() %&gt;% tagList()</code> to get it to display on the site; however, now you don’t need to do anything!<a href="#fnref9" class="footnote-back">↩︎</a></p></li>
 </ol>
 </div>
 
@@ -913,6 +1027,23 @@ $(document).ready(function () {
 
 
 </script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open')
+  });
+});
+</script>
+
+<!-- code folding -->
+
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>
