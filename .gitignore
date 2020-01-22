@@ -13,3 +13,6 @@ scratch*
 
 # For RMarkdown websites
 _*.*
+
+# Don't share
+.*.*
