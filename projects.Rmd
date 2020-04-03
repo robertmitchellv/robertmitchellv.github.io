@@ -1,0 +1,27 @@
+---
+title: "PROJECTS" 
+---
+
+<!---
+<article>
+<h3><a href="projects-covid-19-lac.html">LA County COVID-19 Dashboard</a></h3>
+<div class="summary">
+<span><i class="fa fa-calendar"></i> _2020-04_</span>
+<p>A `flexdashboard` that shows cases and deaths related to COVID-19 in Los Angeles County using `leaflet` and `plotly`</p>
+<a class="btn btn-outline-primary btn-sm" href="projects-covid-19-lac.html" role="button">Dashboard</a>
+</div>
+</article>
+--->
+
+<br>
+
+<article>
+<h3><a href="projects-covid-19-lac.html">LA County COVID-19 Dashboard</a></h3>
+<div class="summary">
+<span><i class="fa fa-calendar"></i> _2020-04_</span>
+<p>A `flexdashboard` that shows cases and deaths related to COVID-19 in Los Angeles County using `leaflet` and `plotly`</p>
+<a class="btn btn-outline-primary btn-sm" href="projects-covid-19-lac.html" role="button">Dashboard</a>
+</div>
+</article>
+
+<br>
