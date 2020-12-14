@@ -147,10 +147,33 @@ title: "VITAE"
 
 ## <i class="fa fa-institution fa-lg"></i>  Work Experience
 
+<!-- DPH / Data Scientist -->
+<ul>  
+  <h3>County of Los Angeles, Department of Public Health_Los Angeles, CA</h3>
+  <h4>Data Scientist (Acute Communicable Disease Control) / June 2020--Present</h4>
+  <ul>
+  <i class="fa fa-angle-double-right fa-lg"></i> conducts COVID-19 specific epidemiologic analyses that involve large datasets, or linkage of multiple datasets, building and automating ETL pipelines, and programming and comparing complex matching algorithms
+  </ul>
+  <ul>
+  <i class="fa fa-angle-double-right fa-lg"></i> working with IT to implement the automation of epidemiologic code into Airflow; refactoring to Python
+  </ul>
+  <ul>
+  <i class="fa fa-angle-double-right fa-lg"></i> helping to drive the push for more hegemony over department data--helping to shape the direction of a robust analytic stack 
+  </ul>
+  <ul>
+  <i class="fa fa-angle-double-right fa-lg"></i> working to modernize the analytic toolset with enterprise R and Python dev environments, version control, and continuous integration for publishing and sharing analytic products
+  </ul>
+  <ul>
+  <i class="fa fa-angle-double-right fa-lg"></i> collaborates with division and department stakeholders to define and manage data science projects from conception through implementation, including identifying and developing statements of business problems; conducting exploratory data analysis and data mining; developing model specification requirements; and conducting advanced statistical analyses 
+  </ul>
+</ul>
+
+<br>
+
 <!-- DHS / Staff Analyst, Health -->
 <ul>  
   <h3>County of Los Angeles, Department of Health Services_Los Angeles, CA</h3>
-  <h4>Staff Analyst, Health (Whole Person Care) / February 2019--Present</h4>
+  <h4>Staff Analyst, Health (Whole Person Care) / February 2019--May 2020</h4>
   <ul>
   <i class="fa fa-angle-double-right fa-lg"></i> spearheading data integration projects with Whole Person Care program; optimizing links to internal master data management, countywide master data management, community/clinic based HIEs, and MCOs.  
   </ul>
@@ -164,7 +187,7 @@ title: "VITAE"
   <i class="fa fa-angle-double-right fa-lg"></i> liaise with external county departments and MCOs regarding data sharing for WPC population--up to speed on current federal and state regulations for what _can_ and what _cannot_ be shared depending on context 
   </ul>
   <ul>
-  <i class="fa fa-angle-double-right fa-lg"></i> assist in authoring analysis billing rules for data team to use to correctly produce mandatory reporting given complexities of WPC funding via Medi-Cal waiver program and shifting horizen of competing and complimentary programming 
+  <i class="fa fa-angle-double-right fa-lg"></i> assist in authoring analysis billing rules for data team to use to correctly produce mandatory reporting given complexities of WPC funding via Medi-Cal waiver program and shifting horizon of competing and complimentary programming 
   </ul>
   <ul>
   <i class="fa fa-angle-double-right fa-lg"></i> responsible for calculating program milestones and incentives for state billing--working with front line program staff to improve workflows and capture the data the demonstrates achievement for the WPC program
@@ -174,9 +197,9 @@ title: "VITAE"
   </ul>
 </ul>
 
-<br>
-
 <div class="page-break"></div>
+
+<br>
 
 <!-- SRHT / Manage of Data + Analytics -->
 <ul>  
@@ -239,8 +262,6 @@ title: "VITAE"
 
 <br>
 
-<div class="page-break"></div>
-
 <!-- SRHT / HSC -->
 <ul>  
   <h3>Skid Row Housing Trust_Los Angeles, CA</h3>
@@ -270,6 +291,8 @@ title: "VITAE"
   <i class="fa fa-angle-double-right fa-lg"></i> project troubleshooter par excellence.
   </ul>
 </ul>
+
+<div class="page-break"></div>
 
 <br>
 
@@ -310,7 +333,7 @@ title: "VITAE"
   <h3>UCLA Powell Library_Los Angeles, CA</h3>
   <h4>Social Media Intern / January 2013--November 2013</h4>
   <ul>
-  <i class="fa fa-angle-double-right fa-lg"></i> designed and implemented new digital signage/print flyers to promote library outreach, services, and events
+  <i class="fa fa-angle-double-right fa-lg"></i> designed and implemented new digital signage/print fliers to promote library outreach, services, and events
   </ul>
   <ul>
   <i class="fa fa-angle-double-right fa-lg"></i> created new social media presence for (then) new platform Vine to promote library collections and services
@@ -348,31 +371,6 @@ title: "VITAE"
 
 <br>
 
-<div class="page-break"></div>
-
-<!-- Taylor Mortgage Lawyers -->
-<ul>
-  <h3>Taylor Mortgage Lawyers_Pasadena, CA</h3>
-  <h4>Administrator / May 2010--February 2011</h4>
-  <ul>
-  <i class="fa fa-angle-double-right fa-lg"></i> drafted outgoing legal correspondence and created document templates to ease workflow
-  </ul>
-  <ul>
-  <i class="fa fa-angle-double-right fa-lg"></i> managed and trained receptionists on tasks, etiquette, and computer/office equipment
-  </ul>
-  <ul>
-  <i class="fa fa-angle-double-right fa-lg"></i> communicated effectively with diverse groups
-  </ul>
-  <ul>
-  <i class="fa fa-angle-double-right fa-lg"></i> acted as firm reference point for difficult or challenging matters
-  </ul>
-  <ul>
-  <i class="fa fa-angle-double-right fa-lg"></i> immense use of research skills, ease in digesting difficult subjects/literature, teamwork, and timeliness
-  </ul>
-</ul>
-
-<br>
-
 <!-- Chino Valley -->
 <ul>
   <h3>Chino Valley Unified School District_Chino, CA</h3>
@@ -405,6 +403,10 @@ title: "VITAE"
   </ul>
 </ul>
 
+<div class="page-break"></div>
+
+<br>
+<br>
 <br>
 
 ## <i class="fa fa-trophy fa-lg"></i> Accomplishments
@@ -418,13 +420,11 @@ title: "VITAE"
   <i class="fa fa-angle-double-right fa-lg"></i> Designed, proofed, prepared, and labored over Peer Advocate 'Zine for Skid Row Housing Trust's Hilton Project 'Zine "I Got You", which will be released during a end of grant event for all project participants
   </ul>
   <ul>
-  <i class="fa fa-angle-double-right fa-lg"></i> Was asked to help design and brainstorm a flyer for the UCLA Library system because of interest in design and outreach for libraries--the final project was the "Top 10 Things" flyer, which was a successful campaign to engage students in library programming and services
+  <i class="fa fa-angle-double-right fa-lg"></i> Was asked to help design and brainstorm a flier for the UCLA Library system because of interest in design and outreach for libraries--the final project was the "Top 10 Things" flier, which was a successful campaign to engage students in library programming and services
   </ul>
   <ul>
   <i class="fa fa-angle-double-right fa-lg"></i> Was recognized by two articles online for work promoting library services and collections through early-adoption of Vine
   </ul>
-
-<br>
 
 ## <i class="fa fa-child fa-lg"></i> Interests
 
@@ -434,7 +434,7 @@ title: "VITAE"
   <i class="fa fa-angle-double-right fa-lg"></i> Learning more about statistics and data science; particularly its applications in R.  I am more and more becoming interested in Bayesian approaches.  
   </ul>
   <ul>
-  <i class="fa fa-angle-double-right fa-lg"></i> Coding: I will likely never code as neatly as an engineer but I try to incorporate software enginnering best practicies as I can--I am very keen to become more proficient with workflows in `airflow`, deploying APIs to `AWS`, and taking on more data engineering as practicable.
+  <i class="fa fa-angle-double-right fa-lg"></i> Coding: I will likely never code as neatly as an engineer but I try to incorporate software engineering best practices as I can--I am very keen to become more proficient with workflows in `airflow`, deploying APIs to `AWS`, and taking on more data engineering as practicable.
   </ul>
   <ul>
   <i class="fa fa-angle-double-right fa-lg"></i> Design: I love typefaces and modernist design, in another life I would love to work as a designer or artist so it is something I passionately admire and sometimes try to do when time permits.
