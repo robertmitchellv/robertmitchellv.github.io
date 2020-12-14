@@ -185,30 +185,30 @@ For the full bio click [here](about.html) or the button below.
 
 <br>
 
-<!-- DHS / Staff Analyst, Health -->
+<!-- DPH / Data Scientist -->
 <ul>  
-  <h3>County of Los Angeles, Department of Health Services_Los Angeles, CA</h3>
-  <h4>Staff Analyst, Health (Whole Person Care) / February 2019--Present</h4>
+  <h3>County of Los Angeles, Department of Public Health_Los Angeles, CA</h3>
+  <h4>Data Scientist (Accute Communicable Disease Control) / July 2020--Present</h4>
   <ul>
-  <i class="fa fa-angle-double-right fa-lg"></i> spearheading data integration projects with Whole Person Care program; optimizing links to internal master data management, countywide master data management, community/clinic based HIEs, and MCOs.  
+  <i class="fa fa-angle-double-right fa-lg"></i> say something  
   </ul>
   <ul>
-  <i class="fa fa-angle-double-right fa-lg"></i> help prototype operational dashboards for analyst team to put into production, working with clinical staff on creating tools that will add value rather than distract or oversaturate 
+  <i class="fa fa-angle-double-right fa-lg"></i> say something 
   </ul>
   <ul>
-  <i class="fa fa-angle-double-right fa-lg"></i> work with leadership on identifying KPIs and other operationally valuable markers for high level dashboard applications that allow users to explore and interact 
+  <i class="fa fa-angle-double-right fa-lg"></i> say something
   </ul>
   <ul>
-  <i class="fa fa-angle-double-right fa-lg"></i> liaise with external county departments and MCOs regarding data sharing for WPC population--up to speed on current federal and state regulations for what _can_ and what _cannot_ be shared depending on context 
+  <i class="fa fa-angle-double-right fa-lg"></i> say something
   </ul>
   <ul>
-  <i class="fa fa-angle-double-right fa-lg"></i> assist in authoring analysis billing rules for data team to use to correctly produce mandatory reporting given complexities of WPC funding via Medi-Cal waiver program and shifting horizen of competing and complimentary programming 
+  <i class="fa fa-angle-double-right fa-lg"></i> say something 
   </ul>
   <ul>
-  <i class="fa fa-angle-double-right fa-lg"></i> responsible for calculating program milestones and incentives for state billing--working with front line program staff to improve workflows and capture the data the demonstrates achievement for the WPC program
+  <i class="fa fa-angle-double-right fa-lg"></i> say something
   </ul>
   <ul>
-  <i class="fa fa-angle-double-right fa-lg"></i> act as bridge between IT, data team, evaluation team, and leadership on all data related matters--working to improve programming workflows through version control and software engineering best practices
+  <i class="fa fa-angle-double-right fa-lg"></i> say something
   </ul>
 </ul>
 
