@@ -1,0 +1,212 @@
+---
+title: "TIDYVERSE R AND PYJANITOR PYTHON--A SIDE BY SIDE"
+date: "March 30, 2022"
+author: "Robert Mitchell"
+output:
+  html_document:
+    excludes:
+      after_body: footer.html
+    includes:
+      after_body: footer-disqus.html
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(reticulate)
+```
+
+<br>
+
+After seeing [this tweet]() from [Amelia?]() about a side-by-side of R and Python just for the purpose of seeing how to do _x_ in _y_ language (and _vice versa_), I thought about the kind of post I would like to see; one that leverages both `tidyverse`, modern pandas [method-chaining](tom a's blog), `pyjanitor`, and `plotly` (in both R and Python).
+
+I decided to try and see if I could contribute something to the discourse. I'm not really trying to reinvent an analysis wheel and just want to focus on the _how_ something is acomplished from one language to the other so I'm pulling from a few sources to just have some code to translate using the same data for both languages.
+
+# Data
+
+Data was obtained from the `dslab` R package and written to parquet via R's `arrow::write_parquet` for better interoporability between R and Python. Additionally, the size is low enough to pull the data as parquet from my GitHub repo.
+
+## R packages
+
+```{r}
+library(tidyverse)
+library(plotly)
+library(arrow, include.only = "read_parquet")
+
+gapminder <- read_parquet("site_content/data/gapminder.parquet")
+```
+
+## Python libraries
+
+```{python}
+import polars as pl
+import plotly.express as px
+
+gapminder = pl.read_parquet("site_content/data/gapminder.parquet")
+
+gapminder = (gapminder
+  .with_columns([
+    pl.col("country").cast(pl.Utf8),
+    pl.col("continent").cast(pl.Utf8),
+    pl.col("region").cast(pl.Utf8)  
+  ])
+)
+```
+
+__Return top 10 rows in R__
+```{r}
+gapminder %>% head(10)
+```
+
+__Get quick info on the data with `dplyr::glimpse()`__
+```{r}
+gapminder %>% glimpse()
+```
+__Return top 10 rows in Python__
+```{python}
+gapminder.head(10)
+```
+
+__Get quick info on the data with `pandas`'s `info` `DataFrame` method__
+```{python}
+gapminder.schema
+```
+
+### Hans Rosling's quiz
+
+Following allong Hans Rosling's _New Insights on Poverty_ video, we're going to answer the questions he poses in connection to child mortality rates in 2015. He asks, _which pairs do you think are most similar?_
+
+1. Sri Lanka or Turkey
+2. Poland or South Korea
+3. Malaysia or Russia
+4. Pakistan or Vietnam
+5. Thailand or South Africa
+
+__R__
+```{r}
+gapminder %>%
+  filter(year == "2015", country %in% c("Sri Lanka", "Turkey")) %>%
+  select(country, infant_mortality)
+```
+
+
+__Python__
+```{python}
+(gapminder
+  .filter(
+    (pl.col("year") == 2015) & 
+    (pl.col("country").is_in(["Sri Lanka", "Turkey"]))) 
+  .select(["country", "infant_mortality"])
+) 
+```
+
+__R__
+```{r}
+gapminder %>%
+  filter(
+    year == "2015", 
+    country %in% c(
+      "Sri Lanka", "Turkey", "Poland", "South Korea",
+      "Malaysia", "Russia", "Pakistan", "Vietnam",
+      "Thailand", "South Africa")) %>%
+  select(country, infant_mortality) %>%
+  arrange(desc(infant_mortality))
+```
+
+__Python__
+```{python}
+(gapminder
+  .filter(
+    (pl.col("year") == 2015) & 
+    (pl.col("country").is_in([
+      "Sri Lanka", "Turkey", "Poland", "South Korea", 
+      "Poland", "South Korea","Malaysia", "Russia", 
+      "Pakistan", "Vietnam", "Thailand", "South Africa"]))) 
+  .select(["country", "infant_mortality"])
+)
+```
+
+### Scatterplots
+
+I'm trying to strike a balance between dead basic `plotly` plots and some things you might want to do to make them look a little more the way _you_ want. The great thing about customizing is that you can write functions to do specific things. I don't want to overload you with defensive programming for custom function writing using [Colin Fay]()'s `attempt` [package](https://github.com/ColinFay/attempt), so I'm simplifying a bit; or at least trying to strike a balance. in some instances you can create simple functions or just save a list of values you want to recycle throughout.
+
+```{r}
+plotly_title <- function(title, subtitle, ...) {
+  return(
+    list(
+      text = str_glue(
+        "
+        <b>{title}</b>
+        <sup>{subtitle}</sup>
+        "),
+      ...))
+}
+
+margin <- list(
+  t = 95,
+  r = 40,
+  b = 120,
+  l = 79)
+
+gapminder %>%
+  filter(year == 1962) %>%
+  plot_ly(
+    x = ~fertility, y = ~life_expectancy, 
+    color = ~continent, colors = "Set2", 
+    type = "scatter", mode = "markers",
+    hoverinfo = "text",
+    text = ~str_glue(
+      "
+      <b>{country}</b><br>
+      Continent: <b>{continent}</b>
+      Fertility: <b>{fertility}</b>
+      Life Expextancy: <b>{life_expectancy}</b>
+      "),
+    marker = list(
+      size = 7
+    )) %>%
+  layout(
+    margin = margin,
+    title = plotly_title(
+      title = "Scatterplot",
+      subtitle = "Life expextancy by fertility",
+      x = 0,
+      xref = "paper")) %>%
+  config(displayModeBar = FALSE)
+```
+
+A quick note about having `plotly` work inside of the RStudio IDE--as of the time of this writing it isn't very straightforward, i.e., not [officially supported yet](https://github.com/rstudio/rstudio/issues/8762). The plot will open in a browser window and it's fairly snappy. The good think is that on the `reticulate` side, [knitting works](https://github.com/rstudio/reticulate/issues/711)! So this side was able to put all this together via `rmarkdown`, so that's pretty cool. We're even using both `renv` and `pipenv` for both environments in the same file.
+
+```{python}
+def plotly_title(title, subtitle):
+ s  return(f"<b>{title}</b><br><sup>{subtitle}</sup>")
+
+margin = dict(
+  t = 95,
+  r = 40,
+  b = 120,
+  l = 79)
+  
+config = {"displayModeBar": False}
+
+(px.scatter(
+  (gapminder.filter(pl.col("year") == 1962).to_pandas()),
+  x = "fertility", y = "life_expectancy", color = "continent",
+  hover_name = "country",
+  color_discrete_sequence = px.colors.qualitative.Set2,
+  title = plotly_title(
+    title = "Scatterplot", 
+    subtitle = "Life expextancy by fertility"),
+  opacity = .8, 
+  template = "plotly_white") 
+  .update_traces(
+    marker = dict(
+      size = 7))
+  .update_layout(
+    margin = margin)
+).show(config = config) 
+```
+
+```{python}
+
+```
+

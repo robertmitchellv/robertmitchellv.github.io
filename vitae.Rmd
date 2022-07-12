@@ -17,19 +17,19 @@ title: "VITAE"
 <br>
 
 <ul>
-  <i class="fa fa-angle-double-right fa-lg"></i> I believe that the 21st century requires a more multifaceted toolkit if we hope to solve complex challenges--process and task oriented approaches balanced within a framework that fosters strategic thinking.  That interdisciplinary relationships can be strengthened through active community participation--working toward something with the shared value of doing good.
+  <i class="fa fa-angle-double-right fa-lg"></i> I believe that the 21st century requires a more multifaceted toolkit if we hope to solve complex challenges--process and task oriented approaches balanced within a framework that fosters strategic thinking. That interdisciplinary relationships can be strengthened through active community participation--working toward something with the shared value of doing good.
 </ul>
 
 <br>
 
 <ul>
-  <i class="fa fa-angle-double-right fa-lg"></i> I bring a lot of energy and enthusiasm to the projects that I become involved in.  I thrive in situations that require imagination and innovation.  My interests are varied; among my passions I would list: academic inquiry, classical and contemporary thought, the music and cuisine of other cultures, the arts, traveling, languages, and social justice.  I believe that our most vulnerable deserve respect and to be treated with dignity and fairness.
+  <i class="fa fa-angle-double-right fa-lg"></i> I bring a lot of energy and enthusiasm to the projects that I become involved in. I thrive in situations that require imagination and innovation. My interests are varied; among my passions I would list: academic inquiry, classical and contemporary thought, the music and cuisine of other cultures, the arts, traveling, languages, and social justice. I believe that our most vulnerable deserve respect and to be treated with dignity and fairness.
 </ul>
 
 <br>
 
 <ul>
-  <i class="fa fa-angle-double-right fa-lg"></i> Ultimately I hope that the work I do is helpful--that it enables discovery or provides clarity.  I hope to bring together practical and principled approaches and I hope to further grow as this philosophy guides me.
+  <i class="fa fa-angle-double-right fa-lg"></i> Ultimately I hope that the work I do is helpful--that it enables discovery or provides clarity. I hope to bring together practical and principled approaches and I hope to further grow as this philosophy guides me.
 </ul>
 
 <br>
@@ -39,34 +39,34 @@ title: "VITAE"
 <br>
 
 <ul>
-  <i class="fa fa-angle-double-right fa-lg"></i> I am dedicated and hard working--a good communicator and active community participant.  I work well on team efforts and projects with the ultimate aim of using data for social good.
+  <i class="fa fa-angle-double-right fa-lg"></i> I am dedicated and hard working--a good communicator and active community participant. I work well on team efforts and projects with the ultimate aim of using data for social good.
 </ul>
 
 <ul>
   <i class="fa fa-angle-double-right fa-lg"></i> I am:
   <ul>
-  <i class="fa fa-long-arrow-right fa-lg"></i>   creative
+  <i class="fa fa-long-arrow-right fa-lg"></i> creative
   </ul>
   <ul>
-  <i class="fa fa-long-arrow-right fa-lg"></i>   honest
+  <i class="fa fa-long-arrow-right fa-lg"></i> honest
   </ul>
   <ul>
-  <i class="fa fa-long-arrow-right fa-lg"></i>   friendly
+  <i class="fa fa-long-arrow-right fa-lg"></i> friendly
   </ul>
   <ul>
-  <i class="fa fa-long-arrow-right fa-lg"></i>   enthusiastic
+  <i class="fa fa-long-arrow-right fa-lg"></i> enthusiastic
   </ul>
   <ul>
   <i class="fa fa-long-arrow-right fa-lg"></i> keen to learn new things and take on new roles
   </ul>
   <ul>
-  <i class="fa fa-long-arrow-right fa-lg"></i>   reliable
+  <i class="fa fa-long-arrow-right fa-lg"></i> reliable
   </ul>
   <ul>
   <i class="fa fa-long-arrow-right fa-lg"></i> a lateral thinker 
   </ul>
   <ul>
-  <i class="fa fa-long-arrow-right fa-lg"></i>   motivated
+  <i class="fa fa-long-arrow-right fa-lg"></i> motivated
   </ul>
 <br>
   <i class="fa fa-angle-double-right fa-lg"></i> I am able to: 
@@ -81,7 +81,6 @@ title: "VITAE"
   </ul>
   <ul>
   <i class="fa fa-long-arrow-right fa-lg"></i> work cooperatively
-
   </ul>
   <ul>
   <i class="fa fa-long-arrow-right fa-lg"></i> take on new challenges
@@ -102,29 +101,29 @@ title: "VITAE"
 
 <br>
 
-<div class="page-break"></div>
+<div class="page-break"><br><br><br></div>
 
 ## <i class="fa fa-code fa-lg"></i>  Technical Skills
 
 <br>
 
 <ul>
-  <i class="fa fa-angle-double-right fa-lg"></i> Web Technologies: HTML, CSS, Javascript; Rmarkdown Websites, Dashboards in R with Shiny, and interactive data viz with Plotly; Static Site Generators, i.e., Pelican and Jekyll; Traditional CMSs like Wordpress and Drupal; previous coursework in Information Architecture and UX/UI design.
+  <i class="fa fa-angle-double-right fa-lg"></i> Web Technologies: HTML, CSS, Javascript; Rmarkdown Websites, Dashboards in R with Shiny/Flexdashboards that support `crosstalk`, and interactive data visualization with Plotly; Static Site Generators, i.e., Pelican, Jekyll, and others; Traditional CMSs like Wordpress and Drupal; previous coursework in Information Architecture and UX/UI design.
 </ul>
 <ul>
   <i class="fa fa-angle-double-right fa-lg"></i>   Coding: R, Python, and Javascript.
 </ul>
 <ul>
-  <i class="fa fa-angle-double-right fa-lg"></i> OSs: OS X, Linux, and Windows.  I love the terminal and wish `vim` bindings were universal.
+  <i class="fa fa-angle-double-right fa-lg"></i> OSs: macOS, Linux, Windows, and containers. Within the Linux ecosystem, I have experience with Debian based distributions as well as Red Hat Enterprise Linux. I love the terminal and wish `vim` bindings were universal.
 </ul>
 <ul>
-  <i class="fa fa-angle-double-right fa-lg"></i> Data: Relational Databases (data modeling and SQL); information retrieval; taxonomies and ontologies; and, knowledge organization theory.
+  <i class="fa fa-angle-double-right fa-lg"></i> Data: Relational Databases (data modeling and SQL); Extract-Transfer-Load (ETL) and Extract-Load-Transfer (ELT) strategies for data engineering--specifically with Apache Airflow for ETL and Data Build Tool (dbt) for ELT; information retrieval; taxonomies and ontologies; and, knowledge organization theory.
 </ul>
 <ul>
-  <i class="fa fa-angle-double-right fa-lg"></i> Data Analysis: R is a big part of my workflow from reading in data, transforming and 'tidying' data, exploring and visualizing data, reporting, presenting, and tying it all together in a dashboard.  I am a big `tidyverse` fan and love the way some of R's APIs help frame an analysis workflow.
+  <i class="fa fa-angle-double-right fa-lg"></i> Data Science: both R and Python are a big part of my workflow from reading in data, transforming and 'tidying' data, exploring and visualizing data, modeling, reporting, presenting, and tying it all together in a dashboard. In connection to R, I am a proponent of the `tidyverse` framework for its unifying API that extends into the `tidymodels` and `brms` space. With respect to Python, I enjoy using `polars`, `pyjanitor`, `scikit-learn`, `pymc` and others to work in equivalent ways. I'm happy working in both languages.
 </ul>
 <ul>
-<i class="fa fa-angle-double-right fa-lg"></i> Metadata schemas: knowledge of AACR2, RDA, MODS, METS, and PREMIS
+<i class="fa fa-angle-double-right fa-lg"></i> Metadata schemas: knowledge of RDF, OWL, SPARQL, AACR2, RDA, MODS, METS, and PREMIS
 </ul>
 
 <br>
@@ -147,24 +146,32 @@ title: "VITAE"
 
 ## <i class="fa fa-institution fa-lg"></i>  Work Experience
 
+<br>
+
 <!-- DPH / Data Scientist -->
 <ul>  
   <h3>County of Los Angeles, Department of Public Health_Los Angeles, CA</h3>
-  <h4>Data Scientist (Acute Communicable Disease Control) / June 2020--Present</h4>
+  <h4>Data Scientist Supervisor (Data Science and Systems (DSS) team; Acute Communicable Disease Control (ACDC)) / July 2020--Present</h4>
   <ul>
-  <i class="fa fa-angle-double-right fa-lg"></i> conducts COVID-19 specific epidemiologic analyses that involve large datasets, or linkage of multiple datasets, building and automating ETL pipelines, and programming and comparing complex matching algorithms
+  <i class="fa fa-angle-double-right fa-lg"></i> using expert knowledge of and experience in data, statistical modeling, and machine learning methods; programming languages, packages/libraries, and big-data engineering solutions; manage and implement highly technical and complex data science projects from defining the vision to operationalizing solutions to ensure desired outcomes are achieved. 
   </ul>
   <ul>
-  <i class="fa fa-angle-double-right fa-lg"></i> working with IT to implement the automation of epidemiologic code into Airflow; refactoring to Python
+  <i class="fa fa-angle-double-right fa-lg"></i> provides both technical and administrative supervision to the DSS team of four to five staff (on average) as we plan, develop, and implement data science projects, data engineering pipelines, and dashboards/visual analytics. The DSS team is comprised of two Data Scientists, a Jr. Data Scientist, a Data Engineer, and a Product Manager. We utilize the SCRUM framework to monitor and direct tasks, boards to communicate and evaluate progress, peer-to-peer code review in GitHub via pull request rules, and one on one sessions for pair programming and additional mentoring. 
   </ul>
   <ul>
-  <i class="fa fa-angle-double-right fa-lg"></i> helping to drive the push for more hegemony over department data--helping to shape the direction of a robust analytic stack 
+  <i class="fa fa-angle-double-right fa-lg"></i> work closely with both senior Public Health Information Systems (PHIS) IT staff and Internal Services Department (ISD) IT staff on a variety of data infrastructure projects including the management and maintenance of our data science tooling (both the applications and the servers); work strategically on data engineering bottlenecks to enhance reliability and scalability of data; use knowledge of data science and data engineering practices to add suggestions for burgeoning information management and governance work; act as technical resource for team leads interested in leveraging DSS tooling. 
   </ul>
   <ul>
-  <i class="fa fa-angle-double-right fa-lg"></i> working to modernize the analytic toolset with enterprise R and Python dev environments, version control, and continuous integration for publishing and sharing analytic products
+  <i class="fa fa-angle-double-right fa-lg"></i> building a robust R and Python community by collaborating closely with our RStudio partners to bring trainings to more than 180 staff within ACDC; helping to answer questions and support team members that run into issues related to version control, CI/CD, RStudio Connect, and other DSS tools; evangelize data modernization initiatives whenever possible while also staying up to date on the changing data science landscape.
+  </ul>
+  
+<div class="page-break"><br><br><br></div>
+
+  <ul>
+  <i class="fa fa-angle-double-right fa-lg"></i> led DSS team to refactor (rewrite) from SAS and R codebases to large-scale (big data) architecture code that is automated with the Apache Airflow workflow tool leveraging Apache Spark via Python; these processes in some instances are three to four times faster than the original codebases, which we plan to continue to leverage for all of our Extract-Transfer-Load (ETL) needs. 
   </ul>
   <ul>
-  <i class="fa fa-angle-double-right fa-lg"></i> collaborates with division and department stakeholders to define and manage data science projects from conception through implementation, including identifying and developing statements of business problems; conducting exploratory data analysis and data mining; developing model specification requirements; and conducting advanced statistical analyses 
+  <i class="fa fa-angle-double-right fa-lg"></i> continuing to define and formalize the road map for data science within public health as an embedded group of expert resources that can consult and collaborate on a divisional or departmental opportunities/gaps in infrastructure or data engineering we can recommend plans for strengthening, streamlining, or augmenting.
   </ul>
 </ul>
 
@@ -173,31 +180,29 @@ title: "VITAE"
 <!-- DHS / Staff Analyst, Health -->
 <ul>  
   <h3>County of Los Angeles, Department of Health Services_Los Angeles, CA</h3>
-  <h4>Staff Analyst, Health (Whole Person Care) / February 2019--May 2020</h4>
+  <h4>Staff Analyst, Health (Whole Person Care) / February 2019--June 2020</h4>
   <ul>
   <i class="fa fa-angle-double-right fa-lg"></i> spearheading data integration projects with Whole Person Care program; optimizing links to internal master data management, countywide master data management, community/clinic based HIEs, and MCOs.  
   </ul>
   <ul>
-  <i class="fa fa-angle-double-right fa-lg"></i> help prototype operational dashboards for analyst team to put into production, working with clinical staff on creating tools that will add value rather than distract or oversaturate 
+  <i class="fa fa-angle-double-right fa-lg"></i> help prototype operational dashboards for analyst team to put into production, working with clinical staff on creating tools that will add value rather than distract or oversaturate. 
   </ul>
   <ul>
-  <i class="fa fa-angle-double-right fa-lg"></i> work with leadership on identifying KPIs and other operationally valuable markers for high level dashboard applications that allow users to explore and interact 
+  <i class="fa fa-angle-double-right fa-lg"></i> work with leadership on identifying KPIs and other operationally valuable markers for high level dashboard applications that allow users to explore and interact adding business value. 
   </ul>
   <ul>
-  <i class="fa fa-angle-double-right fa-lg"></i> liaise with external county departments and MCOs regarding data sharing for WPC population--up to speed on current federal and state regulations for what _can_ and what _cannot_ be shared depending on context 
+  <i class="fa fa-angle-double-right fa-lg"></i> liaise with external county departments, HIEs, and MCOs regarding data sharing standards and governance for WPC population--up to speed on current federal and state regulations for what _can_ and what _cannot_ be shared depending on context. 
   </ul>
   <ul>
-  <i class="fa fa-angle-double-right fa-lg"></i> assist in authoring analysis billing rules for data team to use to correctly produce mandatory reporting given complexities of WPC funding via Medi-Cal waiver program and shifting horizon of competing and complimentary programming 
+  <i class="fa fa-angle-double-right fa-lg"></i> assist in authoring analysis billing rules for data team to use to correctly produce mandatory reporting given complexities of WPC funding via Medi-Cal waiver program and shifting horizon of competing and complimentary programming.
   </ul>
   <ul>
-  <i class="fa fa-angle-double-right fa-lg"></i> responsible for calculating program milestones and incentives for state billing--working with front line program staff to improve workflows and capture the data the demonstrates achievement for the WPC program
+  <i class="fa fa-angle-double-right fa-lg"></i> responsible for calculating program milestones and incentives for state billing--working with front line program staff to improve workflows and capture the data the demonstrates achievement for the WPC program.
   </ul>
   <ul>
-  <i class="fa fa-angle-double-right fa-lg"></i> act as bridge between IT, data team, evaluation team, and leadership on all data related matters--working to improve programming workflows through version control and software engineering best practices
+  <i class="fa fa-angle-double-right fa-lg"></i> act as bridge between IT, data team, evaluation team, and leadership on all data related matters--working to improve programming workflows through version control and software engineering best practices.
   </ul>
 </ul>
-
-<div class="page-break"></div>
 
 <br>
 
@@ -235,6 +240,8 @@ title: "VITAE"
 </ul>
 
 <br>
+
+<div class="page-break"><br><br><br></div>
 
 <!-- SRHT / Data Analyst -->
 <ul>  
@@ -292,8 +299,6 @@ title: "VITAE"
   </ul>
 </ul>
 
-<div class="page-break"></div>
-
 <br>
 
 <!-- SRHT / HTC -->
@@ -328,6 +333,8 @@ title: "VITAE"
 
 <br>
 
+<div class="page-break"><br><br><br></div>
+
 <!-- UCLA Powell -->
 <ul>
   <h3>UCLA Powell Library_Los Angeles, CA</h3>
@@ -351,7 +358,7 @@ title: "VITAE"
 
 <br>
 
-<!-- LAC Group -->
+<!-- LAC Group 
 <ul>
   <h3>LAC Group | on Assignment for USC Library_Los Angeles, CA</h3>
   <h4>Library Clerk / June 2013</h4>
@@ -368,10 +375,9 @@ title: "VITAE"
   <i class="fa fa-angle-double-right fa-lg"></i> maintained strong attention to detail
   </ul>
 </ul>
+-->
 
-<br>
-
-<!-- Chino Valley -->
+<!-- Chino Valley 
 <ul>
   <h3>Chino Valley Unified School District_Chino, CA</h3>
   <h4>Substitute Teacher / September 2008--July 2009</h4>
@@ -385,10 +391,9 @@ title: "VITAE"
   <i class="fa fa-angle-double-right fa-lg"></i> passion to teach students useful skills for successful academic career
   </ul>
 </ul>
+-->
 
-<br>
-
-<!-- UCLA Philos -->
+<!-- UCLA Philos 
 <ul>
   <h3>UCLA Philosophy Department_Los Angeles, CA</h3>
   <h4>Library Assistant / January 2006--August 2006</h4>
@@ -402,12 +407,7 @@ title: "VITAE"
   <i class="fa fa-angle-double-right fa-lg"></i>   carefully handled, cataloged (rudimentary metadata), and shelved donated library materials from estates of previous emeritus professors; chiefly Dr. Rudolf Carnap
   </ul>
 </ul>
-
-<div class="page-break"></div>
-
-<br>
-<br>
-<br>
+-->
 
 ## <i class="fa fa-trophy fa-lg"></i> Accomplishments
 
@@ -425,6 +425,8 @@ title: "VITAE"
   <ul>
   <i class="fa fa-angle-double-right fa-lg"></i> Was recognized by two articles online for work promoting library services and collections through early-adoption of Vine
   </ul>
+
+<br>
 
 ## <i class="fa fa-child fa-lg"></i> Interests
 
