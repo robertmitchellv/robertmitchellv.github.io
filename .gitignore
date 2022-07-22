@@ -1,18 +1,6 @@
-# OS X
-.DS_Store
-
-# RStudio
+/.quarto/
+/_site/
 .Rproj.user
 .Rhistory
-.RData
-.Ruserdata
+.DS_Store
 
-# Filetypes
-scratch*.*
-scratch*
-
-# For RMarkdown websites
-_*.*
-
-# Don't share
-.*.*

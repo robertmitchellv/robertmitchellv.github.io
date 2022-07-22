@@ -1,0 +1,61 @@
+project:
+  type: website
+
+website:
+  title: "robertmitchellv"
+  description: "Robert Mitchell's personal website"
+  favicon: "images/me.png"
+  google-analytics: "G-43L15MR1WY"
+  twitter-card:
+    creator: "@robertmitchellv"
+  site-url: https://robertmitchellv.com
+  repo-url: https://github.com/robertmitchellv/robertmitchellv.github.io
+  repo-actions: [edit, issue]
+  navbar:
+    title: false
+    logo: "images/rbmv-secondary.png"
+    background: primary
+    search: true
+    left: 
+      - text: "{{< fa house-user >}} Home"
+        href: index.qmd
+      - text: "{{< fa laptop-code >}} Blog"
+        href: blog.qmd
+      - text: "{{< fa chalkboard-user >}} Talks"
+        href: talks.qmd
+      - text: "{{< fa chart-line >}} Projects"
+        href: projects.qmd
+      - text: "{{< fa address-card >}} About"
+        href: about.qmd
+      - text: "{{< fa paperclip >}} Vitae"
+        href: vitae.qmd
+      - text: "{{< fa paper-plane >}} Contact"
+        href: mailto:robert@robertmitchellv.com
+    right:
+      - icon: github
+        href: https://github.com/robertmitchellv
+      - icon: twitter
+        href: https://twitter.com/robertmitchellv
+      - icon: linkedin
+        href: https://linkedin.com/in/robertmitchellv
+  page-footer:
+    background: primary
+    left: "{{< fa copyright >}} 2022, Robert Mitchell"
+    center:
+      - text: "<img src='/images/rbmv-secondary.png' width='auto' height='30px'>"
+    right:
+      - icon: github
+        href: https://github.com/robertmitchellv
+      - icon: twitter
+        href: https://twitter.com/robertmitchellv
+      - icon: linkedin
+        href: https://linkedin.com/in/robertmitchellv
+
+format:
+  html:
+    theme:
+      light: [flatly, custom.scss]
+      dark: [darkly, custom-dark.scss]
+
+execute: 
+  freeze: auto

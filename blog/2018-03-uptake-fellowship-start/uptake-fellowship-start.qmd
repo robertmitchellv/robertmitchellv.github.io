@@ -1,0 +1,114 @@
+---
+title: "Reflections on the start of my data fellowship with Uptake"
+author: "Robert Mitchell"
+date: "March 21, 2018"
+categories: [Fellowship, Thoughts, Learning]
+---
+
+```{r load_packages, message=FALSE, warning=FALSE, include=FALSE} 
+library(fontawesome)
+```
+
+<br>
+
+> I can't believe it's been more than a week since I returned from my trip to Chicago. This was an incredible opportunity and before I start this post a few thank yous are in order: I really can't thank [Uptake](www.uptake.com) enough for being the kind of company that does more than just 'have an mission statement'--having the motivation to start a philanthropic arm (the `.org` side of [Uptake](www.uptake.org)) shows the company is serious about the work they intend to do in the sector. This is evident by the [data fellows](https://www.uptake.org/data-fellows.html) program specifically and I would be remiss if I did not personally thank [Andrew Means](http://meanswelldoesgood.com/) for designing such a wonderful program in the data for good space. That folks like me miss out on mentoring and growth because we're often the only data folks in our organization hit _very_ close to home. So, feeling very grateful all around `r emo::ji("smile")`
+
+<br>
+
+### Pre(R)AMBLE 
+
+<br>
+
+I always feel that it is important to highlight the path I took to get to the point where I am--the _non-traditional_ route, which begs the question, _"what is the traditional route to data science?"_ Rather than go down a semantics rabbit hole I'd rather point out some of the raw ingredients that, at least I believed when I started down this path, make it _easier_ to get into data science/analysis:
+
+<br>
+
+<ul>
+  <li>`r fa("angle-double-right")` A good working knowledge of computer science (concepts and practical experience)</li>
+  <li>`r fa("angle-double-right")` All the foundational mathematics courses: Algebra to Calculus</li>
+  <li>`r fa("angle-double-right")` Some upper division statistics coursework in undergrad and some applied research setting or exposure to experimental design</li>
+</ul>
+
+<br>
+
+When I decided that I really wanted to work in this sector this is how I felt:
+
+<br>
+
+<ul>
+  <li>`r emo::ji("x")` I once built an HTML page in the 10th grade about [Chrono Trigger](https://en.wikipedia.org/wiki/Chrono_Trigger) locally on a computer I built after the debut of the Pentium III chip so I could finally afford a the Pentium II chip AMA</li>
+  <li>`r emo::ji("x")` Oh god, mathematics was my least favorite subject in school (tied with orthography)</li>
+  <li>`r emo::ji("x")` I took intro to stats for my general education requirements but did not really pay attention `r emo::ji("sob")`</li>
+</ul>
+
+<br>
+
+When you feel insecure about what you assume other people know it creates a lot of anxiety not only about _what_ you should learn, but also _how_ you should go about learning it and to what _level_ you need learn it in order to have this 'working knowledge' of said thing. I've been battling these thoughts for almost three years now and even before I flew to Chicago I kept asking myself: _am I even ready for an opportunity like this?_
+
+<br>
+
+Here's my answer; not just for myself but for anyone else reading this who knows what this feels like: __YES__ `r emo::ji("tada")`
+
+<br>
+
+__YES__ because there is just _too_ much out there for one person to learn and/or know. Jumping into something unfamiliar is sort of like getting married or becoming a parent: you are _never_ ready; the process of _becoming_ is what readies you. So keep it up!
+
+<br>
+
+### My main take aways
+
+<br>
+
+<ul>
+  <li>`r fa("angle-double-right")` I am actually making progress!</li>
+  <li>`r fa("angle-double-right")` My work output as product</li>
+  <li>`r fa("angle-double-right")` A _little_ asceticism goes a long way</li>
+</ul>
+
+<br>
+
+### I am actually making progress!
+
+<br>
+
+This was the most encouraging part of the experience--that the past few years of hard work googling things I read on twitter and pouring over blog posts, making my way through Stats and ML books has been working. It's encouraging to finally feel like you're at a point where you can really benefit from a mentor, which is a terrific feeling. So much about ML used to go over my head when I jumped into data work with this loony desire to _someday_ become a 'data scientist and beyond' that it's difficult to calibrate when I'm able to say, 'yes' I can finally enter the inner chamber of 'data science' and really quit the preparation sojourn and begin the rewarding journey ahead. I finally feel like the moment has arrived.
+
+<br>
+
+Talking with my other fellows and a handful of the data scientists at Uptake, working through workshop materials, having long conversations about different ML frameworks both within R and outside of the R ecosystem over dinner and on Slack without feeling like I'm totally lost has fueled the `r emo::ji("fire")` to keep working harder and to not lose sight of the goal I still have. I am and always plan to be a life-long learner and this is good.
+
+<br>
+
+### My work output as a product
+
+<br>
+
+This was an epiphany. The reports and dashboards and answers to questions that come my way at work _is_ a product. And wearing a product manager hat as a data scientist is a really good skill for me to have--especially when I'm often bridging three domains by myself: engineering, product management, data science. Making sure I've really scoped what I intend to do before I start pulling data, munging, modeling, or communicating is something I just wasn't doing. 
+
+<br>
+
+The second part of the epiphany was that there really isn't anything wrong with a Minimum Viable Product (MVP) because it is the foundation for future iterations. After having the back and forth during a scoping process about what is possible/feasible, making your product effective is not measured in how tight and clean your code is or how complicated the model is; it's in how well you've managed to satisfy the party that needs your expertise. The easiest way to see if you're on the right track is to provide a MVP early to see how well it does in satisfying what was scoped out. If it doesn't work and more scoping is required; cool, you didn't waste any time polishing an artifact destined to the archive heap. If it works then there is ample room/time to really polish the product the way you might like. 
+
+<br>
+
+This is my personal downfall as I care _wayyy_ too much about how the things I make look `r emo::ji("eyes")` that I spend _wayyy_ too much time going in a direction that might ultimately be inconsequential to the product's audience. This is something I am _really_ trying to internalize more. 
+
+<br>
+
+### A little asceticism goes a long way
+
+<br>
+
+My data science mentor Andrew Hillard said something to me that really hadn't occurred to me when I was explaining that I wanted to learn to build a Bayesian multi-level model for my project--I wanted to do this in Stan and really get a thorough grounding in this kind of approach. He said (I'm paraphrasing), "one of the things I've had to learn here is that this isn't a Kaggle competition--that often interpretable models like logistic regression perform very well in a surprising amount of use cases. Getting a model to perform 90% of the time is already a success in a lot of ways because going beyond that _will_ take more time and _may not_ operationally improve what the model is predicting is a dramatic way". This is probably really difficult for those of us who really get excited about using something we just learned to tackle a problem, which I am in no way saying _'don't do that'_; what I'm saying is that often I have very limited time and in order to try and move the organization into a data driven future, there are many opportunities to deny myself the joy of over-complicating things when it isn't necessary. This is something I am going to try and keep in mind as I work on my project for the data fellows program and as this process begins to unfold.
+
+<br>
+
+### So what is my project + what are my goals for my program?
+
+<br>
+
+I will be writing a separate post about this but here is the high-level highlight:
+
+> To develop deeper machine learning intuition around the kinds of models that maximize interpretability/simplicity with performance in order to drive the reduction in preventable homelessness recidivism by predicting negative housing exits early and to target more supportive services to those residents who are in need. By shifting the focus from 'Housing First' to 'Housing Always', I'm hoping that I can build good scaffolding through this data for social work professionals to use in developping new ways to diliver programming. 
+
+<br>

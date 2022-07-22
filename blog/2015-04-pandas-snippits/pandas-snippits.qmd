@@ -1,0 +1,121 @@
+---
+title: "My `pandas` snippets--always evolving"
+author: "Robert Mitchell"
+date: "April 3, 2015"
+categories: [Python, Pandas, Outdated]
+---
+
+::: {.callout-important}
+This is a very old post. The `pandas` API has matured greatly and most of this is very outdated. This remains here as a record for myself 
+:::
+
+```{r setup, include=F}
+knitr::opts_chunk$set(python.reticulate = FALSE)
+```
+
+<br>
+
+The goal of this post is to keep me from googling pandas questions that I've forgotten.  I don't know how many times I've looked at the results and seen five or more StackOverflow links that have clearly already been clicked on; I feel like Sisyphus when this happens!  So, here is what I'm currently committing to memory:
+
+<br>
+
+```{python, eval=F}
+### Make matplotlib.pyplot look better with no effort:
+import matplotlib.pyplot as plt
+plt.style.use('ggplot')
+%matplotlib inline
+
+
+### Delete column
+del df['colName']
+
+
+### Rename columns
+df.columns = ['col1', 'col2', 'col3'] # this does not reindex columns
+
+### Combine columns
+df['newCol'] = df['col1'].map(str) + data['col2'] + data['col3'].astype('str')
+
+### Copy column
+df['newCol'] = df['oldCol'] # where newCol is the copy
+
+
+### Reindex columns
+cols = ['col1', 'col2', 'col3', 'col4'] # list of how you'd like it
+df = df.reindex(columns=cols)
+
+
+### Find out how many NaN values you have in a column
+df['colName'].isnull().sum()
+
+
+### Show unique values
+df[df['colName'].unique()]
+
+### Create a frequency column from another column
+df['freq'] = df.groupby('colName')['colName'].transform('count')
+
+### Delete row
+df = df.drop(2)  # where two is the df's index
+df = df.drop('rowName')  # if you reindexed
+
+
+### Remove characters before a specific character
+df['colName'] = df['colName'].apply(lambda x: x.split('-')[-1]) # char = -
+
+
+### Remove characters after a specific character
+df['colName'] = df['colName'].apply(lambda x: x.split('-')[0]) # char = -
+
+
+### Remove characters, e.g., commas from data
+df['colName'] = df['colName'].str.replace(',', '')
+
+
+### Convert datatypes, e.g., object to float
+df[['col4', 'col5', 'col10']] = df[['col4', 'col5', col10]].astype(float)
+
+
+### Convert string date to datetime64
+df['strDate'] = pd.to_datetime(df['strDate'])
+
+
+### Filter datetime64 column values
+import datetime
+df[df['colName'] >= datetime.date(2015, 1, 1)]
+
+
+### Convert NaN values to zeros (or anything else)
+df = df.fillna(0) # remember that this returns a new object!
+
+
+### Replace string values with numeric representations
+dictionary = {'value1': 1, 'value2': 2, 'Value3': 3}
+df = df.replace({'colName': dictionary})
+
+
+### Replace multiple cells of a column only with a different string
+df.loc[df['colName'].str.contains('word'), df['colName']] = "Different Word" # or
+df.loc[df['colA'].str.contains('word'), ['colB']] = 5 # to change a cell in a different column
+
+
+### Project data based on a value range from a column
+df[df.colWithNumbers <= 360] # shows me values less than or equal to 360
+df[df['colWithStrings'].str.contains("word")] # shows me values with 'word' in them
+
+
+### Project data based on two values (use and or pipe symbol to denote relationship)
+df[(df['colWithString'].str.contains("word")) & (df.colWithNumber <= 5)] # and
+df[(df['colWithString'].str.contains("firstWord")) | (df['colWithString'].str.contains("secondWord"))] # or
+
+
+### Groupby as variable
+groupedby = df.groupby(df.colName) # or:
+groupedby = df.groupby(df.colName).add_suffix('/Mean') # add column suffixes
+
+
+### Use groupedby variable and find the mean for your values
+groupedbyMean = groupedby.mean()
+```
+
+<br>

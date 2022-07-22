@@ -1,0 +1,15 @@
+---
+title: "Ex-nihilo Data Analysis; Getting up and Running with Limited Resources"
+author: "Robert Mitchell"
+date: 2017-09-20
+categories: [Talk, Thoughts, Implementing an idea]
+format: html
+---
+
+::: {.iframe-container}
+<iframe class="iframe-responsive" scrolling="no" src="talk-2017-09-data-donuts.html"></iframe>
+:::
+
+<br>
+
+<a href="/talks/2017-09-Data-and-Donuts/talk-2017-09-data-donuts.html#/" class="btn btn-secondary">Full Screen</a>

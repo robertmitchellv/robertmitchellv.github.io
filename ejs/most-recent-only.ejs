@@ -1,0 +1,19 @@
+<!-- attributes for item -->
+<!--  freeze,
+      title-block-banner,
+      title,
+      author,
+      date,
+      categories,
+      image,
+      path,
+      image-alt,
+      description,
+      filename,
+      file-modified,
+      reading-time,
+      sortableValues -->
+<% for (const item of items.slice(0, 1)) { %>
+  <h4><a href="<%- item.path %>"><%= item.title %></a></h4>
+  <small>{{< fa calendar >}} <%= item.date %></small>
+<% } %> 
