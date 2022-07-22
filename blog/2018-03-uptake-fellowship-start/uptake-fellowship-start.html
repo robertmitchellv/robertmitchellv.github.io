@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.0.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Robert Mitchell">
+<meta name="dcterms.date" content="2018-03-21">
+
+<title>robertmitchellv - Reflections on the start of my data fellowship with Uptake</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../images/me.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-43L15MR1WY"></script>
+
+<script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-43L15MR1WY', { 'anonymize_ip': true});
+</script>
+
+
+<meta name="twitter:title" content="robertmitchellv - Reflections on the start of my data fellowship with Uptake">
+<meta name="twitter:description" content="I always feel that it is important to highlight the path I took to get to the point where I am–the non-traditional route, which begs the question, “what is the traditional route to data science?">
+<meta name="twitter:creator" content="@robertmitchellv">
+<meta name="twitter:card" content="summary">
+</head>
+
+<body class="nav-fixed fullcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <a class="navbar-brand" href="../../index.html">
+    <img src="../../images/rbmv-secondary.png" alt="">
+  </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html"><i class="fa-solid fa-house-user"></i> Home</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../blog.html"><i class="fa-solid fa-laptop-code"></i> Blog</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../talks.html"><i class="fa-solid fa-chalkboard-user"></i> Talks</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../projects.html"><i class="fa-solid fa-chart-line"></i> Projects</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html"><i class="fa-solid fa-address-card"></i> About</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../vitae.html"><i class="fa-solid fa-paperclip"></i> Vitae</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="mailto:robert@robertmitchellv.com"><i class="fa-solid fa-paper-plane"></i> Contact</a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/robertmitchellv"><i class="bi bi-github" role="img">
+</i> 
+ </a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com/robertmitchellv"><i class="bi bi-twitter" role="img">
+</i> 
+ </a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://linkedin.com/in/robertmitchellv"><i class="bi bi-linkedin" role="img">
+</i> 
+ </a>
+  </li>  
+</ul>
+              <div class="quarto-toggle-container">
+                  <a href="" class="quarto-color-scheme-toggle nav-link" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+              </div>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Reflections on the start of my data fellowship with Uptake</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">Fellowship</div>
+                <div class="quarto-category">Thoughts</div>
+                <div class="quarto-category">Learning</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Robert Mitchell </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">March 21, 2018</p>
+      </div>
+    </div>
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+<p><br></p>
+<blockquote class="blockquote">
+<p>I can’t believe it’s been more than a week since I returned from my trip to Chicago. This was an incredible opportunity and before I start this post a few thank yous are in order: I really can’t thank <a href="www.uptake.com">Uptake</a> enough for being the kind of company that does more than just ‘have an mission statement’–having the motivation to start a philanthropic arm (the <code>.org</code> side of <a href="www.uptake.org">Uptake</a>) shows the company is serious about the work they intend to do in the sector. This is evident by the <a href="https://www.uptake.org/data-fellows.html">data fellows</a> program specifically and I would be remiss if I did not personally thank <a href="http://meanswelldoesgood.com/">Andrew Means</a> for designing such a wonderful program in the data for good space. That folks like me miss out on mentoring and growth because we’re often the only data folks in our organization hit <em>very</em> close to home. So, feeling very grateful all around 😄</p>
+</blockquote>
+<p><br></p>
+<section id="preramble" class="level3">
+<h3 class="anchored" data-anchor-id="preramble">Pre(R)AMBLE</h3>
+<p><br></p>
+<p>I always feel that it is important to highlight the path I took to get to the point where I am–the <em>non-traditional</em> route, which begs the question, <em>“what is the traditional route to data science?”</em> Rather than go down a semantics rabbit hole I’d rather point out some of the raw ingredients that, at least I believed when I started down this path, make it <em>easier</em> to get into data science/analysis:</p>
+<p><br></p>
+<ul>
+<li>
+<svg aria-hidden="true" role="img" viewbox="0 0 448 512" style="height:1em;width:0.88em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34zm192-34l-136-136c-9.4-9.4-24.6-9.4-33.9 0l-22.6 22.6c-9.4 9.4-9.4 24.6 0 33.9l96.4 96.4-96.4 96.4c-9.4 9.4-9.4 24.6 0 33.9l22.6 22.6c9.4 9.4 24.6 9.4 33.9 0l136-136c9.4-9.2 9.4-24.4 0-33.8z"></path></svg> A good working knowledge of computer science (concepts and practical experience)
+</li>
+<li>
+<svg aria-hidden="true" role="img" viewbox="0 0 448 512" style="height:1em;width:0.88em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34zm192-34l-136-136c-9.4-9.4-24.6-9.4-33.9 0l-22.6 22.6c-9.4 9.4-9.4 24.6 0 33.9l96.4 96.4-96.4 96.4c-9.4 9.4-9.4 24.6 0 33.9l22.6 22.6c9.4 9.4 24.6 9.4 33.9 0l136-136c9.4-9.2 9.4-24.4 0-33.8z"></path></svg> All the foundational mathematics courses: Algebra to Calculus
+</li>
+<li>
+<svg aria-hidden="true" role="img" viewbox="0 0 448 512" style="height:1em;width:0.88em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34zm192-34l-136-136c-9.4-9.4-24.6-9.4-33.9 0l-22.6 22.6c-9.4 9.4-9.4 24.6 0 33.9l96.4 96.4-96.4 96.4c-9.4 9.4-9.4 24.6 0 33.9l22.6 22.6c9.4 9.4 24.6 9.4 33.9 0l136-136c9.4-9.2 9.4-24.4 0-33.8z"></path></svg> Some upper division statistics coursework in undergrad and some applied research setting or exposure to experimental design
+</li>
+</ul>
+<p><br></p>
+<p>When I decided that I really wanted to work in this sector this is how I felt:</p>
+<p><br></p>
+<ul>
+<li>
+❌ I once built an HTML page in the 10th grade about <a href="https://en.wikipedia.org/wiki/Chrono_Trigger">Chrono Trigger</a> locally on a computer I built after the debut of the Pentium III chip so I could finally afford a the Pentium II chip AMA
+</li>
+<li>
+❌ Oh god, mathematics was my least favorite subject in school (tied with orthography)
+</li>
+<li>
+❌ I took intro to stats for my general education requirements but did not really pay attention 😭
+</li>
+</ul>
+<p><br></p>
+<p>When you feel insecure about what you assume other people know it creates a lot of anxiety not only about <em>what</em> you should learn, but also <em>how</em> you should go about learning it and to what <em>level</em> you need learn it in order to have this ‘working knowledge’ of said thing. I’ve been battling these thoughts for almost three years now and even before I flew to Chicago I kept asking myself: <em>am I even ready for an opportunity like this?</em></p>
+<p><br></p>
+<p>Here’s my answer; not just for myself but for anyone else reading this who knows what this feels like: <strong>YES</strong> 🎉</p>
+<p><br></p>
+<p><strong>YES</strong> because there is just <em>too</em> much out there for one person to learn and/or know. Jumping into something unfamiliar is sort of like getting married or becoming a parent: you are <em>never</em> ready; the process of <em>becoming</em> is what readies you. So keep it up!</p>
+<p><br></p>
+</section>
+<section id="my-main-take-aways" class="level3">
+<h3 class="anchored" data-anchor-id="my-main-take-aways">My main take aways</h3>
+<p><br></p>
+<ul>
+<li>
+<svg aria-hidden="true" role="img" viewbox="0 0 448 512" style="height:1em;width:0.88em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34zm192-34l-136-136c-9.4-9.4-24.6-9.4-33.9 0l-22.6 22.6c-9.4 9.4-9.4 24.6 0 33.9l96.4 96.4-96.4 96.4c-9.4 9.4-9.4 24.6 0 33.9l22.6 22.6c9.4 9.4 24.6 9.4 33.9 0l136-136c9.4-9.2 9.4-24.4 0-33.8z"></path></svg> I am actually making progress!
+</li>
+<li>
+<svg aria-hidden="true" role="img" viewbox="0 0 448 512" style="height:1em;width:0.88em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34zm192-34l-136-136c-9.4-9.4-24.6-9.4-33.9 0l-22.6 22.6c-9.4 9.4-9.4 24.6 0 33.9l96.4 96.4-96.4 96.4c-9.4 9.4-9.4 24.6 0 33.9l22.6 22.6c9.4 9.4 24.6 9.4 33.9 0l136-136c9.4-9.2 9.4-24.4 0-33.8z"></path></svg> My work output as product
+</li>
+<li>
+<svg aria-hidden="true" role="img" viewbox="0 0 448 512" style="height:1em;width:0.88em;vertical-align:-0.125em;margin-left:auto;margin-right:auto;font-size:inherit;fill:currentColor;overflow:visible;position:relative;"><path d="M224.3 273l-136 136c-9.4 9.4-24.6 9.4-33.9 0l-22.6-22.6c-9.4-9.4-9.4-24.6 0-33.9l96.4-96.4-96.4-96.4c-9.4-9.4-9.4-24.6 0-33.9L54.3 103c9.4-9.4 24.6-9.4 33.9 0l136 136c9.5 9.4 9.5 24.6.1 34zm192-34l-136-136c-9.4-9.4-24.6-9.4-33.9 0l-22.6 22.6c-9.4 9.4-9.4 24.6 0 33.9l96.4 96.4-96.4 96.4c-9.4 9.4-9.4 24.6 0 33.9l22.6 22.6c9.4 9.4 24.6 9.4 33.9 0l136-136c9.4-9.2 9.4-24.4 0-33.8z"></path></svg> A <em>little</em> asceticism goes a long way
+</li>
+</ul>
+<p><br></p>
+</section>
+<section id="i-am-actually-making-progress" class="level3">
+<h3 class="anchored" data-anchor-id="i-am-actually-making-progress">I am actually making progress!</h3>
+<p><br></p>
+<p>This was the most encouraging part of the experience–that the past few years of hard work googling things I read on twitter and pouring over blog posts, making my way through Stats and ML books has been working. It’s encouraging to finally feel like you’re at a point where you can really benefit from a mentor, which is a terrific feeling. So much about ML used to go over my head when I jumped into data work with this loony desire to <em>someday</em> become a ‘data scientist and beyond’ that it’s difficult to calibrate when I’m able to say, ‘yes’ I can finally enter the inner chamber of ‘data science’ and really quit the preparation sojourn and begin the rewarding journey ahead. I finally feel like the moment has arrived.</p>
+<p><br></p>
+<p>Talking with my other fellows and a handful of the data scientists at Uptake, working through workshop materials, having long conversations about different ML frameworks both within R and outside of the R ecosystem over dinner and on Slack without feeling like I’m totally lost has fueled the 🔥 to keep working harder and to not lose sight of the goal I still have. I am and always plan to be a life-long learner and this is good.</p>
+<p><br></p>
+</section>
+<section id="my-work-output-as-a-product" class="level3">
+<h3 class="anchored" data-anchor-id="my-work-output-as-a-product">My work output as a product</h3>
+<p><br></p>
+<p>This was an epiphany. The reports and dashboards and answers to questions that come my way at work <em>is</em> a product. And wearing a product manager hat as a data scientist is a really good skill for me to have–especially when I’m often bridging three domains by myself: engineering, product management, data science. Making sure I’ve really scoped what I intend to do before I start pulling data, munging, modeling, or communicating is something I just wasn’t doing.</p>
+<p><br></p>
+<p>The second part of the epiphany was that there really isn’t anything wrong with a Minimum Viable Product (MVP) because it is the foundation for future iterations. After having the back and forth during a scoping process about what is possible/feasible, making your product effective is not measured in how tight and clean your code is or how complicated the model is; it’s in how well you’ve managed to satisfy the party that needs your expertise. The easiest way to see if you’re on the right track is to provide a MVP early to see how well it does in satisfying what was scoped out. If it doesn’t work and more scoping is required; cool, you didn’t waste any time polishing an artifact destined to the archive heap. If it works then there is ample room/time to really polish the product the way you might like.</p>
+<p><br></p>
+<p>This is my personal downfall as I care <em>wayyy</em> too much about how the things I make look 👀 that I spend <em>wayyy</em> too much time going in a direction that might ultimately be inconsequential to the product’s audience. This is something I am <em>really</em> trying to internalize more.</p>
+<p><br></p>
+</section>
+<section id="a-little-asceticism-goes-a-long-way" class="level3">
+<h3 class="anchored" data-anchor-id="a-little-asceticism-goes-a-long-way">A little asceticism goes a long way</h3>
+<p><br></p>
+<p>My data science mentor Andrew Hillard said something to me that really hadn’t occurred to me when I was explaining that I wanted to learn to build a Bayesian multi-level model for my project–I wanted to do this in Stan and really get a thorough grounding in this kind of approach. He said (I’m paraphrasing), “one of the things I’ve had to learn here is that this isn’t a Kaggle competition–that often interpretable models like logistic regression perform very well in a surprising amount of use cases. Getting a model to perform 90% of the time is already a success in a lot of ways because going beyond that <em>will</em> take more time and <em>may not</em> operationally improve what the model is predicting is a dramatic way”. This is probably really difficult for those of us who really get excited about using something we just learned to tackle a problem, which I am in no way saying <em>‘don’t do that’</em>; what I’m saying is that often I have very limited time and in order to try and move the organization into a data driven future, there are many opportunities to deny myself the joy of over-complicating things when it isn’t necessary. This is something I am going to try and keep in mind as I work on my project for the data fellows program and as this process begins to unfold.</p>
+<p><br></p>
+</section>
+<section id="so-what-is-my-project-what-are-my-goals-for-my-program" class="level3">
+<h3 class="anchored" data-anchor-id="so-what-is-my-project-what-are-my-goals-for-my-program">So what is my project + what are my goals for my program?</h3>
+<p><br></p>
+<p>I will be writing a separate post about this but here is the high-level highlight:</p>
+<blockquote class="blockquote">
+<p>To develop deeper machine learning intuition around the kinds of models that maximize interpretability/simplicity with performance in order to drive the reduction in preventable homelessness recidivism by predicting negative housing exits early and to target more supportive services to those residents who are in need. By shifting the focus from ‘Housing First’ to ‘Housing Always’, I’m hoping that I can build good scaffolding through this data for social work professionals to use in developping new ways to diliver programming.</p>
+</blockquote>
+<p><br></p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    toggleBodyColorMode(window.document.querySelector("link#quarto-bootstrap"));
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  let localAlternateSentinel = 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } 
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      let href = ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left"><i class="fa-solid fa-copyright"></i> 2022, Robert Mitchell</div>   
+      <div class="nav-footer-center">
+        <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+ <img src="../../images/rbmv-secondary.png" width="auto" height="30px">
+  </li>  
+</ul>
+      </div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/robertmitchellv">
+      <i class="bi bi-github" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com/robertmitchellv">
+      <i class="bi bi-twitter" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://linkedin.com/in/robertmitchellv">
+      <i class="bi bi-linkedin" role="img">
+</i> 
+    </a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
+
+
+
+</body></html>

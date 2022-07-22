@@ -1,0 +1,983 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.0.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Robert Mitchell">
+<meta name="dcterms.date" content="2016-09-01">
+
+<title>robertmitchellv - Building this site with RStudio and rmarkdown</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../images/me.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-43L15MR1WY"></script>
+
+<script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-43L15MR1WY', { 'anonymize_ip': true});
+</script>
+<script src="../../site_libs/htmlwidgets-1.5.4/htmlwidgets.js"></script>
+<script src="../../site_libs/plotly-binding-4.10.0/plotly.js"></script>
+<script src="../../site_libs/typedarray-0.1/typedarray.min.js"></script>
+<script src="../../site_libs/jquery-3.5.1/jquery.min.js"></script>
+<link href="../../site_libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet">
+<script src="../../site_libs/crosstalk-1.2.0/js/crosstalk.min.js"></script>
+<link href="../../site_libs/plotly-htmlwidgets-css-2.5.1/plotly-htmlwidgets.css" rel="stylesheet">
+<script src="../../site_libs/plotly-main-2.5.1/plotly-latest.min.js"></script>
+
+
+<meta name="twitter:title" content="robertmitchellv - Building this site with RStudio and rmarkdown">
+<meta name="twitter:description" content="When I first began learning to code I felt insecure about not having given any attention to math or computer science courses during my undergrad.">
+<meta name="twitter:creator" content="@robertmitchellv">
+<meta name="twitter:card" content="summary">
+</head>
+
+<body class="nav-fixed fullcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <a class="navbar-brand" href="../../index.html">
+    <img src="../../images/rbmv-secondary.png" alt="">
+  </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html"><i class="fa-solid fa-house-user"></i> Home</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../blog.html"><i class="fa-solid fa-laptop-code"></i> Blog</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../talks.html"><i class="fa-solid fa-chalkboard-user"></i> Talks</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../projects.html"><i class="fa-solid fa-chart-line"></i> Projects</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html"><i class="fa-solid fa-address-card"></i> About</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../vitae.html"><i class="fa-solid fa-paperclip"></i> Vitae</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="mailto:robert@robertmitchellv.com"><i class="fa-solid fa-paper-plane"></i> Contact</a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/robertmitchellv"><i class="bi bi-github" role="img">
+</i> 
+ </a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com/robertmitchellv"><i class="bi bi-twitter" role="img">
+</i> 
+ </a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://linkedin.com/in/robertmitchellv"><i class="bi bi-linkedin" role="img">
+</i> 
+ </a>
+  </li>  
+</ul>
+              <div class="quarto-toggle-container">
+                  <a href="" class="quarto-color-scheme-toggle nav-link" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+              </div>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Building this site with RStudio and <code>rmarkdown</code></h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">R</div>
+                <div class="quarto-category">Rmarkdown</div>
+                <div class="quarto-category">Websites</div>
+                <div class="quarto-category">Outdated</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Robert Mitchell </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">September 1, 2016</p>
+      </div>
+    </div>
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+<div class="callout-important callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>This post is outdated; it would <em>still</em> work if you want to go this route, but the current site is built using <a href="https://quarto.org/">Quarto</a> and I think it’s a <strong>HUGE</strong> improvement</p>
+</div>
+</div>
+<p><br></p>
+<blockquote class="blockquote">
+<p>There <em>may</em> be a special place in hell for blog posts like this that document how someone put together their static site website and hosted it on GitHub. Especially when there is really great <a href="rmarkdown.rstudio.com/rmarkdown_websites.html">documentation</a> availible that has been put together by really smart people<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>. You can even look at Rmarkdown’s website source code on <a href="https://github.com/rstudio/rmarkdown/tree/gh-pages">GitHub</a> to see how they approached things and to get ideas. I should warn anyone interested in building a site with <code>rmarkdown</code> that you will not have some of the automation perks from Jekyll or Pelican with automatic tags and summaries created to extract from blog posts and render them on your home page. I decided to <em>not</em> retain any of the category or tag metadata that normally went into the <code>&lt;head&gt;</code> tag to be used for summarising because I wanted to keep things simple(text file <i class="fa fa-long-arrow-right"></i> blog). If that doesn’t sound like something you like, this may not be the right choice for your blog.</p>
+</blockquote>
+<p><br></p>
+<section id="quick-asidefeel-free-to-skip" class="level3">
+<h3 class="anchored" data-anchor-id="quick-asidefeel-free-to-skip">Quick aside–feel free to skip</h3>
+<p><br></p>
+<p>When I first began learning to code I felt insecure about not having given <em>any</em> attention to math or computer science courses during my undergrad. Without hesitation I had the best <del>4</del> 5 years of my life at UCLA (with one whole year spent in Paris for courses during the academic year and a summer in Germany and Scandinavia). Nevertheless, I worried that the most technical thing I did was the introduction to statistics course<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> I needed to satisfy my math requirement and an introduction to formal logic, which was a requirement as a philosophy major. So, I tried emulating hardcore programmers when I began coding in Python by only using Vim in my terminal<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> or Jupyter notebooks. After facing the truth of my insecurity and accepting my shadow<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a> I finally began using RStudio two months ago and I really can’t say enough nice things about RStudio after having spent lots of time coding in R. When I saw that there was a way to create websites with <code>rmarkdown</code> it immediately connected with me that if I put in a little work now I might <em>actually blog</em> in the future. Since this is my second post this week, I think it was a good idea.</p>
+<p><br></p>
+</section>
+<section id="what-youll-need-installed" class="level3">
+<h3 class="anchored" data-anchor-id="what-youll-need-installed">What you’ll need installed</h3>
+<p><br></p>
+<ol type="1">
+<li><a href="www.rstudio.com/products/rstudio/download/preview/">RStudio Preview Release</a> so you can get the ‘build’ pane</li>
+<li><code>rmarkdown</code> (v0.9.6) which you can install from CRAN thusly:</li>
+</ol>
+<p><br></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"rmarkdown"</span>, <span class="at">type =</span> <span class="st">"source"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><br></p>
+</section>
+<section id="what-files-you-need-in-your-sites-directory" class="level3">
+<h3 class="anchored" data-anchor-id="what-files-you-need-in-your-sites-directory">What files you need in your site’s directory</h3>
+<p><br></p>
+<p>After you have installed the preview version of RStudio and have the the correct version of <code>rmarkdown</code> there are two required files that are the minimum for building a site:</p>
+<p><br></p>
+<ol type="1">
+<li>A <code>_site.yml</code><a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a> file</li>
+<li>An <code>Index.Rmd</code> file</li>
+</ol>
+<p><br></p>
+</section>
+<section id="here-are-example-files-you-can-use" class="level3">
+<h3 class="anchored" data-anchor-id="here-are-example-files-you-can-use">Here are example files you can use</h3>
+<p><br></p>
+<p>Or, you can <a href="https://github.com/rstudio/rmarkdown-website-examples/tree/master/hello-website">clone</a> the example site RStudio graciously put together.</p>
+<p><br></p>
+<p><code>_site.yml</code></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>name<span class="sc">:</span> <span class="st">"Your Site's Name"</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>output_dir<span class="sc">:</span> .  <span class="co"># necessary for hosting on GitHub; just add it for now</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>navbar<span class="sc">:</span>  </span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  title<span class="sc">:</span> <span class="st">"Your Site's Title"</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  left<span class="sc">:</span>  <span class="co"># you can also use 'right'</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>    <span class="sc">-</span> text<span class="sc">:</span> <span class="st">"Home"</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>      icon<span class="sc">:</span> fa<span class="sc">-</span>home  <span class="co"># handy way to use FontAwesome icons in nav!</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>      href<span class="sc">:</span> index.html  <span class="co"># don't link to the .Rmd file</span></span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    <span class="sc">-</span> text<span class="sc">:</span> <span class="st">"About"</span></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>      icon<span class="sc">:</span> fa<span class="sc">-</span>newspaper<span class="sc">-</span>o</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>      href<span class="sc">:</span> about.html</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><br></p>
+<section id="a-couple-of-things-about-the-yml-file" class="level4">
+<h4 class="anchored" data-anchor-id="a-couple-of-things-about-the-yml-file">A couple of things about the <code>yml</code> file:</h4>
+<ol type="1">
+<li><code>output_dir: .</code> changes the default behavior of placing rendered files into a <code>_site</code> directory to dumping them in the directory with your <code>Rmd</code> files. This can start to look a little messy so decide on some naming conventions to help with all the files you’ll be generating.</li>
+<li>If you care about having an image in your <code>navbar</code>, want to add the <code>fixed</code> class from Bootstrap to the <code>navbar</code>, or if you want to use <code>jquery</code> functions within the <code>onclick=</code> attribute then you’re going to need to create a <code>_navbar.html</code><a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a> file rather than declare it in the <code>yml</code> file.</li>
+</ol>
+<blockquote class="blockquote">
+<p>TIP: If you want some of these things but don’t want to write the <code>html</code> from scratch, you can do what I did: finalize the <code>navbar</code>’s structure in the <code>yml</code> file, render it, open your <code>index.html</code> file, and copy everything from <code>&lt;navbar&gt;</code> to <code>&lt;/navbar&gt;</code> into an RStudio text file. Then all you need to do is save that file as <code>_navbar.html</code>, delete the <code>navbar</code> section from your <code>yml</code> file, and then re-build. You can also look at <a href="https://github.com/rstudio/rmarkdown-website/blob/master/_navbar.html">this</a> example from the <code>rmarkdown</code> site.</p>
+</blockquote>
+<ol start="3" type="1">
+<li>The <code>icon</code> field is set with a <a href="https://fortawesome.github.io/Font-Awesome/icons/">Font Awesome</a> icon, which I really, <em>really</em>, enjoy. You can even use <a href="http://ionicons.com/">Ionicons</a> or <a href="https://getbootstrap.com/components/#glyphicons">Bootstrap Glyphicons</a> as well.</li>
+</ol>
+<p><br></p>
+<p><code>index.Rmd</code></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>title<span class="sc">:</span> <span class="st">"My Site's Title"</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>Welcome to my site<span class="sc">!</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><br></p>
+<p><code>about.Rmd</code></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>title<span class="sc">:</span> <span class="st">"About me"</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>A little more about my background ...</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><br></p>
+</section>
+</section>
+<section id="build-it" class="level3">
+<h3 class="anchored" data-anchor-id="build-it">Build it!</h3>
+<p><br></p>
+<p>Go ahead and click on ‘Build Website’ to see your beautiful creation!</p>
+<blockquote class="blockquote">
+<p>I don’t know if anyone else will run into this error, but when I first tried to build my site the build pane threw this error message: <code>Error in loadNamespace error: there is no package called 'rmarkdown'</code>. I found that <a href="https://stackoverflow.com/questions/26470909/rstudio-knit-pdf-in-rstudio-loadnamespacename-there-is-no-package-called-rma">this</a> was helpful in trying to get the site to build—you may not see this error message at all though and it might be due to my having altered the default directory in <code>.libPaths()</code>.</p>
+</blockquote>
+<p><br></p>
+</section>
+<section id="customize" class="level3">
+<h3 class="anchored" data-anchor-id="customize">Customize</h3>
+<p><br></p>
+<p>This is my favorite part because you can begin adding your own touches to things. A good first step is to set the <code>theme</code> in your <code>yml</code> file to one of <a href="https://bootswatch.com">these</a> themes. You can also add custom css with the <code>css</code> tag—you just have to leave the file in the same directory as everything else. I’ll share my <code>yml</code> file here so you can see what I’ve done (or you can see if I’ve made changes since posting this by checking <a href="https://github.com/robertmitchellv/robertmitchellv.github.io/blob/master/_site.yml">here</a>):</p>
+<p><br></p>
+<p><code>_site.yml</code></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>name<span class="sc">:</span> <span class="st">"rbmv | critical data analysis"</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>output_dir<span class="sc">:</span> .</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>output<span class="sc">:</span></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  html_document<span class="sc">:</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>    theme<span class="sc">:</span> yeti</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>    highlight<span class="sc">:</span> pygments</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>    include<span class="sc">:</span></span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>      after_body<span class="sc">:</span> footer.html</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>    css<span class="sc">:</span> style.css</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><br></p>
+<p>As you can see there isn’t a lot going on here. You may also notice that I am not using the <code>_site.yml</code> file for the <code>navbar</code>—this is because I am using a separate <code>_navbar.html</code><a href="#fn7" class="footnote-ref" id="fnref7" role="doc-noteref"><sup>7</sup></a>. In fact, I have two <code>navbar</code> files: one for the home page and the other for the rest of the site’s content. I did this because I want the <code>navbar</code> links to behave differently and direct to different places on the homepage as opposed to the rest of the site. <strong>This is just prefrence.</strong></p>
+<p><br></p>
+<p>The great thing about <code>rmarkdown</code> is that each page has <code>yml</code> fields and you can control content really easily with includes. You only need to exclude whatever is default and include whatever you want to replace it with for that page. Here’s an example of this blog post’s <code>yml</code> metadata:</p>
+<p><br></p>
+<p><code>blog-building-site-with-rmarkdown.Rmd</code></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>title<span class="sc">:</span> <span class="st">"BUILDING THIS SITE WITH RSTUDIO AND RMARKDOWN"</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>author<span class="sc">:</span> <span class="st">"Robert Mitchell"</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>date<span class="sc">:</span> <span class="st">"September 1, 2016"</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>output<span class="sc">:</span> </span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>  html_document<span class="sc">:</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>    excludes<span class="sc">:</span></span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>      after_body<span class="sc">:</span> footer.html</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a>    includes<span class="sc">:</span></span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>      after_body<span class="sc">:</span> footer<span class="sc">-</span>disqus.html</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a><span class="sc">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><br></p>
+<p>I excluded the <code>footer.html</code> file that is set in the <code>html_document: include: after_body:</code> field to include, instead, a <code>footer</code> file that has the Disqus JavaScript function so that comments appear on blog posts only. You can also include a <code>navbar</code> file using the <code>html_document: include: before_body: navbar.html</code> field, which I used only for my <code>index</code> file to keep things simple. It would be a good idea to keep <a href="http://rmarkdown.rstudio.com/html_document_format.html">this</a> site handy since <code>html_document</code> has a ton of flexibility. Some of you that are <em>very</em> knowledgeable about <code>rmarkdown</code> will likely run with the possibilities.</p>
+<p><br></p>
+</section>
+<section id="things-that-werent-initially-clear" class="level2">
+<h2 class="anchored" data-anchor-id="things-that-werent-initially-clear">Things that weren’t initially clear</h2>
+<p><br></p>
+<p>A few things I had to figure out on my own, which I’ll share to make things easier.</p>
+<p><br></p>
+<section id="footer-background-color-does-not-extend-across-the-page" class="level4">
+<h4 class="anchored" data-anchor-id="footer-background-color-does-not-extend-across-the-page">Footer background color does not extend across the page</h4>
+<p><br></p>
+<p>This was tricky and what worked for me was looking at the <code>rmarkdown</code> site’s <a href="https://github.com/rstudio/rmarkdown/blob/gh-pages/include_footer.html">source code</a> and including two closing <code>&lt;div&gt;</code>’s—here’s how I worked it out in HTML and CSS:</p>
+<p><br></p>
+<p><code>footer-disqus.html</code></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode html code-with-copy"><code class="sourceCode html"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>  <span class="kw">&lt;/div&gt;</span> <span class="co">&lt;!-- articleBandContent --&gt;</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;/div&gt;</span> <span class="co">&lt;!-- pageContent --&gt;</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;footer&gt;</span></span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>  <span class="kw">&lt;div</span> <span class="er">id</span><span class="ot">=</span><span class="st">"rbmvFooter"</span> <span class="er">class</span><span class="ot">=</span><span class="st">"footer"</span><span class="kw">&gt;</span></span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;div</span> <span class="er">class</span><span class="ot">=</span><span class="st">"footerContent"</span><span class="kw">&gt;</span></span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>    <span class="co">&lt;!-- footer content --&gt;</span></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>    </span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>    <span class="kw">&lt;/div&gt;</span></span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>  <span class="kw">&lt;/div&gt;</span></span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a>  <span class="co">&lt;!-- js functions --&gt;</span></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;/footer&gt;</span></span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- disqus js for comments --&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><br></p>
+<p>This is the CSS I used with the <code>footer</code> above:</p>
+<p><br></p>
+<p><code>style.css</code></p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode css code-with-copy"><code class="sourceCode css"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="pp">#rbmvFooter</span> {</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="kw">position</span>: <span class="dv">relative</span><span class="op">;</span></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="kw">z-index</span>: <span class="dv">2</span><span class="op">;</span></span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>  <span class="kw">box-sizing</span>: <span class="dv">border-box</span><span class="op">;</span></span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>  <span class="kw">height</span>: <span class="dv">25</span><span class="dt">em</span><span class="op">;</span></span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a><span class="pp">#rbmvFooter</span><span class="fu">.footer</span> {</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>  <span class="kw">background-color</span>: <span class="cn">#212121</span><span class="op">;</span>  <span class="co">/* light black */</span></span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>  <span class="kw">padding</span>: <span class="dv">4</span><span class="dt">%</span> <span class="dv">8</span><span class="dt">%</span><span class="op">;</span></span>
+<span id="cb8-11"><a href="#cb8-11" aria-hidden="true" tabindex="-1"></a>  <span class="kw">margin-top</span>: <span class="dv">7</span><span class="dt">em</span><span class="op">;</span></span>
+<span id="cb8-12"><a href="#cb8-12" aria-hidden="true" tabindex="-1"></a>  <span class="kw">box-shadow</span>: <span class="dv">0</span><span class="dt">px</span> <span class="dv">3</span><span class="dt">px</span> <span class="dv">50</span><span class="dt">px</span> <span class="dv">0</span><span class="dt">px</span> <span class="fu">rgba(</span><span class="dv">43</span><span class="op">,</span><span class="dv">45</span><span class="op">,</span><span class="dv">66</span><span class="op">,</span><span class="dv">0.4</span><span class="fu">)</span><span class="op">;</span></span>
+<span id="cb8-13"><a href="#cb8-13" aria-hidden="true" tabindex="-1"></a>  <span class="kw">font-weight</span>: <span class="dv">300</span><span class="op">;</span></span>
+<span id="cb8-14"><a href="#cb8-14" aria-hidden="true" tabindex="-1"></a>  <span class="kw">font-size</span>: <span class="dv">13</span><span class="dt">px</span><span class="op">;</span></span>
+<span id="cb8-15"><a href="#cb8-15" aria-hidden="true" tabindex="-1"></a>  <span class="kw">line-height</span>: <span class="dv">25</span><span class="dt">px</span><span class="op">;</span></span>
+<span id="cb8-16"><a href="#cb8-16" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb8-17"><a href="#cb8-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-18"><a href="#cb8-18" aria-hidden="true" tabindex="-1"></a><span class="pp">#rbmvFooter</span> <span class="fu">.footer</span> {</span>
+<span id="cb8-19"><a href="#cb8-19" aria-hidden="true" tabindex="-1"></a>  <span class="kw">color</span>: <span class="cn">#626262</span><span class="op">;</span>  <span class="co">/* darker grey */</span></span>
+<span id="cb8-20"><a href="#cb8-20" aria-hidden="true" tabindex="-1"></a>  <span class="kw">display</span>: <span class="dv">flex</span><span class="op">;</span></span>
+<span id="cb8-21"><a href="#cb8-21" aria-hidden="true" tabindex="-1"></a>  <span class="kw">justify-content</span>: space-between<span class="op">;</span></span>
+<span id="cb8-22"><a href="#cb8-22" aria-hidden="true" tabindex="-1"></a>  <span class="kw">align-items</span>: <span class="dv">center</span><span class="op">;</span></span>
+<span id="cb8-23"><a href="#cb8-23" aria-hidden="true" tabindex="-1"></a>  <span class="kw">line-height</span>: <span class="dv">14</span><span class="dt">px</span><span class="op">;</span></span>
+<span id="cb8-24"><a href="#cb8-24" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb8-25"><a href="#cb8-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-26"><a href="#cb8-26" aria-hidden="true" tabindex="-1"></a><span class="pp">#scrollTop</span> {</span>
+<span id="cb8-27"><a href="#cb8-27" aria-hidden="true" tabindex="-1"></a>  <span class="kw">color</span>: <span class="cn">#FFFFFF</span><span class="at">!important</span><span class="op">;</span> <span class="co">/* white */</span></span>
+<span id="cb8-28"><a href="#cb8-28" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><br></p>
+</section>
+<section id="summarising-content-for-the-home-page" class="level4">
+<h4 class="anchored" data-anchor-id="summarising-content-for-the-home-page">Summarising content for the home page</h4>
+<p><br></p>
+<p>So this is probably the most painful thing you’ll have to do but it isn’t so bad! Once a post is finished, you’ll have to add the HTML to the <code>index.Rmd</code> file and link to the page. Tools like Jekyll and Pelican handle a lot of this stuff automatically, but it isn’t too bad once you have an idea of how you want it to look. This is what I do:</p>
+<p><br></p>
+<ol type="1">
+<li>Finish blog post.</li>
+<li>Add the post and summary / date info to the <code>blog.Rmd</code> file.</li>
+<li>Copy that HTML into the <code>index.Rmd</code> file with the three most up-to-date blog posts.</li>
+</ol>
+<p><br></p>
+<p>I find it easiest to leave a template in comments that I can just fill in the blanks from the blog post I’ve finished. I don’t think this is <em>too</em> much work. Also, RStudio may come up with some new tooling soon, you never know!</p>
+<p><br></p>
+<p><code>blog.Rmd</code></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode html code-with-copy"><code class="sourceCode html"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!---</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co">entries will follow this format:</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;article&gt;</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;h3&gt;&lt;a href=""&gt; &lt;/a&gt;&lt;/h3&gt;</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;div class="summary"&gt;</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;span&gt;&lt;i class="fa fa-calendar"&gt;&lt;/i&gt; _date_&lt;/span&gt;</span></span>
+<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;p&gt; ...&lt;/p&gt;</span></span>
+<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;a class="btn btn-outline-primary btn-sm" href=""&gt;Full Post&lt;/a&gt;</span></span>
+<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;/div&gt;</span></span>
+<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;/article&gt;</span></span>
+<span id="cb9-11"><a href="#cb9-11" aria-hidden="true" tabindex="-1"></a><span class="co">---&gt;</span></span>
+<span id="cb9-12"><a href="#cb9-12" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-13"><a href="#cb9-13" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;article&gt;</span></span>
+<span id="cb9-14"><a href="#cb9-14" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;h3&gt;&lt;a</span> <span class="er">href</span><span class="ot">=</span><span class="st">"blog-the-move-to-r.html"</span><span class="kw">&gt;</span>THE MOVE TO R<span class="kw">&lt;/a&gt;&lt;/h3&gt;</span></span>
+<span id="cb9-15"><a href="#cb9-15" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;div</span> <span class="er">class</span><span class="ot">=</span><span class="st">"summary"</span><span class="kw">&gt;</span></span>
+<span id="cb9-16"><a href="#cb9-16" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;span&gt;&lt;i</span> <span class="er">class</span><span class="ot">=</span><span class="st">"fa fa-calendar"</span><span class="kw">&gt;&lt;/i&gt;</span> _2016-08-29_<span class="kw">&lt;/span&gt;</span></span>
+<span id="cb9-17"><a href="#cb9-17" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;p&gt;</span>This is _not_ a language wars type post.  I do not think there is some Mordor forged language to _rule them all_.  I debated whether or not to even write a post like this.  Nevertheless, I had a chance to meet and talk to [Jake Powray](https://twitter.com/jakeporway) from [DataKind](http://www.datakind.org) at the [DoGoodData](http://www.dogooddata.com) conference and I...<span class="kw">&lt;/p&gt;</span></span>
+<span id="cb9-18"><a href="#cb9-18" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;a</span> <span class="er">class</span><span class="ot">=</span><span class="st">"btn btn-outline-primary btn-sm"</span> <span class="er">href</span><span class="ot">=</span><span class="st">"blog-the-move-to-r.html"</span><span class="kw">&gt;</span>Full Post<span class="kw">&lt;/a&gt;</span></span>
+<span id="cb9-19"><a href="#cb9-19" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;/div&gt;</span></span>
+<span id="cb9-20"><a href="#cb9-20" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;/article&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><br></p>
+</section>
+<section id="anchor-tag-in-page-links-missed-location" class="level4">
+<h4 class="anchored" data-anchor-id="anchor-tag-in-page-links-missed-location">Anchor tag in page links missed location</h4>
+<p><br></p>
+<p>On my home page I use the smooth scrolling function to move between the summarized content with anchor links and the <code>id</code> attribute. Since I added the <code>fixed</code> class to my <code>_navbar.html</code> file, I forgot to adjust for those pixels. This was fixed with the following CSS:</p>
+<p><br></p>
+<p><code>style.css</code></p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode css code-with-copy"><code class="sourceCode css"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>a<span class="fu">.anchor</span> {</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="kw">display</span>: <span class="dv">block</span><span class="op">;</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="kw">position</span>: <span class="dv">relative</span><span class="op">;</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="kw">top</span>: <span class="dv">-45</span><span class="dt">px</span><span class="op">;</span> <span class="co">/* fixed navbar height */</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  <span class="kw">visibility</span>: <span class="dv">hidden</span><span class="op">;</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p><br></p>
+</section>
+<section id="displaying-css-in-a-code-chunk" class="level4">
+<h4 class="anchored" data-anchor-id="displaying-css-in-a-code-chunk">Displaying <code>CSS</code> in a code chunk</h4>
+<p><br></p>
+<p>To get CSS to display in this blog post I had to <code>git checkout gh-pages</code> in the clone of <code>rmarkdown</code> that I made (which I recommend!) to see what they did to display CSS. I mostly use the following format for code chunks: <code>{r, eval=FALSE}</code>, <code>{html, eval=FALSE}</code>, <code>{python, eval=FALSE}</code>, or any of the other engines <code>knitr</code> can handle. <code>{css, eval=FALSE}</code> wouldn’t render for me when writing this post. Instead I had to use the following:</p>
+<p><br></p>
+<pre class="markdown"><code>```css
+.someClass {
+  color: #FFFF00;
+}
+```
+</code></pre>
+<p><br></p>
+</section>
+<section id="also-how-do-you-put-a-code-chunk-in-a-code-chunk" class="level4">
+<h4 class="anchored" data-anchor-id="also-how-do-you-put-a-code-chunk-in-a-code-chunk">Also, how do you put a code chunk in a code chunk?</h4>
+<p><br></p>
+<p><img src="yo-dawg-knitr.jpg" class="img-fluid"></p>
+<p><br></p>
+<p>Sorry, I had to do that. Trying to render the above CSS chunk proved harder than I thought. It lead me to try and figure out how to put a code chunk in a code chunk (and I thought of the ‘yo dawg’ meme right away). Boosted strait from RStudio’s site, this is how you accomplish it if you ever need to know:</p>
+<p><br></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode html code-with-copy"><code class="sourceCode html"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;pre</span> <span class="er">class</span><span class="ot">=</span><span class="st">"markdown"</span><span class="kw">&gt;&lt;code&gt;</span><span class="dv">&amp;#96;&amp;#96;&amp;#96;</span>css</span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>.someClass {</span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  color: #FFFF00;</span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a><span class="dv">&amp;#96;&amp;#96;&amp;#96;</span></span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;/code&gt;&lt;/pre&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><br></p>
+</section>
+<section id="getting-disqus-to-work" class="level4">
+<h4 class="anchored" data-anchor-id="getting-disqus-to-work">Getting Disqus to work</h4>
+<p><br></p>
+<p>First you’ll need to set up an account with <a href="https://disqus.com">Disqus</a>. The instructions are pretty self expanatory for installing Disqus on your page. Once you’ve followed all the instructions, you should be able to navigate to the ‘Installation’ tab, which presents you with options for installing. You’ll need to select “I don’t see my platform listed, install manually with <strong>Universal Code</strong>”. You’ll be presented with a Jacascript function to place in your site.</p>
+<p><br></p>
+<p>I initally didn’t follow Disqus instructions and tried to make it work the way RStudio had it set up in their <code>footer</code> but couldn’t get it to work—what I did was first add the script tag that gives you a count of comments (step 1 under the ‘How to display comment count’) and then add just the function right after (step 1). If you look at the commented out section in the function, you’ll see that Disqus wants you to set two variables and uncomment, but I couldn’t seem to get them to work with my site set up the way it is. If anyone has any insight into how the variables could be set up with an <code>rmarkdown</code> website, let me know in the comments!</p>
+<p><br></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode html code-with-copy"><code class="sourceCode html"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co">&lt;!-- disqus --&gt;</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;script</span> <span class="er">id</span><span class="ot">=</span><span class="st">"dsq-count-scr"</span> <span class="er">src</span><span class="ot">=</span><span class="st">"//rbmv.disqus.com/count.js"</span> <span class="er">async</span><span class="kw">&gt;&lt;/script&gt;</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a><span class="kw">&lt;div</span> <span class="er">id</span><span class="ot">=</span><span class="st">"disqus_thread"</span> <span class="er">class</span><span class="ot">=</span><span class="st">"disqusPadding"</span><span class="kw">&gt;&lt;/div&gt;</span></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="kw">&lt;script&gt;</span></span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>    (<span class="kw">function</span>() { <span class="co">// DON'T EDIT BELOW THIS LINE</span></span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>      <span class="kw">var</span> d <span class="op">=</span> <span class="bu">document</span><span class="op">,</span> s <span class="op">=</span> d<span class="op">.</span><span class="fu">createElement</span>(<span class="st">'script'</span>)<span class="op">;</span></span>
+<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>      s<span class="op">.</span><span class="at">src</span> <span class="op">=</span> <span class="st">'//rbmv.disqus.com/embed.js'</span><span class="op">;</span></span>
+<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>      s<span class="op">.</span><span class="fu">setAttribute</span>(<span class="st">'data-timestamp'</span><span class="op">,</span> <span class="op">+</span><span class="kw">new</span> <span class="bu">Date</span>())<span class="op">;</span></span>
+<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>      (d<span class="op">.</span><span class="at">head</span> <span class="op">||</span> d<span class="op">.</span><span class="at">body</span>)<span class="op">.</span><span class="fu">appendChild</span>(s)<span class="op">;</span></span>
+<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>    })()<span class="op">;</span></span>
+<span id="cb12-11"><a href="#cb12-11" aria-hidden="true" tabindex="-1"></a>  <span class="kw">&lt;/script&gt;</span></span>
+<span id="cb12-12"><a href="#cb12-12" aria-hidden="true" tabindex="-1"></a>  <span class="kw">&lt;noscript&gt;</span>Please enable JavaScript to view the <span class="kw">&lt;a</span> <span class="er">href</span><span class="ot">=</span><span class="st">"https://disqus.com/?ref_noscript"</span><span class="kw">&gt;</span>comments powered by Disqus.<span class="kw">&lt;/a&gt;&lt;/noscript&gt;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><br></p>
+</section>
+<section id="syntax-highlighting" class="level4">
+<h4 class="anchored" data-anchor-id="syntax-highlighting">Syntax highlighting</h4>
+<p><br></p>
+<p>I’m not a big fan of the options we inherit from Pandoc. Also, the CSS generated from code chunks seems kind of arbitrary and doesn’t work with Pygments (which is a shame because there are <em>many</em> Pygments CSS files to be found online!). From what I can tell <a href="https://github.com/jeffbr13/benjeffrey.com/blob/master/posts/pandoc-syntax-highlighting-css.md">here</a> the markup classes come from the <a href="http://hackage.haskell.org/package/highlighting-kate">highlighting-kate</a> package. When I looked at the <a href="http://ethanschoonover.com/solarized">Solarized</a> webpage, there’s a link to the pages <a href="https://github.com/altercation/ethanschoonover.com/blob/master/resources/css/style.css">css</a> that gave me a bit of a head start. I tweaked it a bit to try and make the chunks look like the syntax highlighting in R, but it isn’t perfect. If you would like to use my highlight theme, just copy this into your CSS:</p>
+<p><br></p>
+<p><code>style.css</code></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode html code-with-copy"><code class="sourceCode html"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>root: {</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  --base03: #002b36;  /* background */</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  --base02: #073642;  /* other background */</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  --base01: #586e75;  /* comments / secondary content */</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>  --base1: #93a1a1;  /* body text / default code / primary content */</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>  --yellow: #b58900;  /* keyword */</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>  --orange: #cb4b16;  /* constants */</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>  --red: #dc322f;  /* regex, special keywords */</span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>  --magenta: #d33682;  /* not sure what to do with this color yet */</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>  --violet: #6c71c4;  /* not sure what to do with this color yet */</span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a>  --blue: #268bd2;  /* reserved keywords */</span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a>  --cyan: #2aa198;  /* strings, numbers */</span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a>  --green: #859900;  /* operators, other keywords */</span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>/*</span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a> * Solarized Dark </span>
+<span id="cb13-18"><a href="#cb13-18" aria-hidden="true" tabindex="-1"></a> * http://ethanschoonover.com/solarized</span>
+<span id="cb13-19"><a href="#cb13-19" aria-hidden="true" tabindex="-1"></a> */</span>
+<span id="cb13-20"><a href="#cb13-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-21"><a href="#cb13-21" aria-hidden="true" tabindex="-1"></a>pre, code { font-family: 'Roboto Mono', monospace ; font-weight: 300; }</span>
+<span id="cb13-22"><a href="#cb13-22" aria-hidden="true" tabindex="-1"></a>pre { background-color: var(--base03); color: var(--base1); }</span>
+<span id="cb13-23"><a href="#cb13-23" aria-hidden="true" tabindex="-1"></a>code.sourceCode .kw { color: var(--blue); font-weight: 700; } /* Keyword */</span>
+<span id="cb13-24"><a href="#cb13-24" aria-hidden="true" tabindex="-1"></a>code.sourceCode .dt { color: var(--cyan); } /* DataType */</span>
+<span id="cb13-25"><a href="#cb13-25" aria-hidden="true" tabindex="-1"></a>code.sourceCode .dv { color: var(--base01); } /* DecVal */</span>
+<span id="cb13-26"><a href="#cb13-26" aria-hidden="true" tabindex="-1"></a>code.sourceCode .bn { color: var(--orange); } /* BaseN */</span>
+<span id="cb13-27"><a href="#cb13-27" aria-hidden="true" tabindex="-1"></a>code.sourceCode .fl { color: var(--cyan); } /* Float */</span>
+<span id="cb13-28"><a href="#cb13-28" aria-hidden="true" tabindex="-1"></a>code.sourceCode .ch { color: var(--red); } /* Char */</span>
+<span id="cb13-29"><a href="#cb13-29" aria-hidden="true" tabindex="-1"></a>code.sourceCode .st { color: var(--green); } /* String */</span>
+<span id="cb13-30"><a href="#cb13-30" aria-hidden="true" tabindex="-1"></a>code.sourceCode .co { color: var(--base01); font-style: 100i; } /* Comment */</span>
+<span id="cb13-31"><a href="#cb13-31" aria-hidden="true" tabindex="-1"></a>code.sourceCode .ot { color: var(--base1); } /* Other */</span>
+<span id="cb13-32"><a href="#cb13-32" aria-hidden="true" tabindex="-1"></a>code.sourceCode .al { color: var(--green); font-weight: 700; } /* Alert */</span>
+<span id="cb13-33"><a href="#cb13-33" aria-hidden="true" tabindex="-1"></a>code.sourceCode .fu { color: var(--blue); } /* Function */</span>
+<span id="cb13-34"><a href="#cb13-34" aria-hidden="true" tabindex="-1"></a>code.sourceCode .er { color: var(--red); font-weight: 700; } /* Error */</span>
+<span id="cb13-35"><a href="#cb13-35" aria-hidden="true" tabindex="-1"></a>code.sourceCode .wa { color: var(--base1); font-weight: 700i; } /* Warning */</span>
+<span id="cb13-36"><a href="#cb13-36" aria-hidden="true" tabindex="-1"></a>code.sourceCode .cn { color: var(--orange); } /* Constant */</span>
+<span id="cb13-37"><a href="#cb13-37" aria-hidden="true" tabindex="-1"></a>code.sourceCode .sc { color: var(--red); } /* SpecialChar */</span>
+<span id="cb13-38"><a href="#cb13-38" aria-hidden="true" tabindex="-1"></a>code.sourceCode .vs { color: var(--cyan); } /* VerbatimString */</span>
+<span id="cb13-39"><a href="#cb13-39" aria-hidden="true" tabindex="-1"></a>code.sourceCode .ss { color: var(--cyan); } /* SpecialString */</span>
+<span id="cb13-40"><a href="#cb13-40" aria-hidden="true" tabindex="-1"></a>code.sourceCode .im { color: var(--red); } /* Import */</span>
+<span id="cb13-41"><a href="#cb13-41" aria-hidden="true" tabindex="-1"></a>code.sourceCode .va { color: var(--blue); } /* Variable */</span>
+<span id="cb13-42"><a href="#cb13-42" aria-hidden="true" tabindex="-1"></a>code.sourceCode .cf { color: var(--green); font-weight: 700; } /* ControlFlow */</span>
+<span id="cb13-43"><a href="#cb13-43" aria-hidden="true" tabindex="-1"></a>code.sourceCode .op { color: var(--yellow); } /* Operator */</span>
+<span id="cb13-44"><a href="#cb13-44" aria-hidden="true" tabindex="-1"></a>code.sourceCode .bu { color: var(--blue); } /* BuiltIn */</span>
+<span id="cb13-45"><a href="#cb13-45" aria-hidden="true" tabindex="-1"></a>code.sourceCode .ex { } /* Extension */</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><br></p>
+<blockquote class="blockquote">
+<p>I rand the code chunk above as <code>{html, eval=FALSE}</code> because some of the CSS variables were being classified as <code>.er</code>, which looked really off. I’m still working on the best solution for the syntax highlighting.</p>
+</blockquote>
+<p><br></p>
+<p>You can also go crazy with this and create your own theme that mimics whatever color scheme you are going to use for your site. I thought these colors looked good with my site’s color scheme and the colors I plan to use for data visualizations are still in the works—I will likely change them pretty often.</p>
+<p><br></p>
+</section>
+<section id="put-some-ggplot2-in-a-post" class="level4">
+<h4 class="anchored" data-anchor-id="put-some-ggplot2-in-a-post">Put some <code>ggplot2</code> in a post!</h4>
+<p><br></p>
+<p>The most rewarding part about writing blog posts in <code>rmarkdown</code> is that you can really dive into an analysis workflow and it is automagically a blog post. It’s so easy—you just leave your code chunk as is or pass <code>eval = F</code> if you just want to show some code<a href="#fn8" class="footnote-ref" id="fnref8" role="doc-noteref"><sup>8</sup></a> or <code>echo = F</code> to hide or display code the way you want to.</p>
+<p><br></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">suppressPackageStartupMessages</span>(<span class="fu">library</span>(ggplot2))</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">suppressPackageStartupMessages</span>(<span class="fu">library</span>(dplyr))</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a><span class="co"># these are the colors I wanted to use for the site; may not be good for viz</span></span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>rbmv_palette <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"#BFF073"</span>, <span class="st">"#0DC9F7"</span>, <span class="st">"#7F7F7F"</span>, <span class="st">"#F05B47"</span>, <span class="st">"#ED1C24"</span>)</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>mtcars <span class="sc">%&gt;%</span></span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> disp, <span class="at">y =</span> mpg)) <span class="sc">+</span></span>
+<span id="cb14-9"><a href="#cb14-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_point</span>(<span class="at">color =</span> rbmv_palette[<span class="dv">3</span>]) <span class="sc">+</span> </span>
+<span id="cb14-10"><a href="#cb14-10" aria-hidden="true" tabindex="-1"></a>    <span class="fu">geom_smooth</span>(<span class="at">formula =</span> y <span class="sc">~</span> x, <span class="at">se =</span> F, <span class="at">method =</span> <span class="st">"loess"</span>, </span>
+<span id="cb14-11"><a href="#cb14-11" aria-hidden="true" tabindex="-1"></a>                <span class="at">color =</span> rbmv_palette[<span class="dv">2</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<p><img src="building-site-with-rmarkdown_files/figure-html/ggplot-1.png" class="img-fluid" width="672"></p>
+</div>
+</div>
+<p><br></p>
+<blockquote class="blockquote">
+<p>When using <code>ggplot</code> in this way, it creates a directory with an image file to use when creating the HTML. One of the reasons its easier to just use Plotly for web/interactive type stuff.</p>
+</blockquote>
+<p><br></p>
+</section>
+<section id="ok-but-how-do-i-add-plotly-to-a-page" class="level4">
+<h4 class="anchored" data-anchor-id="ok-but-how-do-i-add-plotly-to-a-page">Ok, but how do I add <code>plotly</code> to a page?</h4>
+<p><br></p>
+<p>I’ve been really into Plotly lately and one of the first things I wanted to do was add it to my website. <del>There are a couple of hoops you have to jump through but luckily there is the wonderful <code>htmltools</code> package to help out</del><a href="#fn9" class="footnote-ref" id="fnref9" role="doc-noteref"><sup>9</sup></a>. Oh, and pipes. Plotly loves <code>%&gt;%</code>’s. I’ll just redo the plot above so you get an idea.</p>
+<p><br></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">suppressPackageStartupMessages</span>(<span class="fu">library</span>(plotly))</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>rbmv_palette <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"#BFF073"</span>, <span class="st">"#0DC9F7"</span>, <span class="st">"#7F7F7F"</span>, <span class="st">"#F05B47"</span>, <span class="st">"#ED1C24"</span>)</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>mtcars <span class="ot">&lt;-</span> mtcars[<span class="fu">order</span>(mtcars<span class="sc">$</span>disp), ]</span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>mtcars <span class="sc">%&gt;%</span> <span class="fu">plot_ly</span>(<span class="at">x =</span> <span class="sc">~</span>disp, <span class="at">y =</span> <span class="sc">~</span>mpg, </span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>                   <span class="at">type =</span> <span class="st">"scatter"</span>, <span class="at">mode =</span> <span class="st">"markers"</span>,</span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>                   <span class="at">text =</span> <span class="sc">~</span><span class="fu">paste</span>(<span class="fu">rownames</span>(mtcars), <span class="st">"&lt;br&gt;Mpg: "</span>, </span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>                                 mpg, <span class="st">"Disp: "</span>, disp), </span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>                   <span class="at">showlegend =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb15-12"><a href="#cb15-12" aria-hidden="true" tabindex="-1"></a>                   <span class="at">colors =</span> rbmv_palette) <span class="sc">%&gt;%</span></span>
+<span id="cb15-13"><a href="#cb15-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">add_lines</span>(<span class="at">x =</span> <span class="sc">~</span>disp, <span class="at">y =</span> <span class="sc">~</span><span class="fu">fitted</span>(<span class="fu">loess</span>(mpg <span class="sc">~</span> disp)), </span>
+<span id="cb15-14"><a href="#cb15-14" aria-hidden="true" tabindex="-1"></a>            <span class="at">mode =</span> <span class="st">"lines"</span>, <span class="at">name =</span> <span class="st">"Loess Smoother"</span>, </span>
+<span id="cb15-15"><a href="#cb15-15" aria-hidden="true" tabindex="-1"></a>            <span class="at">showlegend =</span> <span class="cn">TRUE</span>, </span>
+<span id="cb15-16"><a href="#cb15-16" aria-hidden="true" tabindex="-1"></a>            <span class="at">line =</span> <span class="fu">list</span>(<span class="at">color =</span> rbmv_palette[<span class="dv">2</span>])) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="htmlwidget-f65e336705a13c5c09b1" style="width:100%;height:464px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-f65e336705a13c5c09b1">{"x":{"visdat":{"3df1458155d":["function () ","plotlyVisDat"]},"cur_data":"3df1458155d","attrs":{"3df1458155d":{"x":{},"y":{},"mode":"markers","text":{},"showlegend":false,"colors":["#BFF073","#0DC9F7","#7F7F7F","#F05B47","#ED1C24"],"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatter"},"3df1458155d.1":{"x":{},"y":{},"mode":"lines","text":{},"showlegend":true,"colors":["#BFF073","#0DC9F7","#7F7F7F","#F05B47","#ED1C24"],"alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatter","name":"Loess Smoother","line":{"color":"#0DC9F7"},"inherit":true}},"layout":{"margin":{"b":40,"l":60,"t":25,"r":10},"xaxis":{"domain":[0,1],"automargin":true,"title":"disp"},"yaxis":{"domain":[0,1],"automargin":true,"title":"mpg"},"hovermode":"closest","showlegend":false},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false},"data":[{"x":[71.1,75.7,78.7,79,95.1,108,120.1,120.3,121,140.8,145,146.7,160,160,167.6,167.6,225,258,275.8,275.8,275.8,301,304,318,350,351,360,360,400,440,460,472],"y":[33.9,30.4,32.4,27.3,30.4,22.8,21.5,26,21.4,22.8,19.7,24.4,21,21,19.2,17.8,18.1,21.4,16.4,17.3,15.2,15,15.2,15.5,13.3,15.8,18.7,14.3,19.2,14.7,10.4,10.4],"mode":"markers","text":["Toyota Corolla <br>Mpg:  33.9 Disp:  71.1","Honda Civic <br>Mpg:  30.4 Disp:  75.7","Fiat 128 <br>Mpg:  32.4 Disp:  78.7","Fiat X1-9 <br>Mpg:  27.3 Disp:  79","Lotus Europa <br>Mpg:  30.4 Disp:  95.1","Datsun 710 <br>Mpg:  22.8 Disp:  108","Toyota Corona <br>Mpg:  21.5 Disp:  120.1","Porsche 914-2 <br>Mpg:  26 Disp:  120.3","Volvo 142E <br>Mpg:  21.4 Disp:  121","Merc 230 <br>Mpg:  22.8 Disp:  140.8","Ferrari Dino <br>Mpg:  19.7 Disp:  145","Merc 240D <br>Mpg:  24.4 Disp:  146.7","Mazda RX4 <br>Mpg:  21 Disp:  160","Mazda RX4 Wag <br>Mpg:  21 Disp:  160","Merc 280 <br>Mpg:  19.2 Disp:  167.6","Merc 280C <br>Mpg:  17.8 Disp:  167.6","Valiant <br>Mpg:  18.1 Disp:  225","Hornet 4 Drive <br>Mpg:  21.4 Disp:  258","Merc 450SE <br>Mpg:  16.4 Disp:  275.8","Merc 450SL <br>Mpg:  17.3 Disp:  275.8","Merc 450SLC <br>Mpg:  15.2 Disp:  275.8","Maserati Bora <br>Mpg:  15 Disp:  301","AMC Javelin <br>Mpg:  15.2 Disp:  304","Dodge Challenger <br>Mpg:  15.5 Disp:  318","Camaro Z28 <br>Mpg:  13.3 Disp:  350","Ford Pantera L <br>Mpg:  15.8 Disp:  351","Hornet Sportabout <br>Mpg:  18.7 Disp:  360","Duster 360 <br>Mpg:  14.3 Disp:  360","Pontiac Firebird <br>Mpg:  19.2 Disp:  400","Chrysler Imperial <br>Mpg:  14.7 Disp:  440","Lincoln Continental <br>Mpg:  10.4 Disp:  460","Cadillac Fleetwood <br>Mpg:  10.4 Disp:  472"],"showlegend":false,"type":"scatter","marker":{"color":"rgba(31,119,180,1)","line":{"color":"rgba(31,119,180,1)"}},"error_y":{"color":"rgba(31,119,180,1)"},"error_x":{"color":"rgba(31,119,180,1)"},"line":{"color":"rgba(31,119,180,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":[71.1,75.7,78.7,79,95.1,108,120.1,120.3,121,140.8,145,146.7,160,160,167.6,167.6,225,258,275.8,275.8,275.8,301,304,318,350,351,360,360,400,440,460,472],"y":[31.8587265478689,30.997160511089,30.4515688818864,30.3978766914933,27.6878765636072,25.7536029023605,24.1266208899878,24.1012302593287,24.0128145822842,21.7855370304885,21.3720222888,21.2095787437194,20.1233661948189,20.1233661948189,19.5876473362003,19.5876473362003,17.8667031510564,17.3361001159279,16.6706159588599,16.6706159588599,16.6706159588599,16.3557242808806,16.3295803630335,16.1508424685288,15.6175774563292,15.5983332500748,15.4036322355415,15.4036322355415,14.3441620745588,13.0380914865063,12.2654317142106,11.7573008148926],"mode":"lines","text":["Toyota Corolla <br>Mpg:  33.9 Disp:  71.1","Honda Civic <br>Mpg:  30.4 Disp:  75.7","Fiat 128 <br>Mpg:  32.4 Disp:  78.7","Fiat X1-9 <br>Mpg:  27.3 Disp:  79","Lotus Europa <br>Mpg:  30.4 Disp:  95.1","Datsun 710 <br>Mpg:  22.8 Disp:  108","Toyota Corona <br>Mpg:  21.5 Disp:  120.1","Porsche 914-2 <br>Mpg:  26 Disp:  120.3","Volvo 142E <br>Mpg:  21.4 Disp:  121","Merc 230 <br>Mpg:  22.8 Disp:  140.8","Ferrari Dino <br>Mpg:  19.7 Disp:  145","Merc 240D <br>Mpg:  24.4 Disp:  146.7","Mazda RX4 <br>Mpg:  21 Disp:  160","Mazda RX4 Wag <br>Mpg:  21 Disp:  160","Merc 280 <br>Mpg:  19.2 Disp:  167.6","Merc 280C <br>Mpg:  17.8 Disp:  167.6","Valiant <br>Mpg:  18.1 Disp:  225","Hornet 4 Drive <br>Mpg:  21.4 Disp:  258","Merc 450SE <br>Mpg:  16.4 Disp:  275.8","Merc 450SL <br>Mpg:  17.3 Disp:  275.8","Merc 450SLC <br>Mpg:  15.2 Disp:  275.8","Maserati Bora <br>Mpg:  15 Disp:  301","AMC Javelin <br>Mpg:  15.2 Disp:  304","Dodge Challenger <br>Mpg:  15.5 Disp:  318","Camaro Z28 <br>Mpg:  13.3 Disp:  350","Ford Pantera L <br>Mpg:  15.8 Disp:  351","Hornet Sportabout <br>Mpg:  18.7 Disp:  360","Duster 360 <br>Mpg:  14.3 Disp:  360","Pontiac Firebird <br>Mpg:  19.2 Disp:  400","Chrysler Imperial <br>Mpg:  14.7 Disp:  440","Lincoln Continental <br>Mpg:  10.4 Disp:  460","Cadillac Fleetwood <br>Mpg:  10.4 Disp:  472"],"showlegend":true,"type":"scatter","name":"Loess Smoother","line":{"color":"#0DC9F7"},"marker":{"color":"rgba(255,127,14,1)","line":{"color":"rgba(255,127,14,1)"}},"error_y":{"color":"rgba(255,127,14,1)"},"error_x":{"color":"rgba(255,127,14,1)"},"xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+<p><br></p>
+</section>
+<section id="github-pages" class="level3">
+<h3 class="anchored" data-anchor-id="github-pages">GitHub Pages</h3>
+<p><br></p>
+<p>You really don’t need to do a whole lot to host on GitHub. GitHub has really helpful <a href="https://pages.github.com">instructions</a> where you can see the two kinds of GitHub pages: a user or organizational account (which is what you’ll use for your blog), or a project page. The only other thing you’ll need to do is creat a <code>.nojekyll</code> file in your repository which you can do quickly in Bash:</p>
+<p><br></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">touch</span> .nojeckyll</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><br></p>
+<p>If you’ve purchased a domain and want to use it, you’ll need a <code>CNAME</code> file in your directory as well. This is a really easy file to create:</p>
+<p><br></p>
+<p><code>CNAME</code></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="ex">vim</span> CNAME</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><br></p>
+<p>You are now in Vim, a text editor, and if you’ve never been here will be really confused! So just follow these steps:</p>
+<ol type="1">
+<li>Press the <code>i</code> key to ‘insert’, or, type into the text editor.</li>
+<li>type your url into the file, in my case:</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode bash code-with-copy"><code class="sourceCode bash"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="ex">robertmitchellv.com</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<ol start="3" type="1">
+<li>Hit the <code>esc</code> key to exit ‘insert’ mode</li>
+<li>Type the <code>:</code> key to enter a command (you enter the command at the bottom of the terminal window)</li>
+<li>Type ‘wq’ and then hit <code>return</code></li>
+</ol>
+<p>Ok, that was sneaky, you can also just create a new file in RStudio (text file) and enter it that way and save it. That will be much easier!</p>
+<p><br></p>
+</section>
+<section id="thats-it" class="level3">
+<h3 class="anchored" data-anchor-id="thats-it">That’s it!</h3>
+<p><br></p>
+<p>That’s really all I’ve done so far. I just rebuilt this site last week and I’m likely to learn a lot more as I continue but wanted to share what I’ve learned for anyone interested.</p>
+<p><br> <br> <br></p>
+
+
+</section>
+</section>
+
+
+<div id="quarto-appendix" class="default"><section class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1" role="doc-endnote"><p><a href="https://en.m.wikipedia.org/wiki/Joseph_J._Allaire">J.J. Allaire</a>, <a href="https://mobile.twitter.com/xieyihui">Yihui Xie</a>, <a href="mobile.twitter.com/statgarrett">Garrett Grolemund</a>, <a href="https://www.rstudio.com/about/">et al.</a><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2" role="doc-endnote"><p>If only I had paid more attention in this course! I just wasn’t ready to dive into this subject at the time. Perhaps if we started with bootstrapping instead of the normal distribution and Chebyshev’s theorem I would have saw how interesting statistics is and how probability is really fun when coming from a philosophy background.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3" role="doc-endnote"><p>I spent so much time trying to figure out other people’s complicated <code>.vimrc</code> files before I was even ready to utilize some of the shorthands that others were using for their own workflows—sometimes it’s ok to just start at the beginning and facing that realization was important.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4" role="doc-endnote"><p>This is a sneaky way to introduce people to <a href="https://en.m.wikipedia.org/wiki/Carl_Jung">Jung’s</a> notion of the <a href="en.m.wikipedia.org/wiki/Shadow_(psychology)">shadow</a>, which I find to be a very powerful and interesting concept.<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn5" role="doc-endnote"><p>Although a <code>yml</code> file, and <code>Rmd</code> files you place a ’_’ in front of will not be rendered. This can be useful for staging blog posts or for files you want to include in others. All <code>Rmd</code> files are rendered when you click ‘Build Website’.<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn6" role="doc-endnote"><p>You don’t need to include your navbar if it is named <code>_navbar.html</code>—it will automatically be included when you build your site.<a href="#fnref6" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn7" role="doc-endnote"><p>you can check out my <code>navbar</code> <a href="https://github.com/robertmitchellv/robertmitchellv.github.io/blob/master/_navbar.html">here</a> if you’re interested.<a href="#fnref7" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn8" role="doc-endnote"><p>I had to do this for some Python code from older blog posts—the syntax highlighting wasn’t <em>exactly</em> as it should be but it looked ok.<a href="#fnref8" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn9" role="doc-endnote"><p>You used to have to pipe your plotly object through <code>as.widget() %&gt;% list() %&gt;% tagList()</code> to get it to display on the site; however, now you don’t need to do anything!<a href="#fnref9" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    toggleBodyColorMode(window.document.querySelector("link#quarto-bootstrap"));
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  let localAlternateSentinel = 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } 
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      let href = ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left"><i class="fa-solid fa-copyright"></i> 2022, Robert Mitchell</div>   
+      <div class="nav-footer-center">
+        <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+ <img src="../../images/rbmv-secondary.png" width="auto" height="30px">
+  </li>  
+</ul>
+      </div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/robertmitchellv">
+      <i class="bi bi-github" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com/robertmitchellv">
+      <i class="bi bi-twitter" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://linkedin.com/in/robertmitchellv">
+      <i class="bi bi-linkedin" role="img">
+</i> 
+    </a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
+
+
+
+</body></html>

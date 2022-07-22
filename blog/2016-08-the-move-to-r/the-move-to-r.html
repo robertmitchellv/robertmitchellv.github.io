@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.0.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Robert Mitchell">
+<meta name="dcterms.date" content="2016-08-29">
+
+<title>robertmitchellv - The move to R</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../images/me.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-43L15MR1WY"></script>
+
+<script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-43L15MR1WY', { 'anonymize_ip': true});
+</script>
+
+
+<meta name="twitter:title" content="robertmitchellv - The move to R">
+<meta name="twitter:description" content="It’s been almost a year since I posted anything on this site and quite a bit has changed for me since then.">
+<meta name="twitter:creator" content="@robertmitchellv">
+<meta name="twitter:card" content="summary">
+</head>
+
+<body class="nav-fixed fullcontent">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <a class="navbar-brand" href="../../index.html">
+    <img src="../../images/rbmv-secondary.png" alt="">
+  </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html"><i class="fa-solid fa-house-user"></i> Home</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../blog.html"><i class="fa-solid fa-laptop-code"></i> Blog</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../talks.html"><i class="fa-solid fa-chalkboard-user"></i> Talks</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../projects.html"><i class="fa-solid fa-chart-line"></i> Projects</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html"><i class="fa-solid fa-address-card"></i> About</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../vitae.html"><i class="fa-solid fa-paperclip"></i> Vitae</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="mailto:robert@robertmitchellv.com"><i class="fa-solid fa-paper-plane"></i> Contact</a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/robertmitchellv"><i class="bi bi-github" role="img">
+</i> 
+ </a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com/robertmitchellv"><i class="bi bi-twitter" role="img">
+</i> 
+ </a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://linkedin.com/in/robertmitchellv"><i class="bi bi-linkedin" role="img">
+</i> 
+ </a>
+  </li>  
+</ul>
+              <div class="quarto-toggle-container">
+                  <a href="" class="quarto-color-scheme-toggle nav-link" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+              </div>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">The move to R</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">R</div>
+                <div class="quarto-category">Thoughts</div>
+                <div class="quarto-category">Learning</div>
+                <div class="quarto-category">Not language wars</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Robert Mitchell </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">August 29, 2016</p>
+      </div>
+    </div>
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content quarto-banner-title-block" id="quarto-document-content">
+
+
+
+
+<p><br></p>
+<blockquote class="blockquote">
+<p>This is <em>not</em> a language wars type post. I do not think there is some Mordor forged language to <em>rule them all</em>. I debated whether or not to even write a post like this. Nevertheless, I had a chance to meet and talk to <a href="https://twitter.com/jakeporway">Jake Powray</a> from <a href="http://www.datakind.org">DataKind</a> at the <a href="http://www.dogooddata.com">DoGoodData</a> confrence and I mentioned my moving from Python to R, which he wanted to hear about since normally he hears about the movement going in the other direction. Since my direction is a bit atypical and since my use case is also different, I decided to write about it. If you have any thoughts feel free to comment below!</p>
+</blockquote>
+<p><br></p>
+<p>It’s been almost a year since I posted anything on this site and quite a bit has changed for me since then. I moved into a more formalized data analyst role at the nonprofit I work at, I developed and put together a survey that relies on around ten research instruments to use as psychometrics (with a longitudinal goal of updating every six months), built a tool to collect the data, tidied the initial 900 responses, performed some clustering that shows a lot of promise, built a Shiny dashboard to communicate results to stakeholders that is being used by programming staff to target their efforts as they work to meet the needs of our respondents, and am gearing up to start bootstrapping the first batch of six month follow-up data to see if any changes are significant. Looking back at my previous posts I am happy to report that I’ve learned a <em>ton</em>—and much of it is due to my picking up and diving into R.</p>
+<p><br></p>
+<p>This isn’t to say that I couldn’t have learned what I did in Python—it just happened to work out in my case that R had a kind of pedagogical effect, which I’ll talk about more in a bit. First, there is no argument that there are insanely smart people who build tools in both languages (some that even collaborate, e.g., <a href="https://github.com/wesm/feather">feather</a>). Thankfully, I’ve never seen an argument that centers around this theme, i.e., that one language holds the corner on sharp programmers. I do, however, see arguments that appear to be preference masquerading as axiomatic, aphoristic, or general maxim. I’m not sharing some unseen truth; rather, I’m just describing what helped me move forward and gain a better understanding of the data analysis workflow that seems to work for me.</p>
+<p><br></p>
+<p>A lot has been said about the <a href="http://www.statmethods.net/about/learningcurve.html">steep learning curve</a> of programming in R. By contrast, Python is one of <a href="http://cacm.acm.org/blogs/blog-cacm/176450-python-is-now-the-most-popular-introductory-teaching-language-at-top-us-universities/fulltext">the most popular introductory teaching languges</a> in CS departments at universities across the US. I knew this before I made a choice of which language to learn when I became interested in data analysis. Based on that understanding, I took a Python 3 course at a community college but mostly lived off of the <a href="http://interactivepython.org/runestone/static/thinkcspy/index.html">interactive</a> version of <a href="https://www.amazon.com/How-Think-Like-Computer-Scientist/dp/0971677506">How to Think Like A Computer Scientist</a>. Like many people who become interested in data, there is a lot of ground to cover before beginning actual analysis. First, I needed to learn how to program. Second, I needed to learn about computer science. I found the interactive site to be the best way for me to actually get a feel for what happens when I run code and I found Python to be an excellent communicator of general CS ideas. After I finished my Python course and began understanding a bit more about what I was doing in Python I hit the ground running learning <code>Pandas</code> and <code>matplotlib</code>—I thought I had closed the door on R. It didn’t make sense to stop progress in one language to begin all over again in another; especially when people like <a href="https://twitter.com/hadleywickham?lang=en">Hadley</a> and <a href="https://twitter.com/statgarrett">Garret</a> recommend that:</p>
+<p><br></p>
+<blockquote class="blockquote">
+<p><i class="fa fa-quote-left fa-1x"></i> However, we strongly believe that it’s best to master one tool at a time. You will get better faster if you dive deep, rather than spreading yourself thinly over many topics. This doesn’t mean you should only know one thing, just that you’ll generally learn faster if you stick to one thing at a time. You should strive to learn new things throughout your career, but make sure your understanding is solid before you move on to the next interesting thing.<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> <i class="fa fa-quote-right fa-1x"></i></p>
+</blockquote>
+<p><br></p>
+<p>I had not <em>mastered</em> Python when deciding to explore R. I have not mastered R either. Nevertheless, there was this nagging thought I couldn’t shake a while back when seeing language-wars-types of posts on twitter about <em>leaving</em> R. Namely, that one necessarily has to use R in order to leave it. Putting aside all the good and bad reasons I’ve read for moving from R to Python, I wondered if R had some sort of pedagogical magic that would help me become a better “data scientist” like the ones I followed on twitter and respected a great deal. In my mind I figured that it must be a cross to bear in order to be a more well rounded data worker.</p>
+<p><br></p>
+<p>Since I had spent considerable time figuring out how to <a href="blog-bar-chart-annotations-pandas-mpl.html">annotate bar charts in matplotlib</a> I figured this would be a good test for R: recreate the plots from that blog post to get a feel for what the language is like. To my chagrin, this was much, <em>much</em>, easier in <code>ggplot2</code> than <code>matplotlib</code>. I felt like I struggled so hard to get <code>matplotlib</code> to give me a halfway decent looking plot while <code>ggplot2</code> made my previous efforts seem futile. Even adding fit lines with one line of code was a crazy thought to me! I finally understood why <a href="https://twitter.com/theglamp">Greg Lamp</a> was working so hard to build <a href="https://github.com/yhat/ggplot">ggplot in Python</a>. I decided to spend my morning train rides learning more about R and about <code>ggplot2</code>. I didn’t know this at the time, but diving into <code>ggplot2</code> and its beautiful API offered me insight I always found lacking when getting started with an analysis project in Python. The more I dove into the <a href="http://r4ds.had.co.nz/introduction.html#the-tidyverse">tidyverse</a> the more I started to see how the API (especially <code>dplyr</code>) unfolds in such a way that a user is practically lead into an analysis workflow; a workflow that I found to be rewarding on many levels.<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a></p>
+<p><br></p>
+<p>Because of this rewarding relationship, I’ve found a great partner in R—this is especially due to my use case, which I mentioned above and will describe quickly before ending this post. I work as the only person within my org that writes code and works with data the way that I do. Because of this, I often am required to perform many tasks and be very flexible and accommodating of requests. R has proved a great workhorse in this regard; I am able to do so many different things in RStudio that work well for a person that must acomplish everything alone. I can take EDA from an <code>Rmd_notebook</code>, put it in a report, turn it into a webpage, or transform it into a Shiny dashboard. Heck, this whole website was written in RStudio and put together with <code>rmarkdown::render_site()</code>. I know there are many projects I’d like to work on where Python will be the tool of choice. However, at least for now I am dreadfully enamored with R. Python taught me how to think like a computer scientist, but R is teaching me how to think like a statistician. Pedagogically I feel that both languages are vital to growing as the person who works in this hodgepodge known as ‘Data Science’.</p>
+<p><br> <br> <br></p>
+
+
+
+
+<div id="quarto-appendix" class="default"><section class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1" role="doc-endnote"><p>Hadley Wickham and Garrett Grolemund, <em>R For Data Science</em>, http://r4ds.had.co.nz/introduction.html#python-julia-and-friends<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2" role="doc-endnote"><p>I know that Hadley has strong opinions about how an analysis workflow should unfold, e.g., “There’s no reason that <code>ifelse()</code> couldn’t be made as fast as your proposed approach, and <code>dplyr</code> will <em>never</em> support in-place mutation of data. This is something I feel very strongly about. Can you provide more examples of the stata code you’re converting? In my experience, stata code tends to use a lot of nested if statements that I’d approach in a fundamentally different way in R.” <a href="https://github.com/hadley/dplyr/issues/425">Read discusion here</a><a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    toggleBodyColorMode(window.document.querySelector("link#quarto-bootstrap"));
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  let localAlternateSentinel = 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } 
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      let href = ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left"><i class="fa-solid fa-copyright"></i> 2022, Robert Mitchell</div>   
+      <div class="nav-footer-center">
+        <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+ <img src="../../images/rbmv-secondary.png" width="auto" height="30px">
+  </li>  
+</ul>
+      </div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/robertmitchellv">
+      <i class="bi bi-github" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com/robertmitchellv">
+      <i class="bi bi-twitter" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://linkedin.com/in/robertmitchellv">
+      <i class="bi bi-linkedin" role="img">
+</i> 
+    </a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
+
+
+
+</body></html>

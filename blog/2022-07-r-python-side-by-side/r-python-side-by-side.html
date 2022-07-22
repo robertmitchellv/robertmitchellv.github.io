@@ -1,0 +1,974 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.0.18">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Robert Mitchell">
+<meta name="dcterms.date" content="2022-07-19">
+
+<title>robertmitchellv - A tidyverse R and polars Python side-by-side</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../images/me.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-43L15MR1WY"></script>
+
+<script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-43L15MR1WY', { 'anonymize_ip': true});
+</script>
+
+<script src="../../site_libs/htmlwidgets-1.5.4/htmlwidgets.js"></script>
+<script src="../../site_libs/plotly-binding-4.10.0/plotly.js"></script>
+<script src="../../site_libs/typedarray-0.1/typedarray.min.js"></script>
+<script src="../../site_libs/jquery-3.5.1/jquery.min.js"></script>
+<link href="../../site_libs/crosstalk-1.2.0/css/crosstalk.min.css" rel="stylesheet">
+<script src="../../site_libs/crosstalk-1.2.0/js/crosstalk.min.js"></script>
+<link href="../../site_libs/plotly-htmlwidgets-css-2.5.1/plotly-htmlwidgets.css" rel="stylesheet">
+<script src="../../site_libs/plotly-main-2.5.1/plotly-latest.min.js"></script>
+<link href="../../site_libs/pagedtable-1.1/css/pagedtable.css" rel="stylesheet">
+<script src="../../site_libs/pagedtable-1.1/js/pagedtable.js"></script>
+
+
+<meta name="twitter:title" content="robertmitchellv - A tidyverse R and polars Python side-by-side">
+<meta name="twitter:creator" content="@robertmitchellv">
+<meta name="twitter:card" content="summary">
+</head>
+
+<body class="floating nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <a class="navbar-brand" href="../../index.html">
+    <img src="../../images/rbmv-secondary.png" alt="">
+  </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html"><i class="fa-solid fa-house-user"></i> Home</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../blog.html"><i class="fa-solid fa-laptop-code"></i> Blog</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../talks.html"><i class="fa-solid fa-chalkboard-user"></i> Talks</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../projects.html"><i class="fa-solid fa-chart-line"></i> Projects</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html"><i class="fa-solid fa-address-card"></i> About</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../vitae.html"><i class="fa-solid fa-paperclip"></i> Vitae</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="mailto:robert@robertmitchellv.com"><i class="fa-solid fa-paper-plane"></i> Contact</a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/robertmitchellv"><i class="bi bi-github" role="img">
+</i> 
+ </a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com/robertmitchellv"><i class="bi bi-twitter" role="img">
+</i> 
+ </a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://linkedin.com/in/robertmitchellv"><i class="bi bi-linkedin" role="img">
+</i> 
+ </a>
+  </li>  
+</ul>
+              <div class="quarto-toggle-container">
+                  <a href="" class="quarto-color-scheme-toggle nav-link" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+              </div>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default toc-left page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">A <code>tidyverse</code> R and <code>polars</code> Python side-by-side</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">R</div>
+                <div class="quarto-category">Python</div>
+                <div class="quarto-category">tidyverse</div>
+                <div class="quarto-category">polars</div>
+                <div class="quarto-category">plotly</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Robert Mitchell </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">July 19, 2022</p>
+      </div>
+    </div>
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+    <nav id="TOC" role="doc-toc">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#data" id="toc-data" class="nav-link active" data-scroll-target="#data">Data</a></li>
+  <li><a href="#fa-brands-r-project-packages" id="toc-fa-brands-r-project-packages" class="nav-link" data-scroll-target="#fa-brands-r-project-packages"><i class="fa-brands fa-r-project"></i> packages</a></li>
+  <li><a href="#fa-brands-python-libraries" id="toc-fa-brands-python-libraries" class="nav-link" data-scroll-target="#fa-brands-python-libraries"><i class="fa-brands fa-python"></i> libraries</a></li>
+  <li><a href="#hans-roslings-quiz" id="toc-hans-roslings-quiz" class="nav-link" data-scroll-target="#hans-roslings-quiz">Hans Rosling’s quiz</a>
+  <ul class="collapse">
+  <li><a href="#sri-lanka-or-turkey" id="toc-sri-lanka-or-turkey" class="nav-link" data-scroll-target="#sri-lanka-or-turkey">Sri Lanka or Turkey</a></li>
+  <li><a href="#lets-just-compare-them-all-at-once" id="toc-lets-just-compare-them-all-at-once" class="nav-link" data-scroll-target="#lets-just-compare-them-all-at-once">Let’s just compare them all at once</a></li>
+  </ul></li>
+  <li><a href="#aggregates" id="toc-aggregates" class="nav-link" data-scroll-target="#aggregates">Aggregates</a></li>
+  <li><a href="#with-conditionals" id="toc-with-conditionals" class="nav-link" data-scroll-target="#with-conditionals">With conditionals?</a></li>
+  <li><a href="#scatterplots" id="toc-scatterplots" class="nav-link" data-scroll-target="#scatterplots">Scatterplots</a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/robertmitchellv/robertmitchellv.github.io/edit/main/blog/2022-07-r-python-side-by-side/r-python-side-by-side.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/robertmitchellv/robertmitchellv.github.io/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block page-columns page-full" id="quarto-document-content">
+
+
+
+
+<div class="column-page-inset-right">
+<p>After seeing many <em>language wars</em> style posts about <i class="fa-brands fa-r-project"></i> vs <i class="fa-brands fa-python"></i> and the sort of <i class="fa-solid fa-apple-whole"></i> to <i class="fa-solid fa-lemon"></i> comparisons being made, I realized that there aren’t many helpful side-by-sides that show you how to do <em>x</em> in <em>y</em> language (and <em>vice versa</em>), I thought about the kind of post I would like to see; one that leverages both <code>tidyverse</code>, modern pandas <a href="tom%20a's%20blog">method-chaining</a> / <a href="https://pyjanitor-devs.github.io/pyjanitor/"><code>pyjanitor</code></a> or <a href="https://pola-rs.github.io/polars-book/user-guide/"><code>polars</code></a>, and <code>plotly</code> (in both R and Python).</p>
+<p>I decided to try and see if I could contribute something to the discourse. I’m not really trying to reinvent an analysis wheel and just want to focus on the <em>how</em> something is accomplished from one language to the other so I’m pulling from a few sources to just have some code to translate using the same data for both languages.</p>
+<p>Since <code>polars</code> is new to me and I like learning new things, I’m using it for the examples, but if you’re familiar with <code>pandas</code> already, I’d <strong>highly</strong> recommend <code>pyjanitor</code>.</p>
+</div>
+<p><br></p>
+<section id="data" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="data">Data</h2>
+<div class="column-page-inset-right">
+<p>Data was obtained from the <code>dslab</code> R package and written to parquet via R’s <code>arrow::write_parquet</code> for better interoporability between R and Python. Additionally, the size is low enough to pull the data as parquet from my GitHub repo.</p>
+</div>
+</section>
+<section id="fa-brands-r-project-packages" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="fa-brands-r-project-packages"><i class="fa-brands fa-r-project"></i> packages</h2>
+<div class="column-page-inset-right">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2"></a><span class="fu">library</span>(plotly)</span>
+<span id="cb1-3"><a href="#cb1-3"></a><span class="fu">library</span>(arrow, <span class="at">include.only =</span> <span class="st">"read_parquet"</span>)</span>
+<span id="cb1-4"><a href="#cb1-4"></a><span class="fu">library</span>(magrittr, <span class="at">include.only =</span> <span class="st">"%&lt;&gt;%"</span>)</span>
+<span id="cb1-5"><a href="#cb1-5"></a></span>
+<span id="cb1-6"><a href="#cb1-6"></a>gapminder <span class="ot">&lt;-</span> <span class="fu">read_parquet</span>(<span class="st">"gapminder.parquet"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</div>
+</section>
+<section id="fa-brands-python-libraries" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="fa-brands-python-libraries"><i class="fa-brands fa-python"></i> libraries</h2>
+<div class="column-page-inset-right">
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1"></a><span class="im">import</span> polars <span class="im">as</span> pl</span>
+<span id="cb2-2"><a href="#cb2-2"></a><span class="im">import</span> plotly.express <span class="im">as</span> px</span>
+<span id="cb2-3"><a href="#cb2-3"></a></span>
+<span id="cb2-4"><a href="#cb2-4"></a>gapminder <span class="op">=</span> pl.read_parquet(<span class="st">"gapminder.parquet"</span>)</span>
+<span id="cb2-5"><a href="#cb2-5"></a></span>
+<span id="cb2-6"><a href="#cb2-6"></a>gapminder <span class="op">=</span> (gapminder</span>
+<span id="cb2-7"><a href="#cb2-7"></a>  .with_columns([</span>
+<span id="cb2-8"><a href="#cb2-8"></a>    pl.col(<span class="st">"country"</span>).cast(pl.Utf8),</span>
+<span id="cb2-9"><a href="#cb2-9"></a>    pl.col(<span class="st">"continent"</span>).cast(pl.Utf8),</span>
+<span id="cb2-10"><a href="#cb2-10"></a>    pl.col(<span class="st">"region"</span>).cast(pl.Utf8)  </span>
+<span id="cb2-11"><a href="#cb2-11"></a>  ])</span>
+<span id="cb2-12"><a href="#cb2-12"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><br></p>
+<p><i class="fa-brands fa-r-project"></i> <strong>return top 10 rows in R</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1"></a>gapminder <span class="sc">%&gt;%</span> <span class="fu">head</span>(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":[""],"name":["_rn_"],"type":[""],"align":["left"]},{"label":["country"],"name":[1],"type":["fct"],"align":["left"]},{"label":["year"],"name":[2],"type":["int"],"align":["right"]},{"label":["infant_mortality"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["life_expectancy"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["fertility"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["population"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["gdp"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["continent"],"name":[8],"type":["fct"],"align":["left"]},{"label":["region"],"name":[9],"type":["fct"],"align":["left"]}],"data":[{"1":"Albania","2":"1960","3":"115.40","4":"62.87","5":"6.19","6":"1636054","7":"NA","8":"Europe","9":"Southern Europe","_rn_":"1"},{"1":"Algeria","2":"1960","3":"148.20","4":"47.50","5":"7.65","6":"11124892","7":"13828152297","8":"Africa","9":"Northern Africa","_rn_":"2"},{"1":"Angola","2":"1960","3":"208.00","4":"35.98","5":"7.32","6":"5270844","7":"NA","8":"Africa","9":"Middle Africa","_rn_":"3"},{"1":"Antigua and Barbuda","2":"1960","3":"NA","4":"62.97","5":"4.43","6":"54681","7":"NA","8":"Americas","9":"Caribbean","_rn_":"4"},{"1":"Argentina","2":"1960","3":"59.87","4":"65.39","5":"3.11","6":"20619075","7":"108322326649","8":"Americas","9":"South America","_rn_":"5"},{"1":"Armenia","2":"1960","3":"NA","4":"66.86","5":"4.55","6":"1867396","7":"NA","8":"Asia","9":"Western Asia","_rn_":"6"},{"1":"Aruba","2":"1960","3":"NA","4":"65.66","5":"4.82","6":"54208","7":"NA","8":"Americas","9":"Caribbean","_rn_":"7"},{"1":"Australia","2":"1960","3":"20.30","4":"70.87","5":"3.45","6":"10292328","7":"96677859364","8":"Oceania","9":"Australia and New Zealand","_rn_":"8"},{"1":"Austria","2":"1960","3":"37.30","4":"68.75","5":"2.70","6":"7065525","7":"52392699681","8":"Europe","9":"Western Europe","_rn_":"9"},{"1":"Azerbaijan","2":"1960","3":"NA","4":"61.33","5":"5.57","6":"3897889","7":"NA","8":"Asia","9":"Western Asia","_rn_":"10"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+</div>
+<p><br></p>
+<p><i class="fa-brands fa-r-project"></i> <strong>get quick info on the data with <code>dplyr::glimpse()</code></strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1"></a>gapminder <span class="sc">%&gt;%</span> <span class="fu">glimpse</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 10,545
+Columns: 9
+$ country          &lt;fct&gt; "Albania", "Algeria", "Angola", "Antigua and Barbuda"…
+$ year             &lt;int&gt; 1960, 1960, 1960, 1960, 1960, 1960, 1960, 1960, 1960,…
+$ infant_mortality &lt;dbl&gt; 115.40, 148.20, 208.00, NA, 59.87, NA, NA, 20.30, 37.…
+$ life_expectancy  &lt;dbl&gt; 62.87, 47.50, 35.98, 62.97, 65.39, 66.86, 65.66, 70.8…
+$ fertility        &lt;dbl&gt; 6.19, 7.65, 7.32, 4.43, 3.11, 4.55, 4.82, 3.45, 2.70,…
+$ population       &lt;dbl&gt; 1636054, 11124892, 5270844, 54681, 20619075, 1867396,…
+$ gdp              &lt;dbl&gt; NA, 13828152297, NA, NA, 108322326649, NA, NA, 966778…
+$ continent        &lt;fct&gt; Europe, Africa, Africa, Americas, Americas, Asia, Ame…
+$ region           &lt;fct&gt; Southern Europe, Northern Africa, Middle Africa, Cari…</code></pre>
+</div>
+</div>
+<p><br></p>
+<p><i class="fa-brands fa-python"></i> <strong>return top 10 rows in Python</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1"></a>gapminder.head(<span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["country"],"name":[1],"type":["chr"],"align":["left"]},{"label":["year"],"name":[2],"type":["int"],"align":["right"]},{"label":["infant_mortality"],"name":[3],"type":["dbl"],"align":["right"]},{"label":["life_expectancy"],"name":[4],"type":["dbl"],"align":["right"]},{"label":["fertility"],"name":[5],"type":["dbl"],"align":["right"]},{"label":["population"],"name":[6],"type":["dbl"],"align":["right"]},{"label":["gdp"],"name":[7],"type":["dbl"],"align":["right"]},{"label":["continent"],"name":[8],"type":["chr"],"align":["left"]},{"label":["region"],"name":[9],"type":["chr"],"align":["left"]}],"data":[{"1":"Albania","2":"1960","3":"115.40","4":"62.87","5":"6.19","6":"1636054","7":"NaN","8":"Europe","9":"Southern Europe"},{"1":"Algeria","2":"1960","3":"148.20","4":"47.50","5":"7.65","6":"11124892","7":"13828152297","8":"Africa","9":"Northern Africa"},{"1":"Angola","2":"1960","3":"208.00","4":"35.98","5":"7.32","6":"5270844","7":"NaN","8":"Africa","9":"Middle Africa"},{"1":"Antigua and Barbuda","2":"1960","3":"NaN","4":"62.97","5":"4.43","6":"54681","7":"NaN","8":"Americas","9":"Caribbean"},{"1":"Argentina","2":"1960","3":"59.87","4":"65.39","5":"3.11","6":"20619075","7":"108322326649","8":"Americas","9":"South America"},{"1":"Armenia","2":"1960","3":"NaN","4":"66.86","5":"4.55","6":"1867396","7":"NaN","8":"Asia","9":"Western Asia"},{"1":"Aruba","2":"1960","3":"NaN","4":"65.66","5":"4.82","6":"54208","7":"NaN","8":"Americas","9":"Caribbean"},{"1":"Australia","2":"1960","3":"20.30","4":"70.87","5":"3.45","6":"10292328","7":"96677859364","8":"Oceania","9":"Australia and New Zealand"},{"1":"Austria","2":"1960","3":"37.30","4":"68.75","5":"2.70","6":"7065525","7":"52392699681","8":"Europe","9":"Western Europe"},{"1":"Azerbaijan","2":"1960","3":"NaN","4":"61.33","5":"5.57","6":"3897889","7":"NaN","8":"Asia","9":"Western Asia"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+</div>
+<p><br></p>
+<p><i class="fa-brands fa-python"></i> <strong>get quick info on the data with <code>pandas</code>’s <code>info</code> <code>DataFrame</code> method</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb7-1"><a href="#cb7-1"></a>gapminder.to_pandas().info()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>&lt;class 'pandas.core.frame.DataFrame'&gt;
+RangeIndex: 10545 entries, 0 to 10544
+Data columns (total 9 columns):
+ #   Column            Non-Null Count  Dtype  
+---  ------            --------------  -----  
+ 0   country           10545 non-null  object 
+ 1   year              10545 non-null  int32  
+ 2   infant_mortality  9092 non-null   float64
+ 3   life_expectancy   10545 non-null  float64
+ 4   fertility         10358 non-null  float64
+ 5   population        10360 non-null  float64
+ 6   gdp               7573 non-null   float64
+ 7   continent         10545 non-null  object 
+ 8   region            10545 non-null  object 
+dtypes: float64(5), int32(1), object(3)
+memory usage: 700.4+ KB</code></pre>
+</div>
+</div>
+<p>This will come back later, but it’s very easy to move your <code>polars</code> data into a <code>pandas DataFrame</code>.</p>
+</div>
+</section>
+<section id="hans-roslings-quiz" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="hans-roslings-quiz">Hans Rosling’s quiz</h2>
+<div class="column-page-inset-right">
+<p>Following along Hans Rosling’s <em>New Insights on Poverty</em> video, we’re going to answer the questions he poses in connection to child mortality rates in 2015. He asks, <em>which pairs do you think are most similar?</em></p>
+<ol type="1">
+<li>Sri Lanka or Turkey</li>
+<li>Poland or South Korea</li>
+<li>Malaysia or Russia</li>
+<li>Pakistan or Vietnam</li>
+<li>Thailand or South Africa</li>
+</ol>
+</div>
+<p><br></p>
+<section id="sri-lanka-or-turkey" class="level3 page-columns page-full">
+<h3 class="anchored" data-anchor-id="sri-lanka-or-turkey">Sri Lanka or Turkey</h3>
+<div class="column-page-inset-right">
+<p><i class="fa-brands fa-r-project"></i> <strong>simple <code>dplyr::filter</code> and <code>dplyr::select</code></strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1"></a>gapminder <span class="sc">%&gt;%</span></span>
+<span id="cb9-2"><a href="#cb9-2"></a>  <span class="fu">filter</span>(year <span class="sc">==</span> <span class="st">"2015"</span>, country <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Sri Lanka"</span>, <span class="st">"Turkey"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb9-3"><a href="#cb9-3"></a>  <span class="fu">select</span>(country, infant_mortality)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["country"],"name":[1],"type":["fct"],"align":["left"]},{"label":["infant_mortality"],"name":[2],"type":["dbl"],"align":["right"]}],"data":[{"1":"Sri Lanka","2":"8.4"},{"1":"Turkey","2":"11.6"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+</div>
+<p><br></p>
+<p><i class="fa-brands fa-python"></i> <strong>simple <code>filter</code> and <code>select</code> method chain</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1"></a>(gapminder</span>
+<span id="cb10-2"><a href="#cb10-2"></a>  .<span class="bu">filter</span>(</span>
+<span id="cb10-3"><a href="#cb10-3"></a>    (pl.col(<span class="st">"year"</span>) <span class="op">==</span> <span class="dv">2015</span>) <span class="op">&amp;</span> </span>
+<span id="cb10-4"><a href="#cb10-4"></a>    (pl.col(<span class="st">"country"</span>).is_in([<span class="st">"Sri Lanka"</span>, <span class="st">"Turkey"</span>]))) </span>
+<span id="cb10-5"><a href="#cb10-5"></a>  .select([<span class="st">"country"</span>, <span class="st">"infant_mortality"</span>])</span>
+<span id="cb10-6"><a href="#cb10-6"></a>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["country"],"name":[1],"type":["chr"],"align":["left"]},{"label":["infant_mortality"],"name":[2],"type":["dbl"],"align":["right"]}],"data":[{"1":"Sri Lanka","2":"8.4"},{"1":"Turkey","2":"11.6"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+</div>
+<p><br></p>
+<p>This is where you can start to see how powerful <code>polars</code> can be in terms of the way it handles <a href="https://pola-rs.github.io/polars-book/user-guide/coming_from_pandas.html#be-lazy">lazy evaluation</a>. One of the reasons <code>dplyr</code> is so expressive and intuitive (at least in my view) is due in large part to the way it handles lazy evaluation. For people that are tired of constantly needing to refer to the data and column in <code>pandas</code> will likely rejoice at <code>polars.col</code>!</p>
+</div>
+</section>
+<section id="lets-just-compare-them-all-at-once" class="level3 page-columns page-full">
+<h3 class="anchored" data-anchor-id="lets-just-compare-them-all-at-once">Let’s just compare them all at once</h3>
+<div class="column-page-inset-right">
+<p><i class="fa-brands fa-r-project"></i> <strong>same strategy; more countries</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1"></a>gapminder <span class="sc">%&gt;%</span></span>
+<span id="cb11-2"><a href="#cb11-2"></a>  <span class="fu">filter</span>(</span>
+<span id="cb11-3"><a href="#cb11-3"></a>    year <span class="sc">==</span> <span class="st">"2015"</span>, </span>
+<span id="cb11-4"><a href="#cb11-4"></a>    country <span class="sc">%in%</span> <span class="fu">c</span>(</span>
+<span id="cb11-5"><a href="#cb11-5"></a>      <span class="st">"Sri Lanka"</span>, <span class="st">"Turkey"</span>, <span class="st">"Poland"</span>, <span class="st">"South Korea"</span>,</span>
+<span id="cb11-6"><a href="#cb11-6"></a>      <span class="st">"Malaysia"</span>, <span class="st">"Russia"</span>, <span class="st">"Pakistan"</span>, <span class="st">"Vietnam"</span>,</span>
+<span id="cb11-7"><a href="#cb11-7"></a>      <span class="st">"Thailand"</span>, <span class="st">"South Africa"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb11-8"><a href="#cb11-8"></a>  <span class="fu">select</span>(country, infant_mortality) <span class="sc">%&gt;%</span></span>
+<span id="cb11-9"><a href="#cb11-9"></a>  <span class="fu">arrange</span>(<span class="fu">desc</span>(infant_mortality))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["country"],"name":[1],"type":["fct"],"align":["left"]},{"label":["infant_mortality"],"name":[2],"type":["dbl"],"align":["right"]}],"data":[{"1":"Pakistan","2":"65.8"},{"1":"South Africa","2":"33.6"},{"1":"Vietnam","2":"17.3"},{"1":"Turkey","2":"11.6"},{"1":"Thailand","2":"10.5"},{"1":"Sri Lanka","2":"8.4"},{"1":"Russia","2":"8.2"},{"1":"Malaysia","2":"6.0"},{"1":"Poland","2":"4.5"},{"1":"South Korea","2":"2.9"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+</div>
+<p><br></p>
+<p><i class="fa-brands fa-python"></i> <strong>same as above</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1"></a>(gapminder</span>
+<span id="cb12-2"><a href="#cb12-2"></a>  .<span class="bu">filter</span>(</span>
+<span id="cb12-3"><a href="#cb12-3"></a>    (pl.col(<span class="st">"year"</span>) <span class="op">==</span> <span class="dv">2015</span>) <span class="op">&amp;</span> </span>
+<span id="cb12-4"><a href="#cb12-4"></a>    (pl.col(<span class="st">"country"</span>).is_in([</span>
+<span id="cb12-5"><a href="#cb12-5"></a>      <span class="st">"Sri Lanka"</span>, <span class="st">"Turkey"</span>, <span class="st">"Poland"</span>, <span class="st">"South Korea"</span>, </span>
+<span id="cb12-6"><a href="#cb12-6"></a>      <span class="st">"Poland"</span>, <span class="st">"South Korea"</span>,<span class="st">"Malaysia"</span>, <span class="st">"Russia"</span>, </span>
+<span id="cb12-7"><a href="#cb12-7"></a>      <span class="st">"Pakistan"</span>, <span class="st">"Vietnam"</span>, <span class="st">"Thailand"</span>, <span class="st">"South Africa"</span>]))) </span>
+<span id="cb12-8"><a href="#cb12-8"></a>  .select([<span class="st">"country"</span>, <span class="st">"infant_mortality"</span>])</span>
+<span id="cb12-9"><a href="#cb12-9"></a>  .sort(<span class="st">"infant_mortality"</span>, reverse <span class="op">=</span> <span class="va">True</span>)</span>
+<span id="cb12-10"><a href="#cb12-10"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["country"],"name":[1],"type":["chr"],"align":["left"]},{"label":["infant_mortality"],"name":[2],"type":["dbl"],"align":["right"]}],"data":[{"1":"Pakistan","2":"65.8"},{"1":"South Africa","2":"33.6"},{"1":"Vietnam","2":"17.3"},{"1":"Turkey","2":"11.6"},{"1":"Thailand","2":"10.5"},{"1":"Sri Lanka","2":"8.4"},{"1":"Russia","2":"8.2"},{"1":"Malaysia","2":"6.0"},{"1":"Poland","2":"4.5"},{"1":"South Korea","2":"2.9"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="aggregates" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="aggregates">Aggregates</h2>
+<div class="column-page-inset-right">
+<p><i class="fa-brands fa-r-project"></i> <strong>grouping and taking an average</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1"></a>gapminder <span class="sc">%&gt;%</span></span>
+<span id="cb13-2"><a href="#cb13-2"></a>  <span class="fu">group_by</span>(continent) <span class="sc">%&gt;%</span></span>
+<span id="cb13-3"><a href="#cb13-3"></a>  <span class="fu">summarise</span>(<span class="at">mean_life_expectancy =</span> <span class="fu">mean</span>(life_expectancy) <span class="sc">%&gt;%</span></span>
+<span id="cb13-4"><a href="#cb13-4"></a>              <span class="fu">round</span>(<span class="dv">2</span>), <span class="at">.groups =</span> <span class="st">"keep"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["continent"],"name":[1],"type":["fct"],"align":["left"]},{"label":["mean_life_expectancy"],"name":[2],"type":["dbl"],"align":["right"]}],"data":[{"1":"Africa","2":"54.38"},{"1":"Americas","2":"68.77"},{"1":"Asia","2":"65.90"},{"1":"Europe","2":"73.56"},{"1":"Oceania","2":"64.58"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+</div>
+<p><br></p>
+<p><i class="fa-brands fa-python"></i> <strong>now with <code>polars</code></strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb14-1"><a href="#cb14-1"></a>(gapminder</span>
+<span id="cb14-2"><a href="#cb14-2"></a>  .groupby(<span class="st">"continent"</span>)</span>
+<span id="cb14-3"><a href="#cb14-3"></a>  .agg([</span>
+<span id="cb14-4"><a href="#cb14-4"></a>    (pl.col(<span class="st">"life_expectancy"</span>)</span>
+<span id="cb14-5"><a href="#cb14-5"></a>        .mean().</span>
+<span id="cb14-6"><a href="#cb14-6"></a>        <span class="bu">round</span>(<span class="dv">2</span>).</span>
+<span id="cb14-7"><a href="#cb14-7"></a>        alias(<span class="st">"mean_life_expectancy"</span>))</span>
+<span id="cb14-8"><a href="#cb14-8"></a>    ])</span>
+<span id="cb14-9"><a href="#cb14-9"></a>  .sort(<span class="st">"continent"</span>)</span>
+<span id="cb14-10"><a href="#cb14-10"></a>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["continent"],"name":[1],"type":["chr"],"align":["left"]},{"label":["mean_life_expectancy"],"name":[2],"type":["dbl"],"align":["right"]}],"data":[{"1":"Africa","2":"54.38"},{"1":"Americas","2":"68.77"},{"1":"Asia","2":"65.90"},{"1":"Europe","2":"73.56"},{"1":"Oceania","2":"64.58"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="with-conditionals" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="with-conditionals">With conditionals?</h2>
+<div class="column-page-inset-right">
+<p><i class="fa-brands fa-r-project"></i> <strong>let’s do something slightly more complicated</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1"></a>gapminder <span class="sc">%&lt;&gt;%</span> </span>
+<span id="cb15-2"><a href="#cb15-2"></a>  <span class="fu">mutate</span>(<span class="at">group =</span> <span class="fu">case_when</span>(</span>
+<span id="cb15-3"><a href="#cb15-3"></a>    region <span class="sc">%in%</span> <span class="fu">c</span>(</span>
+<span id="cb15-4"><a href="#cb15-4"></a>      <span class="st">"Western Europe"</span>, <span class="st">"Northern Europe"</span>,<span class="st">"Southern Europe"</span>, </span>
+<span id="cb15-5"><a href="#cb15-5"></a>      <span class="st">"Northern America"</span>, </span>
+<span id="cb15-6"><a href="#cb15-6"></a>      <span class="st">"Australia and New Zealand"</span>) <span class="sc">~</span> <span class="st">"West"</span>,</span>
+<span id="cb15-7"><a href="#cb15-7"></a>    region <span class="sc">%in%</span> <span class="fu">c</span>(</span>
+<span id="cb15-8"><a href="#cb15-8"></a>      <span class="st">"Eastern Asia"</span>, <span class="st">"South-Eastern Asia"</span>) <span class="sc">~</span> <span class="st">"East Asia"</span>,</span>
+<span id="cb15-9"><a href="#cb15-9"></a>    region <span class="sc">%in%</span> <span class="fu">c</span>(</span>
+<span id="cb15-10"><a href="#cb15-10"></a>      <span class="st">"Caribbean"</span>, <span class="st">"Central America"</span>, </span>
+<span id="cb15-11"><a href="#cb15-11"></a>      <span class="st">"South America"</span>) <span class="sc">~</span> <span class="st">"Latin America"</span>,</span>
+<span id="cb15-12"><a href="#cb15-12"></a>    continent <span class="sc">==</span> <span class="st">"Africa"</span> <span class="sc">&amp;</span> </span>
+<span id="cb15-13"><a href="#cb15-13"></a>      region <span class="sc">!=</span> <span class="st">"Northern Africa"</span> <span class="sc">~</span> <span class="st">"Sub-Saharan"</span>,</span>
+<span id="cb15-14"><a href="#cb15-14"></a>    <span class="cn">TRUE</span> <span class="sc">~</span> <span class="st">"Others"</span>))</span>
+<span id="cb15-15"><a href="#cb15-15"></a></span>
+<span id="cb15-16"><a href="#cb15-16"></a>gapminder <span class="sc">%&gt;%</span> <span class="fu">count</span>(group)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["group"],"name":[1],"type":["chr"],"align":["left"]},{"label":["n"],"name":[2],"type":["int"],"align":["right"]}],"data":[{"1":"East Asia","2":"912"},{"1":"Latin America","2":"1881"},{"1":"Others","2":"3249"},{"1":"Sub-Saharan","2":"2565"},{"1":"West","2":"1938"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+</div>
+<p><br></p>
+<p><i class="fa-brands fa-python"></i> <strong>rather than use a <code>case_when</code> style function you can continue to chain <code>.when</code> and <code>.then</code></strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1"></a>gapminder <span class="op">=</span> (gapminder.with_columns(</span>
+<span id="cb16-2"><a href="#cb16-2"></a>  pl.when(</span>
+<span id="cb16-3"><a href="#cb16-3"></a>    pl.col(<span class="st">"region"</span>).is_in([</span>
+<span id="cb16-4"><a href="#cb16-4"></a>      <span class="st">"Western Europe"</span>, <span class="st">"Northern Europe"</span>,<span class="st">"Southern Europe"</span>, </span>
+<span id="cb16-5"><a href="#cb16-5"></a>      <span class="st">"Northern America"</span>, <span class="st">"Australia and New Zealand"</span>]))</span>
+<span id="cb16-6"><a href="#cb16-6"></a>    .then(<span class="st">"West"</span>)</span>
+<span id="cb16-7"><a href="#cb16-7"></a>    .when(</span>
+<span id="cb16-8"><a href="#cb16-8"></a>      pl.col(<span class="st">"region"</span>).is_in([</span>
+<span id="cb16-9"><a href="#cb16-9"></a>        <span class="st">"Eastern Asia"</span>, <span class="st">"South-Eastern Asia"</span>]))</span>
+<span id="cb16-10"><a href="#cb16-10"></a>    .then(<span class="st">"East Asia"</span>)</span>
+<span id="cb16-11"><a href="#cb16-11"></a>    .when(</span>
+<span id="cb16-12"><a href="#cb16-12"></a>      pl.col(<span class="st">"region"</span>).is_in([</span>
+<span id="cb16-13"><a href="#cb16-13"></a>        <span class="st">"Caribbean"</span>, <span class="st">"Central America"</span>, </span>
+<span id="cb16-14"><a href="#cb16-14"></a>        <span class="st">"South America"</span>]))</span>
+<span id="cb16-15"><a href="#cb16-15"></a>    .then(<span class="st">"Latin America"</span>)</span>
+<span id="cb16-16"><a href="#cb16-16"></a>    .when(</span>
+<span id="cb16-17"><a href="#cb16-17"></a>      (pl.col(<span class="st">"continent"</span>) <span class="op">==</span> <span class="st">"Africa"</span>) <span class="op">&amp;</span> </span>
+<span id="cb16-18"><a href="#cb16-18"></a>      (pl.col(<span class="st">"region"</span>) <span class="op">!=</span> <span class="st">"Northern Africa"</span>))</span>
+<span id="cb16-19"><a href="#cb16-19"></a>    .then(<span class="st">"Sub-Saharan"</span>)</span>
+<span id="cb16-20"><a href="#cb16-20"></a>    .otherwise(<span class="st">"Other"</span>)</span>
+<span id="cb16-21"><a href="#cb16-21"></a>    .alias(<span class="st">"group"</span>)</span>
+<span id="cb16-22"><a href="#cb16-22"></a>))</span>
+<span id="cb16-23"><a href="#cb16-23"></a></span>
+<span id="cb16-24"><a href="#cb16-24"></a>(gapminder</span>
+<span id="cb16-25"><a href="#cb16-25"></a>  .groupby(<span class="st">"group"</span>)</span>
+<span id="cb16-26"><a href="#cb16-26"></a>  .agg([ pl.count() ])</span>
+<span id="cb16-27"><a href="#cb16-27"></a>  .sort(<span class="st">"group"</span>)</span>
+<span id="cb16-28"><a href="#cb16-28"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+
+<div data-pagedtable="false">
+  <script data-pagedtable-source="" type="application/json">
+{"columns":[{"label":["group"],"name":[1],"type":["chr"],"align":["left"]},{"label":["count"],"name":[2],"type":["dbl"],"align":["right"]}],"data":[{"1":"East Asia","2":"912"},{"1":"Latin America","2":"1881"},{"1":"Other","2":"3249"},{"1":"Sub-Saharan","2":"2565"},{"1":"West","2":"1938"}],"options":{"columns":{"min":{},"max":[10]},"rows":{"min":[10],"max":[10]},"pages":{}}}
+  </script>
+</div>
+</div>
+</div>
+<p><br></p>
+<p>I think this is probably a good enough intro to how you’d generally do things. Filtering, aggregating, and doing <code>case_when</code> style workflows are probably the most foundational and this could already get you started in another language without as much headache <i class="fa-solid fa-head-side-virus"></i></p>
+</div>
+<p><br></p>
+</section>
+<section id="scatterplots" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="scatterplots">Scatterplots</h2>
+<div class="column-page-inset-right">
+<p>I’m trying to strike a balance between dead basic <code>plotly</code> plots and some things you might want to do to make them look a little more the way <em>you</em> want. The great thing about customizing is that you can write functions to do specific things. I don’t want to overload you with defensive programming for custom function writing using <a href="https://colinfay.me/">Colin Fay</a>’s <code>attempt</code> <a href="https://github.com/ColinFay/attempt">package</a>, so I’m simplifying a bit; or at least trying to strike a balance. in some instances you can create simple functions or just save a list of values you want to recycle throughout.</p>
+<p><br></p>
+<p><i class="fa-brands fa-r-project"></i> <strong>+ <code>plotly</code></strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1"></a>plotly_title <span class="ot">&lt;-</span> <span class="cf">function</span>(title, subtitle, ...) {</span>
+<span id="cb17-2"><a href="#cb17-2"></a>  <span class="fu">return</span>(</span>
+<span id="cb17-3"><a href="#cb17-3"></a>    <span class="fu">list</span>(</span>
+<span id="cb17-4"><a href="#cb17-4"></a>      <span class="at">text =</span> <span class="fu">str_glue</span>(</span>
+<span id="cb17-5"><a href="#cb17-5"></a>        <span class="st">"</span></span>
+<span id="cb17-6"><a href="#cb17-6"></a><span class="st">        &lt;b&gt;{title}&lt;/b&gt;</span></span>
+<span id="cb17-7"><a href="#cb17-7"></a><span class="st">        &lt;sup&gt;{subtitle}&lt;/sup&gt;</span></span>
+<span id="cb17-8"><a href="#cb17-8"></a><span class="st">        "</span>),</span>
+<span id="cb17-9"><a href="#cb17-9"></a>      ...))</span>
+<span id="cb17-10"><a href="#cb17-10"></a>}</span>
+<span id="cb17-11"><a href="#cb17-11"></a></span>
+<span id="cb17-12"><a href="#cb17-12"></a>margin <span class="ot">&lt;-</span> <span class="fu">list</span>(</span>
+<span id="cb17-13"><a href="#cb17-13"></a>  <span class="at">t =</span> <span class="dv">95</span>,</span>
+<span id="cb17-14"><a href="#cb17-14"></a>  <span class="at">r =</span> <span class="dv">40</span>,</span>
+<span id="cb17-15"><a href="#cb17-15"></a>  <span class="at">b =</span> <span class="dv">120</span>,</span>
+<span id="cb17-16"><a href="#cb17-16"></a>  <span class="at">l =</span> <span class="dv">79</span>)</span>
+<span id="cb17-17"><a href="#cb17-17"></a></span>
+<span id="cb17-18"><a href="#cb17-18"></a>gapminder <span class="sc">%&gt;%</span></span>
+<span id="cb17-19"><a href="#cb17-19"></a>  <span class="fu">filter</span>(year <span class="sc">==</span> <span class="dv">1962</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb17-20"><a href="#cb17-20"></a>  <span class="fu">plot_ly</span>(</span>
+<span id="cb17-21"><a href="#cb17-21"></a>    <span class="at">x =</span> <span class="sc">~</span>fertility, <span class="at">y =</span> <span class="sc">~</span>life_expectancy, </span>
+<span id="cb17-22"><a href="#cb17-22"></a>    <span class="at">color =</span> <span class="sc">~</span>continent, <span class="at">colors =</span> <span class="st">"Set2"</span>, </span>
+<span id="cb17-23"><a href="#cb17-23"></a>    <span class="at">type =</span> <span class="st">"scatter"</span>, <span class="at">mode =</span> <span class="st">"markers"</span>,</span>
+<span id="cb17-24"><a href="#cb17-24"></a>    <span class="at">hoverinfo =</span> <span class="st">"text"</span>,</span>
+<span id="cb17-25"><a href="#cb17-25"></a>    <span class="at">text =</span> <span class="sc">~</span><span class="fu">str_glue</span>(</span>
+<span id="cb17-26"><a href="#cb17-26"></a>      <span class="st">"</span></span>
+<span id="cb17-27"><a href="#cb17-27"></a><span class="st">      &lt;b&gt;{country}&lt;/b&gt;&lt;br&gt;</span></span>
+<span id="cb17-28"><a href="#cb17-28"></a><span class="st">      Continent: &lt;b&gt;{continent}&lt;/b&gt;</span></span>
+<span id="cb17-29"><a href="#cb17-29"></a><span class="st">      Fertility: &lt;b&gt;{fertility}&lt;/b&gt;</span></span>
+<span id="cb17-30"><a href="#cb17-30"></a><span class="st">      Life Expextancy: &lt;b&gt;{life_expectancy}&lt;/b&gt;</span></span>
+<span id="cb17-31"><a href="#cb17-31"></a><span class="st">      "</span>),</span>
+<span id="cb17-32"><a href="#cb17-32"></a>    <span class="at">marker =</span> <span class="fu">list</span>(</span>
+<span id="cb17-33"><a href="#cb17-33"></a>      <span class="at">size =</span> <span class="dv">7</span></span>
+<span id="cb17-34"><a href="#cb17-34"></a>    )) <span class="sc">%&gt;%</span></span>
+<span id="cb17-35"><a href="#cb17-35"></a>  <span class="fu">layout</span>(</span>
+<span id="cb17-36"><a href="#cb17-36"></a>    <span class="at">margin =</span> margin,</span>
+<span id="cb17-37"><a href="#cb17-37"></a>    <span class="at">title =</span> <span class="fu">plotly_title</span>(</span>
+<span id="cb17-38"><a href="#cb17-38"></a>      <span class="at">title =</span> <span class="st">"Scatterplot"</span>,</span>
+<span id="cb17-39"><a href="#cb17-39"></a>      <span class="at">subtitle =</span> <span class="st">"Life expextancy by fertility"</span>,</span>
+<span id="cb17-40"><a href="#cb17-40"></a>      <span class="at">x =</span> <span class="dv">0</span>,</span>
+<span id="cb17-41"><a href="#cb17-41"></a>      <span class="at">xref =</span> <span class="st">"paper"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb17-42"><a href="#cb17-42"></a>  <span class="fu">config</span>(<span class="at">displayModeBar =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div id="htmlwidget-68258b0be128a23509ba" style="width:100%;height:464px;" class="plotly html-widget"></div>
+<script type="application/json" data-for="htmlwidget-68258b0be128a23509ba">{"x":{"visdat":{"3f8fff294f4":["function () ","plotlyVisDat"]},"cur_data":"3f8fff294f4","attrs":{"3f8fff294f4":{"x":{},"y":{},"mode":"markers","hoverinfo":"text","text":{},"marker":{"size":7},"color":{},"colors":"Set2","alpha_stroke":1,"sizes":[10,100],"spans":[1,20],"type":"scatter"}},"layout":{"margin":{"b":120,"l":79,"t":95,"r":40},"title":{"text":"<b>Scatterplot<\/b><br /><sup>Life expextancy by fertility<\/sup>","x":0,"xref":"paper"},"xaxis":{"domain":[0,1],"automargin":true,"title":"fertility"},"yaxis":{"domain":[0,1],"automargin":true,"title":"life_expectancy"},"hovermode":"closest","showlegend":true},"source":"A","config":{"modeBarButtonsToAdd":["hoverclosest","hovercompare"],"showSendToCloud":false,"displayModeBar":false},"data":[{"x":[7.65,7.39,6.39,6.65,6.34,7.05,5.77,6.95,5.89,6.29,6.9,6.03,5.97,7.5,6.53,6.57,5.53,6.84,6.88,4.54,5.67,6.83,6.12,5.67,8.04,5.82,6.45,7.61,7.3,6.98,6.75,6.79,6.12,7.13,6.6,6.18,7.12,6.35,8.2,7.04,5.53,6.16,6.1,6.74,6.75,6.8,6.62,7.12,7.04,7.13,7.27],"y":[48.55,37.08,39.32,51.02,36.23,41.13,44.53,50.43,38.36,41.76,44.89,44.61,49.47,39.46,46.79,49.43,38.38,39.69,38.94,39.56,36.68,47.25,36.17,43.64,48.82,47.97,35.88,48,43.12,39.02,30.08,45.31,60.64,50.6,39.4,48.31,37.1,41.61,43.74,38.72,61.59,37.06,49.78,50.52,45.42,46.26,42.42,44.65,46.56,49.42,53.99],"mode":"markers","hoverinfo":["text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text"],"text":["<b>Algeria<\/b><br><br />Continent: <b>Africa<\/b><br />Fertility: <b>7.65<\/b><br />Life Expextancy: <b>48.55<\/b>","<b>Angola<\/b><br><br />Continent: <b>Africa<\/b><br />Fertility: <b>7.39<\/b><br />Life Expextancy: <b>37.08<\/b>","<b>Benin<\/b><br><br />Continent: <b>Africa<\/b><br />Fertility: <b>6.39<\/b><br />Life Expextancy: <b>39.32<\/b>","<b>Botswana<\/b><br><br />Continent: <b>Africa<\/b><br />Fertility: <b>6.65<\/b><br />Life Expextancy: <b>51.02<\/b>","<b>Burkina Faso<\/b><br><br />Continent: <b>Africa<\/b><br />Fertility: <b>6.34<\/b><br />Life Expextancy: <b>36.23<\/b>","<b>Burundi<\/b><br><br />Continent: <b>Africa<\/b><br />Fertility: <b>7.05<\/b><br />Life Expextancy: <b>41.13<\/b>","<b>Cameroon<\/b><br><br />Continent: <b>Africa<\/b><br />Fertility: <b>5.77<\/b><br />Life Expextancy: <b>44.53<\/b>","<b>Cape Verde<\/b><br><br />Continent: <b>Africa<\/b><br />Fertility: <b>6.95<\/b><br />Life Expextancy: <b>50.43<\/b>","<b>Central African Republic<\/b><br><br />Continent: <b>Africa<\/b><br />Fertility: <b>5.89<\/b><br />Life Expextancy: <b>38.36<\/b>","<b>Chad<\/b><br><br />Continent: <b>Africa<\/b><br />Fertility: <b>6.29<\/b><br />Life Expextancy: <b>41.76<\/b>","<b>Comoros<\/b><br><br />Continent: <b>Africa<\/b><br />Fertility: <b>6.9<\/b><br />Life Expextancy: <b>44.89<\/b>","<b>Congo, Dem. Rep.<\/b><br><br />Continent: <b>Africa<\/b><br />Fertility: <b>6.03<\/b><br />Life Expextancy: <b>44.61<\/b>","<b>Congo, Rep.<\/b><br><br />Continent: <b>Africa<\/b><br />Fertility: <b>5.97<\/b><br />Life Expextancy: <b>49.47<\/b>","<b>Cote d'Ivoire<\/b><br><br />Continent: <b>Africa<\/b><br />Fertility: <b>7.5<\/b><br />Life Expextancy: <b>39.46<\/b>","<b>Djibouti<\/b><br><br />Continent: <b>Africa<\/b><br />Fertility: <b>6.53<\/b><br />Life Expextancy: <b>46.79<\/b>","<b>Egypt<\/b><br><br />Continent: <b>Africa<\/b><br />Fertility: <b>6.57<\/b><br />Life Expextancy: <b>49.43<\/b>","<b>Equatorial Guinea<\/b><br><br />Continent: <b>Africa<\/b><br />Fertility: <b>5.53<\/b><br />Life Expextancy: <b>38.38<\/b>","<b>Eritrea<\/b><br><br />Continent: <b>Africa<\/b><br />Fertility: <b>6.84<\/b><br />Life Expextancy: <b>39.69<\/b>","<b>Ethiopia<\/b><br><br />Continent: <b>Africa<\/b><br />Fertility: <b>6.88<\/b><br />Life Expextancy: <b>38.94<\/b>","<b>Gabon<\/b><br><br />Continent: <b>Africa<\/b><br />Fertility: <b>4.54<\/b><br />Life Expextancy: <b>39.56<\/b>","<b>Gambia<\/b><br><br />Continent: <b>Africa<\/b><br />Fertility: <b>5.67<\/b><br />Life Expextancy: <b>36.68<\/b>","<b>Ghana<\/b><br><br />Continent: <b>Africa<\/b><br />Fertility: <b>6.83<\/b><br />Life Expextancy: <b>47.25<\/b>","<b>Guinea<\/b><br><br />Continent: <b>Africa<\/b><br />Fertility: <b>6.12<\/b><br />Life Expextancy: <b>36.17<\/b>","<b>Guinea-Bissau<\/b><br><br />Continent: <b>Africa<\/b><br />Fertility: <b>5.67<\/b><br />Life Expextancy: <b>43.64<\/b>","<b>Kenya<\/b><br><br />Continent: <b>Africa<\/b><br />Fertility: <b>8.04<\/b><br />Life Expextancy: <b>48.82<\/b>","<b>Lesotho<\/b><br><br />Continent: <b>Africa<\/b><br />Fertility: <b>5.82<\/b><br />Life Expextancy: <b>47.97<\/b>","<b>Liberia<\/b><br><br />Continent: <b>Africa<\/b><br />Fertility: <b>6.45<\/b><br />Life Expextancy: <b>35.88<\/b>","<b>Libya<\/b><br><br />Continent: <b>Africa<\/b><br />Fertility: <b>7.61<\/b><br />Life Expextancy: <b>48<\/b>","<b>Madagascar<\/b><br><br />Continent: <b>Africa<\/b><br />Fertility: <b>7.3<\/b><br />Life Expextancy: <b>43.12<\/b>","<b>Malawi<\/b><br><br />Continent: <b>Africa<\/b><br />Fertility: <b>6.98<\/b><br />Life Expextancy: <b>39.02<\/b>","<b>Mali<\/b><br><br />Continent: <b>Africa<\/b><br />Fertility: <b>6.75<\/b><br />Life Expextancy: <b>30.08<\/b>","<b>Mauritania<\/b><br><br />Continent: <b>Africa<\/b><br />Fertility: <b>6.79<\/b><br />Life Expextancy: <b>45.31<\/b>","<b>Mauritius<\/b><br><br />Continent: <b>Africa<\/b><br />Fertility: <b>6.12<\/b><br />Life Expextancy: <b>60.64<\/b>","<b>Morocco<\/b><br><br />Continent: <b>Africa<\/b><br />Fertility: <b>7.13<\/b><br />Life Expextancy: <b>50.6<\/b>","<b>Mozambique<\/b><br><br />Continent: <b>Africa<\/b><br />Fertility: <b>6.6<\/b><br />Life Expextancy: <b>39.4<\/b>","<b>Namibia<\/b><br><br />Continent: <b>Africa<\/b><br />Fertility: <b>6.18<\/b><br />Life Expextancy: <b>48.31<\/b>","<b>Niger<\/b><br><br />Continent: <b>Africa<\/b><br />Fertility: <b>7.12<\/b><br />Life Expextancy: <b>37.1<\/b>","<b>Nigeria<\/b><br><br />Continent: <b>Africa<\/b><br />Fertility: <b>6.35<\/b><br />Life Expextancy: <b>41.61<\/b>","<b>Rwanda<\/b><br><br />Continent: <b>Africa<\/b><br />Fertility: <b>8.2<\/b><br />Life Expextancy: <b>43.74<\/b>","<b>Senegal<\/b><br><br />Continent: <b>Africa<\/b><br />Fertility: <b>7.04<\/b><br />Life Expextancy: <b>38.72<\/b>","<b>Seychelles<\/b><br><br />Continent: <b>Africa<\/b><br />Fertility: <b>5.53<\/b><br />Life Expextancy: <b>61.59<\/b>","<b>Sierra Leone<\/b><br><br />Continent: <b>Africa<\/b><br />Fertility: <b>6.16<\/b><br />Life Expextancy: <b>37.06<\/b>","<b>South Africa<\/b><br><br />Continent: <b>Africa<\/b><br />Fertility: <b>6.1<\/b><br />Life Expextancy: <b>49.78<\/b>","<b>Sudan<\/b><br><br />Continent: <b>Africa<\/b><br />Fertility: <b>6.74<\/b><br />Life Expextancy: <b>50.52<\/b>","<b>Swaziland<\/b><br><br />Continent: <b>Africa<\/b><br />Fertility: <b>6.75<\/b><br />Life Expextancy: <b>45.42<\/b>","<b>Tanzania<\/b><br><br />Continent: <b>Africa<\/b><br />Fertility: <b>6.8<\/b><br />Life Expextancy: <b>46.26<\/b>","<b>Togo<\/b><br><br />Continent: <b>Africa<\/b><br />Fertility: <b>6.62<\/b><br />Life Expextancy: <b>42.42<\/b>","<b>Tunisia<\/b><br><br />Continent: <b>Africa<\/b><br />Fertility: <b>7.12<\/b><br />Life Expextancy: <b>44.65<\/b>","<b>Uganda<\/b><br><br />Continent: <b>Africa<\/b><br />Fertility: <b>7.04<\/b><br />Life Expextancy: <b>46.56<\/b>","<b>Zambia<\/b><br><br />Continent: <b>Africa<\/b><br />Fertility: <b>7.13<\/b><br />Life Expextancy: <b>49.42<\/b>","<b>Zimbabwe<\/b><br><br />Continent: <b>Africa<\/b><br />Fertility: <b>7.27<\/b><br />Life Expextancy: <b>53.99<\/b>"],"marker":{"color":"rgba(102,194,165,1)","size":7,"line":{"color":"rgba(102,194,165,1)"}},"type":"scatter","name":"Africa","textfont":{"color":"rgba(102,194,165,1)"},"error_y":{"color":"rgba(102,194,165,1)"},"error_x":{"color":"rgba(102,194,165,1)"},"line":{"color":"rgba(102,194,165,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":[4.34,3.09,4.47,4.45,4.27,6.46,6.65,6.14,3.77,5.46,6.78,7.22,4.51,7.4,6.65,6.75,7.09,6.44,6.49,5.49,6.3,7.44,5.63,6.77,7.18,5.81,6.47,6.86,4.41,6.88,7.07,6.56,5.05,3.48,2.89,6.63],"y":[63.93,65.64,66.44,62.58,62.79,61.2,44.5,56.27,71.25,57.63,59.18,63.13,65.09,54.97,55.42,53.5,62.22,61.49,47.76,59.41,43.26,49.21,67.17,58.49,52.36,62.71,67.03,50.14,69,58.47,59.99,61.41,64.2,70.21,68.39,61.3],"mode":"markers","hoverinfo":["text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text"],"text":["<b>Antigua and Barbuda<\/b><br><br />Continent: <b>Americas<\/b><br />Fertility: <b>4.34<\/b><br />Life Expextancy: <b>63.93<\/b>","<b>Argentina<\/b><br><br />Continent: <b>Americas<\/b><br />Fertility: <b>3.09<\/b><br />Life Expextancy: <b>65.64<\/b>","<b>Aruba<\/b><br><br />Continent: <b>Americas<\/b><br />Fertility: <b>4.47<\/b><br />Life Expextancy: <b>66.44<\/b>","<b>Bahamas<\/b><br><br />Continent: <b>Americas<\/b><br />Fertility: <b>4.45<\/b><br />Life Expextancy: <b>62.58<\/b>","<b>Barbados<\/b><br><br />Continent: <b>Americas<\/b><br />Fertility: <b>4.27<\/b><br />Life Expextancy: <b>62.79<\/b>","<b>Belize<\/b><br><br />Continent: <b>Americas<\/b><br />Fertility: <b>6.46<\/b><br />Life Expextancy: <b>61.2<\/b>","<b>Bolivia<\/b><br><br />Continent: <b>Americas<\/b><br />Fertility: <b>6.65<\/b><br />Life Expextancy: <b>44.5<\/b>","<b>Brazil<\/b><br><br />Continent: <b>Americas<\/b><br />Fertility: <b>6.14<\/b><br />Life Expextancy: <b>56.27<\/b>","<b>Canada<\/b><br><br />Continent: <b>Americas<\/b><br />Fertility: <b>3.77<\/b><br />Life Expextancy: <b>71.25<\/b>","<b>Chile<\/b><br><br />Continent: <b>Americas<\/b><br />Fertility: <b>5.46<\/b><br />Life Expextancy: <b>57.63<\/b>","<b>Colombia<\/b><br><br />Continent: <b>Americas<\/b><br />Fertility: <b>6.78<\/b><br />Life Expextancy: <b>59.18<\/b>","<b>Costa Rica<\/b><br><br />Continent: <b>Americas<\/b><br />Fertility: <b>7.22<\/b><br />Life Expextancy: <b>63.13<\/b>","<b>Cuba<\/b><br><br />Continent: <b>Americas<\/b><br />Fertility: <b>4.51<\/b><br />Life Expextancy: <b>65.09<\/b>","<b>Dominican Republic<\/b><br><br />Continent: <b>Americas<\/b><br />Fertility: <b>7.4<\/b><br />Life Expextancy: <b>54.97<\/b>","<b>Ecuador<\/b><br><br />Continent: <b>Americas<\/b><br />Fertility: <b>6.65<\/b><br />Life Expextancy: <b>55.42<\/b>","<b>El Salvador<\/b><br><br />Continent: <b>Americas<\/b><br />Fertility: <b>6.75<\/b><br />Life Expextancy: <b>53.5<\/b>","<b>Greenland<\/b><br><br />Continent: <b>Americas<\/b><br />Fertility: <b>7.09<\/b><br />Life Expextancy: <b>62.22<\/b>","<b>Grenada<\/b><br><br />Continent: <b>Americas<\/b><br />Fertility: <b>6.44<\/b><br />Life Expextancy: <b>61.49<\/b>","<b>Guatemala<\/b><br><br />Continent: <b>Americas<\/b><br />Fertility: <b>6.49<\/b><br />Life Expextancy: <b>47.76<\/b>","<b>Guyana<\/b><br><br />Continent: <b>Americas<\/b><br />Fertility: <b>5.49<\/b><br />Life Expextancy: <b>59.41<\/b>","<b>Haiti<\/b><br><br />Continent: <b>Americas<\/b><br />Fertility: <b>6.3<\/b><br />Life Expextancy: <b>43.26<\/b>","<b>Honduras<\/b><br><br />Continent: <b>Americas<\/b><br />Fertility: <b>7.44<\/b><br />Life Expextancy: <b>49.21<\/b>","<b>Jamaica<\/b><br><br />Continent: <b>Americas<\/b><br />Fertility: <b>5.63<\/b><br />Life Expextancy: <b>67.17<\/b>","<b>Mexico<\/b><br><br />Continent: <b>Americas<\/b><br />Fertility: <b>6.77<\/b><br />Life Expextancy: <b>58.49<\/b>","<b>Nicaragua<\/b><br><br />Continent: <b>Americas<\/b><br />Fertility: <b>7.18<\/b><br />Life Expextancy: <b>52.36<\/b>","<b>Panama<\/b><br><br />Continent: <b>Americas<\/b><br />Fertility: <b>5.81<\/b><br />Life Expextancy: <b>62.71<\/b>","<b>Paraguay<\/b><br><br />Continent: <b>Americas<\/b><br />Fertility: <b>6.47<\/b><br />Life Expextancy: <b>67.03<\/b>","<b>Peru<\/b><br><br />Continent: <b>Americas<\/b><br />Fertility: <b>6.86<\/b><br />Life Expextancy: <b>50.14<\/b>","<b>Puerto Rico<\/b><br><br />Continent: <b>Americas<\/b><br />Fertility: <b>4.41<\/b><br />Life Expextancy: <b>69<\/b>","<b>St. Lucia<\/b><br><br />Continent: <b>Americas<\/b><br />Fertility: <b>6.88<\/b><br />Life Expextancy: <b>58.47<\/b>","<b>St. Vincent and the Grenadines<\/b><br><br />Continent: <b>Americas<\/b><br />Fertility: <b>7.07<\/b><br />Life Expextancy: <b>59.99<\/b>","<b>Suriname<\/b><br><br />Continent: <b>Americas<\/b><br />Fertility: <b>6.56<\/b><br />Life Expextancy: <b>61.41<\/b>","<b>Trinidad and Tobago<\/b><br><br />Continent: <b>Americas<\/b><br />Fertility: <b>5.05<\/b><br />Life Expextancy: <b>64.2<\/b>","<b>United States<\/b><br><br />Continent: <b>Americas<\/b><br />Fertility: <b>3.48<\/b><br />Life Expextancy: <b>70.21<\/b>","<b>Uruguay<\/b><br><br />Continent: <b>Americas<\/b><br />Fertility: <b>2.89<\/b><br />Life Expextancy: <b>68.39<\/b>","<b>Venezuela<\/b><br><br />Continent: <b>Americas<\/b><br />Fertility: <b>6.63<\/b><br />Life Expextancy: <b>61.3<\/b>"],"marker":{"color":"rgba(252,141,98,1)","size":7,"line":{"color":"rgba(252,141,98,1)"}},"type":"scatter","name":"Americas","textfont":{"color":"rgba(252,141,98,1)"},"error_y":{"color":"rgba(252,141,98,1)"},"error_x":{"color":"rgba(252,141,98,1)"},"line":{"color":"rgba(252,141,98,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":[4.44,5.59,7.17,6.79,6.67,6.45,6.96,5.97,3.42,2.95,5.18,5.84,5.65,6.91,6.51,3.83,1.97,7.9,4.44,5.79,7.31,5.31,5.97,5.69,4.53,6.05,7.12,7.35,6,7.25,6.6,7.02,6.98,7.24,5.27,5.3,7.52,6.31,6.16,6.38,6.18,6.63,6.89,6.78,7.91,6.43,7.33],"y":[67.82,62.2,54.33,47.28,37.04,63.67,42.7,43.29,70.38,64.31,68.55,42.72,46.65,47.22,49.24,69.13,68.71,54.94,59.85,54.51,63.77,56.99,42.64,63.47,65.9,61.07,39.64,51.08,40.74,46.47,48.63,59.53,62.31,48.84,65.72,60.61,53.98,58.03,56.51,39.15,48.52,55.82,53.91,60.25,52.08,59.82,34.52],"mode":"markers","hoverinfo":["text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text"],"text":["<b>Armenia<\/b><br><br />Continent: <b>Asia<\/b><br />Fertility: <b>4.44<\/b><br />Life Expextancy: <b>67.82<\/b>","<b>Azerbaijan<\/b><br><br />Continent: <b>Asia<\/b><br />Fertility: <b>5.59<\/b><br />Life Expextancy: <b>62.2<\/b>","<b>Bahrain<\/b><br><br />Continent: <b>Asia<\/b><br />Fertility: <b>7.17<\/b><br />Life Expextancy: <b>54.33<\/b>","<b>Bangladesh<\/b><br><br />Continent: <b>Asia<\/b><br />Fertility: <b>6.79<\/b><br />Life Expextancy: <b>47.28<\/b>","<b>Bhutan<\/b><br><br />Continent: <b>Asia<\/b><br />Fertility: <b>6.67<\/b><br />Life Expextancy: <b>37.04<\/b>","<b>Brunei<\/b><br><br />Continent: <b>Asia<\/b><br />Fertility: <b>6.45<\/b><br />Life Expextancy: <b>63.67<\/b>","<b>Cambodia<\/b><br><br />Continent: <b>Asia<\/b><br />Fertility: <b>6.96<\/b><br />Life Expextancy: <b>42.7<\/b>","<b>China<\/b><br><br />Continent: <b>Asia<\/b><br />Fertility: <b>5.97<\/b><br />Life Expextancy: <b>43.29<\/b>","<b>Cyprus<\/b><br><br />Continent: <b>Asia<\/b><br />Fertility: <b>3.42<\/b><br />Life Expextancy: <b>70.38<\/b>","<b>Georgia<\/b><br><br />Continent: <b>Asia<\/b><br />Fertility: <b>2.95<\/b><br />Life Expextancy: <b>64.31<\/b>","<b>Hong Kong, China<\/b><br><br />Continent: <b>Asia<\/b><br />Fertility: <b>5.18<\/b><br />Life Expextancy: <b>68.55<\/b>","<b>India<\/b><br><br />Continent: <b>Asia<\/b><br />Fertility: <b>5.84<\/b><br />Life Expextancy: <b>42.72<\/b>","<b>Indonesia<\/b><br><br />Continent: <b>Asia<\/b><br />Fertility: <b>5.65<\/b><br />Life Expextancy: <b>46.65<\/b>","<b>Iran<\/b><br><br />Continent: <b>Asia<\/b><br />Fertility: <b>6.91<\/b><br />Life Expextancy: <b>47.22<\/b>","<b>Iraq<\/b><br><br />Continent: <b>Asia<\/b><br />Fertility: <b>6.51<\/b><br />Life Expextancy: <b>49.24<\/b>","<b>Israel<\/b><br><br />Continent: <b>Asia<\/b><br />Fertility: <b>3.83<\/b><br />Life Expextancy: <b>69.13<\/b>","<b>Japan<\/b><br><br />Continent: <b>Asia<\/b><br />Fertility: <b>1.97<\/b><br />Life Expextancy: <b>68.71<\/b>","<b>Jordan<\/b><br><br />Continent: <b>Asia<\/b><br />Fertility: <b>7.9<\/b><br />Life Expextancy: <b>54.94<\/b>","<b>Kazakhstan<\/b><br><br />Continent: <b>Asia<\/b><br />Fertility: <b>4.44<\/b><br />Life Expextancy: <b>59.85<\/b>","<b>South Korea<\/b><br><br />Continent: <b>Asia<\/b><br />Fertility: <b>5.79<\/b><br />Life Expextancy: <b>54.51<\/b>","<b>Kuwait<\/b><br><br />Continent: <b>Asia<\/b><br />Fertility: <b>7.31<\/b><br />Life Expextancy: <b>63.77<\/b>","<b>Kyrgyz Republic<\/b><br><br />Continent: <b>Asia<\/b><br />Fertility: <b>5.31<\/b><br />Life Expextancy: <b>56.99<\/b>","<b>Lao<\/b><br><br />Continent: <b>Asia<\/b><br />Fertility: <b>5.97<\/b><br />Life Expextancy: <b>42.64<\/b>","<b>Lebanon<\/b><br><br />Continent: <b>Asia<\/b><br />Fertility: <b>5.69<\/b><br />Life Expextancy: <b>63.47<\/b>","<b>Macao, China<\/b><br><br />Continent: <b>Asia<\/b><br />Fertility: <b>4.53<\/b><br />Life Expextancy: <b>65.9<\/b>","<b>Malaysia<\/b><br><br />Continent: <b>Asia<\/b><br />Fertility: <b>6.05<\/b><br />Life Expextancy: <b>61.07<\/b>","<b>Maldives<\/b><br><br />Continent: <b>Asia<\/b><br />Fertility: <b>7.12<\/b><br />Life Expextancy: <b>39.64<\/b>","<b>Mongolia<\/b><br><br />Continent: <b>Asia<\/b><br />Fertility: <b>7.35<\/b><br />Life Expextancy: <b>51.08<\/b>","<b>Nepal<\/b><br><br />Continent: <b>Asia<\/b><br />Fertility: <b>6<\/b><br />Life Expextancy: <b>40.74<\/b>","<b>Oman<\/b><br><br />Continent: <b>Asia<\/b><br />Fertility: <b>7.25<\/b><br />Life Expextancy: <b>46.47<\/b>","<b>Pakistan<\/b><br><br />Continent: <b>Asia<\/b><br />Fertility: <b>6.6<\/b><br />Life Expextancy: <b>48.63<\/b>","<b>Philippines<\/b><br><br />Continent: <b>Asia<\/b><br />Fertility: <b>7.02<\/b><br />Life Expextancy: <b>59.53<\/b>","<b>Qatar<\/b><br><br />Continent: <b>Asia<\/b><br />Fertility: <b>6.98<\/b><br />Life Expextancy: <b>62.31<\/b>","<b>Saudi Arabia<\/b><br><br />Continent: <b>Asia<\/b><br />Fertility: <b>7.24<\/b><br />Life Expextancy: <b>48.84<\/b>","<b>Singapore<\/b><br><br />Continent: <b>Asia<\/b><br />Fertility: <b>5.27<\/b><br />Life Expextancy: <b>65.72<\/b>","<b>Sri Lanka<\/b><br><br />Continent: <b>Asia<\/b><br />Fertility: <b>5.3<\/b><br />Life Expextancy: <b>60.61<\/b>","<b>Syria<\/b><br><br />Continent: <b>Asia<\/b><br />Fertility: <b>7.52<\/b><br />Life Expextancy: <b>53.98<\/b>","<b>Tajikistan<\/b><br><br />Continent: <b>Asia<\/b><br />Fertility: <b>6.31<\/b><br />Life Expextancy: <b>58.03<\/b>","<b>Thailand<\/b><br><br />Continent: <b>Asia<\/b><br />Fertility: <b>6.16<\/b><br />Life Expextancy: <b>56.51<\/b>","<b>Timor-Leste<\/b><br><br />Continent: <b>Asia<\/b><br />Fertility: <b>6.38<\/b><br />Life Expextancy: <b>39.15<\/b>","<b>Turkey<\/b><br><br />Continent: <b>Asia<\/b><br />Fertility: <b>6.18<\/b><br />Life Expextancy: <b>48.52<\/b>","<b>Turkmenistan<\/b><br><br />Continent: <b>Asia<\/b><br />Fertility: <b>6.63<\/b><br />Life Expextancy: <b>55.82<\/b>","<b>United Arab Emirates<\/b><br><br />Continent: <b>Asia<\/b><br />Fertility: <b>6.89<\/b><br />Life Expextancy: <b>53.91<\/b>","<b>Uzbekistan<\/b><br><br />Continent: <b>Asia<\/b><br />Fertility: <b>6.78<\/b><br />Life Expextancy: <b>60.25<\/b>","<b>West Bank and Gaza<\/b><br><br />Continent: <b>Asia<\/b><br />Fertility: <b>7.91<\/b><br />Life Expextancy: <b>52.08<\/b>","<b>Vietnam<\/b><br><br />Continent: <b>Asia<\/b><br />Fertility: <b>6.43<\/b><br />Life Expextancy: <b>59.82<\/b>","<b>Yemen<\/b><br><br />Continent: <b>Asia<\/b><br />Fertility: <b>7.33<\/b><br />Life Expextancy: <b>34.52<\/b>"],"marker":{"color":"rgba(141,160,203,1)","size":7,"line":{"color":"rgba(141,160,203,1)"}},"type":"scatter","name":"Asia","textfont":{"color":"rgba(141,160,203,1)"},"error_y":{"color":"rgba(141,160,203,1)"},"error_x":{"color":"rgba(141,160,203,1)"},"line":{"color":"rgba(141,160,203,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":[5.96,2.8,2.7,2.63,3.85,2.21,2.27,2.23,2.54,1.94,2.66,2.81,2.47,2.22,1.92,3.98,3.98,2.44,1.86,2.46,2.39,3.6,3.2,3.18,3.31,3.18,2.89,2.72,3.19,2.02,2.34,2.57,2.94,2.33,2.8,2.26,2.58,2.21,2.79],"y":[64.84,69.51,71.01,70.19,64.07,69.55,65.66,70.04,72.43,69.93,68.78,70.61,70.01,69.14,68,73.82,70.57,69.21,69.97,69.46,68.59,62.11,69.02,62.99,65.21,73.21,73.55,67.71,64.37,67.32,68.51,64.44,70.4,68.98,69.65,73.34,71.35,70.56,70.84],"mode":"markers","hoverinfo":["text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text","text"],"text":["<b>Albania<\/b><br><br />Continent: <b>Europe<\/b><br />Fertility: <b>5.96<\/b><br />Life Expextancy: <b>64.84<\/b>","<b>Austria<\/b><br><br />Continent: <b>Europe<\/b><br />Fertility: <b>2.8<\/b><br />Life Expextancy: <b>69.51<\/b>","<b>Belarus<\/b><br><br />Continent: <b>Europe<\/b><br />Fertility: <b>2.7<\/b><br />Life Expextancy: <b>71.01<\/b>","<b>Belgium<\/b><br><br />Continent: <b>Europe<\/b><br />Fertility: <b>2.63<\/b><br />Life Expextancy: <b>70.19<\/b>","<b>Bosnia and Herzegovina<\/b><br><br />Continent: <b>Europe<\/b><br />Fertility: <b>3.85<\/b><br />Life Expextancy: <b>64.07<\/b>","<b>Bulgaria<\/b><br><br />Continent: <b>Europe<\/b><br />Fertility: <b>2.21<\/b><br />Life Expextancy: <b>69.55<\/b>","<b>Croatia<\/b><br><br />Continent: <b>Europe<\/b><br />Fertility: <b>2.27<\/b><br />Life Expextancy: <b>65.66<\/b>","<b>Czech Republic<\/b><br><br />Continent: <b>Europe<\/b><br />Fertility: <b>2.23<\/b><br />Life Expextancy: <b>70.04<\/b>","<b>Denmark<\/b><br><br />Continent: <b>Europe<\/b><br />Fertility: <b>2.54<\/b><br />Life Expextancy: <b>72.43<\/b>","<b>Estonia<\/b><br><br />Continent: <b>Europe<\/b><br />Fertility: <b>1.94<\/b><br />Life Expextancy: <b>69.93<\/b>","<b>Finland<\/b><br><br />Continent: <b>Europe<\/b><br />Fertility: <b>2.66<\/b><br />Life Expextancy: <b>68.78<\/b>","<b>France<\/b><br><br />Continent: <b>Europe<\/b><br />Fertility: <b>2.81<\/b><br />Life Expextancy: <b>70.61<\/b>","<b>Germany<\/b><br><br />Continent: <b>Europe<\/b><br />Fertility: <b>2.47<\/b><br />Life Expextancy: <b>70.01<\/b>","<b>Greece<\/b><br><br />Continent: <b>Europe<\/b><br />Fertility: <b>2.22<\/b><br />Life Expextancy: <b>69.14<\/b>","<b>Hungary<\/b><br><br />Continent: <b>Europe<\/b><br />Fertility: <b>1.92<\/b><br />Life Expextancy: <b>68<\/b>","<b>Iceland<\/b><br><br />Continent: <b>Europe<\/b><br />Fertility: <b>3.98<\/b><br />Life Expextancy: <b>73.82<\/b>","<b>Ireland<\/b><br><br />Continent: <b>Europe<\/b><br />Fertility: <b>3.98<\/b><br />Life Expextancy: <b>70.57<\/b>","<b>Italy<\/b><br><br />Continent: <b>Europe<\/b><br />Fertility: <b>2.44<\/b><br />Life Expextancy: <b>69.21<\/b>","<b>Latvia<\/b><br><br />Continent: <b>Europe<\/b><br />Fertility: <b>1.86<\/b><br />Life Expextancy: <b>69.97<\/b>","<b>Lithuania<\/b><br><br />Continent: <b>Europe<\/b><br />Fertility: <b>2.46<\/b><br />Life Expextancy: <b>69.46<\/b>","<b>Luxembourg<\/b><br><br />Continent: <b>Europe<\/b><br />Fertility: <b>2.39<\/b><br />Life Expextancy: <b>68.59<\/b>","<b>Macedonia, FYR<\/b><br><br />Continent: <b>Europe<\/b><br />Fertility: <b>3.6<\/b><br />Life Expextancy: <b>62.11<\/b>","<b>Malta<\/b><br><br />Continent: <b>Europe<\/b><br />Fertility: <b>3.2<\/b><br />Life Expextancy: <b>69.02<\/b>","<b>Moldova<\/b><br><br />Continent: <b>Europe<\/b><br />Fertility: <b>3.18<\/b><br />Life Expextancy: <b>62.99<\/b>","<b>Montenegro<\/b><br><br />Continent: <b>Europe<\/b><br />Fertility: <b>3.31<\/b><br />Life Expextancy: <b>65.21<\/b>","<b>Netherlands<\/b><br><br />Continent: <b>Europe<\/b><br />Fertility: <b>3.18<\/b><br />Life Expextancy: <b>73.21<\/b>","<b>Norway<\/b><br><br />Continent: <b>Europe<\/b><br />Fertility: <b>2.89<\/b><br />Life Expextancy: <b>73.55<\/b>","<b>Poland<\/b><br><br />Continent: <b>Europe<\/b><br />Fertility: <b>2.72<\/b><br />Life Expextancy: <b>67.71<\/b>","<b>Portugal<\/b><br><br />Continent: <b>Europe<\/b><br />Fertility: <b>3.19<\/b><br />Life Expextancy: <b>64.37<\/b>","<b>Romania<\/b><br><br />Continent: <b>Europe<\/b><br />Fertility: <b>2.02<\/b><br />Life Expextancy: <b>67.32<\/b>","<b>Russia<\/b><br><br />Continent: <b>Europe<\/b><br />Fertility: <b>2.34<\/b><br />Life Expextancy: <b>68.51<\/b>","<b>Serbia<\/b><br><br />Continent: <b>Europe<\/b><br />Fertility: <b>2.57<\/b><br />Life Expextancy: <b>64.44<\/b>","<b>Slovak Republic<\/b><br><br />Continent: <b>Europe<\/b><br />Fertility: <b>2.94<\/b><br />Life Expextancy: <b>70.4<\/b>","<b>Slovenia<\/b><br><br />Continent: <b>Europe<\/b><br />Fertility: <b>2.33<\/b><br />Life Expextancy: <b>68.98<\/b>","<b>Spain<\/b><br><br />Continent: <b>Europe<\/b><br />Fertility: <b>2.8<\/b><br />Life Expextancy: <b>69.65<\/b>","<b>Sweden<\/b><br><br />Continent: <b>Europe<\/b><br />Fertility: <b>2.26<\/b><br />Life Expextancy: <b>73.34<\/b>","<b>Switzerland<\/b><br><br />Continent: <b>Europe<\/b><br />Fertility: <b>2.58<\/b><br />Life Expextancy: <b>71.35<\/b>","<b>Ukraine<\/b><br><br />Continent: <b>Europe<\/b><br />Fertility: <b>2.21<\/b><br />Life Expextancy: <b>70.56<\/b>","<b>United Kingdom<\/b><br><br />Continent: <b>Europe<\/b><br />Fertility: <b>2.79<\/b><br />Life Expextancy: <b>70.84<\/b>"],"marker":{"color":"rgba(231,138,195,1)","size":7,"line":{"color":"rgba(231,138,195,1)"}},"type":"scatter","name":"Europe","textfont":{"color":"rgba(231,138,195,1)"},"error_y":{"color":"rgba(231,138,195,1)"},"error_x":{"color":"rgba(231,138,195,1)"},"line":{"color":"rgba(231,138,195,1)"},"xaxis":"x","yaxis":"y","frame":null},{"x":[3.43,6.09,5.5,7.08,6.91,5.22,3.51,6.28,7.63,6.38,7.3,7.03],"y":[70.91,56.54,57.09,46.64,57.54,57.72,71.26,39.87,52.62,51.69,61.91,47.14],"mode":"markers","hoverinfo":["text","text","text","text","text","text","text","text","text","text","text","text"],"text":["<b>Australia<\/b><br><br />Continent: <b>Oceania<\/b><br />Fertility: <b>3.43<\/b><br />Life Expextancy: <b>70.91<\/b>","<b>Fiji<\/b><br><br />Continent: <b>Oceania<\/b><br />Fertility: <b>6.09<\/b><br />Life Expextancy: <b>56.54<\/b>","<b>French Polynesia<\/b><br><br />Continent: <b>Oceania<\/b><br />Fertility: <b>5.5<\/b><br />Life Expextancy: <b>57.09<\/b>","<b>Kiribati<\/b><br><br />Continent: <b>Oceania<\/b><br />Fertility: <b>7.08<\/b><br />Life Expextancy: <b>46.64<\/b>","<b>Micronesia, Fed. Sts.<\/b><br><br />Continent: <b>Oceania<\/b><br />Fertility: <b>6.91<\/b><br />Life Expextancy: <b>57.54<\/b>","<b>New Caledonia<\/b><br><br />Continent: <b>Oceania<\/b><br />Fertility: <b>5.22<\/b><br />Life Expextancy: <b>57.72<\/b>","<b>New Zealand<\/b><br><br />Continent: <b>Oceania<\/b><br />Fertility: <b>3.51<\/b><br />Life Expextancy: <b>71.26<\/b>","<b>Papua New Guinea<\/b><br><br />Continent: <b>Oceania<\/b><br />Fertility: <b>6.28<\/b><br />Life Expextancy: <b>39.87<\/b>","<b>Samoa<\/b><br><br />Continent: <b>Oceania<\/b><br />Fertility: <b>7.63<\/b><br />Life Expextancy: <b>52.62<\/b>","<b>Solomon Islands<\/b><br><br />Continent: <b>Oceania<\/b><br />Fertility: <b>6.38<\/b><br />Life Expextancy: <b>51.69<\/b>","<b>Tonga<\/b><br><br />Continent: <b>Oceania<\/b><br />Fertility: <b>7.3<\/b><br />Life Expextancy: <b>61.91<\/b>","<b>Vanuatu<\/b><br><br />Continent: <b>Oceania<\/b><br />Fertility: <b>7.03<\/b><br />Life Expextancy: <b>47.14<\/b>"],"marker":{"color":"rgba(166,216,84,1)","size":7,"line":{"color":"rgba(166,216,84,1)"}},"type":"scatter","name":"Oceania","textfont":{"color":"rgba(166,216,84,1)"},"error_y":{"color":"rgba(166,216,84,1)"},"error_x":{"color":"rgba(166,216,84,1)"},"line":{"color":"rgba(166,216,84,1)"},"xaxis":"x","yaxis":"y","frame":null}],"highlight":{"on":"plotly_click","persistent":false,"dynamic":false,"selectize":false,"opacityDim":0.2,"selected":{"opacity":1},"debounce":0},"shinyEvents":["plotly_hover","plotly_click","plotly_selected","plotly_relayout","plotly_brushed","plotly_brushing","plotly_clickannotation","plotly_doubleclick","plotly_deselect","plotly_afterplot","plotly_sunburstclick"],"base_url":"https://plot.ly"},"evals":[],"jsHooks":[]}</script>
+</div>
+</div>
+</div>
+<p><br></p>
+<div class="callout-note callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>A quick note about having <code>plotly</code> work inside of the RStudio IDE–as of the time of this writing it isn’t very straightforward, i.e., not <a href="https://github.com/rstudio/rstudio/issues/8762">officially supported yet</a>. The plot will open in a browser window and it’s fairly snappy. The good think is that on the <code>reticulate</code> side, <a href="https://github.com/rstudio/reticulate/issues/711">knitting works</a>! So this side was able to put all this together via <code>rmarkdown</code> when I started this post and Quarto now that I’m finishing this post (remember any <i class="fa-brand fa-r-project"></i> chunk will default to the <code>knitr</code> engine), so that’s pretty cool. We’re even using both <code>renv</code> and <code>pipenv</code> for both environments in the same file <i class="fa-solid fa-face-laugh-beam"></i></p>
+</div>
+</div>
+<p><br></p>
+<div class="column-page-inset-right">
+<p><i class="fa-brands fa-python"></i> <strong>+ <code>plotly</code></strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode numberSource python number-lines code-with-copy"><code class="sourceCode python"><span id="cb18-1"><a href="#cb18-1"></a><span class="kw">def</span> plotly_title(title, subtitle):</span>
+<span id="cb18-2"><a href="#cb18-2"></a>  <span class="cf">return</span>(<span class="ss">f"&lt;b&gt;</span><span class="sc">{</span>title<span class="sc">}</span><span class="ss">&lt;/b&gt;&lt;br&gt;&lt;sup&gt;</span><span class="sc">{</span>subtitle<span class="sc">}</span><span class="ss">&lt;/sup&gt;"</span>)</span>
+<span id="cb18-3"><a href="#cb18-3"></a></span>
+<span id="cb18-4"><a href="#cb18-4"></a>margin <span class="op">=</span> <span class="bu">dict</span>(</span>
+<span id="cb18-5"><a href="#cb18-5"></a>  t <span class="op">=</span> <span class="dv">95</span>,</span>
+<span id="cb18-6"><a href="#cb18-6"></a>  r <span class="op">=</span> <span class="dv">40</span>,</span>
+<span id="cb18-7"><a href="#cb18-7"></a>  b <span class="op">=</span> <span class="dv">120</span>,</span>
+<span id="cb18-8"><a href="#cb18-8"></a>  l <span class="op">=</span> <span class="dv">79</span>)</span>
+<span id="cb18-9"><a href="#cb18-9"></a>  </span>
+<span id="cb18-10"><a href="#cb18-10"></a>config <span class="op">=</span> {<span class="st">"displayModeBar"</span>: <span class="va">False</span>}</span>
+<span id="cb18-11"><a href="#cb18-11"></a></span>
+<span id="cb18-12"><a href="#cb18-12"></a>(px.scatter(</span>
+<span id="cb18-13"><a href="#cb18-13"></a>  (gapminder.<span class="bu">filter</span>(pl.col(<span class="st">"year"</span>) <span class="op">==</span> <span class="dv">1962</span>).to_pandas()),</span>
+<span id="cb18-14"><a href="#cb18-14"></a>  x <span class="op">=</span> <span class="st">"fertility"</span>, y <span class="op">=</span> <span class="st">"life_expectancy"</span>, color <span class="op">=</span> <span class="st">"continent"</span>,</span>
+<span id="cb18-15"><a href="#cb18-15"></a>  hover_name <span class="op">=</span> <span class="st">"country"</span>,</span>
+<span id="cb18-16"><a href="#cb18-16"></a>  color_discrete_sequence <span class="op">=</span> px.colors.qualitative.Set2,</span>
+<span id="cb18-17"><a href="#cb18-17"></a>  title <span class="op">=</span> plotly_title(</span>
+<span id="cb18-18"><a href="#cb18-18"></a>    title <span class="op">=</span> <span class="st">"Scatterplot"</span>, </span>
+<span id="cb18-19"><a href="#cb18-19"></a>    subtitle <span class="op">=</span> <span class="st">"Life expextancy by fertility"</span>),</span>
+<span id="cb18-20"><a href="#cb18-20"></a>  opacity <span class="op">=</span> <span class="fl">.8</span>, </span>
+<span id="cb18-21"><a href="#cb18-21"></a>  template <span class="op">=</span> <span class="st">"plotly_white"</span>) </span>
+<span id="cb18-22"><a href="#cb18-22"></a>  .update_traces(</span>
+<span id="cb18-23"><a href="#cb18-23"></a>    marker <span class="op">=</span> <span class="bu">dict</span>(</span>
+<span id="cb18-24"><a href="#cb18-24"></a>      size <span class="op">=</span> <span class="dv">7</span>))</span>
+<span id="cb18-25"><a href="#cb18-25"></a>  .update_layout(</span>
+<span id="cb18-26"><a href="#cb18-26"></a>    margin <span class="op">=</span> margin)</span>
+<span id="cb18-27"><a href="#cb18-27"></a>).show(config <span class="op">=</span> config) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+
+<div>                        <script type="text/javascript">window.PlotlyConfig = {MathJaxConfig: 'local'};</script>
+        <script src="https://cdn.plot.ly/plotly-2.9.0.min.js"></script>                <div id="e70cccec-1573-495d-9d47-d222c64808cb" class="plotly-graph-div" style="height:100%; width:100%;"></div>            <script type="text/javascript">                                    window.PLOTLYENV=window.PLOTLYENV || {};                                    if (document.getElementById("e70cccec-1573-495d-9d47-d222c64808cb")) {                    Plotly.newPlot(                        "e70cccec-1573-495d-9d47-d222c64808cb",                        [{"hovertemplate":"<b>%{hovertext}</b><br><br>continent=Europe<br>fertility=%{x}<br>life_expectancy=%{y}<extra></extra>","hovertext":["Albania","Austria","Belarus","Belgium","Bosnia and Herzegovina","Bulgaria","Croatia","Czech Republic","Denmark","Estonia","Finland","France","Germany","Greece","Hungary","Iceland","Ireland","Italy","Latvia","Lithuania","Luxembourg","Macedonia, FYR","Malta","Moldova","Montenegro","Netherlands","Norway","Poland","Portugal","Romania","Russia","Serbia","Slovak Republic","Slovenia","Spain","Sweden","Switzerland","Ukraine","United Kingdom"],"legendgroup":"Europe","marker":{"color":"rgb(102,194,165)","opacity":0.8,"symbol":"circle","size":7},"mode":"markers","name":"Europe","orientation":"v","showlegend":true,"x":[5.96,2.8,2.7,2.63,3.85,2.21,2.27,2.23,2.54,1.94,2.66,2.81,2.47,2.22,1.92,3.98,3.98,2.44,1.86,2.46,2.39,3.6,3.2,3.18,3.31,3.18,2.89,2.72,3.19,2.02,2.34,2.57,2.94,2.33,2.8,2.26,2.58,2.21,2.79],"xaxis":"x","y":[64.84,69.51,71.01,70.19,64.07,69.55,65.66,70.04,72.43,69.93,68.78,70.61,70.01,69.14,68.0,73.82,70.57,69.21,69.97,69.46,68.59,62.11,69.02,62.99,65.21,73.21,73.55,67.71,64.37,67.32,68.51,64.44,70.4,68.98,69.65,73.34,71.35,70.56,70.84],"yaxis":"y","type":"scatter"},{"hovertemplate":"<b>%{hovertext}</b><br><br>continent=Africa<br>fertility=%{x}<br>life_expectancy=%{y}<extra></extra>","hovertext":["Algeria","Angola","Benin","Botswana","Burkina Faso","Burundi","Cameroon","Cape Verde","Central African Republic","Chad","Comoros","Congo, Dem. Rep.","Congo, Rep.","Cote d'Ivoire","Djibouti","Egypt","Equatorial Guinea","Eritrea","Ethiopia","Gabon","Gambia","Ghana","Guinea","Guinea-Bissau","Kenya","Lesotho","Liberia","Libya","Madagascar","Malawi","Mali","Mauritania","Mauritius","Morocco","Mozambique","Namibia","Niger","Nigeria","Rwanda","Senegal","Seychelles","Sierra Leone","South Africa","Sudan","Swaziland","Tanzania","Togo","Tunisia","Uganda","Zambia","Zimbabwe"],"legendgroup":"Africa","marker":{"color":"rgb(252,141,98)","opacity":0.8,"symbol":"circle","size":7},"mode":"markers","name":"Africa","orientation":"v","showlegend":true,"x":[7.65,7.39,6.39,6.65,6.34,7.05,5.77,6.95,5.89,6.29,6.9,6.03,5.97,7.5,6.53,6.57,5.53,6.84,6.88,4.54,5.67,6.83,6.12,5.67,8.04,5.82,6.45,7.61,7.3,6.98,6.75,6.79,6.12,7.13,6.6,6.18,7.12,6.35,8.2,7.04,5.53,6.16,6.1,6.74,6.75,6.8,6.62,7.12,7.04,7.13,7.27],"xaxis":"x","y":[48.55,37.08,39.32,51.02,36.23,41.13,44.53,50.43,38.36,41.76,44.89,44.61,49.47,39.46,46.79,49.43,38.38,39.69,38.94,39.56,36.68,47.25,36.17,43.64,48.82,47.97,35.88,48.0,43.12,39.02,30.08,45.31,60.64,50.6,39.4,48.31,37.1,41.61,43.74,38.72,61.59,37.06,49.78,50.52,45.42,46.26,42.42,44.65,46.56,49.42,53.99],"yaxis":"y","type":"scatter"},{"hovertemplate":"<b>%{hovertext}</b><br><br>continent=Americas<br>fertility=%{x}<br>life_expectancy=%{y}<extra></extra>","hovertext":["Antigua and Barbuda","Argentina","Aruba","Bahamas","Barbados","Belize","Bolivia","Brazil","Canada","Chile","Colombia","Costa Rica","Cuba","Dominican Republic","Ecuador","El Salvador","Greenland","Grenada","Guatemala","Guyana","Haiti","Honduras","Jamaica","Mexico","Nicaragua","Panama","Paraguay","Peru","Puerto Rico","St. Lucia","St. Vincent and the Grenadines","Suriname","Trinidad and Tobago","United States","Uruguay","Venezuela"],"legendgroup":"Americas","marker":{"color":"rgb(141,160,203)","opacity":0.8,"symbol":"circle","size":7},"mode":"markers","name":"Americas","orientation":"v","showlegend":true,"x":[4.34,3.09,4.47,4.45,4.27,6.46,6.65,6.14,3.77,5.46,6.78,7.22,4.51,7.4,6.65,6.75,7.09,6.44,6.49,5.49,6.3,7.44,5.63,6.77,7.18,5.81,6.47,6.86,4.41,6.88,7.07,6.56,5.05,3.48,2.89,6.63],"xaxis":"x","y":[63.93,65.64,66.44,62.58,62.79,61.2,44.5,56.27,71.25,57.63,59.18,63.13,65.09,54.97,55.42,53.5,62.22,61.49,47.76,59.41,43.26,49.21,67.17,58.49,52.36,62.71,67.03,50.14,69.0,58.47,59.99,61.41,64.2,70.21,68.39,61.3],"yaxis":"y","type":"scatter"},{"hovertemplate":"<b>%{hovertext}</b><br><br>continent=Asia<br>fertility=%{x}<br>life_expectancy=%{y}<extra></extra>","hovertext":["Armenia","Azerbaijan","Bahrain","Bangladesh","Bhutan","Brunei","Cambodia","China","Cyprus","Georgia","Hong Kong, China","India","Indonesia","Iran","Iraq","Israel","Japan","Jordan","Kazakhstan","South Korea","Kuwait","Kyrgyz Republic","Lao","Lebanon","Macao, China","Malaysia","Maldives","Mongolia","Nepal","Oman","Pakistan","Philippines","Qatar","Saudi Arabia","Singapore","Sri Lanka","Syria","Tajikistan","Thailand","Timor-Leste","Turkey","Turkmenistan","United Arab Emirates","Uzbekistan","West Bank and Gaza","Vietnam","Yemen"],"legendgroup":"Asia","marker":{"color":"rgb(231,138,195)","opacity":0.8,"symbol":"circle","size":7},"mode":"markers","name":"Asia","orientation":"v","showlegend":true,"x":[4.44,5.59,7.17,6.79,6.67,6.45,6.96,5.97,3.42,2.95,5.18,5.84,5.65,6.91,6.51,3.83,1.97,7.9,4.44,5.79,7.31,5.31,5.97,5.69,4.53,6.05,7.12,7.35,6.0,7.25,6.6,7.02,6.98,7.24,5.27,5.3,7.52,6.31,6.16,6.38,6.18,6.63,6.89,6.78,7.91,6.43,7.33],"xaxis":"x","y":[67.82,62.2,54.33,47.28,37.04,63.67,42.7,43.29,70.38,64.31,68.55,42.72,46.65,47.22,49.24,69.13,68.71,54.94,59.85,54.51,63.77,56.99,42.64,63.47,65.9,61.07,39.64,51.08,40.74,46.47,48.63,59.53,62.31,48.84,65.72,60.61,53.98,58.03,56.51,39.15,48.52,55.82,53.91,60.25,52.08,59.82,34.52],"yaxis":"y","type":"scatter"},{"hovertemplate":"<b>%{hovertext}</b><br><br>continent=Oceania<br>fertility=%{x}<br>life_expectancy=%{y}<extra></extra>","hovertext":["Australia","Fiji","French Polynesia","Kiribati","Micronesia, Fed. Sts.","New Caledonia","New Zealand","Papua New Guinea","Samoa","Solomon Islands","Tonga","Vanuatu"],"legendgroup":"Oceania","marker":{"color":"rgb(166,216,84)","opacity":0.8,"symbol":"circle","size":7},"mode":"markers","name":"Oceania","orientation":"v","showlegend":true,"x":[3.43,6.09,5.5,7.08,6.91,5.22,3.51,6.28,7.63,6.38,7.3,7.03],"xaxis":"x","y":[70.91,56.54,57.09,46.64,57.54,57.72,71.26,39.87,52.62,51.69,61.91,47.14],"yaxis":"y","type":"scatter"}],                        {"template":{"data":{"barpolar":[{"marker":{"line":{"color":"white","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"bar":[{"error_x":{"color":"#2a3f5f"},"error_y":{"color":"#2a3f5f"},"marker":{"line":{"color":"white","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"carpet":[{"aaxis":{"endlinecolor":"#2a3f5f","gridcolor":"#C8D4E3","linecolor":"#C8D4E3","minorgridcolor":"#C8D4E3","startlinecolor":"#2a3f5f"},"baxis":{"endlinecolor":"#2a3f5f","gridcolor":"#C8D4E3","linecolor":"#C8D4E3","minorgridcolor":"#C8D4E3","startlinecolor":"#2a3f5f"},"type":"carpet"}],"choropleth":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"choropleth"}],"contourcarpet":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"contourcarpet"}],"contour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"contour"}],"heatmapgl":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"heatmapgl"}],"heatmap":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"heatmap"}],"histogram2dcontour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2dcontour"}],"histogram2d":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2d"}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"mesh3d":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"mesh3d"}],"parcoords":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"parcoords"}],"pie":[{"automargin":true,"type":"pie"}],"scatter3d":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatter3d"}],"scattercarpet":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattercarpet"}],"scattergeo":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattergeo"}],"scattergl":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattergl"}],"scattermapbox":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattermapbox"}],"scatterpolargl":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolargl"}],"scatterpolar":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolar"}],"scatter":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatter"}],"scatterternary":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterternary"}],"surface":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"surface"}],"table":[{"cells":{"fill":{"color":"#EBF0F8"},"line":{"color":"white"}},"header":{"fill":{"color":"#C8D4E3"},"line":{"color":"white"}},"type":"table"}]},"layout":{"annotationdefaults":{"arrowcolor":"#2a3f5f","arrowhead":0,"arrowwidth":1},"autotypenumbers":"strict","coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]],"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]},"colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#2a3f5f"},"geo":{"bgcolor":"white","lakecolor":"white","landcolor":"white","showlakes":true,"showland":true,"subunitcolor":"#C8D4E3"},"hoverlabel":{"align":"left"},"hovermode":"closest","mapbox":{"style":"light"},"paper_bgcolor":"white","plot_bgcolor":"white","polar":{"angularaxis":{"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":""},"bgcolor":"white","radialaxis":{"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":""}},"scene":{"xaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"},"yaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"},"zaxis":{"backgroundcolor":"white","gridcolor":"#DFE8F3","gridwidth":2,"linecolor":"#EBF0F8","showbackground":true,"ticks":"","zerolinecolor":"#EBF0F8"}},"shapedefaults":{"line":{"color":"#2a3f5f"}},"ternary":{"aaxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""},"baxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""},"bgcolor":"white","caxis":{"gridcolor":"#DFE8F3","linecolor":"#A2B1C6","ticks":""}},"title":{"x":0.05},"xaxis":{"automargin":true,"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":"","title":{"standoff":15},"zerolinecolor":"#EBF0F8","zerolinewidth":2},"yaxis":{"automargin":true,"gridcolor":"#EBF0F8","linecolor":"#EBF0F8","ticks":"","title":{"standoff":15},"zerolinecolor":"#EBF0F8","zerolinewidth":2}}},"xaxis":{"anchor":"y","domain":[0.0,1.0],"title":{"text":"fertility"}},"yaxis":{"anchor":"x","domain":[0.0,1.0],"title":{"text":"life_expectancy"}},"legend":{"title":{"text":"continent"},"tracegroupgap":0},"title":{"text":"<b>Scatterplot</b><br><sup>Life expextancy by fertility</sup>"},"margin":{"t":95,"r":40,"b":120,"l":79}},                        {"responsive": true}                    )                };                            </script>        </div>
+</div>
+</div>
+<p><br></p>
+<p><code>plotly</code> expects a <code>pandas DataFrame</code> so we’re just using <code>.to_pandas()</code> to give it what it wants, but that doesn’t have to stop you from adding any filtering, summarizing, or aggregating before chaining the data into your viz.</p>
+</div>
+<p><br></p>
+</section>
+<section id="conclusion" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
+<div class="column-page-inset-right">
+<p>Hopefully this is helpful. If people like posts like this I can try to do more blogging, I just get busy and foregetful sometimes! Feel free to reach out with any feedback or questions.</p>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    toggleBodyColorMode(window.document.querySelector("link#quarto-bootstrap"));
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  let localAlternateSentinel = 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } 
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      let href = ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left"><i class="fa-solid fa-copyright"></i> 2022, Robert Mitchell</div>   
+      <div class="nav-footer-center">
+        <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+ <img src="../../images/rbmv-secondary.png" width="auto" height="30px">
+  </li>  
+</ul>
+      </div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/robertmitchellv">
+      <i class="bi bi-github" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com/robertmitchellv">
+      <i class="bi bi-twitter" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://linkedin.com/in/robertmitchellv">
+      <i class="bi bi-linkedin" role="img">
+</i> 
+    </a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
+
+
+
+</body></html>
