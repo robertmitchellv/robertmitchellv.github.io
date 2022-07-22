@@ -1,0 +1,45 @@
+---
+title: "The move to R"
+author: "Robert Mitchell"
+date: "August 29, 2016"
+categories: [R, Thoughts, Learning, Not language wars]
+---
+
+<br>
+
+> This is _not_ a language wars type post.  I do not think there is some Mordor forged language to _rule them all_.  I debated whether or not to even write a post like this.  Nevertheless, I had a chance to meet and talk to [Jake Powray](https://twitter.com/jakeporway) from [DataKind](http://www.datakind.org) at the [DoGoodData](http://www.dogooddata.com) confrence and I mentioned my moving from Python to R, which he wanted to hear about since normally he hears about the movement going in the other direction.  Since my direction is a bit atypical and since my use case is also different, I decided to write about it.  If you have any thoughts feel free to comment below! 
+
+<br>
+
+It's been almost a year since I posted anything on this site and quite a bit has changed for me since then.  I moved into a more formalized data analyst role at the nonprofit I work at, I developed and put together a survey that relies on around ten research instruments to use as psychometrics (with a longitudinal goal of updating every six months), built a tool to collect the data, tidied the initial 900 responses, performed some clustering that shows a lot of promise, built a Shiny dashboard to communicate results to stakeholders that is being used by programming staff to target their efforts as they work to meet the needs of our respondents, and am gearing up to start bootstrapping the first batch of six month follow-up data to see if any changes are significant.  Looking back at my previous posts I am happy to report that I've learned a _ton_---and much of it is due to my picking up and diving into R.
+
+<br>
+
+This isn't to say that I couldn't have learned what I did in Python---it just happened to work out in my case that R had a kind of pedagogical effect, which I'll talk about more in a bit.  First, there is no argument that there are insanely smart people who build tools in both languages (some that even collaborate, e.g., [feather](https://github.com/wesm/feather)).  Thankfully, I've never seen an argument that centers around this theme, i.e., that one language holds the corner on sharp programmers.  I do, however, see arguments that appear to be preference masquerading as axiomatic, aphoristic, or general maxim.  I'm not sharing some unseen truth; rather, I'm just describing what helped me move forward and gain a better understanding of the data analysis workflow that seems to work for me.
+
+<br>
+
+A lot has been said about the [steep learning curve](http://www.statmethods.net/about/learningcurve.html) of programming in R.  By contrast, Python is one of [the most popular introductory teaching languges](http://cacm.acm.org/blogs/blog-cacm/176450-python-is-now-the-most-popular-introductory-teaching-language-at-top-us-universities/fulltext) in CS departments at universities across the US.  I knew this before I made a choice of which language to learn when I became interested in data analysis.  Based on that understanding, I took a Python 3 course at a community college but mostly lived off of the [interactive](http://interactivepython.org/runestone/static/thinkcspy/index.html) version of [How to Think Like A Computer Scientist](https://www.amazon.com/How-Think-Like-Computer-Scientist/dp/0971677506).  Like many people who become interested in data, there is a lot of ground to cover before beginning actual analysis.  First, I needed to learn how to program.  Second, I needed to learn about computer science.  I found the interactive site to be the best way for me to actually get a feel for what happens when I run code and I found Python to be an excellent communicator of general CS ideas.  After I finished my Python course and began understanding a bit more about what I was doing in Python I hit the ground running learning `Pandas` and `matplotlib`---I thought I had closed the door on R.  It didn't make sense to stop progress in one language to begin all over again in another; especially when people like [Hadley](https://twitter.com/hadleywickham?lang=en) and [Garret](https://twitter.com/statgarrett) recommend that:
+
+<br>
+
+> <i class="fa fa-quote-left fa-1x"></i> However, we strongly believe that it’s best to master one tool at a time. You will get better faster if you dive deep, rather than spreading yourself thinly over many topics. This doesn’t mean you should only know one thing, just that you’ll generally learn faster if you stick to one thing at a time. You should strive to learn new things throughout your career, but make sure your understanding is solid before you move on to the next interesting thing.[^1] <i class="fa fa-quote-right fa-1x"></i>
+
+<br>
+
+I had not _mastered_ Python when deciding to explore R.  I have not mastered R either.  Nevertheless, there was this nagging thought I couldn't shake a while back when seeing language-wars-types of posts on twitter about _leaving_ R.  Namely, that one necessarily has to use R in order to leave it.  Putting aside all the good and bad reasons I've read for moving from R to Python, I wondered if R had some sort of pedagogical magic that would help me become a better "data scientist" like the ones I followed on twitter and respected a great deal.  In my mind I figured that it must be a cross to bear in order to be a more well rounded data worker.  
+
+<br>
+
+Since I had spent considerable time figuring out how to [annotate bar charts in matplotlib](blog-bar-chart-annotations-pandas-mpl.html) I figured this would be a good test for R: recreate the plots from that blog post to get a feel for what the language is like.  To my chagrin, this was much, _much_, easier in `ggplot2` than `matplotlib`.  I felt like I struggled so hard to get `matplotlib` to give me a halfway decent looking plot while `ggplot2` made my previous efforts seem futile.  Even adding fit lines with one line of code was a crazy thought to me!  I finally understood why [Greg Lamp](https://twitter.com/theglamp) was working so hard to build [ggplot in Python](https://github.com/yhat/ggplot).  I decided to spend my morning train rides learning more about R and about `ggplot2`.  I didn't know this at the time, but diving into `ggplot2` and its beautiful API offered me insight I always found lacking when getting started with an analysis project in Python.  The more I dove into the [tidyverse](http://r4ds.had.co.nz/introduction.html#the-tidyverse) the more I started to see how the API (especially `dplyr`) unfolds in such a way that a user is practically lead into an analysis workflow; a workflow that I found to be rewarding on many levels.[^2]   
+
+<br>
+
+Because of this rewarding relationship, I've found a great partner in R---this is especially due to my use case, which I mentioned above and will describe quickly before ending this post.  I work as the only person within my org that writes code and works with data the way that I do.  Because of this, I often am required to perform many tasks and be very flexible and accommodating of requests.  R has proved a great workhorse in this regard; I am able to do so many different things in RStudio that work well for a person that must acomplish everything alone.  I can take EDA from an `Rmd_notebook`, put it in a report, turn it into a webpage, or transform it into a Shiny dashboard.  Heck, this whole website was written in RStudio and put together with `rmarkdown::render_site()`.  I know there are many projects I'd like to work on where Python will be the tool of choice.  However, at least for now I am dreadfully enamored with R.  Python taught me how to think like a computer scientist, but R is teaching me how to think like a statistician.  Pedagogically I feel that both languages are vital to growing as the person who works in this hodgepodge known as 'Data Science'.  
+
+<br>
+<br>
+<br>
+
+[^1]: Hadley Wickham and Garrett Grolemund, _R For Data Science_, http://r4ds.had.co.nz/introduction.html#python-julia-and-friends
+[^2]: I know that Hadley has strong opinions about how an analysis workflow should unfold, e.g., "There's no reason that `ifelse()` couldn't be made as fast as your proposed approach, and `dplyr` will _never_ support in-place mutation of data. This is something I feel very strongly about.  Can you provide more examples of the stata code you're converting? In my experience, stata code tends to use a lot of nested if statements that I'd approach in a fundamentally different way in R." [Read discusion here](https://github.com/hadley/dplyr/issues/425) 

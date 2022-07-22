@@ -1,0 +1,166 @@
+---
+title: "Advent of code in R: day one"
+author: "Robert Mitchell"
+date: "December 1, 2017"
+categories: [Advent of code, R, Puzzle]
+---
+
+<br>
+
+Over on the `rOpenSci` Slack, [Sam](https://twitter.com/samfirke) asked if anyone was doing the [Advent of Code](http://adventofcode.com/) challenges in R.  A few others said they were interested and I decided to go for it as well!  My solutions are likely not as savvy as the other more experienced programmers, but it was a fun way to see how other people approach problems and if there is anything about their approach that you can incorporate into your programming style.
+
+<br>
+
+I tend to work often with `tibble`s and rely _often_ on `dplyr` so my solution orients itself around a dataframe and using common `dplyr` functions to solve the problem.  
+
+## The problem
+
+There are two parts to this problem:
+
+### Part 1
+
+The captcha requires you to review a sequence of digits (your puzzle input) and find the sum of all digits that match the next digit in the list. The list is circular, so the digit after the last digit is the first digit in the list.
+
+For example:
+
++ `1122` produces a sum of `3 (1 + 2)` because the first digit (`1`) matches the second digit and the third digit `(2)` matches the fourth digit.
++ `1111` produces `4` because each digit (all `1`) matches the next.
++ `1234` produces `0` because no digit matches the next.
++ `91212129` produces `9` because the only digit that matches the next one is the last digit, `9`.
+
+<br>
+
+You're given data in the form of a long string of integers and task to solve the problem by providing the sum of the digits provided based on the rules introduced above.
+
+<br>
+
+Here are the packages I used
+
+__Load Packages__
+```{r, eval=F}
+library(tidyverse)
+```
+
+```{r, include=F}
+library(tidyverse)
+```
+
+<br>
+
+__My puzzle input__
+
+<br>
+
+```{r}
+data <- c("6592822488931338589815525425236818285229555616392928433262436847386544514648645288129834834862363847542262953164877694234514375164927616649264122487182321437459646851966649732474925353281699895326824852555747127547527163197544539468632369858413232684269835288817735678173986264554586412678364433327621627496939956645283712453265255261565511586373551439198276373843771249563722914847255524452675842558622845416218195374459386785618255129831539984559644185369543662821311686162137672168266152494656448824719791398797359326412235723234585539515385352426579831251943911197862994974133738196775618715739412713224837531544346114877971977411275354168752719858889347588136787894798476123335894514342411742111135337286449968879251481449757294167363867119927811513529711239534914119292833111624483472466781475951494348516125474142532923858941279569675445694654355314925386833175795464912974865287564866767924677333599828829875283753669783176288899797691713766199641716546284841387455733132519649365113182432238477673375234793394595435816924453585513973119548841577126141962776649294322189695375451743747581241922657947182232454611837512564776273929815169367899818698892234618847815155578736875295629917247977658723868641411493551796998791839776335793682643551875947346347344695869874564432566956882395424267187552799458352121248147371938943799995158617871393289534789214852747976587432857675156884837634687257363975437535621197887877326295229195663235129213398178282549432599455965759999159247295857366485345759516622427833518837458236123723353817444545271644684925297477149298484753858863551357266259935298184325926848958828192317538375317946457985874965434486829387647425222952585293626473351211161684297351932771462665621764392833122236577353669215833721772482863775629244619639234636853267934895783891823877845198326665728659328729472456175285229681244974389248235457688922179237895954959228638193933854787917647154837695422429184757725387589969781672596568421191236374563718951738499591454571728641951699981615249635314789251239677393251756396")
+```
+
+<br>
+
+It may seem weird, but I thought it would be easier to read this in as a string and then use `stringr::str_split()` to get each value separated in order to aid in processing.
+
+__Split the data into a single digit vector__
+```{r}
+digits <- data %>% str_split("")
+```
+
+<br>
+
+My next idea was to create an index so I don't have to use a `for()` loop and rely on the index generated from that process.  I also converted the digits back to the integer data type.
+
+__Convert vector to a tibble and add an index__
+```{r}
+puzzle <- tibble(digits = digits[[1]]) %>% 
+  mutate(
+    index = row_number(),
+    digits = parse_integer(digits)) %>% 
+  select(index, digits)
+```
+
+<br>
+
+I find setting up even really simple `if_else` logic so much easier when using `case_when()` since I don't have to worry about the dataframe and can use the variable name.  We're just checking to see if the digit ahead is similar to the digit before and designating the flag in another column with either `Match` or `No Match`.
+
+__Find out where the matches are__
+```{r}
+puzzle <- puzzle %>%
+  mutate(match = case_when(
+    digits == digits[index + 1] ~ "Match",
+    TRUE ~ "No Match")) 
+```
+
+I was convinced for a second I could do something like `puzzle$digits[-1]` to get the last value but then remembered I was thinking about Python and not R--whoops!  Here I'm just checking to see if the first and last digits match since the list is conceptually circular.  This reminds me of the first and last lines of _Finnegan's Wake_ being circular.  In any case, this is just a quick check.
+
+__Check if last and first digits match__
+```{r}
+puzzle$match[1] <- if_else(puzzle$digits[1] == puzzle$digits[length(puzzle$digits)], "Match", "No Match")
+```
+
+<br>
+
+Now we can get the sum and check our work to see if our solution returned a correct response.
+
+__Get the sum__
+```{r}
+puzzle %>%
+  filter(match == "Match") %>%
+  summarise(sum_of_matches = sum(digits))
+```
+
+<br> 
+
+__YAY Correct!__ `r emo::ji("clinking_glasses")`
+
+<br>
+
+### Part 2
+
+<br>
+
+Here are the rules for part two:
+
+Now, instead of considering the next digit, it wants you to consider the digit halfway around the circular list. That is, if your list contains 10 items, only include a digit in your sum if the digit 10/2 = 5 steps forward matches it. Fortunately, your list has an even number of elements.
+
+For example:
+
++ `1212` produces `6`: the list contains `4` items, and all four digits match the digit `2` items ahead.
++ `1221` produces `0`, because every comparison is between a `1` and a `2`.
++ `123425` produces `4`, because both `2`s match each other, but no other digit has a match.
++ `123123` produces `12`.
++ `12131415` produces `4`.
+
+<br>
+
+My initial thought is to just break the dataframe in half and then check if the digits match, which is acomplished by `slice`ing it in half and preparing to bind the columns by renaming some variables.
+
+```{r}
+first_half <- puzzle %>%
+  slice(1:(nrow(puzzle) / 2)) %>%
+  select(-match) %>%
+  rename(
+    first_index = index,
+    first_digits = digits)
+
+second_half <- puzzle %>%
+  slice(((nrow(puzzle) / 2) + 1):nrow(puzzle)) %>%
+  select(-match) %>%
+  rename(
+    second_index = index,
+    second_digits = digits)
+```
+
+<br>
+
+Now it is a simple `bind_cols` and then checking for matches, adding matches together and summing that column to get our answer.
+
+```{r}
+first_half %>% bind_cols(second_half) %>%
+  mutate(match = if_else(first_digits == second_digits, "Match", "No Match")) %>%
+  filter(match == "Match") %>%
+  mutate(total = first_digits + second_digits) %>%
+  summarise(sum = sum(total))
+```
+
+__YES! Correct again!__ `r emo::ji("tada")`
+
+<br>

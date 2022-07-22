@@ -1,0 +1,101 @@
+---
+title: ""
+page-layout: full
+title-block-banner: true
+listing: 
+  - id: listing-blog
+    contents: "blog/"
+    template: /ejs/most-recent-only.ejs
+    sort: "date desc"
+  - id: listing-talks
+    contents: "talks/"
+    template: /ejs/most-recent-only.ejs
+    sort: "date desc"
+  - id: listing-projects
+    contents: "projects/"
+    template: /ejs/most-recent-only.ejs
+    sort: "date desc"
+---
+
+::: {#img-me .center}
+![](images/me.png)
+:::
+
+
+::: {.center-text}
+## {{< fa hand-peace >}} hello there! this is a website I don't always have a chance to update but it has a few posts and some ways to get in touch with me if you need to; cheers {{< fa champagne-glasses >}}
+:::
+
+::: {.grid}
+
+::: {.g-col-8}
+##### little about me
+
+> dad of two young autistic boys {{< fa child-reaching >}} {{< fa child >}} husband to a wonderfully caring and patient partner {{< fa ring >}} I'm pretty lucky {{< fa clover >}} I am neurodivergent {{< fa infinity >}} and also have a visual disability {{< fa eye-low-vision >}} but this doesn't stop me from persuing my passions: code {{< fa code >}} Bayesian stats {{< fa ranking-star >}} DevOps {{< fa cubes >}} ancient and continental philosophy {{< fa building-columns >}} dichotomy busting {{< fa circle-nodes >}} vegan food {{< fa seedling >}} beer {{< fa beer-mug-empty >}} wine {{< fa wine-bottle >}} coffee {{< fa mug-hot >}} tea {{< fa leaf >}} travel {{< fa plane-departure >}} and striving for balance {{< fa scale-balanced >}} I love abstract and conceptual thinking {{< fa brain >}} and am always trying to learn something new {{< fa book-open-reader >}} 
+:::
+
+::: {.g-col-4 .vh-center .center-text}
+Still curious? click 'About'<br> above or this button here:<br><br>
+<a href="about.qmd" class="btn btn-secondary">Tell me more</a>
+:::
+
+:::
+
+<br>
+
+::: {.content-block}
+::: {.features}
+
+::: {.feature}
+### Blog
+
+Latest from the blog
+<br>
+
+::: {#listing-blog}
+:::
+:::
+
+::: {.feature}
+### Talks
+
+Slides for the latest talk I've done
+<br>
+
+::: {#listing-talks}
+:::
+:::
+
+::: {.feature}
+### Projects
+
+Latest tinkering
+<br>
+
+::: {#listing-projects}
+:::
+:::
+
+::: {.feature}
+<a href="blog.qmd" class="btn btn-secondary">Blog</a>
+:::
+
+::: {.feature}
+<a href="talks.qmd" class="btn btn-secondary">Talks</a>
+:::
+
+::: {.feature}
+<a href="projects.qmd" class="btn btn-secondary">Projects</a>
+:::
+
+:::
+:::
+
+### Currently at
+
+> __County of Los Angeles, Department of Public Health_Los Angeles, CA__ <br>
+Data Scientist Supervisor<br> 
+_Data Science and Systems team; Acute Communicable Disease Control_  <br>
+July 2020--Present 
+
+<a href="vitae.qmd" class="btn btn-secondary">Full CV</a>

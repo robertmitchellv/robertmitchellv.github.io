@@ -1,0 +1,204 @@
+---
+title: "Recreating the vaccine heatmap in `plotly 4.0` with R"
+author: "Robert Mitchell"
+date: "October 14, 2015"
+categories: [R, Plotly, Recreating popular viz, Polio Vaccine]
+---
+
+<br>
+
+This took me a while to figure out how to implement.  Since `plotly` 4.0+ is so different[^1] and the documentation is still rolling out[^2] I wanted to challenge myself to make something complicated to better understand how things have changed.  I think [the Impact of Vaccines](http://graphics.wsj.com/infectious-diseases-and-vaccines/) visualizations are some of the best examples of how powerful data visualization can be--it becomes difficult to mount an counter argument after seeing them.  So, here goes!
+
+<br>
+
+In order to get the data for this visualization you will need to create a free account over at [Project Tyco](www.website.com).  You can download all the datasets if you'd like but I'm just going to use the Polio data set.  These are the packages that I'm using:
+
+<br>
+
+__Load Packages__
+```{r, eval=F}
+library(tidyverse)
+library(plotly)
+
+```
+
+```{r, include=F}
+library(tidyverse)
+library(plotly)
+library(DT)
+```
+
+<br>
+
+I should probably get in the habit of inspecting the `csv` files in vim before loading them so I can decide how I want to read in the file.  In this case, using the `readr` package, you'll need to set a couple of options: first you'll need to set the `skip` argument to `2` since there are two lines of metadata about the data set.  The second argument is `na`, which takes a simple vector for weirdly encoded `NA` values.  In this data set, `-` is used for `NA`, so you'll set the `na` argument to `c("-", "NA")` to ensure those values are handled correctly.  The third arugment to set is `col_types`, which is an awesome way to control your data types during reading so you do less old-fashioned type conversion _à la_ `df$x <- as.numeric(df$x)`, which I don't think anyone likes doing.  `readr`'s heuristic guesses correctly for all columns except the variables for `ALASKA` and `HAWAII`.  I'm not exactly sure why, but my guess is that the `0.00` values mess with the `NA` checks that `readr` performs.  Luckily, we don't have to know the _why_ since we can just change those two and leave `readr` to do its job on the others:
+
+<br>
+
+__Read in the data__
+```{r}
+polio <- read_csv("POLIO_Incidence_1928-1969_20160904215505.csv", 
+                  skip = 2, na = c("-", "NA"),
+                  col_types = list(
+                    ALASKA = col_double(),
+                    HAWAII = col_double()
+))
+
+```
+
+<br>
+
+Now, the way this data set is structures is super weird.  In order to get it into a tidy format we'll need to use `tidyr`; specifically the `gather` function.  But I don't want to pass through all the variable names, so with a little lazy figuring out, I just kept changing the numbers until I found the right range in numbers with `dplyr`'s `select` function since it uses the same `start_row:end_row` notation:
+
+<br>
+
+__Find the index for the columns you want to `gather` with `tidyr`__
+```{r, eval = F}
+polio %>% select(3:53) %>% head()
+
+```
+
+```{r, echo=F}
+df <- polio %>% select(3:53) %>% head()
+datatable(df, extensions = "FixedColumns", options = list(
+  dom = "t",
+  scrollX = T,
+  fixedColumns = T,
+  style = "bootstrap",
+  width = 5,
+  searching = FALSE,
+  class = "table-hover"
+))
+```
+
+<br>
+
+__Use `gather` to transform data, `rename` columns, and make sure `cases` is numeric__
+```{r}
+polio <- polio %>% gather(3:53, key="state", value="cases") 
+polio <- rename(polio, year = YEAR, week = WEEK, state = state, cases = cases)
+
+```
+
+<br>
+
+This is a quick function to get the states data in the right format to use R's built in `state.abb` data, which I found online.  I've never used the `match` function before, but this seemed to work really well except for DC, which I'm using `dplyr`'s `if_else` function to correct.  __This is a sloppy function__ but it works for this data.
+
+<br>
+
+__Fix all caps__
+```{r}
+fix_state_names <- function(data) {
+  lower <- str_to_lower(data)
+  title <- str_to_title(lower)
+  alter <- state.abb[match(title, state.name)]
+  out <- if_else(is.na(alter), "DC", alter)
+  return(out)
+}
+
+```
+
+<br>
+
+__Apply the `fix_state_names` function to the `state` column__
+```{r}
+polio$state <- map_chr(polio$state, fix_state_names)
+
+```
+
+<br>
+
+We need to sum all the cases in a given year by state, but if the whole year contains `NA` values, I'm going to give it a value of 0.
+
+<br>
+
+__`group_by` to `sum` all the cases for a year and then `ungroup` data frame__
+```{r}
+polio <- polio %>% 
+  group_by(year, state) %>%
+  summarise(totals = if_else(all(is.na(cases)), 0, sum(cases, na.rm = T))) %>%
+  ungroup()
+
+```
+
+<br>
+
+__Set margins for plot__
+```{r}
+m <- list(
+  l = 40,
+  r = 50,
+  b = 50,
+  t = 50,
+  pad = 4
+)
+
+```
+
+<br>
+
+You can create a custom colorscale in a lot of different ways, but I found creating a data frame with `tribble` to be the easiest way.  Trying to replicate this colorscale was difficult because the blues, greens, and yellow colors are only representing values between 0-10% of the total values, so I had to keep changing things until it looked right.  Using `tribble` helps because it is easier to line things up rather than counting vector locations with your finger on the screen (does anyone else do that!?).
+
+<br>
+
+__Create custom colorscale__
+```{r}
+polio_color <- tribble(
+  ~range, ~hex,
+  0.000,  "#e7f0fa",
+  0.025,  "#c9e2f6",
+  0.045,  "#95cbee",
+  0.065,  "#0099dc",
+  0.085,  "#4ab04a",
+  0.105,  "#ffd73e",
+  0.150,  "#eec73a",
+  0.300,  "#e29421",
+  0.450,  "#f05336",
+  1.000,  "#ce472e"
+)
+
+```
+
+<br>
+
+__Plot the data__
+```{r plotly}
+polio %>%
+  plot_ly(
+    x = ~year, y = ~state,
+    height = 1000, width = 950) %>%
+  add_heatmap(
+    z = ~totals, zmin = 0, zmax = 190,
+    text = ~paste(
+      "Year: ", year, "<br>State: ", state,
+      "<br>Total Cases: ", totals),
+    hoverinfo = "text", colorscale = polio_color, showscale = F,
+    opacity = 0.85) %>%
+  add_annotations(
+    "Vaccine Introduced", x = 1957.5, y = -1.5, showarrow = F) %>%
+  add_segments(
+    x = 1955, xend = 1955, y = ~state[3], yend = ~state[49],
+    line = list(width = 2, color = "black"),
+    name = "1955", hoverinfo = "text",
+    text = paste("Vaccine Introduced: 1955")) %>%
+  layout(
+    title = "Polio",
+    xaxis = list(title = "", nticks = 10),
+    yaxis = list(title = "", autorange = "reversed"),
+    margin = m, autosize = F)
+
+```
+
+<br>
+
+There's a lot going on here, but the code is not too verbose (at least I don't think).  I add the `year` and `state` data to the regular `plot_ly` function while placing the `z` data that transforms it into a heatmap in `add_heatmap`.  Even though I'm pushing the annotation outside of the plot, plotly doesn't add any more y ticks.  However, in `add_segments` if I used `y = ~min(state), yend = ~max(state)` there would have been two extra y ticks on the bottom (0 and 1).  This is annoying and I tried many different things to get everything to behave nicely but it's hard to get a heatmap and lines and annotations to work well together.  My workaround is to just make the segment line a little shorter, but I don't think it looks too bad.
+
+<br>
+
+Let me know if you have any thoughts about improving things in the comments!
+
+<br>
+<br>
+<br>
+
+[^1]: http://moderndata.plot.ly/upgrading-to-plotly-4-0-and-above/
+[^2]: `git clone` and `git pull` often: https://cpsievert.github.io/plotly_book/

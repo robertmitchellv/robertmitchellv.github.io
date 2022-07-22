@@ -1,0 +1,78 @@
+---
+title: "P-hacking and ontology"
+author: "Robert Mitchell"
+date: "August 25, 2015"
+categories: [P-Hacking, Philosophy, Ontogeny, Ontologies]
+---
+
+<br>
+
+In a recent FiveTirtyEight post by [Christie Aschwanden](https://twitter.com/cragcrest) about researcher bias and P-Hacking, there is a lovely interactive example of what variables a researcher would need include/exclude in the analysis in order to obtain a result that is statistically significant, i.e., _p&le;.05_; thus worthy of publishing.  The article brought many thoughts to mind, which I am using this blog post to note.  The crux of the article, I feel, rests in the following passage from the article:   
+
+<br>
+
+> <i class="fa fa-quote-left fa-1x"></i>The important lesson here is that a single analysis is not sufficient to find a definitive answer. Every result is a temporary truth, one that’s subject to change when someone else comes along to build, test and analyze anew.<i class="fa fa-quote-right fa-1x"></i>[^1]
+
+<br>
+
+This annotates the concept of truth; introducing time and the transitory nature of what we know as 'truth'.  However, if we can think about what it means for some subject _to be_ at one point in time and _to be_ at some other point in time, this, again, introduces the concept of ontology; i.e., what does it mean for a subject to exist?  There is a very novel explanation from [Joseph Tennis](http://joseph-t-tennis.squarespace.com/) that describes how both time and ontology interact that I would like to introduce: 
+
+> <i class="fa fa-quote-left fa-1x"></i>Knowledge changes through time.  Classification schemes as tools for accessing knowledge undergo constant revision.  It is impossible to claim that the ontology of subjects and their interrelationships, once established by a classificationist, remain constant within that scheme.  As revisions to classification schemes emerge, so too do new subjects.  These, new parts of the updated classification scheme are elements in a formal system---elements that represent the current interpretation of knowledge.<i class="fa fa-quote-right fa-1x"></i>[^2]
+
+<br>
+
+This is both simple and profound.  _Time_ is an interesting concept and it has, for the most part, been missing from the philosophical discourse from Heraclitus to Heidegger.[^3]  If we can remember from the _Heraclitus Fragments_, "You cannot step twice into the same stream. For as you are stepping in, other waters are ever flowing on to you".[^4]  This statement is perhaps the most profound philosophical aphorism I have encountered since I began to love learning.  It decimates our ability to truly understand things metaphysically.[^5]  Nevertheless, it lets you peek, at least in part, at something beyond our anthropocentric naive empiricism.  This is important, because there is rich meaning in the way subjects change over time---it can tell us a lot about ourselves.  There is another passage I like in Tennis' paper that I'd like to return to:    
+
+<br>
+
+> <i class="fa fa-quote-left fa-1x"></i> What kind of access is granted by a classification system that shows how knowledge has changed, verses one that revises classes, denying access to the classificationist's interpretation of the change in knowledge?  With each revision, a scheme for classification cuts itself off from its previous view of knowledge, building an artificial boundary of time.  There are other rhetorical questions pertinent to time as it relates to subject access.  For example, could one access the array of subjects in higher education that were taught during Plato's Greece?  Through a classification scheme, can one collocate the works of proto-anthropologists? These knowledges are not reflected in classification schemes, because each living scheme needs to be revised to be viable---thereby eliminating the fossil record of literary warrant.  To what degree do revised classification schemes blind us to how subjects change and are re-collocated through time?  What can knowledge organization thery do to help the sophisticated user re-collocate knowledge through time?  This can be answered by charting the development of a class in a classification system through time.  In other words, this can be answered by charting the subject's ontogeny.<i class="fa fa-quote-right fa-1x"></i>[^6]
+
+<br>
+
+This really reminds me a lot of Heidegger's _On the Origin of the Work of Art_ and both his concept of "world" and the "work of art", which has its own poetic interaction.  A former professor of mine at UCLA named John McCumber helped shape the way I think philosophically.  He was one of the most intimidating professors I had; able to recall from memory huge passages of Hegel, Heidegger, and Nietzsche in German, fluent in French, and writing ancient Greek and Latin on the whiteboard when explaining concepts.  In his book _Poetic Interaction: Language, Freedom, Reason_, there is a passage I think ties some of these floating ideas together:
+
+<br>
+
+> <i class="fa fa-quote-left fa-1x"></i>[P]reserving the work of art functions similarly to Being-toward death in _Being and Time_.  Heidegger in fact goes on to relate the preservation of the work of art to the concept of "resoluteness" presented in the book.  But the difference is unmistakeable. The inarticulateness of resolve in _Being and Time_ is replaced with the concrete individuality of the work of art, which speaks to us, not from within our world or as an indeterminate "call" out of it, but from another concrete world, one unique to itself.  This way of experiencing a work of art is a condition for its being a work of art at all.  An art work which does not deserve an audience, we must say, is no art work.  This is why, in experiencing a work of art for what it is, we "preserve" it; and it is why, for Heidegger as for Hegel, the work of art is intrinsically a communal and (in a broad sense) a communicative entity.<i class="fa fa-quote-right fa-1x"></i>[^7]
+
+<br>
+
+This may be confusing at first, because the quote is taken a bit out of context, but the phrase that captivates me is the section where McCumber talks of the work of art being preserved within its own world.  Ontologically this is fascinating because the work of art has aged---it is not as it was when created.  Moreover, it is not necessarily a part of this world either; it is preserved in some capacity.  My main interest in subject ontogeny is the attemp to make explicit the effect time has on our body of knowledge.  Being able to understand what encyclopedic resources were available when Plato was alive is a form of artistic expression because it crafts an experience that people can interact with---it would preserve Plato's world in a small sense and that world would rest apart from our own world.  That we could be transported is the exciting notion; that we could stretch our conceptions, biases, cultural stereotypes, all the mental baggage we carry around in our mind from being thrown into the world at this particular time in its existence---this would provide perspective that moves our species forward. 
+
+<br>
+
+So, what does this have to do with P-Hacking?  It is that truth is temporary.  Results, data, these things are not stateless; they say as much about this time that we are doing research as they do informing us of new temporary truths.  We could argue about what is currently axiomatic and how certain certainties are foundational, but this is only an affirmation of a kind of thinking that _needs_ the external world to conform to our senses and instruments to make meaning.  As humans we are always making meaning and mistakes---those things go hand in hand.  Like biological life, knowledge is iterative and it evolves.  As our knowledge evolves, so too should our way of describing that evolution.  The philosophical notion of _ontology_ can be therefore connection to the information science concept of _ontology_[^8] if we are able to represent human knowledge's interrelationships that describe what we know, temporally, to be true for all domains of discourse in as many ways as can be accurately and approximately completed.  Such an ontology would reflect in an abstract and concrete way what it is to be human.  What would tell us who we are.
+
+<br>
+
+Science is a bit of a dialectic---there is movement in going from an unknown to a known that has a _telos_ that can and should be represented in an ontology.  Therefore, to say that we know something is to make an epistemological statement, which begs an epistemological question: how do you know that?  When our understanding of science is as Aschwanden says: 
+
+> <i class="fa fa-quote-left fa-1x"></i>Science is not a magic wand that turns  everything it touches to truth.  Instead, "science operates as a procedure of uncertainty reduction [...] [t]he goal is to get less wrong over time."  This concept is fundamental---whatever we know now is only our best approximation of the truth.  We can never presume to know everything.<i class="fa fa-quote-right fa-1x"></i>[^9]
+
+That this line of thinking is novel for people in STEM fields is as disconcerting as the lack of statistical knowledge in the humanities.  I see this as perhaps the most pervasive mistake in higher education.  On the one hand, we are told not to be a generalist; to specialize, to find a niche and exploit it.  On the other hand, we miss out on perspectives, ways of thinking, and challenges that provoke deeper thinking than would normally be the case.  In working toward teaching myself computer science and mathematics, I am continually pushing myself to broaden my understanding of the world.  How are STEM only researchers doing the same?  Without a complete education that covers all domains at least in part we lack the tools to truly understand the 21st century.  We need interdisciplinary teams of interdisciplinarians; not callow one-faceted domain caricatures that cannot think in multiple loci.  I believe this will enable humanity to probe deeper into complexity and how ecologically interdependent we all are on Earth.
+ 
+<br>
+<br>
+<br>
+
+[^1]: Aschwanden, C. (2015, August 19). Science Isn’t Broken: It’s just a hell of a lot harder than we give it credit for. Retrieved August 25, 2015, from https://fivethirtyeight.com/features/science-isnt-broken/
+[^2]: Tennis, J. T. (2002). "Subject Ontogeny: Subject Access through Time and
+the Dimensionality of Classification." In _Challenges in Knowledge
+Representation and Organization for the 21st Century: Integration of Knowledge
+across Boundaries: Proceedings of the Seventh International ISKO Confrence_.
+(Granada, Spain, July 10-13, 2002).  Advances in Knowledge Organization, vol.
+8. Wurzburg: Ergon: 54-59.
+[^3]: I inherited this opinion from Dr. John McCumber through his various
+philosophy courses and seminars.  See
+http://www.germanic.ucla.edu/people/faculty/mccumber/ for more info.
+[^4]: https://en.wikiquote.org/wiki/Heraclitus
+[^5]: What I mean is that, when reading the passage, we are in the river; the 
+thing we are trying to classify---to understand.  The fact that we have no
+bird's eye view is an important caveat to working toward understanding 
+the world in a realistic way.  We call it one thing, but it _is_ something else
+outside of the way humans communicate it to each other through language. 
+[^6]: Tennis (2002) 
+[^7]: McCumber, J. (1989). _Poetic interaction: Language, freedom, reason._
+Chicaco: University of Chicago Press
+[^8]: https://en.wikipedia.org/wiki/Ontology_(information_science)
+[^9]: Aschwanden (2015)

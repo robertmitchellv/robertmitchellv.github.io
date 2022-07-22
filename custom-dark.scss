@@ -1,0 +1,221 @@
+/*-- scss:defaults --*/
+
+// main colors
+$white: #fff;
+$black: #000;
+$gray-500: #e2e2ee;
+$blue: #6062ba;
+$purple: #7F58B6;
+$yellow: #FFF16E;
+$green: #8AE061;
+$indigo: #282B92;
+$red: #E9484C;
+$pink: #FD6E72;
+$orange: #FFA46E;
+$teal: #2D918A;
+$cyan: #ABE5E1;
+$violet: #9954bb;
+
+// rbmv color palette
+$primary: $blue;
+$primary-light: #928eed;
+$primary-dark: #2c3789;
+$secondary: #d5f905;
+$secondary-light: #fffff58;
+$secondary-dark: #9fc600;
+$tertiary: #f9ce51;
+$tertiary-light: #fffff82;
+$tertiary-dark: #c39d1b;
+$quaternary: #8997cd;
+$quaternary-light: #bac8ff;
+$quaternary-dark: #5a699c;
+$quinary: $gray-500;
+$quinary-light: $white;
+$quinary-dark: #b0b0bc;
+
+$theme-color-interval: 20%;
+$yiq-contrasted-threshold: 60;
+$yiq-text-dark: $black;
+$table-head-bg: $primary;
+
+// navbar
+$navbar-bg: $quaternary-dark;
+$body-bg: $primary-dark;
+
+// body
+$body-color: $quaternary-light;
+$code-color: $secondary;
+
+// footer
+$footer-bg: $black;
+
+// fonts
+@import "https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=JetBrains+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap";
+
+$font-family: "Barlow", sans-serif;
+$font-family-sans-serif: $font-family;
+$font-family-monospace: "JetBrains Mono", monospace;
+$font-size-root: 14pt;
+
+/*-- scss:rules --*/
+
+a {
+  color: $secondary-dark;
+}
+
+a:hover {
+  color: $secondary;
+}
+
+blockquote, .blockquote {
+  font-style: italic;
+  font-weight: 400;
+  color: $quaternary-light;
+}
+
+.btn-secondary {
+  background-color: $secondary-dark;
+  border-color: $secondary-dark;
+}
+
+.btn-secondary:hover {
+  background-color: $secondary;
+  border-color: $secondary;
+}
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.center-text {
+  text-align: center;
+}
+
+.content {
+  font-weight: 200;
+}
+
+.content-block {
+  padding-top: 20px;
+  padding-bottom: 10px;
+  margin-left: 30px;
+  margin-right: 30px;
+}
+
+@media(min-width: 900px) {
+.content-block {
+  margin-left: 50px;
+  margin-right: 50px;
+}
+}
+
+@media (min-width: 1200px) {
+.content-block {
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+}
+}
+
+.features {
+  padding-bottom: 2em;
+}
+
+.feature {
+  margin-top: 20px;
+}
+
+@media (min-width: 800px) { 
+.features {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 0 0 0 -30px;
+  width: calc(100% + 30px);
+}
+.feature {
+  width: calc(33% - 30px);
+  margin: 20px 0 0 30px;
+}
+}
+
+.feature h3 {
+  margin-top: 0;
+}
+
+.feature p:first-of-type {
+  margin-bottom: 1rem;
+  color: $primary-light;
+}
+
+h1 {
+  font-weight: 900;
+}
+
+h2 {
+  font-weight: 100;
+}
+
+h3 {
+  font-weight: 800;
+}
+
+h4 {
+  font-weight: 600;
+}
+
+h5 {
+  font-weight: 300;
+}
+
+h6 {
+  font-weight: 500;
+}
+
+.iframe-container {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  padding-top: 56.25%; // 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) 
+}
+
+// Then style the iframe to fit in the container div with full height and width 
+.iframe-responsive {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+}
+
+#img-me {
+  height: auto;
+  width: 300px;
+}
+
+nav {
+  font-weight: 200;
+}
+
+.navbar-brand img {
+  max-height: 30px;
+  width: auto;
+}
+
+.quarto-listing-container-custom h4 {
+  margin-top: 0;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.vh-center {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+}

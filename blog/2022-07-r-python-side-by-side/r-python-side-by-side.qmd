@@ -1,0 +1,511 @@
+---
+title: "A `tidyverse` R and `polars` Python side-by-side"
+author: "Robert Mitchell"
+date: "2022-07-19"
+categories: [R, Python, tidyverse, polars, plotly]
+page-layout: article 
+toc: true
+toc-location: left
+code-line-numbers: true
+code-copy: true
+df-print: paged
+---
+
+```{r}
+#| label: setup_r
+#| include: false
+knitr::opts_chunk$set(echo = TRUE)
+library(reticulate)
+```
+
+::: {.column-page-inset-right}
+
+After seeing many _language wars_ style posts about {{< fa brands r-project >}} vs {{< fa brands python >}} and the sort of {{< fa apple-whole >}} to {{< fa lemon >}} comparisons being made, I realized that there aren't many helpful side-by-sides that show you how to do _x_ in _y_ language (and _vice versa_), I thought about the kind of post I would like to see; one that leverages both `tidyverse`, modern pandas [method-chaining](tom a's blog) / [`pyjanitor`](https://pyjanitor-devs.github.io/pyjanitor/) or [`polars`](https://pola-rs.github.io/polars-book/user-guide/), and `plotly` (in both R and Python).
+
+I decided to try and see if I could contribute something to the discourse. I'm not really trying to reinvent an analysis wheel and just want to focus on the _how_ something is accomplished from one language to the other so I'm pulling from a few sources to just have some code to translate using the same data for both languages.
+
+Since `polars` is new to me and I like learning new things, I'm using it for the examples, but if you're familiar with `pandas` already, I'd __highly__ recommend `pyjanitor`.
+
+:::
+
+<br>
+
+## Data
+
+::: {.column-page-inset-right}
+
+Data was obtained from the `dslab` R package and written to parquet via R's `arrow::write_parquet` for better interoporability between R and Python. Additionally, the size is low enough to pull the data as parquet from my GitHub repo.
+
+:::
+
+## {{< fa brands r-project >}} packages
+
+::: {.column-page-inset-right}
+
+```{r}
+#| message: false
+library(tidyverse)
+library(plotly)
+library(arrow, include.only = "read_parquet")
+library(magrittr, include.only = "%<>%")
+
+gapminder <- read_parquet("gapminder.parquet")
+```
+
+:::
+
+## {{< fa brands python >}} libraries
+
+::: {.column-page-inset-right}
+
+```{python}
+import polars as pl
+import plotly.express as px
+
+gapminder = pl.read_parquet("gapminder.parquet")
+
+gapminder = (gapminder
+  .with_columns([
+    pl.col("country").cast(pl.Utf8),
+    pl.col("continent").cast(pl.Utf8),
+    pl.col("region").cast(pl.Utf8)  
+  ])
+)
+```
+
+<br>
+
+{{< fa brands r-project >}} __return top 10 rows in R__
+```{r}
+gapminder %>% head(10)
+```
+
+<br>
+
+{{< fa brands r-project >}} __get quick info on the data with `dplyr::glimpse()`__
+```{r}
+gapminder %>% glimpse()
+```
+
+<br>
+
+{{< fa brands python >}} __return top 10 rows in Python__
+```{python}
+#| eval: false
+gapminder.head(10)
+```
+
+```{python}
+#| include:  false
+df = gapminder.head(10).to_pandas()
+```
+
+```{r}
+#| echo: false
+#| output:  true
+df <- py$df
+df
+```
+
+<br>
+
+{{< fa brands python >}} __get quick info on the data with `pandas`'s `info` `DataFrame` method__
+```{python}
+gapminder.to_pandas().info()
+```
+
+This will come back later, but it's very easy to move your `polars` data into a `pandas DataFrame`.
+
+:::
+
+## Hans Rosling's quiz
+
+::: {.column-page-inset-right}
+
+Following along Hans Rosling's _New Insights on Poverty_ video, we're going to answer the questions he poses in connection to child mortality rates in 2015. He asks, _which pairs do you think are most similar?_
+
+1. Sri Lanka or Turkey
+2. Poland or South Korea
+3. Malaysia or Russia
+4. Pakistan or Vietnam
+5. Thailand or South Africa
+
+:::
+
+<br>
+
+### Sri Lanka or Turkey
+
+::: {.column-page-inset-right}
+
+{{< fa brands r-project >}} __simple `dplyr::filter` and `dplyr::select`__
+```{r}
+gapminder %>%
+  filter(year == "2015", country %in% c("Sri Lanka", "Turkey")) %>%
+  select(country, infant_mortality)
+```
+
+<br>
+
+{{< fa brands python >}} __simple `filter` and `select` method chain__
+```{python}
+#| eval: false
+(gapminder
+  .filter(
+    (pl.col("year") == 2015) & 
+    (pl.col("country").is_in(["Sri Lanka", "Turkey"]))) 
+  .select(["country", "infant_mortality"])
+) 
+```
+
+```{python}
+#| include: false
+df = (gapminder
+  .filter(
+    (pl.col("year") == 2015) & 
+    (pl.col("country").is_in(["Sri Lanka", "Turkey"]))) 
+  .select(["country", "infant_mortality"])
+).to_pandas() 
+```
+
+```{r}
+#| echo: false
+#| output:  true
+df <- py$df
+df
+```
+
+<br>
+
+This is where you can start to see how powerful `polars` can be in terms of the way it handles [lazy evaluation](https://pola-rs.github.io/polars-book/user-guide/coming_from_pandas.html#be-lazy). One of the reasons `dplyr` is so expressive and intuitive (at least in my view) is due in large part to the way it handles lazy evaluation. For people that are tired of constantly needing to refer to the data and column in `pandas` will likely rejoice at `polars.col`! 
+
+:::
+
+### Let's just compare them all at once
+
+::: {.column-page-inset-right}
+
+{{< fa brands r-project >}} __same strategy; more countries__
+```{r}
+gapminder %>%
+  filter(
+    year == "2015", 
+    country %in% c(
+      "Sri Lanka", "Turkey", "Poland", "South Korea",
+      "Malaysia", "Russia", "Pakistan", "Vietnam",
+      "Thailand", "South Africa")) %>%
+  select(country, infant_mortality) %>%
+  arrange(desc(infant_mortality))
+```
+
+<br>
+
+{{< fa brands python >}} __same as above__
+```{python}
+#| eval: false
+(gapminder
+  .filter(
+    (pl.col("year") == 2015) & 
+    (pl.col("country").is_in([
+      "Sri Lanka", "Turkey", "Poland", "South Korea", 
+      "Poland", "South Korea","Malaysia", "Russia", 
+      "Pakistan", "Vietnam", "Thailand", "South Africa"]))) 
+  .select(["country", "infant_mortality"])
+  .sort("infant_mortality", reverse = True)
+)
+```
+
+```{python}
+#| include: false
+df = (gapminder
+  .filter(
+    (pl.col("year") == 2015) & 
+    (pl.col("country").is_in([
+      "Sri Lanka", "Turkey", "Poland", "South Korea", 
+      "Poland", "South Korea","Malaysia", "Russia", 
+      "Pakistan", "Vietnam", "Thailand", "South Africa"]))) 
+  .select(["country", "infant_mortality"])
+  .sort("infant_mortality", reverse = True)
+).to_pandas()
+```
+
+```{r}
+#| echo: false
+#| output:  true
+df <- py$df
+df
+```
+
+:::
+
+## Aggregates
+
+::: {.column-page-inset-right}
+
+{{< fa brands r-project >}} __grouping and taking an average__
+```{r}
+gapminder %>%
+  group_by(continent) %>%
+  summarise(mean_life_expectancy = mean(life_expectancy) %>%
+              round(2), .groups = "keep")
+```
+
+<br>
+
+{{< fa brands python >}} __now with `polars`__
+```{python}
+#| eval: false
+(gapminder
+  .groupby("continent")
+  .agg([
+    (pl.col("life_expectancy")
+        .mean().
+        round(2).
+        alias("mean_life_expectancy"))
+    ])
+  .sort("continent")
+) 
+```
+
+```{python}
+#| include: false
+df = (gapminder
+  .groupby("continent")
+  .agg([
+    (pl.col("life_expectancy")
+        .mean().
+        round(2).
+        alias("mean_life_expectancy"))
+    ])
+  .sort("continent")
+).to_pandas()
+```
+
+```{r}
+#| echo: false
+#| output:  true
+df <- py$df
+df
+```
+
+:::
+
+## With conditionals?
+
+::: {.column-page-inset-right}
+
+{{< fa brands r-project >}} __let's do something slightly more complicated__
+```{r}
+gapminder %<>% 
+  mutate(group = case_when(
+    region %in% c(
+      "Western Europe", "Northern Europe","Southern Europe", 
+      "Northern America", 
+      "Australia and New Zealand") ~ "West",
+    region %in% c(
+      "Eastern Asia", "South-Eastern Asia") ~ "East Asia",
+    region %in% c(
+      "Caribbean", "Central America", 
+      "South America") ~ "Latin America",
+    continent == "Africa" & 
+      region != "Northern Africa" ~ "Sub-Saharan",
+    TRUE ~ "Others"))
+
+gapminder %>% count(group)
+```
+
+<br>
+
+{{< fa brands python >}} __rather than use a `case_when` style function you can continue to chain `.when` and `.then`__
+```{python}
+#| eval: false
+gapminder = (gapminder.with_columns(
+  pl.when(
+    pl.col("region").is_in([
+      "Western Europe", "Northern Europe","Southern Europe", 
+      "Northern America", "Australia and New Zealand"]))
+    .then("West")
+    .when(
+      pl.col("region").is_in([
+        "Eastern Asia", "South-Eastern Asia"]))
+    .then("East Asia")
+    .when(
+      pl.col("region").is_in([
+        "Caribbean", "Central America", 
+        "South America"]))
+    .then("Latin America")
+    .when(
+      (pl.col("continent") == "Africa") & 
+      (pl.col("region") != "Northern Africa"))
+    .then("Sub-Saharan")
+    .otherwise("Other")
+    .alias("group")
+))
+
+(gapminder
+  .groupby("group")
+  .agg([ pl.count() ])
+  .sort("group")
+)
+```
+
+```{python}
+#| include: false
+gapminder = (gapminder.with_columns(
+  pl.when(
+    pl.col("region").is_in([
+      "Western Europe", "Northern Europe","Southern Europe", 
+      "Northern America", "Australia and New Zealand"]))
+    .then("West")
+    .when(
+      pl.col("region").is_in([
+        "Eastern Asia", "South-Eastern Asia"]))
+    .then("East Asia")
+    .when(
+      pl.col("region").is_in([
+        "Caribbean", "Central America", 
+        "South America"]))
+    .then("Latin America")
+    .when(
+      (pl.col("continent") == "Africa") & 
+      (pl.col("region") != "Northern Africa"))
+    .then("Sub-Saharan")
+    .otherwise("Other")
+    .alias("group")
+))
+
+df = (gapminder
+  .groupby("group")
+  .agg([ pl.count() ])
+  .sort("group")
+).to_pandas()
+```
+
+```{r}
+#| echo: false
+#| output:  true
+df <- py$df
+df
+```
+
+<br>
+
+I think this is probably a good enough intro to how you'd generally do things. Filtering, aggregating, and doing `case_when` style workflows are probably the most foundational and this could already get you started in another language without as much headache {{< fa head-side-virus >}}
+
+:::
+
+<br>
+
+## Scatterplots
+
+::: {.column-page-inset-right}
+
+I'm trying to strike a balance between dead basic `plotly` plots and some things you might want to do to make them look a little more the way _you_ want. The great thing about customizing is that you can write functions to do specific things. I don't want to overload you with defensive programming for custom function writing using [Colin Fay](https://colinfay.me/)'s `attempt` [package](https://github.com/ColinFay/attempt), so I'm simplifying a bit; or at least trying to strike a balance. in some instances you can create simple functions or just save a list of values you want to recycle throughout.
+
+<br>
+
+{{< fa brands r-project >}} __+ `plotly`__
+```{r}
+plotly_title <- function(title, subtitle, ...) {
+  return(
+    list(
+      text = str_glue(
+        "
+        <b>{title}</b>
+        <sup>{subtitle}</sup>
+        "),
+      ...))
+}
+
+margin <- list(
+  t = 95,
+  r = 40,
+  b = 120,
+  l = 79)
+
+gapminder %>%
+  filter(year == 1962) %>%
+  plot_ly(
+    x = ~fertility, y = ~life_expectancy, 
+    color = ~continent, colors = "Set2", 
+    type = "scatter", mode = "markers",
+    hoverinfo = "text",
+    text = ~str_glue(
+      "
+      <b>{country}</b><br>
+      Continent: <b>{continent}</b>
+      Fertility: <b>{fertility}</b>
+      Life Expextancy: <b>{life_expectancy}</b>
+      "),
+    marker = list(
+      size = 7
+    )) %>%
+  layout(
+    margin = margin,
+    title = plotly_title(
+      title = "Scatterplot",
+      subtitle = "Life expextancy by fertility",
+      x = 0,
+      xref = "paper")) %>%
+  config(displayModeBar = FALSE)
+```
+
+:::
+
+<br>
+
+::: {.callout-note}
+A quick note about having `plotly` work inside of the RStudio IDE--as of the time of this writing it isn't very straightforward, i.e., not [officially supported yet](https://github.com/rstudio/rstudio/issues/8762). The plot will open in a browser window and it's fairly snappy. The good think is that on the `reticulate` side, [knitting works](https://github.com/rstudio/reticulate/issues/711)! So this side was able to put all this together via `rmarkdown` when I started this post and Quarto now that I'm finishing this post (remember any {{< fa brand r-project >}} chunk will default to the `knitr` engine), so that's pretty cool. We're even using both `renv` and `pipenv` for both environments in the same file {{< fa face-laugh-beam >}}
+
+:::
+
+<br>
+
+::: {.column-page-inset-right}
+
+{{< fa brands python >}} __+ `plotly`__
+```{python}
+def plotly_title(title, subtitle):
+  return(f"<b>{title}</b><br><sup>{subtitle}</sup>")
+
+margin = dict(
+  t = 95,
+  r = 40,
+  b = 120,
+  l = 79)
+  
+config = {"displayModeBar": False}
+
+(px.scatter(
+  (gapminder.filter(pl.col("year") == 1962).to_pandas()),
+  x = "fertility", y = "life_expectancy", color = "continent",
+  hover_name = "country",
+  color_discrete_sequence = px.colors.qualitative.Set2,
+  title = plotly_title(
+    title = "Scatterplot", 
+    subtitle = "Life expextancy by fertility"),
+  opacity = .8, 
+  template = "plotly_white") 
+  .update_traces(
+    marker = dict(
+      size = 7))
+  .update_layout(
+    margin = margin)
+).show(config = config) 
+```
+
+<br>
+
+`plotly` expects a `pandas DataFrame` so we're just using `.to_pandas()` to give it what it wants, but that doesn't have to stop you from adding any filtering, summarizing, or aggregating before chaining the data into your viz.
+
+:::
+
+<br>
+
+## Conclusion
+
+::: {.column-page-inset-right}
+
+Hopefully this is helpful. If people like posts like this I can try to do more blogging, I just get busy and foregetful sometimes! Feel free to reach out with any feedback or questions.
+
+:::

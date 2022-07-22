@@ -1,0 +1,15 @@
+---
+title: "Interactive Dashboards with `shiny`"
+author: "Robert Mitchell"
+date: 2018-12-10
+categories: [Talk, Shiny, Dashboards, Interactive]
+format: html
+---
+
+::: {.iframe-container}
+<iframe class="iframe-responsive" scrolling="no" src="talk-2018-12-east-la-r-users.html"></iframe>
+:::
+
+<br>
+
+<a href="/talks/2018-12-east-la-r-users/talk-2018-12-east-la-r-users.html#/" class="btn btn-secondary">Full Screen</a>
