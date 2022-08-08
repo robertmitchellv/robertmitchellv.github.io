@@ -435,7 +435,7 @@ gapminder %>%
       <b>{country}</b><br>
       Continent: <b>{continent}</b>
       Fertility: <b>{fertility}</b>
-      Life Expextancy: <b>{life_expectancy}</b>
+      Life Expectancy: <b>{life_expectancy}</b>
       "),
     marker = list(
       size = 7
@@ -444,7 +444,7 @@ gapminder %>%
     margin = margin,
     title = plotly_title(
       title = "Scatterplot",
-      subtitle = "Life expextancy by fertility",
+      subtitle = "Life expectancy by fertility",
       x = 0,
       xref = "paper")) %>%
   config(displayModeBar = FALSE)
@@ -483,7 +483,7 @@ config = {"displayModeBar": False}
   color_discrete_sequence = px.colors.qualitative.Set2,
   title = plotly_title(
     title = "Scatterplot", 
-    subtitle = "Life expextancy by fertility"),
+    subtitle = "Life expectancy by fertility"),
   opacity = .8, 
   template = "plotly_white") 
   .update_traces(
