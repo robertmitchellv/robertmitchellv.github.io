@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.0.18">
+<meta name="generator" content="quarto-1.0.38">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -188,7 +188,7 @@ gtag('config', 'G-43L15MR1WY', { 'anonymize_ip': true});
 
 <div class="quarto-listing quarto-listing-container-default" id="listing-listing">
 <div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="Talk,Shiny,Dashboards,Interactive" data-listing-date-sort="1544428800000" data-listing-file-modified-sort="1658522119401" data-listing-reading-time-sort="0.045">
+<div class="quarto-post image-right" data-index="0" data-categories="Talk,Shiny,Dashboards,Interactive" data-listing-date-sort="1544400000000" data-listing-file-modified-sort="1659984821146" data-listing-reading-time-sort="0.045">
 <div class="body">
 <a href="./talks/2018-12-east-la-r-users/index.html">
 <h3 class="no-anchor listing-title">
@@ -213,7 +213,7 @@ Robert Mitchell
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="1" data-categories="Talk,PSH,Assessment,Data collection" data-listing-date-sort="1536044400000" data-listing-file-modified-sort="1658522119330" data-listing-reading-time-sort="0.045">
+<div class="quarto-post image-right" data-index="1" data-categories="Talk,PSH,Assessment,Data collection" data-listing-date-sort="1536019200000" data-listing-file-modified-sort="1659984821094" data-listing-reading-time-sort="0.045">
 <div class="body">
 <a href="./talks/2018-09-ucla-cpi/index.html">
 <h3 class="no-anchor listing-title">
@@ -238,7 +238,7 @@ Robert Mitchell
 </a>
 </div>
 </div>
-<div class="quarto-post image-right" data-index="2" data-categories="Talk,Thoughts,Implementing an idea" data-listing-date-sort="1505890800000" data-listing-file-modified-sort="1658522119296" data-listing-reading-time-sort="0.045">
+<div class="quarto-post image-right" data-index="2" data-categories="Talk,Thoughts,Implementing an idea" data-listing-date-sort="1505865600000" data-listing-file-modified-sort="1659984821070" data-listing-reading-time-sort="0.045">
 <div class="body">
 <a href="./talks/2017-09-Data-and-Donuts/index.html">
 <h3 class="no-anchor listing-title">
@@ -282,7 +282,10 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
   const toggleBodyColorPrimary = () => {
-    toggleBodyColorMode(window.document.querySelector("link#quarto-bootstrap"));
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
   }
   toggleBodyColorPrimary();  
   const disableStylesheet = (stylesheets) => {
