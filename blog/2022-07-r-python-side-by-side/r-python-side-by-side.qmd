@@ -12,10 +12,11 @@ df-print: paged
 ---
 
 ```{r}
-#| label: setup_r
+#| label: setup
 #| include: false
 knitr::opts_chunk$set(echo = TRUE)
 library(reticulate)
+reticulate::use_condaenv(condaenv = "rbmv_site")
 ```
 
 ::: {.column-page-inset-right}
@@ -455,7 +456,7 @@ gapminder %>%
 <br>
 
 ::: {.callout-note}
-A quick note about having `plotly` work inside of the RStudio IDE--as of the time of this writing it isn't very straightforward, i.e., not [officially supported yet](https://github.com/rstudio/rstudio/issues/8762). The plot will open in a browser window and it's fairly snappy. The good think is that on the `reticulate` side, [knitting works](https://github.com/rstudio/reticulate/issues/711)! So this side was able to put all this together via `rmarkdown` when I started this post and Quarto now that I'm finishing this post (remember any {{< fa brand r-project >}} chunk will default to the `knitr` engine), so that's pretty cool. We're even using both `renv` and `pipenv` for both environments in the same file {{< fa face-laugh-beam >}}
+A quick note about having `plotly` work inside of the RStudio IDE--as of the time of this writing it isn't very straightforward, i.e., not [officially supported yet](https://github.com/rstudio/rstudio/issues/8762). The plot will open in a browser window and it's fairly snappy. The good think is that on the `reticulate` side, [knitting works](https://github.com/rstudio/reticulate/issues/711)! So this side was able to put all this together via `rmarkdown` when I started this post and Quarto now that I'm finishing this post (remember any {{< fa brand r-project >}} chunk will default to the `knitr` engine), so that's pretty cool. We're even using both [`renv`](https://rstudio.github.io/renv/articles/renv.html) and [`mamba`](https://mamba.readthedocs.io/en/latest/user_guide/mamba.html) for both environments in the same file {{< fa face-laugh-beam >}}
 
 :::
 
