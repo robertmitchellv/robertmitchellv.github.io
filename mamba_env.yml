@@ -1,0 +1,34 @@
+name: rbmv_site
+channels:
+  - conda-forge
+dependencies:
+  - bzip2=1.0.8=h0d85af4_4
+  - ca-certificates=2022.6.15=h033912b_0
+  - libblas=3.9.0=15_osx64_openblas
+  - libcblas=3.9.0=15_osx64_openblas
+  - libcxx=14.0.6=hce7ea42_0
+  - libffi=3.4.2=h0d85af4_5
+  - libgfortran=5.0.0=9_3_0_h6c81a4c_23
+  - libgfortran5=9.3.0=h6c81a4c_23
+  - liblapack=3.9.0=15_osx64_openblas
+  - libopenblas=0.3.20=openmp_h4e9756f_1
+  - libzlib=1.2.12=hfe4f2af_2
+  - llvm-openmp=14.0.4=ha654fa7_0
+  - ncurses=6.3=h96cf925_1
+  - numpy=1.23.1=py310ha3f357c_0
+  - openssl=3.0.5=hb81d4ab_1
+  - pip=22.2.2=pyhd8ed1ab_0
+  - plotly=5.9.0=pyhd8ed1ab_0
+  - polars=0.13.58=py310h33f5158_0
+  - python=3.10.5=hdd68b96_0_cpython
+  - python_abi=3.10=2_cp310
+  - readline=8.1.2=h3899abd_0
+  - setuptools=63.4.2=py310h2ec42d9_0
+  - sqlite=3.39.2=hd9f0692_0
+  - tenacity=8.0.1=pyhd8ed1ab_0
+  - tk=8.6.12=h5dbffcc_0
+  - tzdata=2022a=h191b570_0
+  - wheel=0.37.1=pyhd8ed1ab_0
+  - xz=5.2.5=haf1e3a3_1
+  - zlib=1.2.12=hfe4f2af_2
+prefix: /Users/rbmv/mambaforge/envs/rbmv_site
