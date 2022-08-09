@@ -38,4 +38,4 @@ I am using [`mamba`](https://mamba.readthedocs.io/en/latest/user_guide/mamba.htm
 
 ## Theming
 
-I've sort of based the theme on a tshirt I love from one of my favorite streetwear brands [Extra-Vitimins](https://extra-vitamins.com/products/higher-than-the-sun-tee). The branding font is using [Victor-Mono](https://rubjo.github.io/victor-mono/), which I will try to add as the mono typeface for the site eventually.
+I've sort of based the theme on a tshirt I love from one of my favorite streetwear brands [Extra-Vitamins](https://extra-vitamins.com/products/higher-than-the-sun-tee). The branding font is using [Victor-Mono](https://rubjo.github.io/victor-mono/), which I will try to add as the mono typeface for the site eventually.
