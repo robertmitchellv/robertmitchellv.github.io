@@ -105,10 +105,19 @@ blockquote, .blockquote {
 
 .features {
   padding-bottom: 2em;
+  height: calc(100% + 250px);
 }
 
 .feature {
   margin-top: 20px;
+}
+
+.feature-top {
+  height: 75%;
+}
+
+.feature-bottom {
+  height: 25%;
 }
 
 @media (min-width: 800px) { 
