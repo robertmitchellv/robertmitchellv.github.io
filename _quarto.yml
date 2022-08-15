@@ -57,5 +57,4 @@ format:
       light: [flatly, custom.scss]
       dark: [darkly, custom-dark.scss]
 
-execute: 
-  freeze: auto
+freeze: true
