@@ -51,7 +51,6 @@ Still curious? click 'About'<br> above or this button here:<br><br>
 ### Blog
 
 Latest from the blog
-<br>
 
 ::: {#listing-blog}
 :::
@@ -67,7 +66,6 @@ Latest from the blog
 ### Talks
 
 Latest talk I've done
-<br>
 
 ::: {#listing-talks}
 :::
@@ -83,7 +81,6 @@ Latest talk I've done
 ### Projects
 
 Latest tinkering
-<br>
 
 ::: {#listing-projects}
 :::
