@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.0.38">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Robert Mitchell">
+<meta name="dcterms.date" content="2022-08-15">
+
+<title>robertmitchellv - Building with Quarto</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+span.underline{text-decoration: underline;}
+div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<link href="../../images/me.png" rel="icon" type="image/png">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark.min.css" rel="prefetch" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/quarto-contrib/fontawesome6-0.1.0/all.css" rel="stylesheet">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 20,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit"
+  }
+}</script>
+<script async="" src="https://www.googletagmanager.com/gtag/js?id=G-43L15MR1WY"></script>
+
+<script type="text/javascript">
+
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-43L15MR1WY', { 'anonymize_ip': true});
+</script>
+
+
+<meta name="twitter:title" content="robertmitchellv - Building with Quarto">
+<meta name="twitter:creator" content="@robertmitchellv">
+<meta name="twitter:card" content="summary">
+</head>
+
+<body class="floating nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark ">
+      <div class="navbar-container container-fluid">
+      <a class="navbar-brand" href="../../index.html">
+    <img src="../../images/rbmv-secondary.png" alt="">
+  </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html"><i class="fa-solid fa-house-user"></i> Home</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../blog.html"><i class="fa-solid fa-laptop-code"></i> Blog</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../talks.html"><i class="fa-solid fa-chalkboard-user"></i> Talks</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../projects.html"><i class="fa-solid fa-chart-line"></i> Projects</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html"><i class="fa-solid fa-address-card"></i> About</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../vitae.html"><i class="fa-solid fa-paperclip"></i> Vitae</a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="mailto:robert@robertmitchellv.com"><i class="fa-solid fa-paper-plane"></i> Contact</a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/robertmitchellv"><i class="bi bi-github" role="img">
+</i> 
+ </a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com/robertmitchellv"><i class="bi bi-twitter" role="img">
+</i> 
+ </a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://linkedin.com/in/robertmitchellv"><i class="bi bi-linkedin" role="img">
+</i> 
+ </a>
+  </li>  
+</ul>
+              <div class="quarto-toggle-container">
+                  <a href="" class="quarto-color-scheme-toggle nav-link" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+              </div>
+              <div id="quarto-search" class="" title="Search"></div>
+          </div> <!-- /navcollapse -->
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<header id="title-block-header" class="quarto-title-block default toc-left page-columns page-full">
+  <div class="quarto-title-banner page-columns page-full">
+    <div class="quarto-title column-body">
+      <h1 class="title">Building with Quarto</h1>
+                                <div class="quarto-categories">
+                <div class="quarto-category">Quarto</div>
+                <div class="quarto-category">GitHub Pages</div>
+                <div class="quarto-category">Websites</div>
+              </div>
+                  </div>
+  </div>
+    
+  
+  <div class="quarto-title-meta">
+
+      <div>
+      <div class="quarto-title-meta-heading">Author</div>
+      <div class="quarto-title-meta-contents">
+               <p>Robert Mitchell </p>
+            </div>
+    </div>
+      
+      <div>
+      <div class="quarto-title-meta-heading">Published</div>
+      <div class="quarto-title-meta-contents">
+        <p class="date">August 15, 2022</p>
+      </div>
+    </div>
+      
+    </div>
+    
+  
+  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse sidebar-navigation floating overflow-auto">
+    <nav id="TOC" role="doc-toc">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#motivation-and-thoughts" id="toc-motivation-and-thoughts" class="nav-link active" data-scroll-target="#motivation-and-thoughts">Motivation and thoughts</a></li>
+  <li><a href="#quarto-how-to-start" id="toc-quarto-how-to-start" class="nav-link" data-scroll-target="#quarto-how-to-start">Quarto, how to start?</a></li>
+  <li><a href="#building-blocks" id="toc-building-blocks" class="nav-link" data-scroll-target="#building-blocks">Building blocks</a></li>
+  <li><a href="#divs-and-spans" id="toc-divs-and-spans" class="nav-link" data-scroll-target="#divs-and-spans"><code>&lt;div&gt;</code>s and <code>&lt;span&gt;</code>s</a></li>
+  <li><a href="#so-how-did-i-alter-the-example" id="toc-so-how-did-i-alter-the-example" class="nav-link" data-scroll-target="#so-how-did-i-alter-the-example">So how did I alter the example?</a></li>
+  <li><a href="#new-classes" id="toc-new-classes" class="nav-link" data-scroll-target="#new-classes">New classes</a></li>
+  <li><a href="#document-listings" id="toc-document-listings" class="nav-link" data-scroll-target="#document-listings">Document listings</a></li>
+  <li><a href="#ejs" id="toc-ejs" class="nav-link" data-scroll-target="#ejs">EJS</a></li>
+  <li><a href="#connecting-it-all-together" id="toc-connecting-it-all-together" class="nav-link" data-scroll-target="#connecting-it-all-together">Connecting it all together</a></li>
+  <li><a href="#conclusion" id="toc-conclusion" class="nav-link" data-scroll-target="#conclusion">Conclusion</a></li>
+  </ul>
+<div class="toc-actions"><div><i class="bi bi-github"></i></div><div class="action-links"><p><a href="https://github.com/robertmitchellv/robertmitchellv.github.io/edit/main/blog/2022-08-building-with-quarto/building-with-quarto.qmd" class="toc-action">Edit this page</a></p><p><a href="https://github.com/robertmitchellv/robertmitchellv.github.io/issues/new" class="toc-action">Report an issue</a></p></div></div></nav>
+</nav>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+    </div>
+<!-- main -->
+<main class="content quarto-banner-title-block page-columns page-full" id="quarto-document-content">
+
+
+
+
+<section id="motivation-and-thoughts" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="motivation-and-thoughts">Motivation and thoughts</h2>
+<div class="column-page-inset-right">
+<p>I spent a decent amount of time working on rebuilding my site with <a href="https://quarto.org">Quarto</a> but the decision of <em>should</em> I rebuild my website was pretty impulsive. It’s not the <a href="https://robertmitchellv.com/2016-09-building-this-site-with-rmarkdown/building-this-site-with-rmarkdown.html">first time</a> I’ve hastily moved to a shiny new static site generator. Before that I was using <a href="https://getpelican.com/">Pelican</a> and before that, <a href="https://jekyllrb.com/">Jykell</a>; I suppose I love the process of trying to design something new and see how I can take advantage of something new to make it <em>even easier</em> to blog!</p>
+<p>I was going to make a joke about <em>Field of Dreams</em> and how <strong>I built it and the blog posts didn’t come</strong>. But that’s not the important part! The important part was that I went in the world wide web version of the yard to <em>do my little project</em>.</p>
+<p><img src="field-of-dreams.jpg" class="img-fluid" alt="Image of a tweet. From at caitiedelaney: 'Field of Dreams is a lovely film about letting your insane husband go in the yard and do his little project' posted May 25, 2022 at 2:48 PM via Twitter for iPhone. 85 replies, 942 retweets, 83 quote tweets, 22.6k likes" style="width:45.0%"></p>
+<p>What this post will not be is a complete end-to-end guide on building a website with Quarto. I think there are already a lot of great pieces of content and the docs are really well put together. I don’t want to just rehash what already exists. I thought it might be helpful to just document how I went about taking some things from the Quarto website and editing/altering for myself and really just focus on some of the aspects of using Quarto that were not initially clear and required some patience to work through.</p>
+</div>
+<div class="callout-caution callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Just keep in mind
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>I’m by no means a front-end professional and a lot of what I’ve discovered putting this site together was from reading the docs, looking for examples, and trying things out. If you notice something that isn’t right; feel free to create an issue on the <i class="fa-brands fa-github"></i> repo. Thanks!</p>
+</div>
+</div>
+</section>
+<section id="quarto-how-to-start" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="quarto-how-to-start">Quarto, how to start?</h2>
+<div class="column-page-inset-right">
+<p>So we have four different options above. When inspecting the plain text within the <code>.Rproj</code> file itself (something like <code>vim name.Rproj</code>), there isn’t any magic happening under the hood in connection to Quarto. However, each of these options correspond to different commands that you <em>could</em> also run via the <code>cli</code>. Remember, Quarto is a tool that is built on top of and extends <a href="https://pandoc.org/">Pandoc</a>, which also is a <code>cli</code>, so don’t be afraid to run things that way too. Initially I thought that if I decided to do a Quarto Website instead of a Quarto Blog I’d be locked into something and that is not the case at all! So don’t worry too much at this stage.</p>
+<p><img src="quarto-projects.png" class="img-fluid" alt="Image of options the RStudio IDE provides you when you are creating a new project. The options are: R Package, Shiny Application, Quarto Project (which is highlighted), Quarto Website, Quarto Blog, and Quarto Book" style="width:60.0%"></p>
+</div>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Use the source (code)
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>If you want to examine Quarto’s source code on GitHub, it’s under <a href="www.github.com/rstudio/quarto-cli">quarto-cli</a>. If you want to see the source code for the Quarto website <strong>itself</strong>, it’s under <a href="www.github.com/rstudio/quarto-web">quarto-web</a>. So if there’s something you see on the main website that you like, check the GitHub repo to see how they’re doing it.</p>
+</div>
+</div>
+</section>
+<section id="building-blocks" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="building-blocks">Building blocks</h2>
+<div class="column-page-inset-right">
+<p>As an example, I <em>borrowed</em> a design pattern from the <a href="https://github.com/quarto-dev/quarto-web/blob/main/index.qmd"><code>index.qmd</code></a> file from Quarto’s landing page for my landing page; here’s the original:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1"></a>::: {.content-block}</span>
+<span id="cb1-2"><a href="#cb1-2"></a>::: {.features}</span>
+<span id="cb1-3"><a href="#cb1-3"></a></span>
+<span id="cb1-4"><a href="#cb1-4"></a>::: {.feature}</span>
+<span id="cb1-5"><a href="#cb1-5"></a><span class="fu">### Dynamic Documents</span></span>
+<span id="cb1-6"><a href="#cb1-6"></a>Generate dynamic output using Python, R, Julia, and Observable. </span>
+<span id="cb1-7"><a href="#cb1-7"></a>Create reproducible documents that can be regenerated when </span>
+<span id="cb1-8"><a href="#cb1-8"></a>underlying assumptions or data change.</span>
+<span id="cb1-9"><a href="#cb1-9"></a></span>
+<span id="cb1-10"><a href="#cb1-10"></a>::: {.learn-more}</span>
+<span id="cb1-11"><a href="#cb1-11"></a><span class="co">[</span><span class="ot">Learn more »</span><span class="co">](docs/computations/python.qmd)</span></span>
+<span id="cb1-12"><a href="#cb1-12"></a>:::</span>
+<span id="cb1-13"><a href="#cb1-13"></a>:::</span>
+<span id="cb1-14"><a href="#cb1-14"></a></span>
+<span id="cb1-15"><a href="#cb1-15"></a>::: {.feature}</span>
+<span id="cb1-16"><a href="#cb1-16"></a><span class="fu">### Beautiful Publications</span></span>
+<span id="cb1-17"><a href="#cb1-17"></a>Publish high-quality articles, reports, presentations, </span>
+<span id="cb1-18"><a href="#cb1-18"></a>websites, and books in HTML, PDF, MS Word, ePub, and </span>
+<span id="cb1-19"><a href="#cb1-19"></a>more. Use a single source document to target multiple </span>
+<span id="cb1-20"><a href="#cb1-20"></a>formats.</span>
+<span id="cb1-21"><a href="#cb1-21"></a></span>
+<span id="cb1-22"><a href="#cb1-22"></a>::: {.learn-more}</span>
+<span id="cb1-23"><a href="#cb1-23"></a><span class="co">[</span><span class="ot">Learn more »</span><span class="co">](docs/output-formats/all-formats.qmd)</span></span>
+<span id="cb1-24"><a href="#cb1-24"></a>:::</span>
+<span id="cb1-25"><a href="#cb1-25"></a>:::</span>
+<span id="cb1-26"><a href="#cb1-26"></a></span>
+<span id="cb1-27"><a href="#cb1-27"></a>::: {.feature}</span>
+<span id="cb1-28"><a href="#cb1-28"></a><span class="fu">### Scientific Markdown</span></span>
+<span id="cb1-29"><a href="#cb1-29"></a>Pandoc markdown has excellent support for LaTeX equations </span>
+<span id="cb1-30"><a href="#cb1-30"></a>and citations. Quarto adds extensions for cross-references, </span>
+<span id="cb1-31"><a href="#cb1-31"></a>figure panels, callouts, advanced page layout, and more.</span>
+<span id="cb1-32"><a href="#cb1-32"></a></span>
+<span id="cb1-33"><a href="#cb1-33"></a>::: {.learn-more}</span>
+<span id="cb1-34"><a href="#cb1-34"></a><span class="co">[</span><span class="ot">Learn more »</span><span class="co">](docs/authoring/markdown-basics.qmd)</span></span>
+<span id="cb1-35"><a href="#cb1-35"></a>:::</span>
+<span id="cb1-36"><a href="#cb1-36"></a>:::</span>
+<span id="cb1-37"><a href="#cb1-37"></a></span>
+<span id="cb1-38"><a href="#cb1-38"></a>::: {.feature}</span>
+<span id="cb1-39"><a href="#cb1-39"></a><span class="fu">### Authoring Tools</span></span>
+<span id="cb1-40"><a href="#cb1-40"></a>Use your favorite tools including VS Code, RStudio, </span>
+<span id="cb1-41"><a href="#cb1-41"></a>Jupyter Lab, or any text editor. Use the Quarto visual </span>
+<span id="cb1-42"><a href="#cb1-42"></a>markdown editor for long-form documents.</span>
+<span id="cb1-43"><a href="#cb1-43"></a></span>
+<span id="cb1-44"><a href="#cb1-44"></a>::: {.learn-more}</span>
+<span id="cb1-45"><a href="#cb1-45"></a><span class="co">[</span><span class="ot">Learn more »</span><span class="co">](docs/tools/jupyter-lab.qmd)</span></span>
+<span id="cb1-46"><a href="#cb1-46"></a>:::</span>
+<span id="cb1-47"><a href="#cb1-47"></a>:::</span>
+<span id="cb1-48"><a href="#cb1-48"></a></span>
+<span id="cb1-49"><a href="#cb1-49"></a>::: {.feature}</span>
+<span id="cb1-50"><a href="#cb1-50"></a><span class="fu">### Interactivity</span></span>
+<span id="cb1-51"><a href="#cb1-51"></a>Engage readers by adding interactive data exploration </span>
+<span id="cb1-52"><a href="#cb1-52"></a>to your documents using Jupyter Widgets, htmlwidgets for </span>
+<span id="cb1-53"><a href="#cb1-53"></a>R, Observable JS, and Shiny.</span>
+<span id="cb1-54"><a href="#cb1-54"></a></span>
+<span id="cb1-55"><a href="#cb1-55"></a>::: {.learn-more}</span>
+<span id="cb1-56"><a href="#cb1-56"></a><span class="co">[</span><span class="ot">Learn more »</span><span class="co">](docs/interactive/)</span></span>
+<span id="cb1-57"><a href="#cb1-57"></a>:::</span>
+<span id="cb1-58"><a href="#cb1-58"></a>:::</span>
+<span id="cb1-59"><a href="#cb1-59"></a></span>
+<span id="cb1-60"><a href="#cb1-60"></a>::: {.feature}</span>
+<span id="cb1-61"><a href="#cb1-61"></a><span class="fu">### Websites and Books</span></span>
+<span id="cb1-62"><a href="#cb1-62"></a>Publish collections of documents as a blog or full </span>
+<span id="cb1-63"><a href="#cb1-63"></a>website. Create books and manuscripts in both print </span>
+<span id="cb1-64"><a href="#cb1-64"></a>formats (PDF and MS Word) and online formats (HTML </span>
+<span id="cb1-65"><a href="#cb1-65"></a>and ePub).</span>
+<span id="cb1-66"><a href="#cb1-66"></a></span>
+<span id="cb1-67"><a href="#cb1-67"></a>::: {.learn-more}</span>
+<span id="cb1-68"><a href="#cb1-68"></a><span class="co">[</span><span class="ot">Learn more »</span><span class="co">](docs/websites/)</span></span>
+<span id="cb1-69"><a href="#cb1-69"></a>:::</span>
+<span id="cb1-70"><a href="#cb1-70"></a>:::</span>
+<span id="cb1-71"><a href="#cb1-71"></a></span>
+<span id="cb1-72"><a href="#cb1-72"></a>:::</span>
+<span id="cb1-73"><a href="#cb1-73"></a>:::</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="divs-and-spans" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="divs-and-spans"><code>&lt;div&gt;</code>s and <code>&lt;span&gt;</code>s</h2>
+<div class="column-page-inset-right">
+<p>First, let’s talk about what’s going on here. If you’re new to this syntax of <code>::: {.some-class} :::</code> then take a bit of time to read the Quarto docs on <a href="https://quarto.org/docs/authoring/markdown-basics.html#divs-and-spans">divs and spans</a> to gain a good foundation. In Pandoc these are called <a href="https://pandoc.org/MANUAL.html#extension-fenced_divs">fenced divs</a>.</p>
+<p>Once you understand the syntax, it might not be apparent at first, but these fenced divs are extraordinarily flexible! Let’s break down the above code chunk:</p>
+<p>The <code>::: {.content-block}:::</code> is a <code>&lt;div&gt;</code> defining the padding for the top and bottom <em>and</em> the margin for the left and the right; here is the CSS from <a href="https://github.com/quarto-dev/quarto-web/blob/main/index.css"><code>index.css</code></a>:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource css number-lines code-with-copy"><code class="sourceCode css"><span id="cb2-1"><a href="#cb2-1"></a><span class="fu">.content-block</span> {</span>
+<span id="cb2-2"><a href="#cb2-2"></a>  <span class="kw">padding-top</span>: <span class="dv">20</span><span class="dt">px</span><span class="op">;</span></span>
+<span id="cb2-3"><a href="#cb2-3"></a>  <span class="kw">padding-bottom</span>: <span class="dv">10</span><span class="dt">px</span><span class="op">;</span></span>
+<span id="cb2-4"><a href="#cb2-4"></a>  <span class="kw">margin-left</span>: <span class="dv">30</span><span class="dt">px</span><span class="op">;</span></span>
+<span id="cb2-5"><a href="#cb2-5"></a>  <span class="kw">margin-right</span>: <span class="dv">30</span><span class="dt">px</span><span class="op">;</span></span>
+<span id="cb2-6"><a href="#cb2-6"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>This creates space on the page for the two main components:</p>
+<div class="container">
+<div class="card-group">
+<div class="card m-3">
+<div class="card-header bg-primary">
+<p>The container</p>
+</div>
+<div class="card-body">
+<p><code>::: {.features} :::</code></p>
+<p>Similarly to the <code>.content-block</code>, this is like a <code>row</code> for the other content elements. On the Bootstrap 5 [page] you’ll see lots of examples of something like <code>container -&gt; row -&gt; col</code>.</p>
+</div>
+</div>
+<div class="card m-3">
+<div class="card-header bg-primary">
+<p>The flexbox</p>
+</div>
+<div class="card-body">
+<p><code>::: {.feature} :::</code></p>
+<p>These are the individual elements of content. They’re like post-its with info on them. Each <code>.feature</code> is contained within the <code>.features</code> container.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+<i class="fa-solid fa-puzzle-piece"></i> Putting it together
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>You can think of the <code>.container</code> like a board you want to hang on the wall–the <code>.features</code> is like a sticky adhesive and the <code>.feature</code> the squares with notes on them that you stick to your board.</p>
+</div>
+</div>
+<div class="column-page-inset-right">
+<p>From the docs, Bootstrap 5 <em>uses a mobile-first flexbox <a href="https://getbootstrap.com/docs/5.0/layout/grid/">grid</a> to build layouts of all shapes and sizes thanks to a twelve column system, six default responsive tiers, Sass variables and mixins, and dozens of predefined classes</em>. It can <em>definitely</em> be confusing if you haven’t ever written HTML before, so don’t worry if it isn’t clicking right away. Learning more about Bootstrap 5 will only enhance your Quarto experience if you’re interested. The better you understand the grid the more flexible you will be when thinking of <em>how</em> you want to arrange components on your site and what is available to you as ways to do that.</p>
+</div>
+</section>
+<section id="so-how-did-i-alter-the-example" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="so-how-did-i-alter-the-example">So how did I alter the example?</h2>
+<div class="column-page-inset-right">
+<p>What I liked was the ability to just create a simple grid for some content–but I also wanted to have a button and I wanted those buttons to line up. So this was my way to make that happen:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1"></a>::: {.content-block}</span>
+<span id="cb3-2"><a href="#cb3-2"></a>::: {.features}</span>
+<span id="cb3-3"><a href="#cb3-3"></a></span>
+<span id="cb3-4"><a href="#cb3-4"></a>::: {.feature}</span>
+<span id="cb3-5"><a href="#cb3-5"></a>::: {.feature-top}</span>
+<span id="cb3-6"><a href="#cb3-6"></a><span class="fu">### Blog</span></span>
+<span id="cb3-7"><a href="#cb3-7"></a></span>
+<span id="cb3-8"><a href="#cb3-8"></a>Latest from the blog</span>
+<span id="cb3-9"><a href="#cb3-9"></a></span>
+<span id="cb3-10"><a href="#cb3-10"></a>::: {#listing-blog}</span>
+<span id="cb3-11"><a href="#cb3-11"></a>:::</span>
+<span id="cb3-12"><a href="#cb3-12"></a>:::</span>
+<span id="cb3-13"><a href="#cb3-13"></a></span>
+<span id="cb3-14"><a href="#cb3-14"></a>::: {.feature-bottom}</span>
+<span id="cb3-15"><a href="#cb3-15"></a><span class="co">[</span><span class="ot">Blog</span><span class="co">](blog.qmd)</span>{.btn .btn-secondary role="button"}</span>
+<span id="cb3-16"><a href="#cb3-16"></a>:::</span>
+<span id="cb3-17"><a href="#cb3-17"></a>:::</span>
+<span id="cb3-18"><a href="#cb3-18"></a></span>
+<span id="cb3-19"><a href="#cb3-19"></a>::: {.feature}</span>
+<span id="cb3-20"><a href="#cb3-20"></a>::: {.feature-top}</span>
+<span id="cb3-21"><a href="#cb3-21"></a><span class="fu">### Talks</span></span>
+<span id="cb3-22"><a href="#cb3-22"></a></span>
+<span id="cb3-23"><a href="#cb3-23"></a>Latest talk I've done</span>
+<span id="cb3-24"><a href="#cb3-24"></a></span>
+<span id="cb3-25"><a href="#cb3-25"></a>::: {#listing-talks}</span>
+<span id="cb3-26"><a href="#cb3-26"></a>:::</span>
+<span id="cb3-27"><a href="#cb3-27"></a>:::</span>
+<span id="cb3-28"><a href="#cb3-28"></a></span>
+<span id="cb3-29"><a href="#cb3-29"></a>::: {.feature-bottom}</span>
+<span id="cb3-30"><a href="#cb3-30"></a><span class="co">[</span><span class="ot">Talks</span><span class="co">](talks.qmd)</span>{.btn .btn-secondary role="button"}</span>
+<span id="cb3-31"><a href="#cb3-31"></a>:::</span>
+<span id="cb3-32"><a href="#cb3-32"></a>:::</span>
+<span id="cb3-33"><a href="#cb3-33"></a></span>
+<span id="cb3-34"><a href="#cb3-34"></a>::: {.feature}</span>
+<span id="cb3-35"><a href="#cb3-35"></a>::: {.feature-top}</span>
+<span id="cb3-36"><a href="#cb3-36"></a><span class="fu">### Projects</span></span>
+<span id="cb3-37"><a href="#cb3-37"></a></span>
+<span id="cb3-38"><a href="#cb3-38"></a>Latest tinkering</span>
+<span id="cb3-39"><a href="#cb3-39"></a></span>
+<span id="cb3-40"><a href="#cb3-40"></a>::: {#listing-projects}</span>
+<span id="cb3-41"><a href="#cb3-41"></a>:::</span>
+<span id="cb3-42"><a href="#cb3-42"></a>:::</span>
+<span id="cb3-43"><a href="#cb3-43"></a></span>
+<span id="cb3-44"><a href="#cb3-44"></a>::: {.feature-bottom}</span>
+<span id="cb3-45"><a href="#cb3-45"></a><span class="co">[</span><span class="ot">Projects</span><span class="co">](projects.qmd)</span>{.btn .btn-secondary role="button"}</span>
+<span id="cb3-46"><a href="#cb3-46"></a>:::</span>
+<span id="cb3-47"><a href="#cb3-47"></a>:::</span>
+<span id="cb3-48"><a href="#cb3-48"></a></span>
+<span id="cb3-49"><a href="#cb3-49"></a>:::</span>
+<span id="cb3-50"><a href="#cb3-50"></a>:::</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>You’ll notice some new things here; a couple of new classes and some <a href="https://quarto.org/docs/websites/website-listings.html">document listings</a>. Let’s start with the new classes first and then talk about the document listings.</p>
+</div>
+<div class="callout-tip callout callout-style-default callout-captioned">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-caption-container flex-fill">
+Links to buttons
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>To turn a regular link into a button you can add a helpful Bootstrap 5 class to the link: <code>.btn</code> and then adding the <code>role="button"</code>! So simple and it looks really nice too. I’m also using <code>.btn-secondary</code> to use the secondary color specified in the Sass file to make it pop <i class="fa-solid fa-burst"></i></p>
+</div>
+</div>
+</section>
+<section id="new-classes" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="new-classes">New classes</h2>
+<div class="column-page-inset-right">
+<p>The <code>.content-block</code> has not changed. So we don’t need to focus on that. There is a new addition to the <code>.features</code> class’ CSS though:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource css number-lines code-with-copy"><code class="sourceCode css"><span id="cb4-1"><a href="#cb4-1"></a><span class="fu">.features</span> {</span>
+<span id="cb4-2"><a href="#cb4-2"></a>  <span class="kw">padding-bottom</span>: <span class="dv">2</span><span class="dt">em</span><span class="op">;</span></span>
+<span id="cb4-3"><a href="#cb4-3"></a>  <span class="kw">height</span>: <span class="fu">calc(</span><span class="dv">100</span><span class="dt">%</span> <span class="op">+</span> <span class="dv">250</span><span class="dt">px</span><span class="fu">)</span><span class="op">;</span></span>
+<span id="cb4-4"><a href="#cb4-4"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>So what is this <code>height: calc(100% + 250px);</code> doing? Well, it’s saying, <em>whatever 100% of the height is for this normally, add an additional 250 pixels</em>. Why we want to do this will become apparent with the next two classes:</p>
+<div class="container">
+<div class="card-group">
+<div class="card m-3">
+<div class="card-header bg-primary">
+<p><code>.feature-top</code></p>
+</div>
+<div class="card-body">
+<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource css number-lines code-with-copy"><code class="sourceCode css"><span id="cb5-1"><a href="#cb5-1"></a><span class="fu">.feature-top</span> {</span>
+<span id="cb5-2"><a href="#cb5-2"></a>  <span class="kw">height</span>: <span class="dv">75</span><span class="dt">%</span><span class="op">;</span></span>
+<span id="cb5-3"><a href="#cb5-3"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>We want this <code>&lt;div&gt;</code> to take up <code>75%</code> of <code>.features</code>’s height.</p>
+</div>
+</div>
+<div class="card m-3">
+<div class="card-header bg-primary">
+<p><code>.feature-bottom</code></p>
+</div>
+<div class="card-body">
+<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource css number-lines code-with-copy"><code class="sourceCode css"><span id="cb6-1"><a href="#cb6-1"></a><span class="fu">.feature-bottom</span> {</span>
+<span id="cb6-2"><a href="#cb6-2"></a>  <span class="kw">height</span>: <span class="dv">25</span><span class="dt">%</span><span class="op">;</span></span>
+<span id="cb6-3"><a href="#cb6-3"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>We want this <code>&lt;div&gt;</code> to take up <code>25%</code> of <code>.features</code>’s height</p>
+</div>
+</div>
+</div>
+</div>
+<p>The goal is to have the <code>.feature</code> divisible by two but in a way that allows for the bottom portion to align across <code>.feature</code>s rather than have the button in different positions based on the length of the document being highlighted by the document listing.</p>
+<p>Now, this may not be the best solution–I imagine that for someone that is an experienced front-end dev or someone that knows Lua could potentially do something much more elegant. This seemed to me to be the best way to accomplish this for myself. I see the buttons align and that makes me happy <i class="fa-solid fa-face-laugh-beam"></i></p>
+</div>
+</section>
+<section id="document-listings" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="document-listings">Document listings</h2>
+<div class="column-page-inset-right">
+<p>I linked it earlier but ICYMI, <a href="https://quarto.org/docs/websites/website-listings.html">document listings</a> are something very new to me via Quarto. Read the docs on document listings first to gain a bit more familiarity and then I’ll explain what I’m doing here.</p>
+<p>My <a href="https://github.com/robertmitchellv/robertmitchellv.github.io/blob/main/index.qmd"><code>index.qmd</code></a> is using multiple <a href="https://quarto.org/docs/websites/website-listings-custom.html">custom listings</a>. Make sure to read the docs to get a feel for what’s different between altering/editing the available document listing vs creating a custom listing.</p>
+</div>
+</section>
+<section id="ejs" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="ejs">EJS</h2>
+<div class="column-page-inset-right">
+<p>The custom listings are written in <a href="https://ejs.co/">Embedded JavaScript templating (EJS)</a>, which was very confusing for me. I’ll try to share what limited clarity I’ve been able to obtain but if this isn’t something you’ll want to do you can feel free to skip.</p>
+<p>I followed the example from <a href="https://github.com/quarto-dev/quarto-web"><code>quarto-web</code></a> and created an <code>ejs</code> directory and then put my custom listing <code>.ejs</code> file in that directory. Before threading everything together, let’s just look at how the custom listing is working:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript"><span id="cb7-1"><a href="#cb7-1"></a><span class="op">&lt;!--</span> attributes <span class="cf">for</span> item <span class="op">--&gt;</span></span>
+<span id="cb7-2"><a href="#cb7-2"></a><span class="op">&lt;!--</span>  freeze<span class="op">,</span></span>
+<span id="cb7-3"><a href="#cb7-3"></a>      title<span class="op">-</span>block<span class="op">-</span>banner<span class="op">,</span></span>
+<span id="cb7-4"><a href="#cb7-4"></a>      title<span class="op">,</span></span>
+<span id="cb7-5"><a href="#cb7-5"></a>      author<span class="op">,</span></span>
+<span id="cb7-6"><a href="#cb7-6"></a>      date<span class="op">,</span></span>
+<span id="cb7-7"><a href="#cb7-7"></a>      categories<span class="op">,</span></span>
+<span id="cb7-8"><a href="#cb7-8"></a>      image<span class="op">,</span></span>
+<span id="cb7-9"><a href="#cb7-9"></a>      path<span class="op">,</span></span>
+<span id="cb7-10"><a href="#cb7-10"></a>      image<span class="op">-</span>alt<span class="op">,</span></span>
+<span id="cb7-11"><a href="#cb7-11"></a>      description<span class="op">,</span></span>
+<span id="cb7-12"><a href="#cb7-12"></a>      filename<span class="op">,</span></span>
+<span id="cb7-13"><a href="#cb7-13"></a>      file<span class="op">-</span>modified<span class="op">,</span></span>
+<span id="cb7-14"><a href="#cb7-14"></a>      reading<span class="op">-</span>time<span class="op">,</span></span>
+<span id="cb7-15"><a href="#cb7-15"></a>      sortableValues <span class="op">--&gt;</span></span>
+<span id="cb7-16"><a href="#cb7-16"></a><span class="op">&lt;%</span> <span class="cf">for</span> (<span class="kw">const</span> item <span class="kw">of</span> items<span class="op">.</span><span class="fu">slice</span>(<span class="dv">0</span><span class="op">,</span> <span class="dv">1</span>)) { <span class="op">%&gt;</span></span>
+<span id="cb7-17"><a href="#cb7-17"></a>  <span class="op">&lt;</span>h4<span class="op">&gt;&lt;</span>a href<span class="op">=</span><span class="st">"&lt;%- item.path %&gt;"</span><span class="op">&gt;&lt;%=</span> item<span class="op">.</span><span class="at">title</span> <span class="op">%&gt;&lt;/</span>a<span class="op">&gt;&lt;/</span>h4<span class="op">&gt;</span></span>
+<span id="cb7-18"><a href="#cb7-18"></a>  <span class="op">&lt;</span>small<span class="op">&gt;</span> <span class="op">&lt;%=</span> item<span class="op">.</span><span class="at">date</span> <span class="op">%&gt;&lt;/</span>small<span class="op">&gt;</span></span>
+<span id="cb7-19"><a href="#cb7-19"></a><span class="op">&lt;%</span> } <span class="op">%&gt;</span> </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>First, please excuse the low quality but high effort JavaScript. Second, notice the comment I added for the attributes available to us through the initial <code>for</code> loop. I wanted to keep these readily available in the event I need to create some other custom listing. Based on what it is you want to highlight you can change or alter this to see if it works for your purposes as well. What I wanted was just the most recent listing from a document list, so I only want <em>one</em> listing. That is the purpose of the <code>.slice(0, 1)</code> method. The goal is to <em>not</em> have to update the <code>index.qmd</code> ever–even when there are new blog posts, talks, or projects. I’m slicing this list for the very first (most recent) listing and just grabbing a minimal amount of attributes: <strong>its location, the title, and the date</strong>.</p>
+</div>
+</section>
+<section id="connecting-it-all-together" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="connecting-it-all-together">Connecting it all together</h2>
+<div class="column-page-inset-right">
+<p>To connect the custom listing you’ll need to add it in your <code>.qmd</code> file’s <code>YAML</code> header. Here’s an example from my <code>index.qmd</code>:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb8-1"><a href="#cb8-1"></a><span class="co">---</span></span>
+<span id="cb8-2"><a href="#cb8-2"></a><span class="an">title:</span><span class="co"> ""</span></span>
+<span id="cb8-3"><a href="#cb8-3"></a><span class="an">page-layout:</span><span class="co"> full</span></span>
+<span id="cb8-4"><a href="#cb8-4"></a><span class="an">title-block-banner:</span><span class="co"> true</span></span>
+<span id="cb8-5"><a href="#cb8-5"></a><span class="an">listing:</span><span class="co"> </span></span>
+<span id="cb8-6"><a href="#cb8-6"></a><span class="co">  - id: listing-blog</span></span>
+<span id="cb8-7"><a href="#cb8-7"></a><span class="co">    contents: "blog/"</span></span>
+<span id="cb8-8"><a href="#cb8-8"></a><span class="co">    template: /ejs/most-recent-only.ejs</span></span>
+<span id="cb8-9"><a href="#cb8-9"></a><span class="co">    sort: "date desc"</span></span>
+<span id="cb8-10"><a href="#cb8-10"></a><span class="co">  - id: listing-talks</span></span>
+<span id="cb8-11"><a href="#cb8-11"></a><span class="co">    contents: "talks/"</span></span>
+<span id="cb8-12"><a href="#cb8-12"></a><span class="co">    template: /ejs/most-recent-only.ejs</span></span>
+<span id="cb8-13"><a href="#cb8-13"></a><span class="co">    sort: "date desc"</span></span>
+<span id="cb8-14"><a href="#cb8-14"></a><span class="co">  - id: listing-projects</span></span>
+<span id="cb8-15"><a href="#cb8-15"></a><span class="co">    contents: "projects/"</span></span>
+<span id="cb8-16"><a href="#cb8-16"></a><span class="co">    template: /ejs/most-recent-only.ejs</span></span>
+<span id="cb8-17"><a href="#cb8-17"></a><span class="co">    sort: "date desc"</span></span>
+<span id="cb8-18"><a href="#cb8-18"></a><span class="co">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>What this is saying is that Quarto will create an ID that can be used to know <em>where</em> on the page to have this listing display its listing <em>and</em> how to sort the listing. By setting <code>sort: "date desc"</code> in conjunction with the <code>.slice</code> method in the EJS template, that is how we’re able to get the most recent piece of content from these three categories.</p>
+<p>Then it’s as simple as adding the ID you specified in the <code>YAML</code> in a <code>&lt;div&gt;</code>, e.g.:</p>
+<div class="sourceCode" id="cb9"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb9-1"><a href="#cb9-1"></a>::: {#listing-blog}</span>
+<span id="cb9-2"><a href="#cb9-2"></a>:::</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>It took me a little bit of time to get a feel for how this all comes together so I’d recommend playing around with this a bit to build an intuition.</p>
+</div>
+</section>
+<section id="conclusion" class="level2 page-columns page-full">
+<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
+<div class="column-page-inset-right">
+<p>I think this is probably a good place to end things. There is obviously more I could cover in connection to publishing, custom domains, etc, but as I mentioned at the outset–I just wanted to sort of focus on the parts that were exciting and new to me via Quarto. Feel free to get in touch with me if you have any questions or comments. Again, if something isn’t correct, feel free to create an issue on the <i class="fa-brands fa-github"></i> repo.</p>
+</div>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const disableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'prefetch';
+    }
+  }
+  const enableStylesheet = (stylesheets) => {
+    for (let i=0; i < stylesheets.length; i++) {
+      const stylesheet = stylesheets[i];
+      stylesheet.rel = 'stylesheet';
+    }
+  }
+  const manageTransitions = (selector, allowTransitions) => {
+    const els = window.document.querySelectorAll(selector);
+    for (let i=0; i < els.length; i++) {
+      const el = els[i];
+      if (allowTransitions) {
+        el.classList.remove('notransition');
+      } else {
+        el.classList.add('notransition');
+      }
+    }
+  }
+  const toggleColorMode = (alternate) => {
+    // Switch the stylesheets
+    const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+    manageTransitions('#quarto-margin-sidebar .nav-link', false);
+    if (alternate) {
+      enableStylesheet(alternateStylesheets);
+      for (const sheetNode of alternateStylesheets) {
+        if (sheetNode.id === "quarto-bootstrap") {
+          toggleBodyColorMode(sheetNode);
+        }
+      }
+    } else {
+      disableStylesheet(alternateStylesheets);
+      toggleBodyColorPrimary();
+    }
+    manageTransitions('#quarto-margin-sidebar .nav-link', true);
+    // Switch the toggles
+    const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+    for (let i=0; i < toggles.length; i++) {
+      const toggle = toggles[i];
+      if (toggle) {
+        if (alternate) {
+          toggle.classList.add("alternate");     
+        } else {
+          toggle.classList.remove("alternate");
+        }
+      }
+    }
+  }
+  const isFileUrl = () => { 
+    return window.location.protocol === 'file:';
+  }
+  const hasAlternateSentinel = () => {  
+    let styleSentinel = getColorSchemeSentinel();
+    if (styleSentinel !== null) {
+      return styleSentinel === "alternate";
+    } else {
+      return false;
+    }
+  }
+  const setStyleSentinel = (alternate) => {
+    const value = alternate ? "alternate" : "default";
+    if (!isFileUrl()) {
+      window.localStorage.setItem("quarto-color-scheme", value);
+    } else {
+      localAlternateSentinel = value;
+    }
+  }
+  const getColorSchemeSentinel = () => {
+    if (!isFileUrl()) {
+      const storageValue = window.localStorage.getItem("quarto-color-scheme");
+      return storageValue != null ? storageValue : localAlternateSentinel;
+    } else {
+      return localAlternateSentinel;
+    }
+  }
+  let localAlternateSentinel = 'default';
+  // Dark / light mode switch
+  window.quartoToggleColorScheme = () => {
+    // Read the current dark / light value 
+    let toAlternate = !hasAlternateSentinel();
+    toggleColorMode(toAlternate);
+    setStyleSentinel(toAlternate);
+  };
+  // Ensure there is a toggle, if there isn't float one in the top right
+  if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+    const a = window.document.createElement('a');
+    a.classList.add('top-right');
+    a.classList.add('quarto-color-scheme-toggle');
+    a.href = "";
+    a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+    const i = window.document.createElement("i");
+    i.classList.add('bi');
+    a.appendChild(i);
+    window.document.body.appendChild(a);
+  }
+  // Switch to dark mode if need be
+  if (hasAlternateSentinel()) {
+    toggleColorMode(true);
+  } 
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    setTimeout(function() {
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      let href = ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
+    tippyHover(ref, function() {
+      var popup = window.document.createElement('div');
+      cites.forEach(function(cite) {
+        var citeDiv = window.document.createElement('div');
+        citeDiv.classList.add('hanging-indent');
+        citeDiv.classList.add('csl-entry');
+        var biblioDiv = window.document.getElementById('ref-' + cite);
+        if (biblioDiv) {
+          citeDiv.innerHTML = biblioDiv.innerHTML;
+        }
+        popup.appendChild(citeDiv);
+      });
+      return popup.innerHTML;
+    });
+  }
+});
+</script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left"><i class="fa-solid fa-copyright"></i> 2022, Robert Mitchell</div>   
+      <div class="nav-footer-center">
+        <ul class="footer-items list-unstyled">
+    <li class="nav-item">
+ <img src="../../images/rbmv-secondary.png" width="auto" height="30px">
+  </li>  
+</ul>
+      </div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/robertmitchellv">
+      <i class="bi bi-github" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://twitter.com/robertmitchellv">
+      <i class="bi bi-twitter" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://linkedin.com/in/robertmitchellv">
+      <i class="bi bi-linkedin" role="img">
+</i> 
+    </a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
+
+
+
+</body></html>

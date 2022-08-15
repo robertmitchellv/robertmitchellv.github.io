@@ -69,9 +69,9 @@ ul.task-list{list-style: none;}
     }
 
     const options = {
-      valueNames: ['listing-freeze','listing-title-block-banner','listing-title','listing-author','listing-date','listing-categories','listing-path','listing-description','listing-filename','listing-file-modified','listing-reading-time','listing-image','listing-page-layout','listing-toc','listing-toc-location','listing-code-line-numbers','listing-code-copy','listing-df-print',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] },{ data: ['listing-reading-time-sort'] }],
+      valueNames: ['listing-freeze','listing-title-block-banner','listing-title','listing-author','listing-date','listing-categories','listing-page-layout','listing-toc','listing-toc-location','listing-code-line-numbers','listing-code-copy','listing-df-print','listing-path','listing-description','listing-filename','listing-file-modified','listing-reading-time','listing-image','listing-code-overflow',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] },{ data: ['listing-reading-time-sort'] }],
       
-      searchColumns: ["listing-freeze","listing-title-block-banner","listing-title","listing-author","listing-date","listing-categories","listing-path","listing-description","listing-filename","listing-file-modified","listing-reading-time","listing-image","listing-page-layout","listing-toc","listing-toc-location","listing-code-line-numbers","listing-code-copy","listing-df-print"],
+      searchColumns: ["listing-freeze","listing-title-block-banner","listing-title","listing-author","listing-date","listing-categories","listing-page-layout","listing-toc","listing-toc-location","listing-code-line-numbers","listing-code-copy","listing-df-print","listing-path","listing-description","listing-filename","listing-file-modified","listing-reading-time","listing-image","listing-code-overflow"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
@@ -247,15 +247,16 @@ gtag('config', 'G-43L15MR1WY', { 'anonymize_ip': true});
 </blockquote>
 </section>
 <div class="g-col-4 vh-center center-text">
-<p>Still curious? click ‘About’<br> above or this button here:<br><br> <a href="./about.html" class="btn btn-secondary">Tell me more</a></p>
+<p>Still curious? click ‘About’<br> above or this button here:<br><br> <a href="./about.html" class="btn btn-secondary" role="button">Tell me more</a></p>
 </div>
 </div>
 <p><br></p>
 <div class="content-block">
 <div class="features">
-<section id="blog" class="level3 feature">
+<div class="feature">
+<section id="blog" class="level3 feature-top">
 <h3 class="anchored" data-anchor-id="blog">Blog</h3>
-<p>Latest from the blog <br></p>
+<p>Latest from the blog</p>
 <div id="listing-listing-blog" class="quarto-listing quarto-listing-container-custom">
 <!-- attributes for item -->
 
@@ -274,17 +275,22 @@ gtag('config', 'G-43L15MR1WY', { 'anonymize_ip': true});
       reading-time,
       sortableValues -->
 <h4 class="anchored">
-<a href="./blog/2022-07-r-python-side-by-side/r-python-side-by-side.html">A <code>tidyverse</code> R and <code>polars</code> Python side-by-side</a>
+<a href="./blog/2022-08-building-with-quarto/building-with-quarto.html">Building with Quarto</a>
 </h4>
-<p><small><i class="fa-solid fa-calendar"></i> Jul 19, 2022</small></p>
+<p><small><i class="fa-solid fa-calendar"></i> Aug 15, 2022</small></p>
 <div class="listing-no-matching d-none">
 No matching items
 </div>
 </div>
 </section>
-<section id="talks" class="level3 feature">
+<div class="feature-bottom">
+<p><a href="./blog.html" class="btn btn-secondary" role="button">Blog</a></p>
+</div>
+</div>
+<div class="feature">
+<section id="talks" class="level3 feature-top">
 <h3 class="anchored" data-anchor-id="talks">Talks</h3>
-<p>Slides for the latest talk I’ve done <br></p>
+<p>Latest talk I’ve done</p>
 <div id="listing-listing-talks" class="quarto-listing quarto-listing-container-custom">
 <!-- attributes for item -->
 
@@ -311,9 +317,14 @@ No matching items
 </div>
 </div>
 </section>
-<section id="projects" class="level3 feature">
+<div class="feature-bottom">
+<p><a href="./talks.html" class="btn btn-secondary" role="button">Talks</a></p>
+</div>
+</div>
+<div class="feature">
+<section id="projects" class="level3 feature-top">
 <h3 class="anchored" data-anchor-id="projects">Projects</h3>
-<p>Latest tinkering <br></p>
+<p>Latest tinkering</p>
 <div id="listing-listing-projects" class="quarto-listing quarto-listing-container-custom">
 <!-- attributes for item -->
 
@@ -340,14 +351,9 @@ No matching items
 </div>
 </div>
 </section>
-<div class="feature">
-<p><a href="./blog.html" class="btn btn-secondary">Blog</a></p>
+<div class="feature-bottom">
+<p><a href="./projects.html" class="btn btn-secondary" role="button">Projects</a></p>
 </div>
-<div class="feature">
-<p><a href="./talks.html" class="btn btn-secondary">Talks</a></p>
-</div>
-<div class="feature">
-<p><a href="./projects.html" class="btn btn-secondary">Projects</a></p>
 </div>
 </div>
 </div>
@@ -356,7 +362,7 @@ No matching items
 <blockquote class="blockquote">
 <p><strong>County of Los Angeles, Department of Public Health_Los Angeles, CA</strong> <br> Data Scientist Supervisor<br> <em>Data Science and Systems team; Acute Communicable Disease Control</em> <br> July 2020–Present</p>
 </blockquote>
-<p><a href="./vitae.html" class="btn btn-secondary">Full CV</a></p>
+<p><a href="./vitae.html" class="btn btn-secondary" role="button">Full CV</a></p>
 
 
 
