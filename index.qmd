@@ -36,7 +36,7 @@ listing:
 
 ::: {.g-col-4 .vh-center .center-text}
 Still curious? click 'About'<br> above or this button here:<br><br>
-<a href="about.qmd" class="btn btn-secondary">Tell me more</a>
+[Tell me more](about.qmd){.btn .btn-secondary role="button"}
 :::
 
 :::
@@ -47,45 +47,48 @@ Still curious? click 'About'<br> above or this button here:<br><br>
 ::: {.features}
 
 ::: {.feature}
+::: {.feature-top}
 ### Blog
 
 Latest from the blog
-<br>
 
 ::: {#listing-blog}
 :::
 :::
 
+::: {.feature-bottom}
+[Blog](blog.qmd){.btn .btn-secondary role="button"}
+:::
+:::
+
 ::: {.feature}
+::: {.feature-top}
 ### Talks
 
-Slides for the latest talk I've done
-<br>
+Latest talk I've done
 
 ::: {#listing-talks}
 :::
 :::
 
+::: {.feature-bottom}
+[Talks](talks.qmd){.btn .btn-secondary role="button"}
+:::
+:::
+
 ::: {.feature}
+::: {.feature-top}
 ### Projects
 
 Latest tinkering
-<br>
 
 ::: {#listing-projects}
 :::
 :::
 
-::: {.feature}
-<a href="blog.qmd" class="btn btn-secondary">Blog</a>
+::: {.feature-bottom}
+[Projects](projects.qmd){.btn .btn-secondary role="button"}
 :::
-
-::: {.feature}
-<a href="talks.qmd" class="btn btn-secondary">Talks</a>
-:::
-
-::: {.feature}
-<a href="projects.qmd" class="btn btn-secondary">Projects</a>
 :::
 
 :::
@@ -98,4 +101,4 @@ Data Scientist Supervisor<br>
 _Data Science and Systems team; Acute Communicable Disease Control_  <br>
 July 2020--Present 
 
-<a href="vitae.qmd" class="btn btn-secondary">Full CV</a>
+[Full CV](vitae.qmd){.btn .btn-secondary role="button"}

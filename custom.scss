@@ -62,9 +62,17 @@ a {
   color: $violet;
 }
 
+.anchored {
+  margin-top: 2rem !important;
+}
+
 blockquote, .blockquote {
   font-style: italic;
   font-weight: 400;
+}
+
+.card p {
+  margin-bottom: 0;
 }
 
 .center {
@@ -103,12 +111,25 @@ blockquote, .blockquote {
 }
 }
 
+div.sourceCode {
+  margin-bottom: 2rem;
+}
+
 .features {
   padding-bottom: 2em;
+  height: calc(100% + 250px);
 }
 
 .feature {
   margin-top: 20px;
+}
+
+.feature-top {
+  height: 75%;
+}
+
+.feature-bottom {
+  height: 25%;
 }
 
 @media (min-width: 800px) { 
@@ -140,14 +161,17 @@ h1 {
 
 h2 {
   font-weight: 100;
+  margin-top: 2rem;
 }
 
 h3 {
   font-weight: 800;
+  margin-top: 2rem;
 }
 
 h4 {
   font-weight: 600;
+  margin-top: 2rem;
 }
 
 h5 {
@@ -195,7 +219,11 @@ nav {
 }
 
 .quarto-listing-container-custom h4 {
-  margin-top: 0;
+  margin-top: 0 !important;
+}
+
+p {
+  margin-bottom: 2rem;
 }
 
 ul {
