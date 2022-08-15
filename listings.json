@@ -1,5 +1,19 @@
 [
   {
+    "listing": "/talks.html",
+    "items": [
+      "/talks/2018-12-east-la-r-users/index.html",
+      "/talks/2018-09-ucla-cpi/index.html",
+      "/talks/2017-09-Data-and-Donuts/index.html"
+    ]
+  },
+  {
+    "listing": "/projects.html",
+    "items": [
+      "/projects/2020-04-covid19-dashboard/index.html"
+    ]
+  },
+  {
     "listing": "/index.html",
     "items": [
       "/blog/2022-08-building-with-quarto/building-with-quarto.html",
@@ -37,20 +51,6 @@
       "/blog/2015-01-first-kaggle-submission/first-kaggle-submission.html",
       "/blog/2014-12-python-journey/python-journey.html",
       "/blog/2013-09-foucaults-challenge/foucaults-challenge.html"
-    ]
-  },
-  {
-    "listing": "/talks.html",
-    "items": [
-      "/talks/2018-12-east-la-r-users/index.html",
-      "/talks/2018-09-ucla-cpi/index.html",
-      "/talks/2017-09-Data-and-Donuts/index.html"
-    ]
-  },
-  {
-    "listing": "/projects.html",
-    "items": [
-      "/projects/2020-04-covid19-dashboard/index.html"
     ]
   }
 ]

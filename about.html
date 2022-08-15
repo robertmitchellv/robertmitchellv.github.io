@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.0.38">
+<meta name="generator" content="quarto-1.0.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -69,7 +69,7 @@ gtag('config', 'G-43L15MR1WY', { 'anonymize_ip': true});
 
 <meta name="twitter:title" content="robertmitchellv - About">
 <meta name="twitter:description" content="My background is in theology, philosophy, and continental thought. This formed the basis for my academic exploration. My BA was in both French and comparative literature at UCLA.">
-<meta name="twitter:image" content="https://github.com/robertmitchellv/robertmitchellv.github.io/images/me.png">
+<meta name="twitter:image" content="https://robertmitchellv.github.io/images/me.png">
 <meta name="twitter:creator" content="@robertmitchellv">
 <meta name="twitter:image-height" content="1005">
 <meta name="twitter:image-width" content="1005">
@@ -209,10 +209,7 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
   const toggleBodyColorPrimary = () => {
-    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
-    if (bsSheetEl) {
-      toggleBodyColorMode(bsSheetEl);
-    }
+    toggleBodyColorMode(window.document.querySelector("link#quarto-bootstrap"));
   }
   toggleBodyColorPrimary();  
   const disableStylesheet = (stylesheets) => {
