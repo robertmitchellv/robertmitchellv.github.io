@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.0.18">
+<meta name="generator" content="quarto-1.1.251">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -13,10 +13,15 @@
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-span.underline{text-decoration: underline;}
-div.column{display: inline-block; vertical-align: top; width: 50%;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
 pre > code.sourceCode { white-space: pre; position: relative; }
 pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
 pre > code.sourceCode > span:empty { height: 1.2em; }
@@ -55,7 +60,7 @@ code span.al { color: #ff0000; font-weight: bold; } /* Alert */
 code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
 code span.at { color: #7d9029; } /* Attribute */
 code span.bn { color: #40a070; } /* BaseN */
-code span.bu { } /* BuiltIn */
+code span.bu { color: #008000; } /* BuiltIn */
 code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
 code span.ch { color: #4070a0; } /* Char */
 code span.cn { color: #880000; } /* Constant */
@@ -68,7 +73,7 @@ code span.er { color: #ff0000; font-weight: bold; } /* Error */
 code span.ex { } /* Extension */
 code span.fl { color: #40a070; } /* Float */
 code span.fu { color: #06287e; } /* Function */
-code span.im { } /* Import */
+code span.im { color: #008000; font-weight: bold; } /* Import */
 code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
 code span.kw { color: #007020; font-weight: bold; } /* Keyword */
 code span.op { color: #666666; } /* Operator */
@@ -153,9 +158,11 @@ gtag('config', 'G-43L15MR1WY', { 'anonymize_ip': true});
   <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg navbar-dark ">
       <div class="navbar-container container-fluid">
-      <a class="navbar-brand" href="../../index.html">
-    <img src="../../images/rbmv-secondary.png" alt="">
-  </a>
+      <div class="navbar-brand-container">
+    <a href="../../index.html" class="navbar-brand navbar-brand-logo">
+    <img src="../../images/rbmv-secondary.png" alt="" class="navbar-logo">
+    </a>
+  </div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
   <span class="navbar-toggler-icon"></span>
 </button>
@@ -731,18 +738,18 @@ Important
 </section>
 
 
-<div id="quarto-appendix" class="default"><section class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
 
 <ol>
-<li id="fn1" role="doc-endnote"><p><a href="https://en.m.wikipedia.org/wiki/Joseph_J._Allaire">J.J. Allaire</a>, <a href="https://mobile.twitter.com/xieyihui">Yihui Xie</a>, <a href="mobile.twitter.com/statgarrett">Garrett Grolemund</a>, <a href="https://www.rstudio.com/about/">et al.</a><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn2" role="doc-endnote"><p>If only I had paid more attention in this course! I just wasn’t ready to dive into this subject at the time. Perhaps if we started with bootstrapping instead of the normal distribution and Chebyshev’s theorem I would have saw how interesting statistics is and how probability is really fun when coming from a philosophy background.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn3" role="doc-endnote"><p>I spent so much time trying to figure out other people’s complicated <code>.vimrc</code> files before I was even ready to utilize some of the shorthands that others were using for their own workflows—sometimes it’s ok to just start at the beginning and facing that realization was important.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn4" role="doc-endnote"><p>This is a sneaky way to introduce people to <a href="https://en.m.wikipedia.org/wiki/Carl_Jung">Jung’s</a> notion of the <a href="en.m.wikipedia.org/wiki/Shadow_(psychology)">shadow</a>, which I find to be a very powerful and interesting concept.<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn5" role="doc-endnote"><p>Although a <code>yml</code> file, and <code>Rmd</code> files you place a ’_’ in front of will not be rendered. This can be useful for staging blog posts or for files you want to include in others. All <code>Rmd</code> files are rendered when you click ‘Build Website’.<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn6" role="doc-endnote"><p>You don’t need to include your navbar if it is named <code>_navbar.html</code>—it will automatically be included when you build your site.<a href="#fnref6" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn7" role="doc-endnote"><p>you can check out my <code>navbar</code> <a href="https://github.com/robertmitchellv/robertmitchellv.github.io/blob/master/_navbar.html">here</a> if you’re interested.<a href="#fnref7" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn8" role="doc-endnote"><p>I had to do this for some Python code from older blog posts—the syntax highlighting wasn’t <em>exactly</em> as it should be but it looked ok.<a href="#fnref8" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn9" role="doc-endnote"><p>You used to have to pipe your plotly object through <code>as.widget() %&gt;% list() %&gt;% tagList()</code> to get it to display on the site; however, now you don’t need to do anything!<a href="#fnref9" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn1"><p><a href="https://en.m.wikipedia.org/wiki/Joseph_J._Allaire">J.J. Allaire</a>, <a href="https://mobile.twitter.com/xieyihui">Yihui Xie</a>, <a href="mobile.twitter.com/statgarrett">Garrett Grolemund</a>, <a href="https://www.rstudio.com/about/">et al.</a><a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>If only I had paid more attention in this course! I just wasn’t ready to dive into this subject at the time. Perhaps if we started with bootstrapping instead of the normal distribution and Chebyshev’s theorem I would have saw how interesting statistics is and how probability is really fun when coming from a philosophy background.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>I spent so much time trying to figure out other people’s complicated <code>.vimrc</code> files before I was even ready to utilize some of the shorthands that others were using for their own workflows—sometimes it’s ok to just start at the beginning and facing that realization was important.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p>This is a sneaky way to introduce people to <a href="https://en.m.wikipedia.org/wiki/Carl_Jung">Jung’s</a> notion of the <a href="en.m.wikipedia.org/wiki/Shadow_(psychology)">shadow</a>, which I find to be a very powerful and interesting concept.<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn5"><p>Although a <code>yml</code> file, and <code>Rmd</code> files you place a ’_’ in front of will not be rendered. This can be useful for staging blog posts or for files you want to include in others. All <code>Rmd</code> files are rendered when you click ‘Build Website’.<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn6"><p>You don’t need to include your navbar if it is named <code>_navbar.html</code>—it will automatically be included when you build your site.<a href="#fnref6" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn7"><p>you can check out my <code>navbar</code> <a href="https://github.com/robertmitchellv/robertmitchellv.github.io/blob/master/_navbar.html">here</a> if you’re interested.<a href="#fnref7" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn8"><p>I had to do this for some Python code from older blog posts—the syntax highlighting wasn’t <em>exactly</em> as it should be but it looked ok.<a href="#fnref8" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn9"><p>You used to have to pipe your plotly object through <code>as.widget() %&gt;% list() %&gt;% tagList()</code> to get it to display on the site; however, now you don’t need to do anything!<a href="#fnref9" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section></div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -759,7 +766,10 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     }
   }
   const toggleBodyColorPrimary = () => {
-    toggleBodyColorMode(window.document.querySelector("link#quarto-bootstrap"));
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
   }
   toggleBodyColorPrimary();  
   const disableStylesheet = (stylesheets) => {
@@ -812,6 +822,16 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
           toggle.classList.remove("alternate");
         }
       }
+    }
+    // Hack to workaround the fact that safari doesn't
+    // properly recolor the scrollbar when toggling (#1455)
+    if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+      manageTransitions("body", false);
+      window.scrollTo(0, 1);
+      setTimeout(() => {
+        window.scrollTo(0, 0);
+        manageTransitions("body", true);
+      }, 40);  
     }
   }
   const isFileUrl = () => { 
@@ -914,7 +934,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   for (var i=0; i<noterefs.length; i++) {
     const ref = noterefs[i];
     tippyHover(ref, function() {
-      let href = ref.getAttribute('href');
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
       try { href = new URL(href).hash; } catch {}
       const id = href.replace(/^#\/?/, "");
       const note = window.document.getElementById(id);

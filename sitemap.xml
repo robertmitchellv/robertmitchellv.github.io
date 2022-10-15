@@ -1,95 +1,95 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://robertmitchellv.github.io/vitae.html</loc>
-    <lastmod>2022-08-15T22:19:39.645Z</lastmod>
+    <loc>https://robertmitchellv.com/talks/2017-09-Data-and-Donuts/index.html</loc>
+    <lastmod>2022-10-15T22:48:47.620Z</lastmod>
   </url>
   <url>
-    <loc>https://robertmitchellv.github.io/talks.html</loc>
-    <lastmod>2022-08-15T22:19:40.140Z</lastmod>
+    <loc>https://robertmitchellv.com/talks/2018-12-east-la-r-users/index.html</loc>
+    <lastmod>2022-10-15T22:48:49.000Z</lastmod>
   </url>
   <url>
-    <loc>https://robertmitchellv.github.io/projects/2020-04-covid19-dashboard/index.html</loc>
-    <lastmod>2022-08-15T22:19:40.499Z</lastmod>
+    <loc>https://robertmitchellv.com/talks/2018-09-ucla-cpi/index.html</loc>
+    <lastmod>2022-10-15T22:48:49.452Z</lastmod>
   </url>
   <url>
-    <loc>https://robertmitchellv.github.io/talks/2017-09-Data-and-Donuts/index.html</loc>
-    <lastmod>2022-08-15T22:19:40.882Z</lastmod>
+    <loc>https://robertmitchellv.com/projects/2020-04-covid19-dashboard/index.html</loc>
+    <lastmod>2022-10-15T22:48:49.904Z</lastmod>
   </url>
   <url>
-    <loc>https://robertmitchellv.github.io/talks/2018-12-east-la-r-users/index.html</loc>
-    <lastmod>2022-08-15T22:19:41.218Z</lastmod>
+    <loc>https://robertmitchellv.com/index.html</loc>
+    <lastmod>2022-10-15T22:48:50.628Z</lastmod>
   </url>
   <url>
-    <loc>https://robertmitchellv.github.io/talks/2018-09-ucla-cpi/index.html</loc>
-    <lastmod>2022-08-15T22:19:41.576Z</lastmod>
+    <loc>https://robertmitchellv.com/about.html</loc>
+    <lastmod>2022-10-15T22:48:51.156Z</lastmod>
   </url>
   <url>
-    <loc>https://robertmitchellv.github.io/projects.html</loc>
-    <lastmod>2022-08-15T22:19:41.906Z</lastmod>
+    <loc>https://robertmitchellv.com/blog/2017-12-adv-of-code-day-one/adv-of-code-day-one.html</loc>
+    <lastmod>2022-10-15T22:48:51.976Z</lastmod>
   </url>
   <url>
-    <loc>https://robertmitchellv.github.io/index.html</loc>
-    <lastmod>2022-08-15T22:19:42.360Z</lastmod>
+    <loc>https://robertmitchellv.com/blog/2022-08-building-with-quarto/building-with-quarto.html</loc>
+    <lastmod>2022-10-15T22:48:53.900Z</lastmod>
   </url>
   <url>
-    <loc>https://robertmitchellv.github.io/blog/2016-09-building-this-site-with-rmd/building-site-with-rmarkdown.html</loc>
-    <lastmod>2022-08-15T22:19:43.272Z</lastmod>
+    <loc>https://robertmitchellv.com/blog/2016-09-building-this-site-with-rmd/building-site-with-rmarkdown.html</loc>
+    <lastmod>2022-10-15T22:48:55.948Z</lastmod>
   </url>
   <url>
-    <loc>https://robertmitchellv.github.io/blog/2017-12-adv-of-code-day-one/adv-of-code-day-one.html</loc>
-    <lastmod>2022-08-15T22:19:43.952Z</lastmod>
+    <loc>https://robertmitchellv.com/blog/2015-01-first-kaggle-submission/first-kaggle-submission.html</loc>
+    <lastmod>2022-10-15T22:48:56.544Z</lastmod>
   </url>
   <url>
-    <loc>https://robertmitchellv.github.io/blog/2015-01-first-kaggle-submission/first-kaggle-submission.html</loc>
-    <lastmod>2022-08-15T22:19:44.425Z</lastmod>
+    <loc>https://robertmitchellv.com/blog/2015-10-vaccine-heatmap/vaccine-heatmap.html</loc>
+    <lastmod>2022-10-15T22:48:57.392Z</lastmod>
   </url>
   <url>
-    <loc>https://robertmitchellv.github.io/blog/2022-08-building-with-quarto/building-with-quarto.html</loc>
-    <lastmod>2022-08-15T22:19:45.897Z</lastmod>
+    <loc>https://robertmitchellv.com/blog/2022-07-r-python-side-by-side/r-python-side-by-side.html</loc>
+    <lastmod>2022-10-15T22:48:59.252Z</lastmod>
   </url>
   <url>
-    <loc>https://robertmitchellv.github.io/blog/2015-04-pandas-snippits/pandas-snippits.html</loc>
-    <lastmod>2022-08-15T22:19:46.934Z</lastmod>
+    <loc>https://robertmitchellv.com/blog/2013-09-foucaults-challenge/foucaults-challenge.html</loc>
+    <lastmod>2022-10-15T22:49:00.560Z</lastmod>
   </url>
   <url>
-    <loc>https://robertmitchellv.github.io/blog/2016-08-the-move-to-r/the-move-to-r.html</loc>
-    <lastmod>2022-08-15T22:19:47.318Z</lastmod>
+    <loc>https://robertmitchellv.com/blog/2015-04-pandas-snippits/pandas-snippits.html</loc>
+    <lastmod>2022-10-15T22:49:01.092Z</lastmod>
   </url>
   <url>
-    <loc>https://robertmitchellv.github.io/blog/2015-06-bar-chart-annotations-pandas-mpl/bar-chart-annotations-pandas-mpl.html</loc>
-    <lastmod>2022-08-15T22:19:47.807Z</lastmod>
+    <loc>https://robertmitchellv.com/blog/2014-12-python-journey/python-journey.html</loc>
+    <lastmod>2022-10-15T22:49:01.684Z</lastmod>
   </url>
   <url>
-    <loc>https://robertmitchellv.github.io/blog/2013-09-foucaults-challenge/foucaults-challenge.html</loc>
-    <lastmod>2022-08-15T22:19:48.155Z</lastmod>
+    <loc>https://robertmitchellv.com/blog/2018-03-uptake-fellowship-start/uptake-fellowship-start.html</loc>
+    <lastmod>2022-10-15T22:49:02.260Z</lastmod>
   </url>
   <url>
-    <loc>https://robertmitchellv.github.io/blog/2015-10-vaccine-heatmap/vaccine-heatmap.html</loc>
-    <lastmod>2022-08-15T22:19:48.792Z</lastmod>
+    <loc>https://robertmitchellv.com/blog/2015-06-bar-chart-annotations-pandas-mpl/bar-chart-annotations-pandas-mpl.html</loc>
+    <lastmod>2022-10-15T22:49:02.948Z</lastmod>
   </url>
   <url>
-    <loc>https://robertmitchellv.github.io/blog/2022-07-r-python-side-by-side/r-python-side-by-side.html</loc>
-    <lastmod>2022-08-15T22:19:50.133Z</lastmod>
+    <loc>https://robertmitchellv.com/blog/2015-08-p-hacking-and-ontology/p-hacking-and-ontology.html</loc>
+    <lastmod>2022-10-15T22:49:03.628Z</lastmod>
   </url>
   <url>
-    <loc>https://robertmitchellv.github.io/blog/2014-12-python-journey/python-journey.html</loc>
-    <lastmod>2022-08-15T22:19:51.257Z</lastmod>
+    <loc>https://robertmitchellv.com/blog/2016-08-the-move-to-r/the-move-to-r.html</loc>
+    <lastmod>2022-10-15T22:49:04.148Z</lastmod>
   </url>
   <url>
-    <loc>https://robertmitchellv.github.io/blog/2015-08-p-hacking-and-ontology/p-hacking-and-ontology.html</loc>
-    <lastmod>2022-08-15T22:19:51.679Z</lastmod>
+    <loc>https://robertmitchellv.com/blog.html</loc>
+    <lastmod>2022-10-15T22:49:04.760Z</lastmod>
   </url>
   <url>
-    <loc>https://robertmitchellv.github.io/blog/2018-03-uptake-fellowship-start/uptake-fellowship-start.html</loc>
-    <lastmod>2022-08-15T22:19:52.110Z</lastmod>
+    <loc>https://robertmitchellv.com/talks.html</loc>
+    <lastmod>2022-10-15T22:49:05.232Z</lastmod>
   </url>
   <url>
-    <loc>https://robertmitchellv.github.io/about.html</loc>
-    <lastmod>2022-08-15T22:19:52.485Z</lastmod>
+    <loc>https://robertmitchellv.com/vitae.html</loc>
+    <lastmod>2022-10-15T22:49:06.036Z</lastmod>
   </url>
   <url>
-    <loc>https://robertmitchellv.github.io/blog.html</loc>
-    <lastmod>2022-08-15T22:19:52.934Z</lastmod>
+    <loc>https://robertmitchellv.com/projects.html</loc>
+    <lastmod>2022-10-15T22:49:06.472Z</lastmod>
   </url>
 </urlset>
