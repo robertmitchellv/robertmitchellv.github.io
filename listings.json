@@ -22,6 +22,12 @@
     ]
   },
   {
+    "listing": "/projects.html",
+    "items": [
+      "/projects/2020-04-covid19-dashboard/index.html"
+    ]
+  },
+  {
     "listing": "/blog.html",
     "items": [
       "/blog/2022-08-building-with-quarto/building-with-quarto.html",
@@ -45,12 +51,6 @@
       "/talks/2018-12-east-la-r-users/index.html",
       "/talks/2018-09-ucla-cpi/index.html",
       "/talks/2017-09-Data-and-Donuts/index.html"
-    ]
-  },
-  {
-    "listing": "/projects.html",
-    "items": [
-      "/projects/2020-04-covid19-dashboard/index.html"
     ]
   }
 ]

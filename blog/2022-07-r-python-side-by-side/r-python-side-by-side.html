@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.1.251">
+<meta name="generator" content="quarto-1.2.269">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -171,42 +171,49 @@ gtag('config', 'G-43L15MR1WY', { 'anonymize_ip': true});
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="../../index.html"><i class="fa-solid fa-house-user"></i> Home</a>
+    <a class="nav-link" href="../../index.html">
+ <span class="menu-text"><i class="fa-solid fa-house-user"></i> Home</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../blog.html"><i class="fa-solid fa-laptop-code"></i> Blog</a>
+    <a class="nav-link" href="../../blog.html">
+ <span class="menu-text"><i class="fa-solid fa-laptop-code"></i> Blog</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../talks.html"><i class="fa-solid fa-chalkboard-user"></i> Talks</a>
+    <a class="nav-link" href="../../talks.html">
+ <span class="menu-text"><i class="fa-solid fa-chalkboard-user"></i> Talks</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../projects.html"><i class="fa-solid fa-chart-line"></i> Projects</a>
+    <a class="nav-link" href="../../projects.html">
+ <span class="menu-text"><i class="fa-solid fa-chart-line"></i> Projects</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../about.html"><i class="fa-solid fa-address-card"></i> About</a>
+    <a class="nav-link" href="../../about.html">
+ <span class="menu-text"><i class="fa-solid fa-address-card"></i> About</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="../../vitae.html"><i class="fa-solid fa-paperclip"></i> Vitae</a>
+    <a class="nav-link" href="../../vitae.html">
+ <span class="menu-text"><i class="fa-solid fa-paperclip"></i> Vitae</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="mailto:robert@robertmitchellv.com"><i class="fa-solid fa-paper-plane"></i> Contact</a>
+    <a class="nav-link" href="mailto:robert@robertmitchellv.com">
+ <span class="menu-text"><i class="fa-solid fa-paper-plane"></i> Contact</span></a>
   </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item compact">
     <a class="nav-link" href="https://github.com/robertmitchellv"><i class="bi bi-github" role="img">
 </i> 
- </a>
+ <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
     <a class="nav-link" href="https://twitter.com/robertmitchellv"><i class="bi bi-twitter" role="img">
 </i> 
- </a>
+ <span class="menu-text"></span></a>
   </li>  
   <li class="nav-item compact">
     <a class="nav-link" href="https://linkedin.com/in/robertmitchellv"><i class="bi bi-linkedin" role="img">
 </i> 
- </a>
+ <span class="menu-text"></span></a>
   </li>  
 </ul>
               <div class="quarto-toggle-container">
@@ -248,6 +255,7 @@ gtag('config', 'G-43L15MR1WY', { 'anonymize_ip': true});
         <p class="date">July 19, 2022</p>
       </div>
     </div>
+    
       
     </div>
     
@@ -284,7 +292,7 @@ gtag('config', 'G-43L15MR1WY', { 'anonymize_ip': true});
 
 
 <div class="column-page-inset-right">
-<p>After seeing many <em>language wars</em> style posts about <i class="fa-brands fa-r-project"></i> vs <i class="fa-brands fa-python"></i> and the sort of <i class="fa-solid fa-apple-whole"></i> to <i class="fa-solid fa-lemon"></i> comparisons being made, I realized that there aren’t many helpful side-by-sides that show you how to do <em>x</em> in <em>y</em> language (and <em>vice versa</em>), I thought about the kind of post I would like to see; one that leverages both <code>tidyverse</code>, modern pandas <a href="tom%20a's%20blog">method-chaining</a> / <a href="https://pyjanitor-devs.github.io/pyjanitor/"><code>pyjanitor</code></a> or <a href="https://pola-rs.github.io/polars-book/user-guide/"><code>polars</code></a>, and <code>plotly</code> (in both R and Python).</p>
+<p>After seeing many <em>language wars</em> style posts about <i class="fa-brands fa-r-project"></i> vs <i class="fa-brands fa-python"></i> and the sort of <i class="fa-solid fa-apple-whole"></i> to <i class="fa-solid fa-lemon"></i> comparisons being made, I realized that there aren’t many helpful side-by-sides that show you how to do <em>x</em> in <em>y</em> language (and <em>vice versa</em>), I thought about the kind of post I would like to see; one that leverages both <code>tidyverse</code>, modern pandas <a href="tom a's blog">method-chaining</a> / <a href="https://pyjanitor-devs.github.io/pyjanitor/"><code>pyjanitor</code></a> or <a href="https://pola-rs.github.io/polars-book/user-guide/"><code>polars</code></a>, and <code>plotly</code> (in both R and Python).</p>
 <p>I decided to try and see if I could contribute something to the discourse. I’m not really trying to reinvent an analysis wheel and just want to focus on the <em>how</em> something is accomplished from one language to the other so I’m pulling from a few sources to just have some code to translate using the same data for both languages.</p>
 <p>Since <code>polars</code> is new to me and I like learning new things, I’m using it for the examples, but if you’re familiar with <code>pandas</code> already, I’d <strong>highly</strong> recommend <code>pyjanitor</code>.</p>
 </div>
@@ -859,7 +867,9 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   // Switch to dark mode if need be
   if (hasAlternateSentinel()) {
     toggleColorMode(true);
-  } 
+  } else {
+    toggleColorMode(false);
+  }
   const icon = "";
   const anchorJS = new window.AnchorJS();
   anchorJS.options = {
@@ -881,7 +891,24 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
     button.classList.add('code-copy-button-checked');
     var currentTitle = button.getAttribute("title");
     button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
     setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
       button.setAttribute("title", currentTitle);
       button.classList.remove('code-copy-button-checked');
     }, 1000);
@@ -917,24 +944,42 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       return note.innerHTML;
     });
   }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
   var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
   for (var i=0; i<bibliorefs.length; i++) {
     const ref = bibliorefs[i];
-    const cites = ref.parentNode.getAttribute('data-cites').split(' ');
-    tippyHover(ref, function() {
-      var popup = window.document.createElement('div');
-      cites.forEach(function(cite) {
-        var citeDiv = window.document.createElement('div');
-        citeDiv.classList.add('hanging-indent');
-        citeDiv.classList.add('csl-entry');
-        var biblioDiv = window.document.getElementById('ref-' + cite);
-        if (biblioDiv) {
-          citeDiv.innerHTML = biblioDiv.innerHTML;
-        }
-        popup.appendChild(citeDiv);
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
       });
-      return popup.innerHTML;
-    });
+    }
   }
 });
 </script>
