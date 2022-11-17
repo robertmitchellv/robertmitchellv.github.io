@@ -102,3 +102,5 @@ _Data Science and Systems team; Acute Communicable Disease Control_  <br>
 July 2020--Present 
 
 [Full CV](vitae.qmd){.btn .btn-secondary role="button"}
+
+<link rel="me" href="https://hachyderm.io/@robertmitchellv">

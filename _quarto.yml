@@ -48,6 +48,8 @@ website:
     right:
       - icon: github
         href: https://github.com/robertmitchellv
+      - icon: mastodon
+        href: https://hachyderm.io/@robertmitchellv
       - icon: twitter
         href: https://twitter.com/robertmitchellv
       - icon: linkedin
