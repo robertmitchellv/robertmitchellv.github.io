@@ -1,33 +1,5 @@
 [
   {
-    "listing": "/index.html",
-    "items": [
-      "/blog/2022-08-building-with-quarto/building-with-quarto.html",
-      "/blog/2022-07-r-python-side-by-side/r-python-side-by-side.html",
-      "/blog/2018-03-uptake-fellowship-start/uptake-fellowship-start.html",
-      "/blog/2017-12-adv-of-code-day-one/adv-of-code-day-one.html",
-      "/blog/2016-09-building-this-site-with-rmd/building-site-with-rmarkdown.html",
-      "/blog/2016-08-the-move-to-r/the-move-to-r.html",
-      "/blog/2015-10-vaccine-heatmap/vaccine-heatmap.html",
-      "/blog/2015-08-p-hacking-and-ontology/p-hacking-and-ontology.html",
-      "/blog/2015-06-bar-chart-annotations-pandas-mpl/bar-chart-annotations-pandas-mpl.html",
-      "/blog/2015-04-pandas-snippits/pandas-snippits.html",
-      "/blog/2015-01-first-kaggle-submission/first-kaggle-submission.html",
-      "/blog/2014-12-python-journey/python-journey.html",
-      "/blog/2013-09-foucaults-challenge/foucaults-challenge.html",
-      "/talks/2018-12-east-la-r-users/index.html",
-      "/talks/2018-09-ucla-cpi/index.html",
-      "/talks/2017-09-Data-and-Donuts/index.html",
-      "/projects/2020-04-covid19-dashboard/index.html"
-    ]
-  },
-  {
-    "listing": "/projects.html",
-    "items": [
-      "/projects/2020-04-covid19-dashboard/index.html"
-    ]
-  },
-  {
     "listing": "/blog.html",
     "items": [
       "/blog/2022-08-building-with-quarto/building-with-quarto.html",
@@ -51,6 +23,34 @@
       "/talks/2018-12-east-la-r-users/index.html",
       "/talks/2018-09-ucla-cpi/index.html",
       "/talks/2017-09-Data-and-Donuts/index.html"
+    ]
+  },
+  {
+    "listing": "/projects.html",
+    "items": [
+      "/projects/2020-04-covid19-dashboard/index.html"
+    ]
+  },
+  {
+    "listing": "/index.html",
+    "items": [
+      "/blog/2022-08-building-with-quarto/building-with-quarto.html",
+      "/blog/2022-07-r-python-side-by-side/r-python-side-by-side.html",
+      "/blog/2018-03-uptake-fellowship-start/uptake-fellowship-start.html",
+      "/blog/2017-12-adv-of-code-day-one/adv-of-code-day-one.html",
+      "/blog/2016-09-building-this-site-with-rmd/building-site-with-rmarkdown.html",
+      "/blog/2016-08-the-move-to-r/the-move-to-r.html",
+      "/blog/2015-10-vaccine-heatmap/vaccine-heatmap.html",
+      "/blog/2015-08-p-hacking-and-ontology/p-hacking-and-ontology.html",
+      "/blog/2015-06-bar-chart-annotations-pandas-mpl/bar-chart-annotations-pandas-mpl.html",
+      "/blog/2015-04-pandas-snippits/pandas-snippits.html",
+      "/blog/2015-01-first-kaggle-submission/first-kaggle-submission.html",
+      "/blog/2014-12-python-journey/python-journey.html",
+      "/blog/2013-09-foucaults-challenge/foucaults-challenge.html",
+      "/talks/2018-12-east-la-r-users/index.html",
+      "/talks/2018-09-ucla-cpi/index.html",
+      "/talks/2017-09-Data-and-Donuts/index.html",
+      "/projects/2020-04-covid19-dashboard/index.html"
     ]
   }
 ]
