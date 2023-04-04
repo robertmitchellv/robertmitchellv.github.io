@@ -42,7 +42,7 @@ website:
         href: https://linkedin.com/in/robertmitchellv
   page-footer:
     background: primary
-    left: "{{< fa copyright >}} 2022, Robert Mitchell"
+    left: "{{< fa copyright >}} 2023, Robert Mitchell"
     center:
       - text: "<img src='/images/rbmv-secondary.png' width='auto' height='30px'>"
     right:
