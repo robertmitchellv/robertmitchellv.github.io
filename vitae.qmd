@@ -73,10 +73,24 @@ title-block-banner: true
 
 ## {{< fa institution >}} Work Experience
 
+<!-- Skylight / Senior Data Engineer -->
+<ul>  
+  <h3>Skylight</h3>
+  <h4>Senior Data Engineer / April 2023--Present</h4>
+  <ul>
+  {{< fa angle-double-right >}} excited to bring my DevOps and Data Engineering skills to bear on thorny data problems in support of public good. 
+  </ul>
+  <ul>
+  {{< fa angle-double-right >}} Skylight is a digital government consultancy driven by making government work in a digital world through design, technology, and procurement. 
+  </ul> 
+</ul>
+
+<br>
+
 <!-- DPH / Data Scientist -->
 <ul>  
   <h3>County of Los Angeles, Department of Public Health_Los Angeles, CA</h3>
-  <h4>Data Scientist Supervisor_Data Science and Systems (DSS) team; Acute Communicable Disease Control (ACDC) / July 2020--Present</h4>
+  <h4>Data Scientist Supervisor_Data Science and Systems (DSS) team; Acute Communicable Disease Control (ACDC) / July 2020--March 2023</h4>
   <ul>
   {{< fa angle-double-right >}} using expert knowledge of and experience in data, statistical modeling, and machine learning methods; programming languages, packages/libraries, and big-data engineering solutions; manage and implement highly technical and complex data science projects from defining the vision to operationalizing solutions to ensure desired outcomes are achieved. 
   </ul>

@@ -96,10 +96,12 @@ Latest tinkering
 
 ### Currently at
 
-> __County of Los Angeles, Department of Public Health_Los Angeles, CA__ <br>
-Data Scientist Supervisor<br> 
-_Data Science and Systems team; Acute Communicable Disease Control_  <br>
-July 2020--Present 
+`Skylight`<br>
+__Senior Data Engineer__<br>
+_Skylight is a digital government consultancy driven by_ <br>
+_making government work in a digital world through design,_ <br>
+_technology, and procurement._ <br>
+<small>April 2023--Present</small> 
 
 [Full CV](vitae.qmd){.btn .btn-secondary role="button"}
 
